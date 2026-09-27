@@ -1,11 +1,12 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { FileSpreadsheet, Download, Calendar, Filter, FileText, BarChart3, Scan, AlertCircle } from 'lucide-react';
+import { FileSpreadsheet, Download, Calendar, Filter, FileText, Scan, Plus, X } from 'lucide-react';
 import { ProtectedRoute } from '@/components/ProtectedRoute';
 import { PageHeader } from '@/components/PageHeader';
 import { fetchApi } from '@/lib/api';
 import { Flock } from '@/lib/types';
+import { useAuth } from '@/lib/auth-context';
 
 export default function ReportsPage() {
   const [flocks, setFlocks] = useState<Flock[]>([]);
@@ -16,6 +17,20 @@ export default function ReportsPage() {
   const [summaryData, setSummaryData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
+  // Production Log Modal state
+  const [showLogModal, setShowLogModal] = useState(false);
+  const [prodForm, setProdForm] = useState({
+    flock_id: 1,
+    record_date: new Date().toISOString().split('T')[0],
+    eggs_collected: 500,
+    mortality_count: 0,
+    feed_consumed_kg: 120.5,
+    weight_avg_gram: 1850,
+    notes: '',
+  });
+
+  const { hasRole } = useAuth();
+
   useEffect(() => {
     loadFlocks();
     fetchReport();
@@ -25,6 +40,9 @@ export default function ReportsPage() {
     try {
       const res = await fetchApi<{ data: Flock[] }>('/flocks');
       setFlocks(res.data || []);
+      if (res.data && res.data.length > 0) {
+        setProdForm(prev => ({ ...prev, flock_id: res.data[0].id }));
+      }
     } catch (err) {
       console.error(err);
     }
@@ -43,6 +61,20 @@ export default function ReportsPage() {
       setLoading(false);
     }
   }
+
+  const handleSaveProduction = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await fetchApi('/production', {
+        method: 'POST',
+        body: JSON.stringify(prodForm),
+      });
+      setShowLogModal(false);
+      fetchReport();
+    } catch (err: any) {
+      alert(err.message || 'Lỗi ghi sản lượng');
+    }
+  };
 
   const handleExportExcel = () => {
     const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8001/api/v1';
@@ -64,6 +96,16 @@ export default function ReportsPage() {
           description="Tổng hợp dữ liệu sản lượng trứng, tỷ lệ FCR, phân tích độ chính xác AI và kết xuất file Excel / PDF"
           action={
             <div className="flex items-center gap-2">
+              {hasRole(['ADMIN', 'FARM_MANAGER', 'STAFF']) && (
+                <button
+                  onClick={() => setShowLogModal(true)}
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-bold text-xs shadow-md shadow-brand-500/20 transition-all"
+                >
+                  <Plus className="w-4 h-4" />
+                  <span>Ghi Nhật Ký Sản Lượng</span>
+                </button>
+              )}
+
               <button
                 onClick={handleExportExcel}
                 className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md transition-all"
@@ -135,34 +177,34 @@ export default function ReportsPage() {
             <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
               <p className="text-xs text-slate-400 font-bold uppercase">Tổng Trứng Thu Được</p>
               <p className="text-3xl font-extrabold text-slate-900 mt-1">
-                {(summaryData.totals?.total_eggs || 89500).toLocaleString()} <span className="text-xs font-normal text-slate-500">quả</span>
+                {(summaryData.totals?.total_eggs || 0).toLocaleString()} <span className="text-xs font-normal text-slate-500">quả</span>
               </p>
             </div>
 
             <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
               <p className="text-xs text-slate-400 font-bold uppercase">Tổng Hao Hụt (Tử Lệ)</p>
               <p className="text-3xl font-extrabold text-red-600 mt-1">
-                {(summaryData.totals?.total_mortality || 12).toLocaleString()} <span className="text-xs font-normal text-slate-500">con</span>
+                {(summaryData.totals?.total_mortality || 0).toLocaleString()} <span className="text-xs font-normal text-slate-500">con</span>
               </p>
             </div>
 
             <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
               <p className="text-xs text-slate-400 font-bold uppercase">Tổng Thức Ăn Tiêu Thụ</p>
               <p className="text-3xl font-extrabold text-amber-600 mt-1">
-                {(summaryData.totals?.total_feed_kg || 13200).toLocaleString()} <span className="text-xs font-normal text-slate-500">kg</span>
+                {(summaryData.totals?.total_feed_kg || 0).toLocaleString()} <span className="text-xs font-normal text-slate-500">kg</span>
               </p>
             </div>
 
             <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
               <p className="text-xs text-slate-400 font-bold uppercase">Hệ Số Chuyển Đổi FCR (Ước Tính)</p>
               <p className="text-3xl font-extrabold text-brand-600 mt-1">
-                {summaryData.totals?.estimated_fcr || 2.26}
+                {summaryData.totals?.estimated_fcr || 0}
               </p>
             </div>
           </div>
         )}
 
-        {/* ITEM 4.6: AI ACCURACY ANALYSIS BY DENSITY */}
+        {/* AI ACCURACY ANALYSIS BY DENSITY */}
         <div className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-4">
           <div className="flex items-center justify-between">
             <div>
@@ -240,6 +282,118 @@ export default function ReportsPage() {
             </table>
           </div>
         </div>
+
+        {/* MODAL: LOG PRODUCTION */}
+        {showLogModal && (
+          <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
+            <div className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl space-y-4">
+              <div className="flex items-center justify-between pb-3 border-b">
+                <h3 className="font-bold text-slate-900 text-lg">Ghi Nhật Ký Sản Lượng Hàng Ngày</h3>
+                <button onClick={() => setShowLogModal(false)}><X className="w-5 h-5 text-slate-400" /></button>
+              </div>
+
+              <form onSubmit={handleSaveProduction} className="space-y-3 text-xs">
+                <div>
+                  <label className="block font-bold text-slate-700 mb-1">Chọn Đàn Vịt *</label>
+                  <select
+                    value={prodForm.flock_id}
+                    onChange={(e) => setProdForm({ ...prodForm, flock_id: parseInt(e.target.value) })}
+                    className="w-full px-3 py-2 rounded-xl border bg-white"
+                  >
+                    {flocks.map(f => (
+                      <option key={f.id} value={f.id}>{f.name} ({f.code})</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Ngày ghi nhận</label>
+                    <input
+                      type="date"
+                      required
+                      value={prodForm.record_date}
+                      onChange={(e) => setProdForm({ ...prodForm, record_date: e.target.value })}
+                      className="w-full px-3 py-2 rounded-xl border"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Số trứng thu (Quả)</label>
+                    <input
+                      type="number"
+                      required
+                      min={0}
+                      value={prodForm.eggs_collected}
+                      onChange={(e) => setProdForm({ ...prodForm, eggs_collected: parseInt(e.target.value) })}
+                      className="w-full px-3 py-2 rounded-xl border"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-3 gap-3">
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Số vịt chết (Con)</label>
+                    <input
+                      type="number"
+                      required
+                      min={0}
+                      value={prodForm.mortality_count}
+                      onChange={(e) => setProdForm({ ...prodForm, mortality_count: parseInt(e.target.value) })}
+                      className="w-full px-3 py-2 rounded-xl border text-red-600 font-bold"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Thức ăn (Kg)</label>
+                    <input
+                      type="number"
+                      required
+                      min={0}
+                      step={0.1}
+                      value={prodForm.feed_consumed_kg}
+                      onChange={(e) => setProdForm({ ...prodForm, feed_consumed_kg: parseFloat(e.target.value) })}
+                      className="w-full px-3 py-2 rounded-xl border"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Trọng lượng TB (g)</label>
+                    <input
+                      type="number"
+                      required
+                      min={0}
+                      value={prodForm.weight_avg_gram}
+                      onChange={(e) => setProdForm({ ...prodForm, weight_avg_gram: parseInt(e.target.value) })}
+                      className="w-full px-3 py-2 rounded-xl border"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block font-bold text-slate-700 mb-1">Ghi chú thêm</label>
+                  <input
+                    type="text"
+                    placeholder="Thời tiết, chất lượng trứng..."
+                    value={prodForm.notes}
+                    onChange={(e) => setProdForm({ ...prodForm, notes: e.target.value })}
+                    className="w-full px-3 py-2 rounded-xl border"
+                  />
+                </div>
+
+                <div className="pt-3 flex justify-end gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setShowLogModal(false)}
+                    className="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 font-semibold"
+                  >
+                    Hủy
+                  </button>
+                  <button type="submit" className="px-5 py-2 rounded-xl bg-brand-500 text-white font-bold">
+                    Lưu Nhật Ký
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
 
       </div>
     </ProtectedRoute>
