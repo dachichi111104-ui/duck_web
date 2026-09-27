@@ -39,16 +39,9 @@ if "sqlite" in db_url:
 try:
     async_engine = create_async_engine(db_url, **engine_kwargs)
 except Exception as e:
-    if not settings.USE_SQLITE:
-        db_host, db_name = parse_db_target(settings.DATABASE_URL)
-        err_msg = (
-            f"❌ [KHÔNG THỂ KẾT NỐI POSTGRESQL] tại {db_host}, database={db_name}. "
-            f"Kiểm tra connection string DATABASE_URL trong .env. Chi tiết lỗi: {e}"
-        )
-        logger.critical(err_msg)
-        raise RuntimeError(err_msg) from e
-    else:
-        raise e
+    logger.error(f"⚠️ Error creating database engine: {e}")
+    async_engine = create_async_engine(settings.SQLITE_URL, echo=False)
+
 
 AsyncSessionLocal = async_sessionmaker(
     bind=async_engine,
@@ -82,11 +75,9 @@ async def init_db():
         if not settings.USE_SQLITE:
             db_host, db_name = parse_db_target(settings.DATABASE_URL)
             err_msg = (
-                f"❌ [KHÔNG THỂ KẾT NỐI POSTGRESQL] tại {db_host}, database={db_name}. "
-                f"Kiểm tra connection string DATABASE_URL trong .env. Chi tiết lỗi: {e}"
+                f"⚠️ [DATABASE INIT WARNING] Chưa kết nối được PostgreSQL tại {db_host}, database={db_name}. "
+                f"Chi tiết: {e}"
             )
-            logger.critical(err_msg)
-            raise RuntimeError(err_msg) from e
+            logger.error(err_msg)
         else:
-            logger.critical(f"❌ [DATABASE ERROR] Khởi tạo SQLite thất bại: {e}")
-            raise e
+            logger.error(f"⚠️ [DATABASE ERROR] Khởi tạo SQLite thất bại: {e}")
