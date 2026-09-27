@@ -2,12 +2,27 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { 
   ArrowRight, Scan, ShieldCheck, Database, Cpu, 
-  Activity, Layers, Sparkles, CheckCircle2, ChevronRight, BarChart3, HeartPulse
+  Activity, Layers, Sparkles, CheckCircle2, ChevronRight, BarChart3, HeartPulse, UserCheck, Zap
 } from 'lucide-react';
+import { useAuth } from '@/lib/auth-context';
+import { UserRole } from '@/lib/types';
 
 export default function LandingPage() {
+  const { user, quickLogin } = useAuth();
+  const router = useRouter();
+
+  const handleQuickDemo = async (role: UserRole) => {
+    try {
+      await quickLogin(role);
+      router.push('/dashboard');
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <div className="space-y-12">
       {/* ===== HERO SECTION (MATCHING REFERENCE DESIGN IMAGE) ===== */}
@@ -25,7 +40,7 @@ export default function LandingPage() {
             {/* Top Pill Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/30 border border-brand-400/40 text-emerald-300 text-xs font-semibold backdrop-blur-md">
               <Sparkles className="w-4 h-4 text-emerald-400" />
-              <span>Ứng dụng AI trong Nông nghiệp & Chăn nuôi Vịt trời</span>
+              <span>Ứng dụng AI trong Nông nghiệp &amp; Chăn nuôi Vịt trời</span>
             </div>
 
             {/* Title (2 lines) */}
@@ -55,30 +70,83 @@ export default function LandingPage() {
                 <span>PostgreSQL Async Database</span>
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-800/80 border border-slate-700/60 text-slate-300 text-xs">
-                <Cpu className="w-3.5 h-3.5 text-golden" />
+                <Cpu className="w-3.5 h-3.5 text-amber-400" />
                 <span>YOLOv8 Behavior Analysis</span>
               </div>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-4">
-              <Link
-                href="/dashboard"
-                className="flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-bold text-sm shadow-lg shadow-brand-500/30 hover:shadow-brand-500/50 transition-all transform hover:-translate-y-0.5"
-              >
-                <Activity className="w-4 h-4" />
-                <span>Vào hệ thống quản lý</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+            {/* ACTION BUTTONS (NO-LOGIN FRICTIONLESS DEMO FOR EVALUATION) */}
+            {user ? (
+              <div className="p-4 rounded-2xl bg-emerald-500/20 border border-emerald-400/40 text-emerald-200 text-xs flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <p className="font-bold text-sm text-white flex items-center gap-2">
+                    <UserCheck className="w-4 h-4 text-emerald-400" />
+                    Đã đăng nhập: {user.full_name} ({user.role})
+                  </p>
+                  <p className="text-[11px] text-slate-300">Tài khoản đã sẵn sàng. Bấm nút bên dưới để vào hệ thống demo.</p>
+                </div>
+                <Link
+                  href="/dashboard"
+                  className="flex items-center gap-2 px-6 py-3 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-bold text-xs shadow-lg shadow-brand-500/30 transition-all"
+                >
+                  <span>Truy Cập Bảng Điều Khiển</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            ) : (
+              <div className="space-y-3 pt-2">
+                <div className="flex flex-wrap items-center gap-3">
+                  <button
+                    onClick={() => handleQuickDemo('ADMIN')}
+                    className="flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-bold text-sm shadow-lg shadow-brand-500/30 hover:shadow-brand-500/50 transition-all transform hover:-translate-y-0.5"
+                  >
+                    <Zap className="w-4 h-4 text-amber-300 fill-amber-300" />
+                    <span>VÀO DEMO NGAY (Quyền Admin)</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
 
-              <Link
-                href="/ai"
-                className="flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-slate-800/80 hover:bg-slate-800 text-white font-semibold text-sm border border-slate-700 hover:border-slate-600 transition-all"
-              >
-                <Scan className="w-4 h-4 text-emerald-400" />
-                <span>Xem demo AI nhận diện</span>
-              </Link>
-            </div>
+                  <Link
+                    href="/ai"
+                    className="flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-slate-800/80 hover:bg-slate-800 text-white font-semibold text-sm border border-slate-700 hover:border-slate-600 transition-all"
+                  >
+                    <Scan className="w-4 h-4 text-emerald-400" />
+                    <span>Xem Demo AI Nhận Diện</span>
+                  </Link>
+                </div>
+
+                {/* Quick Role Selector Buttons */}
+                <div className="flex items-center gap-2 text-xs text-slate-300 pt-1">
+                  <span className="text-slate-400">Chọn vai trò demo nhanh:</span>
+                  <div className="flex flex-wrap gap-1.5">
+                    <button
+                      onClick={() => handleQuickDemo('ADMIN')}
+                      className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-purple-900/60 text-purple-300 text-[11px] font-bold border border-purple-700/50 transition-colors"
+                    >
+                      Admin
+                    </button>
+                    <button
+                      onClick={() => handleQuickDemo('FARM_MANAGER')}
+                      className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-blue-900/60 text-blue-300 text-[11px] font-bold border border-blue-700/50 transition-colors"
+                    >
+                      Quản lý
+                    </button>
+                    <button
+                      onClick={() => handleQuickDemo('VETERINARIAN')}
+                      className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-emerald-900/60 text-emerald-300 text-[11px] font-bold border border-emerald-700/50 transition-colors"
+                    >
+                      Thú y
+                    </button>
+                    <button
+                      onClick={() => handleQuickDemo('STAFF')}
+                      className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-[11px] font-bold border border-slate-600 transition-colors"
+                    >
+                      Nhân viên
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+
           </div>
 
           {/* Hero Right Dark Stats Card (Matching Reference Layout) */}
@@ -220,12 +288,13 @@ export default function LandingPage() {
             </p>
           </div>
         </div>
-        <Link
-          href="/login"
-          className="shrink-0 px-5 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-all"
+        <button
+          onClick={() => handleQuickDemo('ADMIN')}
+          className="shrink-0 px-5 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-all flex items-center gap-1.5"
         >
-          Đăng nhập Demo ngay
-        </Link>
+          <Zap className="w-3.5 h-3.5 text-amber-400" />
+          <span>Bắt đầu Demo Ngay</span>
+        </button>
       </section>
     </div>
   );

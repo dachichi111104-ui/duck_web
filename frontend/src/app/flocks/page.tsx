@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { 
-  Grid, Plus, Search, Filter, Eye, Edit, Trash2, X, 
+  Grid, Plus, Search, Eye, Edit, Trash2, X, 
   Activity, Egg, Syringe, Stethoscope, ChevronRight, Inbox 
 } from 'lucide-react';
 import { ProtectedRoute } from '@/components/ProtectedRoute';
@@ -21,10 +21,11 @@ export default function FlocksPage() {
 
   // Detail Modal Tab state
   const [selectedFlock, setSelectedFlock] = useState<Flock | null>(null);
-  const [activeTab, setActiveTab] = useState<'overview' | 'production' | 'vet' | 'vaccinations'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'production' | 'vet'>('overview');
 
-  // Form Modal state
-  const [showAddModal, setShowAddModal] = useState(false);
+  // Form Modal state (Create / Edit)
+  const [showFormModal, setShowFormModal] = useState(false);
+  const [editingFlock, setEditingFlock] = useState<Flock | null>(null);
   const [formData, setFormData] = useState({
     code: '',
     name: '',
@@ -32,10 +33,13 @@ export default function FlocksPage() {
     initial_quantity: 1000,
     current_quantity: 1000,
     age_weeks: 1,
-    status: 'GROWING',
+    status: 'GROWING' as 'BROODING' | 'GROWING' | 'LAYING' | 'COMPLETED',
     entry_date: new Date().toISOString().split('T')[0],
     description: '',
   });
+
+  // Delete Confirm Modal
+  const [deletingFlock, setDeletingFlock] = useState<Flock | null>(null);
 
   const { hasRole } = useAuth();
 
@@ -55,6 +59,9 @@ export default function FlocksPage() {
       ]);
       setFlocks(resFlocks.data || []);
       setBarns(resBarns || []);
+      if (resBarns && resBarns.length > 0) {
+        setFormData(prev => ({ ...prev, barn_id: resBarns[0].id }));
+      }
     } catch (err) {
       console.error(err);
     } finally {
@@ -62,17 +69,69 @@ export default function FlocksPage() {
     }
   }
 
-  const handleCreateFlock = async (e: React.FormEvent) => {
+  const openCreateModal = () => {
+    setEditingFlock(null);
+    setFormData({
+      code: `FL-2026-${(flocks.length + 1).toString().padStart(2, '0')}`,
+      name: '',
+      barn_id: barns.length > 0 ? barns[0].id : 1,
+      initial_quantity: 1000,
+      current_quantity: 1000,
+      age_weeks: 1,
+      status: 'GROWING',
+      entry_date: new Date().toISOString().split('T')[0],
+      description: '',
+    });
+    setShowFormModal(true);
+  };
+
+  const openEditModal = (f: Flock) => {
+    setEditingFlock(f);
+    setFormData({
+      code: f.code,
+      name: f.name,
+      barn_id: f.barn_id,
+      initial_quantity: f.initial_quantity,
+      current_quantity: f.current_quantity,
+      age_weeks: f.age_weeks,
+      status: f.status,
+      entry_date: f.entry_date,
+      description: f.description || '',
+    });
+    setShowFormModal(true);
+  };
+
+  const handleSaveFlock = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await fetchApi('/flocks', {
-        method: 'POST',
-        body: JSON.stringify(formData)
-      });
-      setShowAddModal(false);
+      if (editingFlock) {
+        await fetchApi(`/flocks/${editingFlock.id}`, {
+          method: 'PUT',
+          body: JSON.stringify(formData)
+        });
+      } else {
+        await fetchApi('/flocks', {
+          method: 'POST',
+          body: JSON.stringify(formData)
+        });
+      }
+      setShowFormModal(false);
       loadData();
     } catch (err: any) {
-      alert(err.message || 'Lỗi khi tạo đàn vịt');
+      alert(err.message || 'Lỗi khi lưu đàn vịt');
+    }
+  };
+
+  const handleDeleteFlock = async () => {
+    if (!deletingFlock) return;
+    try {
+      await fetchApi(`/flocks/${deletingFlock.id}`, {
+        method: 'DELETE'
+      });
+      setDeletingFlock(null);
+      loadData();
+    } catch (err: any) {
+      alert(err.message || 'Lỗi khi xóa đàn vịt');
     }
   };
 
@@ -95,11 +154,11 @@ export default function FlocksPage() {
           action={
             hasRole(['ADMIN', 'FARM_MANAGER']) ? (
               <button
-                onClick={() => setShowAddModal(true)}
+                onClick={openCreateModal}
                 className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-brand-500 hover:bg-brand-600 text-white text-xs font-bold shadow-md shadow-brand-500/20 transition-all"
               >
                 <Plus className="w-4 h-4" />
-                <span>Thêm đàn vịt mới</span>
+                <span>Thêm Đàn Vịt Mới</span>
               </button>
             ) : null
           }
@@ -170,13 +229,33 @@ export default function FlocksPage() {
                       <td className="p-4 font-semibold text-slate-800">{flock.age_weeks} tuần</td>
                       <td className="p-4">{getStatusBadge(flock.status)}</td>
                       <td className="p-4">{flock.entry_date}</td>
-                      <td className="p-4 text-right space-x-2">
-                        <button
-                          onClick={() => setSelectedFlock(flock)}
-                          className="p-2 rounded-lg bg-brand-50 hover:bg-brand-100 text-brand-600 font-semibold text-xs"
-                        >
-                          <Eye className="w-4 h-4 inline mr-1" /> Chi tiết
-                        </button>
+                      <td className="p-4 text-right">
+                        <div className="flex items-center justify-end gap-1.5">
+                          <button
+                            onClick={() => setSelectedFlock(flock)}
+                            className="px-2.5 py-1.5 rounded-lg bg-brand-50 hover:bg-brand-100 text-brand-600 font-semibold text-xs transition-colors"
+                          >
+                            <Eye className="w-3.5 h-3.5 inline mr-1" /> Chi tiết
+                          </button>
+                          {hasRole(['ADMIN', 'FARM_MANAGER']) && (
+                            <>
+                              <button
+                                onClick={() => openEditModal(flock)}
+                                className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500 hover:text-slate-800"
+                                title="Sửa đàn vịt"
+                              >
+                                <Edit className="w-4 h-4" />
+                              </button>
+                              <button
+                                onClick={() => setDeletingFlock(flock)}
+                                className="p-1.5 rounded-lg hover:bg-red-50 text-slate-400 hover:text-red-600"
+                                title="Xóa đàn vịt"
+                              >
+                                <Trash2 className="w-4 h-4" />
+                              </button>
+                            </>
+                          )}
+                        </div>
                       </td>
                     </tr>
                   ))}
@@ -186,62 +265,103 @@ export default function FlocksPage() {
           </div>
         )}
 
-        {/* ADD FLOCK MODAL */}
-        {showAddModal && (
+        {/* CREATE / EDIT FLOCK MODAL */}
+        {showFormModal && (
           <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
-            <div className="w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl space-y-4">
+            <div className="w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
               <div className="flex items-center justify-between pb-3 border-b">
-                <h3 className="font-bold text-slate-900 text-lg">Tạo Đàn Vịt Trời Mới</h3>
-                <button onClick={() => setShowAddModal(false)}><X className="w-5 h-5 text-slate-400" /></button>
+                <h3 className="font-bold text-slate-900 text-lg">
+                  {editingFlock ? 'Chỉnh Sửa Đàn Vịt' : 'Tạo Đàn Vịt Trời Mới'}
+                </h3>
+                <button onClick={() => setShowFormModal(false)}><X className="w-5 h-5 text-slate-400" /></button>
               </div>
 
-              <form onSubmit={handleCreateFlock} className="space-y-3 text-xs">
-                <div>
-                  <label className="block font-bold text-slate-700 mb-1">Mã đàn</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Ví dụ: FL-2026-05"
-                    value={formData.code}
-                    onChange={(e) => setFormData({ ...formData, code: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl border"
-                  />
-                </div>
-
-                <div>
-                  <label className="block font-bold text-slate-700 mb-1">Tên đàn vịt</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Đàn vịt giống F1 đợt mới..."
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl border"
-                  />
+              <form onSubmit={handleSaveFlock} className="space-y-3 text-xs">
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Mã đàn *</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="FL-2026-05"
+                      value={formData.code}
+                      onChange={(e) => setFormData({ ...formData, code: e.target.value })}
+                      className="w-full px-3 py-2 rounded-xl border"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Tên đàn vịt *</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Đàn vịt giống F1 đợt mới..."
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-3 py-2 rounded-xl border"
+                    />
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">Chuồng nuôi</label>
+                    <label className="block font-bold text-slate-700 mb-1">Chuồng nuôi *</label>
                     <select
                       value={formData.barn_id}
                       onChange={(e) => setFormData({ ...formData, barn_id: parseInt(e.target.value) })}
                       className="w-full px-3 py-2 rounded-xl border bg-white"
                     >
                       {barns.map(b => (
-                        <option key={b.id} value={b.id}>{b.name} (Trống: {b.capacity - b.current_occupancy})</option>
+                        <option key={b.id} value={b.id}>{b.name} ({b.code})</option>
                       ))}
                     </select>
                   </div>
 
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">Số lượng ban đầu</label>
+                    <label className="block font-bold text-slate-700 mb-1">Trạng thái lứa nuôi</label>
+                    <select
+                      value={formData.status}
+                      onChange={(e) => setFormData({ ...formData, status: e.target.value as any })}
+                      className="w-full px-3 py-2 rounded-xl border bg-white"
+                    >
+                      <option value="BROODING">Úm vịt (BROODING)</option>
+                      <option value="GROWING">Nuôi thịt (GROWING)</option>
+                      <option value="LAYING">Đẻ trứng (LAYING)</option>
+                      <option value="COMPLETED">Hoàn thành (COMPLETED)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-3 gap-3">
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Sĩ số ban đầu</label>
                     <input
                       type="number"
                       required
                       min={1}
                       value={formData.initial_quantity}
-                      onChange={(e) => setFormData({ ...formData, initial_quantity: parseInt(e.target.value), current_quantity: parseInt(e.target.value) })}
+                      onChange={(e) => setFormData({ ...formData, initial_quantity: parseInt(e.target.value) })}
+                      className="w-full px-3 py-2 rounded-xl border"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Sĩ số hiện tại</label>
+                    <input
+                      type="number"
+                      required
+                      min={0}
+                      value={formData.current_quantity}
+                      onChange={(e) => setFormData({ ...formData, current_quantity: parseInt(e.target.value) })}
+                      className="w-full px-3 py-2 rounded-xl border"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-slate-700 mb-1">Tuổi (Tuần)</label>
+                    <input
+                      type="number"
+                      required
+                      min={1}
+                      value={formData.age_weeks}
+                      onChange={(e) => setFormData({ ...formData, age_weeks: parseInt(e.target.value) })}
                       className="w-full px-3 py-2 rounded-xl border"
                     />
                   </div>
@@ -249,34 +369,31 @@ export default function FlocksPage() {
 
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">Tuổi vịt (Tuần)</label>
+                    <label className="block font-bold text-slate-700 mb-1">Ngày vào trang trại</label>
                     <input
-                      type="number"
-                      min={1}
-                      value={formData.age_weeks}
-                      onChange={(e) => setFormData({ ...formData, age_weeks: parseInt(e.target.value) })}
+                      type="date"
+                      required
+                      value={formData.entry_date}
+                      onChange={(e) => setFormData({ ...formData, entry_date: e.target.value })}
                       className="w-full px-3 py-2 rounded-xl border"
                     />
                   </div>
-
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">Trạng thái</label>
-                    <select
-                      value={formData.status}
-                      onChange={(e) => setFormData({ ...formData, status: e.target.value as any })}
-                      className="w-full px-3 py-2 rounded-xl border bg-white"
-                    >
-                      <option value="BROODING">Úm vịt</option>
-                      <option value="GROWING">Nuôi thịt</option>
-                      <option value="LAYING">Đẻ trứng</option>
-                    </select>
+                    <label className="block font-bold text-slate-700 mb-1">Ghi chú</label>
+                    <input
+                      type="text"
+                      placeholder="Nguồn gốc giống, vắc xin..."
+                      value={formData.description}
+                      onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                      className="w-full px-3 py-2 rounded-xl border"
+                    />
                   </div>
                 </div>
 
                 <div className="pt-3 flex justify-end gap-2">
                   <button
                     type="button"
-                    onClick={() => setShowAddModal(false)}
+                    onClick={() => setShowFormModal(false)}
                     className="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 font-semibold"
                   >
                     Hủy
@@ -285,10 +402,41 @@ export default function FlocksPage() {
                     type="submit"
                     className="px-5 py-2 rounded-xl bg-brand-500 text-white font-bold"
                   >
-                    Lưu Đàn Vịt
+                    {editingFlock ? 'Lưu Thay Đổi' : 'Lưu Đàn Vịt'}
                   </button>
                 </div>
               </form>
+            </div>
+          </div>
+        )}
+
+        {/* DELETE FLOCK CONFIRMATION MODAL */}
+        {deletingFlock && (
+          <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
+            <div className="w-full max-w-sm rounded-3xl bg-white p-6 shadow-2xl space-y-4 text-center">
+              <div className="w-12 h-12 rounded-full bg-red-100 text-red-600 mx-auto flex items-center justify-center">
+                <Trash2 className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="font-bold text-slate-900 text-base">Xác Nhận Xóa Đàn Vịt</h3>
+                <p className="text-xs text-slate-500 mt-1">
+                  Bạn có chắc muốn xóa <span className="font-bold text-slate-800">{deletingFlock.name}</span> ({deletingFlock.code})?
+                </p>
+              </div>
+              <div className="flex items-center justify-center gap-2 pt-2">
+                <button
+                  onClick={() => setDeletingFlock(null)}
+                  className="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 font-semibold text-xs"
+                >
+                  Hủy
+                </button>
+                <button
+                  onClick={handleDeleteFlock}
+                  className="px-5 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs"
+                >
+                  Xác Nhận Xóa
+                </button>
+              </div>
             </div>
           </div>
         )}
@@ -346,7 +494,7 @@ export default function FlocksPage() {
 
               {activeTab === 'production' && (
                 <p className="text-xs text-slate-500 py-6 text-center">
-                  Đã ghi nhận 30 nhật ký sản lượng trứng và tiêu thụ thức ăn. Xem chi tiết tại Phân hệ Báo cáo.
+                  Đã ghi nhận nhật ký sản lượng trứng và tiêu thụ thức ăn. Xem chi tiết tại Phân hệ Báo cáo.
                 </p>
               )}
 
