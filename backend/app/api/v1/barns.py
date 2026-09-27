@@ -1,7 +1,8 @@
-from typing import List
-from fastapi import APIRouter, Depends, HTTPException, status
+from typing import List, Optional
+from datetime import datetime
+from fastapi import APIRouter, Depends, HTTPException, status, Query
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
+from sqlalchemy import select, or_
 from app.core.database import get_db
 from app.models.models import Barn, UserRole
 from app.schemas.schemas import BarnOut, BarnCreate, BarnUpdate
@@ -10,8 +11,16 @@ from app.api.deps import get_current_user, require_roles
 router = APIRouter()
 
 @router.get("", response_model=List[BarnOut])
-async def list_barns(db: AsyncSession = Depends(get_db), current_user = Depends(get_current_user)):
-    result = await db.execute(select(Barn).order_by(Barn.code.asc()))
+async def list_barns(
+    updated_since: Optional[datetime] = Query(None),
+    db: AsyncSession = Depends(get_db),
+    current_user = Depends(get_current_user)
+):
+    query = select(Barn)
+    if updated_since:
+        query = query.where(or_(Barn.updated_at >= updated_since, Barn.created_at >= updated_since))
+    query = query.order_by(Barn.code.asc())
+    result = await db.execute(query)
     return result.scalars().all()
 
 @router.post("", response_model=BarnOut, status_code=status.HTTP_201_CREATED)

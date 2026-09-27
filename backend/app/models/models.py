@@ -60,6 +60,7 @@ class User(Base):
     role: Mapped[UserRole] = mapped_column(Enum(UserRole), default=UserRole.STAFF, nullable=False)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     notifications: Mapped[List["Notification"]] = relationship("Notification", back_populates="user", cascade="all, delete-orphan")
 
@@ -74,6 +75,7 @@ class Barn(Base):
     status: Mapped[str] = mapped_column(String(30), default="ACTIVE") # ACTIVE, MAINTENANCE, CLEANING
     description: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     flocks: Mapped[List["Flock"]] = relationship("Flock", back_populates="barn")
     ai_sessions: Mapped[List["AIAnalysisSession"]] = relationship("AIAnalysisSession", back_populates="barn")
@@ -83,11 +85,14 @@ class Camera(Base):
     __tablename__ = "cameras"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    code: Mapped[Optional[str]] = mapped_column(String(30), unique=True, index=True, nullable=True)
     name: Mapped[str] = mapped_column(String(100), nullable=False)
+    location: Mapped[Optional[str]] = mapped_column(String(100), nullable=True)
     barn_id: Mapped[int] = mapped_column(Integer, ForeignKey("barns.id"), nullable=False)
     status: Mapped[str] = mapped_column(String(20), default="ONLINE") # ONLINE, OFFLINE, MAINTENANCE
     rtsp_url: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     barn: Mapped["Barn"] = relationship("Barn", back_populates="cameras")
 
@@ -105,6 +110,7 @@ class Flock(Base):
     entry_date: Mapped[date] = mapped_column(Date, nullable=False)
     description: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     barn: Mapped["Barn"] = relationship("Barn", back_populates="flocks")
     events: Mapped[List["FlockEvent"]] = relationship("FlockEvent", back_populates="flock", cascade="all, delete-orphan")
@@ -125,6 +131,7 @@ class FlockEvent(Base):
     quantity_affected: Mapped[int] = mapped_column(Integer, default=0)
     notes: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     flock: Mapped["Flock"] = relationship("Flock", back_populates="events")
 
@@ -140,6 +147,7 @@ class ProductionRecord(Base):
     weight_avg_gram: Mapped[float] = mapped_column(Float, default=0.0)
     notes: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     flock: Mapped["Flock"] = relationship("Flock", back_populates="production_records")
 
@@ -149,6 +157,8 @@ class InventoryCategory(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
     name: Mapped[str] = mapped_column(String(50), unique=True, nullable=False) # Thức ăn, Thuốc, Vắc xin, Thiết bị
     description: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     items: Mapped[List["InventoryItem"]] = relationship("InventoryItem", back_populates="category")
 
@@ -165,6 +175,8 @@ class InventoryItem(Base):
     expiry_date: Mapped[Optional[date]] = mapped_column(Date, nullable=True)
     cost_per_unit: Mapped[float] = mapped_column(Float, default=0.0)
     notes: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     category: Mapped["InventoryCategory"] = relationship("InventoryCategory", back_populates="items")
     transactions: Mapped[List["InventoryTransaction"]] = relationship("InventoryTransaction", back_populates="item", cascade="all, delete-orphan")
@@ -179,6 +191,8 @@ class InventoryTransaction(Base):
     transaction_date: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     performed_by: Mapped[str] = mapped_column(String(100), nullable=False)
     notes: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     item: Mapped["InventoryItem"] = relationship("InventoryItem", back_populates="transactions")
 
@@ -191,6 +205,8 @@ class Disease(Base):
     symptoms: Mapped[str] = mapped_column(Text, nullable=False)
     treatment: Mapped[str] = mapped_column(Text, nullable=False)
     severity: Mapped[str] = mapped_column(String(20), default="MEDIUM") # LOW, MEDIUM, HIGH, CRITICAL
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     vet_records: Mapped[List["VeterinaryRecord"]] = relationship("VeterinaryRecord", back_populates="disease")
 
@@ -207,6 +223,7 @@ class VeterinaryRecord(Base):
     veterinarian_name: Mapped[str] = mapped_column(String(100), nullable=False)
     notes: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     flock: Mapped["Flock"] = relationship("Flock", back_populates="vet_records")
     disease: Mapped["Disease"] = relationship("Disease", back_populates="vet_records")
@@ -223,6 +240,7 @@ class Vaccination(Base):
     dosage: Mapped[str] = mapped_column(String(50), nullable=False) # 0.5 ml/con
     notes: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     flock: Mapped["Flock"] = relationship("Flock", back_populates="vaccinations")
 
@@ -238,6 +256,8 @@ class AIAnalysisSession(Base):
     total_ducks_detected: Mapped[int] = mapped_column(Integer, default=0)
     abnormal_count: Mapped[int] = mapped_column(Integer, default=0)
     status: Mapped[str] = mapped_column(String(20), default="COMPLETED") # COMPLETED, PROCESSING, FAILED
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     flock: Mapped["Flock"] = relationship("Flock", back_populates="ai_sessions")
     barn: Mapped["Barn"] = relationship("Barn", back_populates="ai_sessions")
@@ -258,6 +278,8 @@ class AIDetectionResult(Base):
     bbox_y: Mapped[float] = mapped_column(Float, nullable=False)
     bbox_w: Mapped[float] = mapped_column(Float, nullable=False)
     bbox_h: Mapped[float] = mapped_column(Float, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     session: Mapped["AIAnalysisSession"] = relationship("AIAnalysisSession", back_populates="detection_results")
 
@@ -272,6 +294,8 @@ class AIAlert(Base):
     message: Mapped[str] = mapped_column(Text, nullable=False)
     timestamp: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     status: Mapped[AIAlertStatus] = mapped_column(Enum(AIAlertStatus), default=AIAlertStatus.NEW)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     session: Mapped[Optional["AIAnalysisSession"]] = relationship("AIAnalysisSession", back_populates="alerts")
     flock: Mapped["Flock"] = relationship("Flock", back_populates="ai_alerts")
@@ -285,5 +309,6 @@ class Notification(Base):
     message: Mapped[str] = mapped_column(Text, nullable=False)
     is_read: Mapped[bool] = mapped_column(Boolean, default=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     user: Mapped["User"] = relationship("User", back_populates="notifications")

@@ -1,11 +1,12 @@
 from typing import List, Optional
+from datetime import datetime
 from fastapi import APIRouter, Depends, HTTPException, status, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func, or_
 from sqlalchemy.orm import selectinload
 from app.core.database import get_db
-from app.models.models import Flock, Barn, UserRole, ProductionRecord, VeterinaryRecord, Vaccination, AIAnalysisSession
-from app.schemas.schemas import FlockOut, FlockCreate, FlockUpdate, ProductionOut, VetRecordOut, VaccinationOut
+from app.models.models import Flock, Barn, UserRole, FlockEvent
+from app.schemas.schemas import FlockOut, FlockCreate, FlockUpdate, FlockEventOut, FlockEventCreate
 from app.api.deps import get_current_user, require_roles
 
 router = APIRouter()
@@ -15,6 +16,7 @@ async def list_flocks(
     search: Optional[str] = None,
     status: Optional[str] = None,
     barn_id: Optional[int] = None,
+    updated_since: Optional[datetime] = Query(None),
     page: int = Query(1, ge=1),
     limit: int = Query(10, ge=1, le=100),
     db: AsyncSession = Depends(get_db),
@@ -29,6 +31,8 @@ async def list_flocks(
         query = query.where(Flock.status == status)
     if barn_id:
         query = query.where(Flock.barn_id == barn_id)
+    if updated_since:
+        query = query.where(or_(Flock.updated_at >= updated_since, Flock.created_at >= updated_since))
 
     # Count
     count_query = select(func.count()).select_from(query.subquery())
@@ -53,12 +57,10 @@ async def create_flock(
     db: AsyncSession = Depends(get_db),
     current_user = Depends(require_roles([UserRole.ADMIN, UserRole.FARM_MANAGER]))
 ):
-    # Check duplicate code
     existing = await db.execute(select(Flock).where(Flock.code == flock_in.code))
     if existing.scalars().first():
         raise HTTPException(status_code=400, detail=f"Mã đàn '{flock_in.code}' đã tồn tại")
 
-    # Check barn capacity
     barn = await db.get(Barn, flock_in.barn_id)
     if not barn:
         raise HTTPException(status_code=404, detail="Chuồng nuôi không tồn tại")
@@ -72,12 +74,10 @@ async def create_flock(
     flock = Flock(**flock_in.model_dump())
     db.add(flock)
     
-    # Update barn occupancy
     barn.current_occupancy += flock.initial_quantity
     
     await db.commit()
     
-    # Re-query with loaded barn
     res = await db.execute(select(Flock).options(selectinload(Flock.barn)).where(Flock.id == flock.id))
     return res.scalars().first()
 
@@ -118,10 +118,54 @@ async def delete_flock(
     if not flock:
         raise HTTPException(status_code=404, detail="Không tìm thấy đàn vịt")
     
-    # Reduce occupancy in barn
     barn = await db.get(Barn, flock.barn_id)
     if barn:
         barn.current_occupancy = max(0, barn.current_occupancy - flock.current_quantity)
 
     await db.delete(flock)
     await db.commit()
+
+# ---- FLOCK EVENTS SUB-ROUTER ----
+
+@router.get("/{flock_id}/events", response_model=List[FlockEventOut])
+async def list_flock_events(
+    flock_id: int,
+    updated_since: Optional[datetime] = Query(None),
+    db: AsyncSession = Depends(get_db),
+    current_user = Depends(get_current_user)
+):
+    flock = await db.get(Flock, flock_id)
+    if not flock:
+        raise HTTPException(status_code=404, detail="Đàn vịt không tồn tại")
+    
+    query = select(FlockEvent).options(selectinload(FlockEvent.flock).selectinload(Flock.barn)).where(FlockEvent.flock_id == flock_id)
+    if updated_since:
+        query = query.where(or_(FlockEvent.updated_at >= updated_since, FlockEvent.created_at >= updated_since))
+    
+    query = query.order_by(FlockEvent.event_date.desc())
+    res = await db.execute(query)
+    return res.scalars().all()
+
+@router.post("/{flock_id}/events", response_model=FlockEventOut, status_code=status.HTTP_201_CREATED)
+async def create_flock_event(
+    flock_id: int,
+    event_in: FlockEventCreate,
+    db: AsyncSession = Depends(get_db),
+    current_user = Depends(require_roles([UserRole.ADMIN, UserRole.FARM_MANAGER, UserRole.STAFF]))
+):
+    flock = await db.get(Flock, flock_id)
+    if not flock:
+        raise HTTPException(status_code=404, detail="Đàn vịt không tồn tại")
+    
+    event_data = event_in.model_dump()
+    event_data["flock_id"] = flock_id
+    event = FlockEvent(**event_data)
+    db.add(event)
+    await db.commit()
+
+    res = await db.execute(
+        select(FlockEvent)
+        .options(selectinload(FlockEvent.flock).selectinload(Flock.barn))
+        .where(FlockEvent.id == event.id)
+    )
+    return res.scalars().first()

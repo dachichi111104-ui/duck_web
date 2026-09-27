@@ -1,35 +1,63 @@
 from typing import List, Optional
-from fastapi import APIRouter, Depends, HTTPException, status
+from datetime import datetime
+from fastapi import APIRouter, Depends, HTTPException, status, Query
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
+from sqlalchemy import select, or_
 from sqlalchemy.orm import selectinload
 from app.core.database import get_db
 from app.models.models import VeterinaryRecord, Disease, Vaccination, UserRole, Flock
 from app.schemas.schemas import (
     VetRecordOut, VetRecordCreate, VetRecordUpdate,
-    DiseaseOut, VaccinationOut, VaccinationCreate, VaccinationUpdate
+    DiseaseOut, DiseaseCreate, VaccinationOut, VaccinationCreate, VaccinationUpdate
 )
 from app.api.deps import get_current_user, require_roles
 
 router = APIRouter()
 
 @router.get("/diseases", response_model=List[DiseaseOut])
-async def list_diseases(db: AsyncSession = Depends(get_db), current_user = Depends(get_current_user)):
-    res = await db.execute(select(Disease).order_by(Disease.name.asc()))
+async def list_diseases(
+    updated_since: Optional[datetime] = Query(None),
+    db: AsyncSession = Depends(get_db),
+    current_user = Depends(get_current_user)
+):
+    query = select(Disease)
+    if updated_since:
+        query = query.where(or_(Disease.updated_at >= updated_since, Disease.created_at >= updated_since))
+    query = query.order_by(Disease.name.asc())
+    res = await db.execute(query)
     return res.scalars().all()
+
+@router.post("/diseases", response_model=DiseaseOut, status_code=status.HTTP_201_CREATED)
+async def create_disease(
+    disease_in: DiseaseCreate,
+    db: AsyncSession = Depends(get_db),
+    current_user = Depends(require_roles([UserRole.ADMIN, UserRole.FARM_MANAGER, UserRole.VETERINARIAN]))
+):
+    existing = await db.execute(select(Disease).where(Disease.code == disease_in.code))
+    if existing.scalars().first():
+        raise HTTPException(status_code=400, detail=f"Mã bệnh '{disease_in.code}' đã tồn tại")
+
+    disease = Disease(**disease_in.model_dump())
+    db.add(disease)
+    await db.commit()
+    await db.refresh(disease)
+    return disease
 
 @router.get("/records", response_model=List[VetRecordOut])
 async def list_vet_records(
     flock_id: Optional[int] = None,
+    updated_since: Optional[datetime] = Query(None),
     db: AsyncSession = Depends(get_db),
     current_user = Depends(get_current_user)
 ):
     query = select(VeterinaryRecord).options(
         selectinload(VeterinaryRecord.disease),
-        selectinload(VeterinaryRecord.flock)
+        selectinload(VeterinaryRecord.flock).selectinload(Flock.barn)
     )
     if flock_id:
         query = query.where(VeterinaryRecord.flock_id == flock_id)
+    if updated_since:
+        query = query.where(or_(VeterinaryRecord.updated_at >= updated_since, VeterinaryRecord.created_at >= updated_since))
     query = query.order_by(VeterinaryRecord.diagnosis_date.desc())
     res = await db.execute(query)
     return res.scalars().all()
@@ -53,7 +81,10 @@ async def create_vet_record(
     
     res = await db.execute(
         select(VeterinaryRecord)
-        .options(selectinload(VeterinaryRecord.disease), selectinload(VeterinaryRecord.flock))
+        .options(
+            selectinload(VeterinaryRecord.disease),
+            selectinload(VeterinaryRecord.flock).selectinload(Flock.barn)
+        )
         .where(VeterinaryRecord.id == record.id)
     )
     return res.scalars().first()
@@ -76,7 +107,10 @@ async def update_vet_record(
     await db.commit()
     res = await db.execute(
         select(VeterinaryRecord)
-        .options(selectinload(VeterinaryRecord.disease), selectinload(VeterinaryRecord.flock))
+        .options(
+            selectinload(VeterinaryRecord.disease),
+            selectinload(VeterinaryRecord.flock).selectinload(Flock.barn)
+        )
         .where(VeterinaryRecord.id == record_id)
     )
     return res.scalars().first()
@@ -86,12 +120,15 @@ async def update_vet_record(
 @router.get("/vaccinations", response_model=List[VaccinationOut])
 async def list_vaccinations(
     flock_id: Optional[int] = None,
+    updated_since: Optional[datetime] = Query(None),
     db: AsyncSession = Depends(get_db),
     current_user = Depends(get_current_user)
 ):
-    query = select(Vaccination).options(selectinload(Vaccination.flock))
+    query = select(Vaccination).options(selectinload(Vaccination.flock).selectinload(Flock.barn))
     if flock_id:
         query = query.where(Vaccination.flock_id == flock_id)
+    if updated_since:
+        query = query.where(or_(Vaccination.updated_at >= updated_since, Vaccination.created_at >= updated_since))
     query = query.order_by(Vaccination.scheduled_date.asc())
     res = await db.execute(query)
     return res.scalars().all()
@@ -112,7 +149,7 @@ async def create_vaccination(
     
     res = await db.execute(
         select(Vaccination)
-        .options(selectinload(Vaccination.flock))
+        .options(selectinload(Vaccination.flock).selectinload(Flock.barn))
         .where(Vaccination.id == vac.id)
     )
     return res.scalars().first()
@@ -135,7 +172,7 @@ async def update_vaccination(
     await db.commit()
     res = await db.execute(
         select(Vaccination)
-        .options(selectinload(Vaccination.flock))
+        .options(selectinload(Vaccination.flock).selectinload(Flock.barn))
         .where(Vaccination.id == vac_id)
     )
     return res.scalars().first()

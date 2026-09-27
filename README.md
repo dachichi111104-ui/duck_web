@@ -246,3 +246,66 @@ Hệ thống cung cấp sẵn **4 Nút Đăng Nhập Nhanh (Quick Login)** tại
   - Cảnh báo nguy cấp: Đỏ `#D32F2F`
 - **Layout Hero Section:** Thiết kế bám sát phong cách NCKH chuyên nghiệp (Nền gradient xanh lá đậm, pill tag phía trên tiêu đề, khối số liệu 2-line lớn, card thống kê tối màu bên phải).
 - **Bộ Icon:** 100% SVG Vector qua `lucide-react`, tuyệt đối không dùng emoji Unicode.
+
+---
+
+## 📋 BẢNG ÁNH XẠ MODEL ↔ ENDPOINT CHÍNH THỨC (WEB & DESKTOP SYNC)
+
+Tài liệu tham chiếu duy nhất về danh sách API RESTful cho cả Web Client và Desktop Client (PyQt6).
+Tất cả các endpoint GET danh sách đều hỗ trợ Query Parameter `?updated_since=<ISO Datetime>` để hỗ trợ cơ chế PULL đồng bộ dữ liệu theo thời gian thực:
+
+| Model | Method | Path Đầy Đủ | Hỗ Trợ `updated_since` | Mô Tả Chức Năng |
+| :--- | :---: | :--- | :---: | :--- |
+| **User** | `POST` | `/api/v1/auth/login` | - | Đăng nhập lấy Bearer JWT Token |
+| **User** | `GET` | `/api/v1/users/me` | - | Lấy thông tin user đăng nhập |
+| **User** | `GET` | `/api/v1/users` | - | Danh sách tài khoản |
+| **Barn** | `GET` | `/api/v1/barns` |  | Danh sách chuồng nuôi |
+| **Barn** | `POST` | `/api/v1/barns` | - | Tạo chuồng nuôi mới |
+| **Barn** | `GET` | `/api/v1/barns/{id}` | - | Chi tiết chuồng nuôi |
+| **Barn** | `PUT` | `/api/v1/barns/{id}` | - | Cập nhật thông tin chuồng |
+| **Barn** | `DELETE` | `/api/v1/barns/{id}` | - | Xóa chuồng nuôi |
+| **Camera** | `GET` | `/api/v1/cameras` |  | Danh sách Camera giám sát |
+| **Camera** | `POST` | `/api/v1/cameras` | - | Thêm Camera mới |
+| **Camera** | `PUT` | `/api/v1/cameras/{id}` | - | Cập nhật Camera |
+| **Camera** | `DELETE` | `/api/v1/cameras/{id}` | - | Xóa Camera |
+| **Flock** | `GET` | `/api/v1/flocks` |  | Danh sách đàn vịt |
+| **Flock** | `POST` | `/api/v1/flocks` | - | Tạo đàn vịt mới |
+| **Flock** | `GET` | `/api/v1/flocks/{id}` | - | Chi tiết đàn vịt |
+| **Flock** | `PUT` | `/api/v1/flocks/{id}` | - | Cập nhật đàn vịt |
+| **Flock** | `DELETE` | `/api/v1/flocks/{id}` | - | Xóa đàn vịt |
+| **FlockEvent** | `GET` | `/api/v1/flocks/{flock_id}/events` |  | Danh sách sự kiện theo đàn |
+| **FlockEvent** | `POST` | `/api/v1/flocks/{flock_id}/events` | - | Tạo sự kiện cho đàn |
+| **FlockEvent** | `GET` | `/api/v1/flock-events` |  | Danh sách toàn bộ sự kiện |
+| **FlockEvent** | `POST` | `/api/v1/flock-events` | - | Tạo sự kiện độc lập |
+| **FlockEvent** | `GET` | `/api/v1/flock-events/{id}` | - | Chi tiết sự kiện |
+| **ProductionRecord** | `GET` | `/api/v1/production` |  | Danh sách nhật ký sản lượng |
+| **ProductionRecord** | `POST` | `/api/v1/production` | - | Ghi nhận sản lượng trứng/hao hụt |
+| **InventoryCategory** | `GET` | `/api/v1/inventory/categories` |  | Danh sách danh mục kho |
+| **InventoryCategory** | `POST` | `/api/v1/inventory/categories` | - | Tạo danh mục kho mới |
+| **InventoryItem** | `GET` | `/api/v1/inventory/items` |  | Danh sách vật tư kho |
+| **InventoryItem** | `POST` | `/api/v1/inventory/items` | - | Thêm vật tư kho mới |
+| **InventoryItem** | `PUT` | `/api/v1/inventory/items/{id}` | - | Cập nhật vật tư kho |
+| **InventoryTransaction**| `GET` | `/api/v1/inventory/transactions` |  | Lịch sử giao dịch nhập/xuất kho |
+| **InventoryTransaction**| `POST` | `/api/v1/inventory/transactions` | - | Tạo phiếu nhập/xuất kho |
+| **Disease** | `GET` | `/api/v1/veterinary/diseases` |  | Danh mục bệnh thú y |
+| **Disease** | `POST` | `/api/v1/veterinary/diseases` | - | Thêm bệnh thú y mới |
+| **VeterinaryRecord** | `GET` | `/api/v1/veterinary/records` |  | Danh sách bệnh án thú y |
+| **VeterinaryRecord** | `POST` | `/api/v1/veterinary/records` | - | Lập bệnh án thú y mới |
+| **VeterinaryRecord** | `PUT` | `/api/v1/veterinary/records/{id}` | - | Cập nhật bệnh án thú y |
+| **Vaccination** | `GET` | `/api/v1/veterinary/vaccinations` |  | Danh sách lịch tiêm phòng |
+| **Vaccination** | `POST` | `/api/v1/veterinary/vaccinations` | - | Tạo lịch tiêm phòng mới |
+| **Vaccination** | `PUT` | `/api/v1/veterinary/vaccinations/{id}` | - | Cập nhật lịch tiêm phòng |
+| **AIAnalysisSession** | `POST` | `/api/v1/ai/analyze` | - | Phân tích video AI tự động |
+| **AIAnalysisSession** | `GET` | `/api/v1/ai/sessions` |  | Danh sách phiên phân tích AI |
+| **AIAnalysisSession** | `POST` | `/api/v1/ai/sessions` | - | Tạo phiên phân tích AI mới |
+| **AIAnalysisSession** | `GET` | `/api/v1/ai/sessions/{id}` | - | Chi tiết phiên phân tích AI |
+| **AIDetectionResult** | `GET` | `/api/v1/ai/sessions/{id}/detections` | - | Chi tiết tọa độ/hành vi theo phiên |
+| **AIDetectionResult** | `POST` | `/api/v1/ai/sessions/{id}/detections` | - | Đẩy kết quả nhận diện theo phiên |
+| **AIDetectionResult** | `GET` | `/api/v1/ai/detections` |  | Danh sách toàn bộ kết quả nhận diện |
+| **AIAlert** | `GET` | `/api/v1/ai/alerts` |  | Danh sách cảnh báo AI |
+| **AIAlert** | `PUT` | `/api/v1/ai/alerts/{id}/status` | - | Cập nhật trạng thái cảnh báo |
+| **Notification** | `GET` | `/api/v1/notifications` |  | Danh sách thông báo người dùng |
+| **Notification** | `GET` | `/api/v1/notifications/unread-count` | - | Đếm số thông báo chưa đọc |
+| **Notification** | `PUT` | `/api/v1/notifications/{id}/read` | - | Đánh dấu thông báo đã đọc |
+| **System** | `GET` | `/api/v1/health` | - | Kiểm tra trạng thái kết nối Cloud DB |
+

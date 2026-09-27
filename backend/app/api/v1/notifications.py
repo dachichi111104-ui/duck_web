@@ -1,7 +1,8 @@
-from typing import List
-from fastapi import APIRouter, Depends, HTTPException, status
+from typing import List, Optional
+from datetime import datetime
+from fastapi import APIRouter, Depends, HTTPException, status, Query
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
+from sqlalchemy import select, or_
 from app.core.database import get_db
 from app.models.models import Notification, User
 from app.schemas.schemas import NotificationOut
@@ -12,12 +13,16 @@ router = APIRouter()
 @router.get("", response_model=List[NotificationOut])
 @router.get("/", response_model=List[NotificationOut])
 async def get_user_notifications(
+    updated_since: Optional[datetime] = Query(None),
     db: AsyncSession = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ):
     query = select(Notification).where(
         (Notification.user_id == current_user.id) | (Notification.user_id == 0)
-    ).order_by(Notification.created_at.desc()).limit(20)
+    )
+    if updated_since:
+        query = query.where(or_(Notification.updated_at >= updated_since, Notification.created_at >= updated_since))
+    query = query.order_by(Notification.created_at.desc()).limit(20)
     res = await db.execute(query)
     return res.scalars().all()
 

@@ -1,12 +1,13 @@
 from typing import List, Optional
-from fastapi import APIRouter, Depends, HTTPException, status
+from datetime import datetime
+from fastapi import APIRouter, Depends, HTTPException, status, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, or_
 from sqlalchemy.orm import selectinload
 from app.core.database import get_db
 from app.models.models import InventoryCategory, InventoryItem, InventoryTransaction, InventoryTransactionType, UserRole
 from app.schemas.schemas import (
-    InventoryCategoryOut, InventoryItemOut, InventoryItemCreate, InventoryItemUpdate,
+    InventoryCategoryOut, InventoryCategoryCreate, InventoryItemOut, InventoryItemCreate, InventoryItemUpdate,
     InventoryTransactionOut, InventoryTransactionCreate
 )
 from app.api.deps import get_current_user, require_roles
@@ -14,15 +15,40 @@ from app.api.deps import get_current_user, require_roles
 router = APIRouter()
 
 @router.get("/categories", response_model=List[InventoryCategoryOut])
-async def list_categories(db: AsyncSession = Depends(get_db), current_user = Depends(get_current_user)):
-    res = await db.execute(select(InventoryCategory))
+async def list_categories(
+    updated_since: Optional[datetime] = Query(None),
+    db: AsyncSession = Depends(get_db),
+    current_user = Depends(get_current_user)
+):
+    query = select(InventoryCategory)
+    if updated_since:
+        query = query.where(or_(InventoryCategory.updated_at >= updated_since, InventoryCategory.created_at >= updated_since))
+    query = query.order_by(InventoryCategory.name.asc())
+    res = await db.execute(query)
     return res.scalars().all()
+
+@router.post("/categories", response_model=InventoryCategoryOut, status_code=status.HTTP_201_CREATED)
+async def create_category(
+    cat_in: InventoryCategoryCreate,
+    db: AsyncSession = Depends(get_db),
+    current_user = Depends(require_roles([UserRole.ADMIN, UserRole.FARM_MANAGER]))
+):
+    existing = await db.execute(select(InventoryCategory).where(InventoryCategory.name == cat_in.name))
+    if existing.scalars().first():
+        raise HTTPException(status_code=400, detail=f"Danh mục '{cat_in.name}' đã tồn tại")
+    
+    category = InventoryCategory(**cat_in.model_dump())
+    db.add(category)
+    await db.commit()
+    await db.refresh(category)
+    return category
 
 @router.get("/items", response_model=List[InventoryItemOut])
 async def list_items(
     category_id: Optional[int] = None,
     search: Optional[str] = None,
     low_stock_only: bool = False,
+    updated_since: Optional[datetime] = Query(None),
     db: AsyncSession = Depends(get_db),
     current_user = Depends(get_current_user)
 ):
@@ -34,6 +60,8 @@ async def list_items(
         query = query.where(or_(InventoryItem.name.ilike(pattern), InventoryItem.code.ilike(pattern)))
     if low_stock_only:
         query = query.where(InventoryItem.current_quantity <= InventoryItem.min_quantity)
+    if updated_since:
+        query = query.where(or_(InventoryItem.updated_at >= updated_since, InventoryItem.created_at >= updated_since))
         
     query = query.order_by(InventoryItem.name.asc())
     res = await db.execute(query)
@@ -110,7 +138,7 @@ async def create_transaction(
     
     res = await db.execute(
         select(InventoryTransaction)
-        .options(selectinload(InventoryTransaction.item))
+        .options(selectinload(InventoryTransaction.item).selectinload(InventoryItem.category))
         .where(InventoryTransaction.id == tx.id)
     )
     return res.scalars().first()
@@ -118,13 +146,16 @@ async def create_transaction(
 @router.get("/transactions", response_model=List[InventoryTransactionOut])
 async def list_transactions(
     item_id: Optional[int] = None,
+    updated_since: Optional[datetime] = Query(None),
     limit: int = 50,
     db: AsyncSession = Depends(get_db),
     current_user = Depends(get_current_user)
 ):
-    query = select(InventoryTransaction).options(selectinload(InventoryTransaction.item))
+    query = select(InventoryTransaction).options(selectinload(InventoryTransaction.item).selectinload(InventoryItem.category))
     if item_id:
         query = query.where(InventoryTransaction.item_id == item_id)
+    if updated_since:
+        query = query.where(or_(InventoryTransaction.updated_at >= updated_since, InventoryTransaction.created_at >= updated_since))
     query = query.order_by(InventoryTransaction.transaction_date.desc()).limit(limit)
     res = await db.execute(query)
     return res.scalars().all()

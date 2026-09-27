@@ -43,6 +43,7 @@ class UserUpdate(BaseModel):
 class UserOut(UserBase):
     id: int
     created_at: datetime
+    updated_at: Optional[datetime] = None
 
     class Config:
         from_attributes = True
@@ -69,6 +70,7 @@ class BarnOut(BarnBase):
     id: int
     current_occupancy: int
     created_at: datetime
+    updated_at: Optional[datetime] = None
 
     class Config:
         from_attributes = True
@@ -76,7 +78,9 @@ class BarnOut(BarnBase):
 # ---- CAMERA ----
 
 class CameraBase(BaseModel):
+    code: Optional[str] = None
     name: str
+    location: Optional[str] = None
     barn_id: int
     status: str = "ONLINE"
     rtsp_url: Optional[str] = None
@@ -85,7 +89,9 @@ class CameraCreate(CameraBase):
     pass
 
 class CameraUpdate(BaseModel):
+    code: Optional[str] = None
     name: Optional[str] = None
+    location: Optional[str] = None
     barn_id: Optional[int] = None
     status: Optional[str] = None
     rtsp_url: Optional[str] = None
@@ -93,6 +99,7 @@ class CameraUpdate(BaseModel):
 class CameraOut(CameraBase):
     id: int
     created_at: datetime
+    updated_at: Optional[datetime] = None
     barn: Optional[BarnOut] = None
 
     class Config:
@@ -107,6 +114,7 @@ class NotificationOut(BaseModel):
     message: str
     is_read: bool
     created_at: datetime
+    updated_at: Optional[datetime] = None
 
     class Config:
         from_attributes = True
@@ -138,7 +146,37 @@ class FlockUpdate(BaseModel):
 class FlockOut(FlockBase):
     id: int
     created_at: datetime
+    updated_at: Optional[datetime] = None
     barn: Optional[BarnOut] = None
+
+    class Config:
+        from_attributes = True
+
+# ---- FLOCK EVENT ----
+
+class FlockEventBase(BaseModel):
+    flock_id: int
+    event_type: str
+    event_date: date
+    description: str
+    quantity_affected: int = 0
+    notes: Optional[str] = None
+
+class FlockEventCreate(FlockEventBase):
+    pass
+
+class FlockEventUpdate(BaseModel):
+    event_type: Optional[str] = None
+    event_date: Optional[date] = None
+    description: Optional[str] = None
+    quantity_affected: Optional[int] = None
+    notes: Optional[str] = None
+
+class FlockEventOut(FlockEventBase):
+    id: int
+    created_at: datetime
+    updated_at: Optional[datetime] = None
+    flock: Optional[FlockOut] = None
 
     class Config:
         from_attributes = True
@@ -167,16 +205,23 @@ class ProductionUpdate(BaseModel):
 class ProductionOut(ProductionBase):
     id: int
     created_at: datetime
+    updated_at: Optional[datetime] = None
 
     class Config:
         from_attributes = True
 
 # ---- INVENTORY ----
 
+class InventoryCategoryCreate(BaseModel):
+    name: str
+    description: Optional[str] = None
+
 class InventoryCategoryOut(BaseModel):
     id: int
     name: str
     description: Optional[str] = None
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
 
     class Config:
         from_attributes = True
@@ -205,6 +250,8 @@ class InventoryItemUpdate(BaseModel):
 
 class InventoryItemOut(InventoryItemBase):
     id: int
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
     category: Optional[InventoryCategoryOut] = None
 
     class Config:
@@ -224,12 +271,21 @@ class InventoryTransactionOut(BaseModel):
     transaction_date: datetime
     performed_by: str
     notes: Optional[str] = None
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
     item: Optional[InventoryItemOut] = None
 
     class Config:
         from_attributes = True
 
 # ---- VETERINARY & VACCINATION ----
+
+class DiseaseCreate(BaseModel):
+    code: str
+    name: str
+    symptoms: str
+    treatment: str
+    severity: str = "MEDIUM"
 
 class DiseaseOut(BaseModel):
     id: int
@@ -238,6 +294,8 @@ class DiseaseOut(BaseModel):
     symptoms: str
     treatment: str
     severity: str
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
 
     class Config:
         from_attributes = True
@@ -264,6 +322,7 @@ class VetRecordUpdate(BaseModel):
 class VetRecordOut(VetRecordBase):
     id: int
     created_at: datetime
+    updated_at: Optional[datetime] = None
     disease: Optional[DiseaseOut] = None
     flock: Optional[FlockOut] = None
 
@@ -290,12 +349,70 @@ class VaccinationUpdate(BaseModel):
 class VaccinationOut(VaccinationBase):
     id: int
     created_at: datetime
+    updated_at: Optional[datetime] = None
     flock: Optional[FlockOut] = None
 
     class Config:
         from_attributes = True
 
 # ---- AI ANALYSIS ----
+
+class AIAnalysisSessionCreate(BaseModel):
+    flock_id: int
+    barn_id: int
+    video_filename: str
+    duration_seconds: float = 0.0
+    total_ducks_detected: int = 0
+    abnormal_count: int = 0
+    status: str = "COMPLETED"
+
+class AIAnalysisSessionOut(BaseModel):
+    id: int
+    flock_id: int
+    barn_id: int
+    session_date: datetime
+    video_filename: str
+    duration_seconds: float
+    total_ducks_detected: int
+    abnormal_count: int
+    status: str
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
+    flock: Optional[FlockOut] = None
+    barn: Optional[BarnOut] = None
+
+    class Config:
+        from_attributes = True
+
+class AIDetectionResultCreate(BaseModel):
+    session_id: int
+    frame_index: int
+    timestamp_sec: float
+    track_id: int
+    behavior_label: str
+    confidence: float
+    bbox_x: float
+    bbox_y: float
+    bbox_w: float
+    bbox_h: float
+
+class AIDetectionResultOut(BaseModel):
+    id: int
+    session_id: int
+    frame_index: int
+    timestamp_sec: float
+    track_id: int
+    behavior_label: str
+    confidence: float
+    bbox_x: float
+    bbox_y: float
+    bbox_w: float
+    bbox_h: float
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
+
+    class Config:
+        from_attributes = True
 
 class AIDetectionTrack(BaseModel):
     frame_index: int
@@ -326,6 +443,8 @@ class AIAlertOut(BaseModel):
     message: str
     timestamp: datetime
     status: AIAlertStatus
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
     flock: Optional[FlockOut] = None
 
     class Config:

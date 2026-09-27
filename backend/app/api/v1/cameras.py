@@ -1,7 +1,8 @@
 from typing import List, Optional
-from fastapi import APIRouter, Depends, HTTPException, status
+from datetime import datetime
+from fastapi import APIRouter, Depends, HTTPException, status, Query
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
+from sqlalchemy import select, or_
 from sqlalchemy.orm import selectinload
 from app.core.database import get_db
 from app.models.models import Camera, Barn, UserRole
@@ -13,12 +14,15 @@ router = APIRouter()
 @router.get("", response_model=List[CameraOut])
 async def list_cameras(
     barn_id: Optional[int] = None,
+    updated_since: Optional[datetime] = Query(None),
     db: AsyncSession = Depends(get_db),
     current_user = Depends(get_current_user)
 ):
     query = select(Camera).options(selectinload(Camera.barn))
     if barn_id:
         query = query.where(Camera.barn_id == barn_id)
+    if updated_since:
+        query = query.where(or_(Camera.updated_at >= updated_since, Camera.created_at >= updated_since))
     query = query.order_by(Camera.id.asc())
     res = await db.execute(query)
     return res.scalars().all()

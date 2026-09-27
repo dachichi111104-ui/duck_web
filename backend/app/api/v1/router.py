@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.api.v1 import auth, dashboard, barns, flocks, production, inventory, veterinary, ai, reports, users, cameras, notifications, health
+from app.api.v1 import auth, dashboard, barns, flocks, flock_events, production, inventory, veterinary, ai, reports, users, cameras, notifications, health
 
 api_router = APIRouter()
 
@@ -7,6 +7,7 @@ api_router.include_router(auth.router, prefix="/auth", tags=["Auth"])
 api_router.include_router(dashboard.router, prefix="/dashboard", tags=["Dashboard"])
 api_router.include_router(barns.router, prefix="/barns", tags=["Barns"])
 api_router.include_router(flocks.router, prefix="/flocks", tags=["Flocks"])
+api_router.include_router(flock_events.router, prefix="/flock-events", tags=["Flock Events"])
 api_router.include_router(production.router, prefix="/production", tags=["Production"])
 api_router.include_router(inventory.router, prefix="/inventory", tags=["Inventory"])
 api_router.include_router(veterinary.router, prefix="/veterinary", tags=["Veterinary"])
