@@ -43,6 +43,41 @@ async def create_category(
     await db.refresh(category)
     return category
 
+@router.put("/categories/{category_id}", response_model=InventoryCategoryOut)
+async def update_category(
+    category_id: int,
+    cat_in: InventoryCategoryCreate,
+    db: AsyncSession = Depends(get_db),
+    current_user = Depends(require_roles([UserRole.ADMIN, UserRole.FARM_MANAGER]))
+):
+    category = await db.get(InventoryCategory, category_id)
+    if not category:
+        raise HTTPException(status_code=404, detail="Danh mục kho không tồn tại")
+    
+    category.name = cat_in.name
+    category.description = cat_in.description
+    await db.commit()
+    await db.refresh(category)
+    return category
+
+@router.delete("/categories/{category_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_category(
+    category_id: int,
+    db: AsyncSession = Depends(get_db),
+    current_user = Depends(require_roles([UserRole.ADMIN, UserRole.FARM_MANAGER]))
+):
+    category = await db.get(InventoryCategory, category_id)
+    if not category:
+        raise HTTPException(status_code=404, detail="Danh mục kho không tồn tại")
+    
+    # Check if category has items
+    items_res = await db.execute(select(InventoryItem).where(InventoryItem.category_id == category_id))
+    if items_res.scalars().first():
+        raise HTTPException(status_code=400, detail="Không thể xóa danh mục đang có vật tư tồn kho bên trong")
+    
+    await db.delete(category)
+    await db.commit()
+
 @router.get("/items", response_model=List[InventoryItemOut])
 async def list_items(
     category_id: Optional[int] = None,
@@ -101,6 +136,19 @@ async def update_item(
     await db.commit()
     res = await db.execute(select(InventoryItem).options(selectinload(InventoryItem.category)).where(InventoryItem.id == item_id))
     return res.scalars().first()
+
+@router.delete("/items/{item_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_item(
+    item_id: int,
+    db: AsyncSession = Depends(get_db),
+    current_user = Depends(require_roles([UserRole.ADMIN, UserRole.FARM_MANAGER]))
+):
+    item = await db.get(InventoryItem, item_id)
+    if not item:
+        raise HTTPException(status_code=404, detail="Vật tư không tồn tại")
+    
+    await db.delete(item)
+    await db.commit()
 
 @router.post("/transactions", response_model=InventoryTransactionOut, status_code=status.HTTP_201_CREATED)
 async def create_transaction(

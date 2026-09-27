@@ -23,7 +23,9 @@ export interface Barn {
 
 export interface Camera {
   id: number;
+  code?: string;
   name: string;
+  location?: string;
   barn_id: number;
   status: string;
   rtsp_url?: string;

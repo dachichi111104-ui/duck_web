@@ -43,6 +43,43 @@ async def create_disease(
     await db.refresh(disease)
     return disease
 
+@router.put("/diseases/{disease_id}", response_model=DiseaseOut)
+async def update_disease(
+    disease_id: int,
+    disease_in: DiseaseCreate,
+    db: AsyncSession = Depends(get_db),
+    current_user = Depends(require_roles([UserRole.ADMIN, UserRole.FARM_MANAGER, UserRole.VETERINARIAN]))
+):
+    disease = await db.get(Disease, disease_id)
+    if not disease:
+        raise HTTPException(status_code=404, detail="Bệnh thú y không tồn tại")
+
+    update_data = disease_in.model_dump(exclude_unset=True)
+    for field, val in update_data.items():
+        setattr(disease, field, val)
+
+    await db.commit()
+    await db.refresh(disease)
+    return disease
+
+@router.delete("/diseases/{disease_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_disease(
+    disease_id: int,
+    db: AsyncSession = Depends(get_db),
+    current_user = Depends(require_roles([UserRole.ADMIN, UserRole.FARM_MANAGER, UserRole.VETERINARIAN]))
+):
+    disease = await db.get(Disease, disease_id)
+    if not disease:
+        raise HTTPException(status_code=404, detail="Bệnh thú y không tồn tại")
+
+    # Check if disease has veterinary records
+    recs = await db.execute(select(VeterinaryRecord).where(VeterinaryRecord.disease_id == disease_id))
+    if recs.scalars().first():
+        raise HTTPException(status_code=400, detail="Không thể xóa loại bệnh đang được ghi nhận trong bệnh án thú y")
+
+    await db.delete(disease)
+    await db.commit()
+
 @router.get("/records", response_model=List[VetRecordOut])
 async def list_vet_records(
     flock_id: Optional[int] = None,
@@ -115,6 +152,18 @@ async def update_vet_record(
     )
     return res.scalars().first()
 
+@router.delete("/records/{record_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_vet_record(
+    record_id: int,
+    db: AsyncSession = Depends(get_db),
+    current_user = Depends(require_roles([UserRole.ADMIN, UserRole.FARM_MANAGER, UserRole.VETERINARIAN]))
+):
+    record = await db.get(VeterinaryRecord, record_id)
+    if not record:
+        raise HTTPException(status_code=404, detail="Bệnh án không tồn tại")
+    await db.delete(record)
+    await db.commit()
+
 # ---- VACCINATIONS ----
 
 @router.get("/vaccinations", response_model=List[VaccinationOut])
@@ -176,3 +225,15 @@ async def update_vaccination(
         .where(Vaccination.id == vac_id)
     )
     return res.scalars().first()
+
+@router.delete("/vaccinations/{vac_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_vaccination(
+    vac_id: int,
+    db: AsyncSession = Depends(get_db),
+    current_user = Depends(require_roles([UserRole.ADMIN, UserRole.FARM_MANAGER, UserRole.VETERINARIAN]))
+):
+    vac = await db.get(Vaccination, vac_id)
+    if not vac:
+        raise HTTPException(status_code=404, detail="Lịch tiêm phòng không tồn tại")
+    await db.delete(vac)
+    await db.commit()

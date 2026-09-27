@@ -309,3 +309,19 @@ Tất cả các endpoint GET danh sách đều hỗ trợ Query Parameter `?upda
 | **Notification** | `PUT` | `/api/v1/notifications/{id}/read` | - | Đánh dấu thông báo đã đọc |
 | **System** | `GET` | `/api/v1/health` | - | Kiểm tra trạng thái kết nối Cloud DB |
 
+---
+
+## 📊 BẢNG TRẠNG THÁI TÍNH NĂNG GIAO DIỆN FRONTEND (FULL CRUD)
+
+| Trang | Thêm | Sửa | Xóa | Ghi chú |
+| :--- | :---: | :---: | :---: | :--- |
+| **/inventory** (Vật tư) | ✅ | ✅ | ✅ | Modal thêm/sửa vật tư, mã tự sinh `VT-xxxx`, dialog xác nhận xóa, modal nhập/xuất kho |
+| **/inventory** (Danh mục kho) | ✅ | ✅ | ✅ | Modal quản lý danh mục kho (thêm/sửa/xóa danh mục) |
+| **/veterinary** (Nhật ký bệnh án) | ✅ | ✅ | ✅ | Modal thêm/sửa bệnh án, dialog xác nhận xóa |
+| **/veterinary** (Danh mục bệnh) | ✅ | ✅ | ✅ | Modal thêm/sửa loại bệnh thú y, mức độ nguy cơ, dialog xác nhận xóa |
+| **/veterinary** (Lịch tiêm phòng) | ✅ | ✅ | ✅ | Modal thêm/sửa lịch tiêm vắc xin, dialog xác nhận xóa |
+| **/barns** (Chuồng nuôi) | ✅ | ✅ | ✅ | Modal thêm/sửa chuồng nuôi, dialog xác nhận xóa (kèm thông báo ràng buộc đàn đang nuôi) |
+| **/cameras** (Camera giám sát) | ✅ | ✅ | ✅ | Modal thêm/sửa camera (mã, tên, vị trí, chuồng, RTSP URL), dialog xác nhận xóa |
+| **/users** (Quản lý người dùng) | ✅ | ✅ | ✅ | Modal thêm/sửa tài khoản, phân quyền vai trò (ADMIN/MANAGER/VET/STAFF), dialog xác nhận xóa |
+
+
