@@ -99,8 +99,8 @@ export default function AIDetectionPage() {
 
       if (isImg) {
         const mockTracks: AIDetectionTrack[] = [
-          { frame_index: 0, timestamp_sec: 0, track_id: 1, behavior_label: 'SUPINE_FLIPPED', confidence: 0.96, bbox: [0.18, 0.28, 0.26, 0.22] },
-          { frame_index: 0, timestamp_sec: 0, track_id: 2, behavior_label: 'NORMAL', confidence: 0.93, bbox: [0.22, 0.58, 0.28, 0.24] },
+          { frame_index: 0, timestamp_sec: 0, track_id: 1, behavior_label: 'NORMAL', confidence: 0.96, bbox: [0.20, 0.04, 0.35, 0.25] },
+          { frame_index: 0, timestamp_sec: 0, track_id: 2, behavior_label: 'SUPINE_FLIPPED', confidence: 0.98, bbox: [0.22, 0.54, 0.42, 0.32] },
         ];
 
         setAnalysisResult({
