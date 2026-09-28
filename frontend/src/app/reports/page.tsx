@@ -31,6 +31,8 @@ export default function ReportsPage() {
 
   const { hasRole } = useAuth();
 
+  const [aiSessions, setAiSessions] = useState<any[]>([]);
+
   useEffect(() => {
     loadFlocks();
     fetchReport();
@@ -60,6 +62,48 @@ export default function ReportsPage() {
     } finally {
       setLoading(false);
     }
+
+    loadAiSessions();
+  }
+
+  async function loadAiSessions() {
+    const list: any[] = [];
+    try {
+      const res = await fetchApi<any[]>('/ai/sessions?limit=20');
+      if (res && Array.isArray(res)) {
+        res.forEach(s => {
+          list.push({
+            id: s.id,
+            time: new Date(s.session_date || s.created_at).toLocaleString('vi-VN'),
+            flock_name: s.flock?.name || `Đàn ${s.flock_id}`,
+            barn_name: s.barn?.name || `Chuồng ${s.barn_id}`,
+            filename: s.video_filename,
+            total: s.total_ducks_detected,
+            abnormal: s.abnormal_count,
+            status: s.status,
+          });
+        });
+      }
+    } catch (e) {}
+
+    if (typeof window !== 'undefined') {
+      try {
+        const local = JSON.parse(localStorage.getItem('duck_ai_analysis_sessions') || '[]');
+        local.forEach((ls: any) => {
+          list.push({
+            id: ls.id,
+            time: ls.time,
+            flock_name: ls.flock_name,
+            barn_name: ls.barn_name,
+            filename: ls.video_filename,
+            total: ls.total_ducks_detected,
+            abnormal: ls.supine_count || ls.abnormal_count,
+            status: 'COMPLETED',
+          });
+        });
+      } catch (e) {}
+    }
+    setAiSessions(list);
   }
 
   const handleSaveProduction = async (e: React.FormEvent) => {
@@ -245,6 +289,62 @@ export default function ReportsPage() {
                   <td className="p-3 font-mono text-slate-400">N/A</td>
                   <td className="p-3"><span className="px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 font-bold text-[10px]">Chưa đủ dữ liệu</span></td>
                 </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* AI SESSIONS LOG TABLE */}
+        <div className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-4">
+          <div className="flex items-center justify-between">
+            <h3 className="font-bold text-slate-900 text-base flex items-center gap-2">
+              <Scan className="w-5 h-5 text-purple-600" />
+              Lịch Sử Các Phiên Phân Tích AI Model (best.pt)
+            </h3>
+            <span className="text-xs text-slate-500 font-mono">Tổng số: {aiSessions.length} phiên</span>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs text-slate-600">
+              <thead className="bg-slate-50 border-b border-slate-200 text-slate-700 font-bold uppercase">
+                <tr>
+                  <th className="p-3">Thời Gian</th>
+                  <th className="p-3">Đàn / Chuồng</th>
+                  <th className="p-3">Tệp Phân Tích</th>
+                  <th className="p-3">Tổng Phát Hiện</th>
+                  <th className="p-3">Số Ca Lật Ngửa / Ủ Rũ</th>
+                  <th className="p-3">Trạng Thái</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {aiSessions.length === 0 ? (
+                  <tr>
+                    <td colSpan={6} className="p-4 text-center text-slate-400">Chưa có phiên phân tích AI nào</td>
+                  </tr>
+                ) : (
+                  aiSessions.map((s, idx) => (
+                    <tr key={idx} className="hover:bg-slate-50">
+                      <td className="p-3 font-mono font-bold text-slate-900">{s.time}</td>
+                      <td className="p-3 font-semibold text-slate-800">{s.barn_name} - {s.flock_name}</td>
+                      <td className="p-3 font-mono text-slate-600 truncate max-w-[150px]">{s.filename}</td>
+                      <td className="p-3 font-bold text-slate-900">{s.total} con</td>
+                      <td className="p-3 font-bold text-purple-700">
+                        {s.abnormal > 0 ? (
+                          <span className="px-2 py-0.5 rounded-full bg-purple-100 text-purple-800 font-bold text-[10px]">
+                            {s.abnormal} ca bất thường
+                          </span>
+                        ) : (
+                          <span className="text-emerald-600">0 ca (Bình thường)</span>
+                        )}
+                      </td>
+                      <td className="p-3">
+                        <span className="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold text-[10px]">
+                          COMPLETED
+                        </span>
+                      </td>
+                    </tr>
+                  ))
+                )}
               </tbody>
             </table>
           </div>

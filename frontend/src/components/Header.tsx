@@ -22,18 +22,26 @@ export function Header() {
   const [notifications, setNotifications] = useState<Notification[]>([]);
 
   useEffect(() => {
-    if (user) {
-      loadNotifications();
-    }
+    loadNotifications();
   }, [user]);
 
   async function loadNotifications() {
+    let apiNotifs: Notification[] = [];
     try {
-      const data = await fetchApi<Notification[]>('/notifications');
-      setNotifications(data || []);
+      apiNotifs = await fetchApi<Notification[]>('/notifications') || [];
     } catch (err) {
       console.error(err);
     }
+
+    let localNotifs: Notification[] = [];
+    if (typeof window !== 'undefined') {
+      try {
+        localNotifs = JSON.parse(localStorage.getItem('duck_ai_notifications') || '[]');
+      } catch (e) {}
+    }
+
+    const all = [...localNotifs, ...apiNotifs];
+    setNotifications(all);
   }
 
   const markRead = async (id: number) => {

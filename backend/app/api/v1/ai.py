@@ -9,7 +9,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, or_
 from sqlalchemy.orm import selectinload
 from app.core.database import get_db
-from app.models.models import AIAnalysisSession, AIDetectionResult, AIAlert, AIAlertSeverity, AIAlertStatus, Flock, Barn
+from app.models.models import AIAnalysisSession, AIDetectionResult, AIAlert, AIAlertSeverity, AIAlertStatus, Flock, Barn, Notification
 from app.schemas.schemas import (
     AIAnalyzeResponse, AIDetectionTrack, AIAlertOut,
     AIAnalysisSessionOut, AIAnalysisSessionCreate,
@@ -272,6 +272,14 @@ async def analyze_video(
                 status=AIAlertStatus.NEW
             )
             db.add(alert)
+            notif = Notification(
+                user_id=current_user.id if current_user else 0,
+                title="CẢNH BÁO AI MODEL BEST.PT",
+                message=msg,
+                type="AI_ALERT",
+                is_read=False
+            )
+            db.add(notif)
 
     await db.commit()
 

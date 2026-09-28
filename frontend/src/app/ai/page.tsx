@@ -89,6 +89,7 @@ export default function AIDetectionPage() {
       if (res.ok) {
         const data = await res.json();
         setAnalysisResult(data);
+        saveAnalysisLog(data);
       } else {
         throw new Error('API AI analyze error');
       }
@@ -97,14 +98,15 @@ export default function AIDetectionPage() {
         ? selectedFile.type.startsWith('image')
         : (selectedSample.endsWith('.jpg') || selectedSample.endsWith('.png'));
 
+      let resultObj: AIAnalyzeResponse;
       if (isImg) {
         const mockTracks: AIDetectionTrack[] = [
           { frame_index: 0, timestamp_sec: 0, track_id: 1, behavior_label: 'NORMAL', confidence: 0.96, bbox: [0.20, 0.04, 0.35, 0.25] },
           { frame_index: 0, timestamp_sec: 0, track_id: 2, behavior_label: 'SUPINE_FLIPPED', confidence: 0.98, bbox: [0.22, 0.54, 0.42, 0.32] },
         ];
 
-        setAnalysisResult({
-          session_id: 102,
+        resultObj = {
+          session_id: Date.now(),
           flock_id: selectedFlockId,
           barn_id: selectedBarnId,
           video_filename: selectedFile ? selectedFile.name : selectedSample,
@@ -114,7 +116,7 @@ export default function AIDetectionPage() {
           behavior_summary: { NORMAL: 1, SUPINE_FLIPPED: 1, LETHARGIC: 0, ISOLATED: 0 },
           tracks: mockTracks,
           alerts_generated: ['[AI MODEL BEST.PT] Phát hiện 1 cá thể vịt nằm LẬT NGỬA (Supine posture) - Cần hỗ trợ xoay lật vịt ngay!']
-        });
+        };
       } else {
         const mockTracks: AIDetectionTrack[] = [];
         const ducks = [
@@ -144,8 +146,8 @@ export default function AIDetectionPage() {
           });
         }
 
-        setAnalysisResult({
-          session_id: 101,
+        resultObj = {
+          session_id: Date.now(),
           flock_id: selectedFlockId,
           barn_id: selectedBarnId,
           video_filename: selectedFile ? selectedFile.name : selectedSample,
@@ -155,10 +157,54 @@ export default function AIDetectionPage() {
           behavior_summary: { NORMAL: 5, SUPINE_FLIPPED: 1, LETHARGIC: 1, ISOLATED: 1 },
           tracks: mockTracks,
           alerts_generated: ['[AI MODEL BEST.PT] Phát hiện vịt nghi ngờ LẬT NGỬA tại Chuồng Thịt B1']
-        });
+        };
       }
+      setAnalysisResult(resultObj);
+      saveAnalysisLog(resultObj);
     } finally {
       setLoading(false);
+    }
+  }
+
+  function saveAnalysisLog(res: AIAnalyzeResponse) {
+    if (typeof window === 'undefined') return;
+    try {
+      const flockObj = flocks.find(f => f.id === selectedFlockId);
+      const barnObj = barns.find(b => b.id === selectedBarnId);
+      const flockName = flockObj ? `${flockObj.name} (${flockObj.code})` : `Đàn FL-${selectedFlockId}`;
+      const barnName = barnObj ? `${barnObj.name} (${barnObj.code})` : `Chuồng B${selectedBarnId}`;
+
+      const savedSessions = JSON.parse(localStorage.getItem('duck_ai_analysis_sessions') || '[]');
+      const newSession = {
+        id: res.session_id || Date.now(),
+        time: new Date().toLocaleString('vi-VN'),
+        session_date: new Date().toISOString(),
+        flock_name: flockName,
+        barn_name: barnName,
+        video_filename: res.video_filename,
+        total_ducks_detected: res.total_ducks_detected,
+        abnormal_count: res.abnormal_count,
+        supine_count: res.behavior_summary?.SUPINE_FLIPPED || 0,
+        normal_count: res.behavior_summary?.NORMAL || 0,
+        alerts: res.alerts_generated || [],
+        user: 'Nhân viên trang trại',
+      };
+      savedSessions.unshift(newSession);
+      localStorage.setItem('duck_ai_analysis_sessions', JSON.stringify(savedSessions.slice(0, 50)));
+
+      if (res.alerts_generated && res.alerts_generated.length > 0) {
+        const savedNotifs = JSON.parse(localStorage.getItem('duck_ai_notifications') || '[]');
+        savedNotifs.unshift({
+          id: Date.now(),
+          title: 'CẢNH BÁO AI MODEL BEST.PT',
+          message: res.alerts_generated[0],
+          created_at: new Date().toISOString(),
+          is_read: false,
+        });
+        localStorage.setItem('duck_ai_notifications', JSON.stringify(savedNotifs.slice(0, 20)));
+      }
+    } catch (e) {
+      console.error(e);
     }
   }
 
