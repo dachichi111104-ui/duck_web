@@ -34,8 +34,9 @@ export default function BarnsPage() {
 
   async function loadBarns() {
     try {
-      const data = await fetchApi<Barn[]>('/barns');
-      setBarns(data || []);
+      const data = await fetchApi<any>('/barns');
+      const bnsList = Array.isArray(data) ? data : (data?.data || data?.items || []);
+      setBarns(bnsList);
     } catch (err) {
       console.error(err);
     } finally {

@@ -56,13 +56,15 @@ export default function InventoryPage() {
   async function loadInventory() {
     try {
       const [itemsData, catsData] = await Promise.all([
-        fetchApi<InventoryItem[]>('/inventory/items'),
-        fetchApi<InventoryCategory[]>('/inventory/categories'),
+        fetchApi<any>('/inventory/items'),
+        fetchApi<any>('/inventory/categories'),
       ]);
-      setItems(itemsData || []);
-      setCategories(catsData || []);
-      if (catsData && catsData.length > 0 && !itemForm.category_id) {
-        setItemForm(prev => ({ ...prev, category_id: catsData[0].id }));
+      const itemsList = Array.isArray(itemsData) ? itemsData : (itemsData?.data || itemsData?.items || []);
+      const catsList = Array.isArray(catsData) ? catsData : (catsData?.data || catsData?.items || []);
+      setItems(itemsList);
+      setCategories(catsList);
+      if (catsList.length > 0 && !itemForm.category_id) {
+        setItemForm(prev => ({ ...prev, category_id: catsList[0].id }));
       }
     } catch (err) {
       console.error(err);

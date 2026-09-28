@@ -65,22 +65,28 @@ export default function VeterinaryPage() {
   async function loadVetData() {
     try {
       const [recs, dis, vacs, flks] = await Promise.all([
-        fetchApi<VetRecord[]>('/veterinary/records'),
-        fetchApi<Disease[]>('/veterinary/diseases'),
-        fetchApi<Vaccination[]>('/veterinary/vaccinations'),
-        fetchApi<Flock[]>('/flocks'),
+        fetchApi<any>('/veterinary/records'),
+        fetchApi<any>('/veterinary/diseases'),
+        fetchApi<any>('/veterinary/vaccinations'),
+        fetchApi<any>('/flocks'),
       ]);
-      setRecords(recs || []);
-      setDiseases(dis || []);
-      setVaccinations(vacs || []);
-      setFlocks(flks || []);
 
-      if (flks && flks.length > 0) {
-        setRecordForm(prev => ({ ...prev, flock_id: flks[0].id }));
-        setVaccinationForm(prev => ({ ...prev, flock_id: flks[0].id }));
+      const recordsList = Array.isArray(recs) ? recs : (recs?.data || recs?.items || []);
+      const diseasesList = Array.isArray(dis) ? dis : (dis?.data || dis?.items || []);
+      const vaccinationsList = Array.isArray(vacs) ? vacs : (vacs?.data || vacs?.items || []);
+      const flocksList = Array.isArray(flks) ? flks : (flks?.data || flks?.items || []);
+
+      setRecords(recordsList);
+      setDiseases(diseasesList);
+      setVaccinations(vaccinationsList);
+      setFlocks(flocksList);
+
+      if (flocksList.length > 0) {
+        setRecordForm(prev => ({ ...prev, flock_id: flocksList[0].id }));
+        setVaccinationForm(prev => ({ ...prev, flock_id: flocksList[0].id }));
       }
-      if (dis && dis.length > 0) {
-        setRecordForm(prev => ({ ...prev, disease_id: dis[0].id }));
+      if (diseasesList.length > 0) {
+        setRecordForm(prev => ({ ...prev, disease_id: diseasesList[0].id }));
       }
     } catch (err) {
       console.error(err);
@@ -92,9 +98,11 @@ export default function VeterinaryPage() {
   // Record CRUD
   const openCreateRecordModal = () => {
     setEditingRecord(null);
+    const safeFlocks = Array.isArray(flocks) ? flocks : [];
+    const safeDiseases = Array.isArray(diseases) ? diseases : [];
     setRecordForm({
-      flock_id: flocks.length > 0 ? flocks[0].id : 1,
-      disease_id: diseases.length > 0 ? diseases[0].id : 1,
+      flock_id: safeFlocks.length > 0 ? safeFlocks[0].id : 1,
+      disease_id: safeDiseases.length > 0 ? safeDiseases[0].id : 1,
       diagnosis_date: new Date().toISOString().split('T')[0],
       status: 'TREATING',
       affected_count: 10,
@@ -144,8 +152,9 @@ export default function VeterinaryPage() {
   // Disease CRUD
   const openCreateDiseaseModal = () => {
     setEditingDisease(null);
+    const safeDiseases = Array.isArray(diseases) ? diseases : [];
     setDiseaseForm({
-      code: `DIS-${(diseases.length + 1).toString().padStart(2, '0')}`,
+      code: `DIS-${(safeDiseases.length + 1).toString().padStart(2, '0')}`,
       name: '',
       symptoms: '',
       treatment: '',
@@ -190,8 +199,9 @@ export default function VeterinaryPage() {
   // Vaccination CRUD
   const openCreateVaccinationModal = () => {
     setEditingVaccination(null);
+    const safeFlocks = Array.isArray(flocks) ? flocks : [];
     setVaccinationForm({
-      flock_id: flocks.length > 0 ? flocks[0].id : 1,
+      flock_id: safeFlocks.length > 0 ? safeFlocks[0].id : 1,
       vaccine_name: '',
       scheduled_date: new Date().toISOString().split('T')[0],
       status: 'SCHEDULED',
@@ -341,7 +351,7 @@ export default function VeterinaryPage() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
-                  {records.map((rec) => (
+                  {(Array.isArray(records) ? records : []).map((rec) => (
                     <tr key={rec.id} className="hover:bg-slate-50/80 transition-colors">
                       <td className="p-4">
                         <p className="font-bold text-slate-900 text-sm">{rec.flock?.name || `Đàn #${rec.flock_id}`}</p>
@@ -387,7 +397,7 @@ export default function VeterinaryPage() {
         {/* SUB-TAB 2: DISEASES REFERENCE */}
         {activeSubTab === 'diseases' && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {diseases.map((d) => (
+            {(Array.isArray(diseases) ? diseases : []).map((d) => (
               <div key={d.id} className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-3 relative group">
                 <div className="flex items-center justify-between">
                   <div>
@@ -447,7 +457,7 @@ export default function VeterinaryPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
-                {vaccinations.map((vac) => (
+                {(Array.isArray(vaccinations) ? vaccinations : []).map((vac) => (
                   <tr key={vac.id} className="hover:bg-slate-50/80 transition-colors">
                     <td className="p-4 font-bold text-slate-900">{vac.flock?.name || `Đàn #${vac.flock_id}`}</td>
                     <td className="p-4 font-semibold text-slate-800">{vac.vaccine_name}</td>
@@ -507,7 +517,7 @@ export default function VeterinaryPage() {
                       onChange={(e) => setRecordForm({ ...recordForm, flock_id: parseInt(e.target.value) })}
                       className="w-full px-3 py-2 rounded-xl border bg-white"
                     >
-                      {flocks.map(f => (
+                      {(Array.isArray(flocks) ? flocks : []).map(f => (
                         <option key={f.id} value={f.id}>{f.name}</option>
                       ))}
                     </select>
@@ -520,7 +530,7 @@ export default function VeterinaryPage() {
                       onChange={(e) => setRecordForm({ ...recordForm, disease_id: parseInt(e.target.value) })}
                       className="w-full px-3 py-2 rounded-xl border bg-white"
                     >
-                      {diseases.map(d => (
+                      {(Array.isArray(diseases) ? diseases : []).map(d => (
                         <option key={d.id} value={d.id}>{d.name}</option>
                       ))}
                     </select>
@@ -703,7 +713,7 @@ export default function VeterinaryPage() {
                     onChange={(e) => setVaccinationForm({ ...vaccinationForm, flock_id: parseInt(e.target.value) })}
                     className="w-full px-3 py-2 rounded-xl border bg-white"
                   >
-                    {flocks.map(f => (
+                    {(Array.isArray(flocks) ? flocks : []).map(f => (
                       <option key={f.id} value={f.id}>{f.name}</option>
                     ))}
                   </select>

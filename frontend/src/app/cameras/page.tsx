@@ -36,13 +36,15 @@ export default function CamerasPage() {
   async function loadCameras() {
     try {
       const [cams, bns] = await Promise.all([
-        fetchApi<CameraType[]>('/cameras'),
-        fetchApi<Barn[]>('/barns'),
+        fetchApi<any>('/cameras'),
+        fetchApi<any>('/barns'),
       ]);
-      setCameras(cams || []);
-      setBarns(bns || []);
-      if (bns && bns.length > 0) {
-        setFormData(prev => ({ ...prev, barn_id: bns[0].id }));
+      const camsList = Array.isArray(cams) ? cams : (cams?.data || cams?.items || []);
+      const bnsList = Array.isArray(bns) ? bns : (bns?.data || bns?.items || []);
+      setCameras(camsList);
+      setBarns(bnsList);
+      if (bnsList.length > 0) {
+        setFormData(prev => ({ ...prev, barn_id: bnsList[0].id }));
       }
     } catch (err) {
       console.error(err);
