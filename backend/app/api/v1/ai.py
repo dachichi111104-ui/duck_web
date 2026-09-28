@@ -33,6 +33,38 @@ def generate_duck_tracks(flock_id: int, barn_id: int, filename: str) -> tuple[Li
     Generates deterministic, realistic duck movement trajectories & behavioral detections
     for video/image simulation including SUPINE_FLIPPED (Lật ngửa) posture detection.
     """
+    ext = os.path.splitext(filename)[1].lower()
+    is_image = ext in [".jpg", ".jpeg", ".png", ".webp", ".bmp"] or "supine" in filename.lower()
+
+    if is_image:
+        num_ducks = 2
+        tracks = [
+            {
+                "frame_index": 0,
+                "timestamp_sec": 0.0,
+                "track_id": 1,
+                "behavior_label": "SUPINE_FLIPPED",
+                "confidence": 0.96,
+                "bbox": [0.18, 0.28, 0.26, 0.22]
+            },
+            {
+                "frame_index": 0,
+                "timestamp_sec": 0.0,
+                "track_id": 2,
+                "behavior_label": "NORMAL",
+                "confidence": 0.93,
+                "bbox": [0.22, 0.58, 0.28, 0.24]
+            }
+        ]
+        behavior_summary = {
+            "NORMAL": 1,
+            "SUPINE_FLIPPED": 1,
+            "LETHARGIC": 0,
+            "ISOLATED": 0,
+            "FEVER_GROUPING": 0
+        }
+        return tracks, behavior_summary, 2, 1
+
     random.seed(flock_id * 100 + len(filename))
     
     num_ducks = 12
@@ -105,6 +137,8 @@ def generate_duck_tracks(flock_id: int, barn_id: int, filename: str) -> tuple[Li
                 "confidence": conf,
                 "bbox": [round(cx, 4), round(cy, 4), d["w"], d["h"]]
             })
+
+    return tracks, behavior_summary, num_ducks, abnormal_count
 
     return tracks, behavior_summary, num_ducks, abnormal_count
 

@@ -99,11 +99,8 @@ export default function AIDetectionPage() {
 
       if (isImg) {
         const mockTracks: AIDetectionTrack[] = [
-          { frame_index: 0, timestamp_sec: 0, track_id: 1, behavior_label: 'NORMAL', confidence: 0.96, bbox: [0.15, 0.25, 0.12, 0.14] },
-          { frame_index: 0, timestamp_sec: 0, track_id: 2, behavior_label: 'SUPINE_FLIPPED', confidence: 0.98, bbox: [0.42, 0.38, 0.16, 0.18] },
-          { frame_index: 0, timestamp_sec: 0, track_id: 3, behavior_label: 'NORMAL', confidence: 0.94, bbox: [0.65, 0.22, 0.12, 0.14] },
-          { frame_index: 0, timestamp_sec: 0, track_id: 4, behavior_label: 'LETHARGIC', confidence: 0.91, bbox: [0.25, 0.62, 0.14, 0.15] },
-          { frame_index: 0, timestamp_sec: 0, track_id: 5, behavior_label: 'NORMAL', confidence: 0.95, bbox: [0.75, 0.68, 0.12, 0.14] },
+          { frame_index: 0, timestamp_sec: 0, track_id: 1, behavior_label: 'SUPINE_FLIPPED', confidence: 0.96, bbox: [0.18, 0.28, 0.26, 0.22] },
+          { frame_index: 0, timestamp_sec: 0, track_id: 2, behavior_label: 'NORMAL', confidence: 0.93, bbox: [0.22, 0.58, 0.28, 0.24] },
         ];
 
         setAnalysisResult({
@@ -112,11 +109,11 @@ export default function AIDetectionPage() {
           barn_id: selectedBarnId,
           video_filename: selectedFile ? selectedFile.name : selectedSample,
           duration_seconds: 1.0,
-          total_ducks_detected: 5,
-          abnormal_count: 2,
-          behavior_summary: { NORMAL: 3, SUPINE_FLIPPED: 1, LETHARGIC: 1 },
+          total_ducks_detected: 2,
+          abnormal_count: 1,
+          behavior_summary: { NORMAL: 1, SUPINE_FLIPPED: 1, LETHARGIC: 0, ISOLATED: 0 },
           tracks: mockTracks,
-          alerts_generated: ['[AI MODEL BEST.PT] Phát hiện 1 vịt nằm LẬT NGỬA (Supine posture) - Cần hỗ trợ xoay lật vịt ngay!']
+          alerts_generated: ['[AI MODEL BEST.PT] Phát hiện 1 cá thể vịt nằm LẬT NGỬA (Supine posture) - Cần hỗ trợ xoay lật vịt ngay!']
         });
       } else {
         const mockTracks: AIDetectionTrack[] = [];
