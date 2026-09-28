@@ -52,7 +52,17 @@ export async function fetchApi<T>(endpoint: string, options: RequestInit = {}): 
 
     if (!res.ok) {
       const errData = await res.json().catch(() => ({ detail: 'Lỗi hệ thống' }));
-      throw new Error(errData.detail || `HTTP Error ${res.status}`);
+      let detailMsg = 'Lỗi hệ thống';
+      if (typeof errData.detail === 'string') {
+        detailMsg = errData.detail;
+      } else if (Array.isArray(errData.detail)) {
+        detailMsg = errData.detail.map((e: any) => `${e.loc ? e.loc.join('.') + ': ' : ''}${e.msg || JSON.stringify(e)}`).join('\n');
+      } else if (errData.detail && typeof errData.detail === 'object') {
+        detailMsg = JSON.stringify(errData.detail);
+      } else if (errData.message) {
+        detailMsg = typeof errData.message === 'string' ? errData.message : JSON.stringify(errData.message);
+      }
+      throw new Error(detailMsg || `HTTP Error ${res.status}`);
     }
 
     return await res.json();

@@ -71,13 +71,41 @@ export default function InventoryPage() {
     }
   }
 
+  // Generate auto-increment code based on Category
+  const generateItemCode = (catId: number, categoriesList: InventoryCategory[] = categories, itemsList: InventoryItem[] = items): string => {
+    const cat = categoriesList.find(c => c.id === catId);
+    let prefix = 'VT';
+    if (cat && cat.name) {
+      const nameUpper = cat.name.toUpperCase();
+      if (nameUpper.includes('THỨC ĂN') || nameUpper.includes('CÁM')) prefix = 'TA';
+      else if (nameUpper.includes('VẮC XIN') || nameUpper.includes('VACCINE')) prefix = 'VX';
+      else if (nameUpper.includes('THUỐC') || nameUpper.includes('THÚ Y')) prefix = 'TY';
+      else if (nameUpper.includes('THIẾT BỊ') || nameUpper.includes('DỤNG CỤ')) prefix = 'TB';
+      else {
+        const words = cat.name.trim().split(/\s+/);
+        if (words.length >= 2) {
+          prefix = (words[0][0] + words[1][0]).toUpperCase();
+        } else if (words[0].length >= 2) {
+          prefix = words[0].slice(0, 2).toUpperCase();
+        }
+      }
+    }
+
+    const sameCatItems = itemsList.filter(i => i.category_id === catId || (i.code && i.code.startsWith(prefix)));
+    const nextNum = sameCatItems.length + 1;
+    const numStr = nextNum < 10 ? `00${nextNum}` : nextNum < 100 ? `0${nextNum}` : `${nextNum}`;
+    return `${prefix}-${numStr}`;
+  };
+
   // Open Create Item Modal
   const openCreateItemModal = () => {
     setEditingItem(null);
+    const initialCatId = categories.length > 0 ? categories[0].id : 1;
+    const autoCode = generateItemCode(initialCatId);
     setItemForm({
-      code: `VT-${Date.now().toString().slice(-4)}`,
+      code: autoCode,
       name: '',
-      category_id: categories.length > 0 ? categories[0].id : 1,
+      category_id: initialCatId,
       unit: 'Kg',
       min_quantity: 10,
       current_quantity: 100,
@@ -86,6 +114,16 @@ export default function InventoryPage() {
       notes: '',
     });
     setShowItemModal(true);
+  };
+
+  // Handle Category Select Change
+  const handleCategoryChange = (catId: number) => {
+    const newCode = editingItem ? itemForm.code : generateItemCode(catId);
+    setItemForm(prev => ({
+      ...prev,
+      category_id: catId,
+      code: newCode,
+    }));
   };
 
   // Open Edit Item Modal
@@ -109,15 +147,20 @@ export default function InventoryPage() {
   const handleSaveItem = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      const payload = {
+        ...itemForm,
+        expiry_date: itemForm.expiry_date && itemForm.expiry_date.trim() !== '' ? itemForm.expiry_date : null,
+      };
+
       if (editingItem) {
         await fetchApi(`/inventory/items/${editingItem.id}`, {
           method: 'PUT',
-          body: JSON.stringify(itemForm),
+          body: JSON.stringify(payload),
         });
       } else {
         await fetchApi('/inventory/items', {
           method: 'POST',
-          body: JSON.stringify(itemForm),
+          body: JSON.stringify(payload),
         });
       }
       setShowItemModal(false);
@@ -331,13 +374,15 @@ export default function InventoryPage() {
               <form onSubmit={handleSaveItem} className="space-y-3 text-xs">
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">Mã vật tư *</label>
+                    <label className="block font-bold text-slate-700 mb-1">Mã vật tư (Tự tăng) *</label>
                     <input
                       type="text"
                       required
+                      readOnly
+                      disabled
                       value={itemForm.code}
-                      onChange={(e) => setItemForm({ ...itemForm, code: e.target.value })}
-                      className="w-full px-3 py-2 rounded-xl border"
+                      className="w-full px-3 py-2 rounded-xl border bg-slate-100 text-slate-500 font-mono font-bold cursor-not-allowed"
+                      title="Mã vật tư tự động tạo theo danh mục (Không thể chỉnh sửa)"
                     />
                   </div>
                   <div>
@@ -358,8 +403,8 @@ export default function InventoryPage() {
                     <label className="block font-bold text-slate-700 mb-1">Danh mục *</label>
                     <select
                       value={itemForm.category_id}
-                      onChange={(e) => setItemForm({ ...itemForm, category_id: parseInt(e.target.value) })}
-                      className="w-full px-3 py-2 rounded-xl border bg-white"
+                      onChange={(e) => handleCategoryChange(parseInt(e.target.value))}
+                      className="w-full px-3 py-2 rounded-xl border bg-white font-medium"
                     >
                       {categories.map(cat => (
                         <option key={cat.id} value={cat.id}>{cat.name}</option>
