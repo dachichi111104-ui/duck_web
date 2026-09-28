@@ -277,29 +277,16 @@ export default function FlocksPage() {
               </div>
 
               <form onSubmit={handleSaveFlock} className="space-y-3 text-xs">
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className="block font-bold text-slate-700 mb-1">Mã đàn *</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="FL-2026-05"
-                      value={formData.code}
-                      onChange={(e) => setFormData({ ...formData, code: e.target.value })}
-                      className="w-full px-3 py-2 rounded-xl border"
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-bold text-slate-700 mb-1">Tên đàn vịt *</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Đàn vịt giống F1 đợt mới..."
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3 py-2 rounded-xl border"
-                    />
-                  </div>
+                <div>
+                  <label className="block font-bold text-slate-700 mb-1">Tên đàn vịt *</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="Đàn vịt giống F1 đợt mới..."
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full px-3 py-2 rounded-xl border"
+                  />
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">

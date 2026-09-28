@@ -145,7 +145,7 @@ export default function VeterinaryPage() {
   const openCreateDiseaseModal = () => {
     setEditingDisease(null);
     setDiseaseForm({
-      code: `BENH-${Date.now().toString().slice(-4)}`,
+      code: `DIS-${(diseases.length + 1).toString().padStart(2, '0')}`,
       name: '',
       symptoms: '',
       treatment: '',
@@ -618,30 +618,18 @@ export default function VeterinaryPage() {
               </div>
 
               <form onSubmit={handleSaveDisease} className="space-y-3 text-xs">
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className="block font-bold text-slate-700 mb-1">Mã bệnh *</label>
-                    <input
-                      type="text"
-                      required
-                      value={diseaseForm.code}
-                      onChange={(e) => setDiseaseForm({ ...diseaseForm, code: e.target.value })}
-                      className="w-full px-3 py-2 rounded-xl border"
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-bold text-slate-700 mb-1">Mức độ nghiêm trọng</label>
-                    <select
-                      value={diseaseForm.severity}
-                      onChange={(e) => setDiseaseForm({ ...diseaseForm, severity: e.target.value as any })}
-                      className="w-full px-3 py-2 rounded-xl border bg-white"
-                    >
-                      <option value="LOW">Nhẹ (LOW)</option>
-                      <option value="MEDIUM">Vừa (MEDIUM)</option>
-                      <option value="HIGH">Nặng (HIGH)</option>
-                      <option value="CRITICAL">Nguy hiểm (CRITICAL)</option>
-                    </select>
-                  </div>
+                <div>
+                  <label className="block font-bold text-slate-700 mb-1">Mức độ nghiêm trọng</label>
+                  <select
+                    value={diseaseForm.severity}
+                    onChange={(e) => setDiseaseForm({ ...diseaseForm, severity: e.target.value as any })}
+                    className="w-full px-3 py-2 rounded-xl border bg-white"
+                  >
+                    <option value="LOW">Nhẹ (LOW)</option>
+                    <option value="MEDIUM">Vừa (MEDIUM)</option>
+                    <option value="HIGH">Nặng (HIGH)</option>
+                    <option value="CRITICAL">Nguy hiểm (CRITICAL)</option>
+                  </select>
                 </div>
 
                 <div>

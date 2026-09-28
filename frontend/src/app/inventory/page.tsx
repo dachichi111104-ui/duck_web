@@ -71,37 +71,18 @@ export default function InventoryPage() {
     }
   }
 
-  // Generate auto-increment code based on Category
-  const generateItemCode = (catId: number, categoriesList: InventoryCategory[] = categories, itemsList: InventoryItem[] = items): string => {
-    const cat = categoriesList.find(c => c.id === catId);
-    let prefix = 'VT';
-    if (cat && cat.name) {
-      const nameUpper = cat.name.toUpperCase();
-      if (nameUpper.includes('THỨC ĂN') || nameUpper.includes('CÁM')) prefix = 'TA';
-      else if (nameUpper.includes('VẮC XIN') || nameUpper.includes('VACCINE')) prefix = 'VX';
-      else if (nameUpper.includes('THUỐC') || nameUpper.includes('THÚ Y')) prefix = 'TY';
-      else if (nameUpper.includes('THIẾT BỊ') || nameUpper.includes('DỤNG CỤ')) prefix = 'TB';
-      else {
-        const words = cat.name.trim().split(/\s+/);
-        if (words.length >= 2) {
-          prefix = (words[0][0] + words[1][0]).toUpperCase();
-        } else if (words[0].length >= 2) {
-          prefix = words[0].slice(0, 2).toUpperCase();
-        }
-      }
-    }
-
-    const sameCatItems = itemsList.filter(i => i.category_id === catId || (i.code && i.code.startsWith(prefix)));
-    const nextNum = sameCatItems.length + 1;
+  // Generate fixed VT auto-increment code
+  const generateItemCode = (itemsList: InventoryItem[] = items): string => {
+    const nextNum = itemsList.length + 1;
     const numStr = nextNum < 10 ? `00${nextNum}` : nextNum < 100 ? `0${nextNum}` : `${nextNum}`;
-    return `${prefix}-${numStr}`;
+    return `VT-${numStr}`;
   };
 
   // Open Create Item Modal
   const openCreateItemModal = () => {
     setEditingItem(null);
     const initialCatId = categories.length > 0 ? categories[0].id : 1;
-    const autoCode = generateItemCode(initialCatId);
+    const autoCode = generateItemCode();
     setItemForm({
       code: autoCode,
       name: '',
@@ -118,11 +99,9 @@ export default function InventoryPage() {
 
   // Handle Category Select Change
   const handleCategoryChange = (catId: number) => {
-    const newCode = editingItem ? itemForm.code : generateItemCode(catId);
     setItemForm(prev => ({
       ...prev,
       category_id: catId,
-      code: newCode,
     }));
   };
 
@@ -372,30 +351,16 @@ export default function InventoryPage() {
               </div>
 
               <form onSubmit={handleSaveItem} className="space-y-3 text-xs">
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className="block font-bold text-slate-700 mb-1">Mã vật tư (Tự tăng) *</label>
-                    <input
-                      type="text"
-                      required
-                      readOnly
-                      disabled
-                      value={itemForm.code}
-                      className="w-full px-3 py-2 rounded-xl border bg-slate-100 text-slate-500 font-mono font-bold cursor-not-allowed"
-                      title="Mã vật tư tự động tạo theo danh mục (Không thể chỉnh sửa)"
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-bold text-slate-700 mb-1">Tên vật tư *</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Cám hỗn hợp Vina..."
-                      value={itemForm.name}
-                      onChange={(e) => setItemForm({ ...itemForm, name: e.target.value })}
-                      className="w-full px-3 py-2 rounded-xl border"
-                    />
-                  </div>
+                <div>
+                  <label className="block font-bold text-slate-700 mb-1">Tên vật tư *</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="Cám hỗn hợp Vina..."
+                    value={itemForm.name}
+                    onChange={(e) => setItemForm({ ...itemForm, name: e.target.value })}
+                    className="w-full px-3 py-2 rounded-xl border"
+                  />
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">

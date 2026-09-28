@@ -211,18 +211,6 @@ export default function BarnsPage() {
 
               <form onSubmit={handleSaveBarn} className="space-y-3 text-xs">
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Mã chuồng *</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="CH-05"
-                    value={formData.code}
-                    onChange={(e) => setFormData({ ...formData, code: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl border"
-                  />
-                </div>
-
-                <div>
                   <label className="block font-bold text-slate-700 mb-1">Tên chuồng *</label>
                   <input
                     type="text"

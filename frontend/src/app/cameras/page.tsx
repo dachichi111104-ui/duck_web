@@ -205,29 +205,17 @@ export default function CamerasPage() {
               </div>
 
               <form onSubmit={handleSaveCamera} className="space-y-3 text-xs">
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className="block font-bold text-slate-700 mb-1">Mã Camera</label>
-                    <input
-                      type="text"
-                      placeholder="CAM-01"
-                      value={formData.code}
-                      onChange={(e) => setFormData({ ...formData, code: e.target.value })}
-                      className="w-full px-3 py-2 rounded-xl border"
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-bold text-slate-700 mb-1">Trạng thái</label>
-                    <select
-                      value={formData.status}
-                      onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                      className="w-full px-3 py-2 rounded-xl border bg-white"
-                    >
-                      <option value="ONLINE">ONLINE (Đang hoạt động)</option>
-                      <option value="OFFLINE">OFFLINE (Mất kết nối)</option>
-                      <option value="MAINTENANCE">MAINTENANCE (Bảo trì)</option>
-                    </select>
-                  </div>
+                <div>
+                  <label className="block font-bold text-slate-700 mb-1">Trạng thái</label>
+                  <select
+                    value={formData.status}
+                    onChange={(e) => setFormData({ ...formData, status: e.target.value })}
+                    className="w-full px-3 py-2 rounded-xl border bg-white"
+                  >
+                    <option value="ONLINE">ONLINE (Đang hoạt động)</option>
+                    <option value="OFFLINE">OFFLINE (Mất kết nối)</option>
+                    <option value="MAINTENANCE">MAINTENANCE (Bảo trì)</option>
+                  </select>
                 </div>
 
                 <div>
