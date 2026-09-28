@@ -19,6 +19,7 @@ export function VideoCanvasOverlay({ tracks, videoUrl, durationSeconds = 15 }: V
   const behaviorColors: Record<string, { stroke: string; fill: string; label: string }> = {
     NORMAL: { stroke: '#2E7D32', fill: 'rgba(46, 125, 50, 0.2)', label: 'Bình thường' },
     LETHARGIC: { stroke: '#F4A62D', fill: 'rgba(244, 166, 45, 0.25)', label: 'Ủ rũ / Ít vận động' },
+    SUPINE_FLIPPED: { stroke: '#9C27B0', fill: 'rgba(156, 39, 176, 0.35)', label: 'Nghi LẬT NGỬA (Nguy hiểm)' },
     ISOLATED: { stroke: '#D32F2F', fill: 'rgba(211, 47, 47, 0.25)', label: 'Tách đàn / Nghi bệnh' },
     FEVER_GROUPING: { stroke: '#FF9800', fill: 'rgba(255, 152, 0, 0.25)', label: 'Tụ tập cụm sốt' },
   };

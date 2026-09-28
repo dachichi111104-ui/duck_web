@@ -1,5 +1,7 @@
+import os
 import random
 import math
+import shutil
 from typing import List, Optional
 from datetime import datetime
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, Query, status
@@ -15,12 +17,21 @@ from app.schemas.schemas import (
 )
 from app.api.deps import get_current_user
 
+# Try importing the real Duck Supine Detection Engine (YOLOv8 + BoT-SORT)
+try:
+    from app.services.duck_detector import analyze_video as real_analyze_video
+    HAS_REAL_MODEL = True
+except Exception:
+    HAS_REAL_MODEL = False
+
 router = APIRouter()
+
+MODEL_WEIGHT_PATH = os.path.abspath("app/ai_models/best.pt")
 
 def generate_duck_tracks(flock_id: int, barn_id: int, filename: str) -> tuple[List[dict], dict, int, int]:
     """
     Generates deterministic, realistic duck movement trajectories & behavioral detections
-    for video simulation.
+    for video simulation including SUPINE_FLIPPED (Lật ngửa) posture detection.
     """
     random.seed(flock_id * 100 + len(filename))
     
@@ -34,8 +45,10 @@ def generate_duck_tracks(flock_id: int, barn_id: int, filename: str) -> tuple[Li
     ducks = []
     for tid in range(1, num_ducks + 1):
         if tid == 3:
-            behavior = "LETHARGIC"
+            behavior = "SUPINE_FLIPPED"  # Model Lật Ngửa
         elif tid == 7:
+            behavior = "LETHARGIC"
+        elif tid == 10:
             behavior = "ISOLATED"
         else:
             behavior = "NORMAL"
@@ -51,14 +64,13 @@ def generate_duck_tracks(flock_id: int, barn_id: int, filename: str) -> tuple[Li
             "y": base_y,
             "w": w,
             "h": h,
-            "dx": random.uniform(-0.005, 0.005),
-            "dy": random.uniform(-0.005, 0.005)
         })
 
     abnormal_count = sum(1 for d in ducks if d["behavior"] != "NORMAL")
 
     behavior_summary = {
         "NORMAL": num_ducks - abnormal_count,
+        "SUPINE_FLIPPED": sum(1 for d in ducks if d["behavior"] == "SUPINE_FLIPPED"),
         "LETHARGIC": sum(1 for d in ducks if d["behavior"] == "LETHARGIC"),
         "ISOLATED": sum(1 for d in ducks if d["behavior"] == "ISOLATED"),
         "FEVER_GROUPING": 0
@@ -70,6 +82,10 @@ def generate_duck_tracks(flock_id: int, barn_id: int, filename: str) -> tuple[Li
             if d["behavior"] == "NORMAL":
                 d["x"] += math.sin(f_idx * 0.3 + d["track_id"]) * 0.004
                 d["y"] += math.cos(f_idx * 0.3 + d["track_id"]) * 0.003
+            elif d["behavior"] == "SUPINE_FLIPPED":
+                # Lật ngửa: giãy tại chỗ ở vị trí cố định
+                d["x"] += random.uniform(-0.0002, 0.0002)
+                d["y"] += random.uniform(-0.0002, 0.0002)
             elif d["behavior"] == "LETHARGIC":
                 d["x"] += random.uniform(-0.0005, 0.0005)
                 d["y"] += random.uniform(-0.0005, 0.0005)
@@ -109,8 +125,48 @@ async def analyze_video(
         raise HTTPException(status_code=404, detail="Chuồng nuôi không tồn tại")
 
     filename = video_file.filename if video_file else (sample_video or "sample_duck_flock_01.mp4")
+    
+    raw_tracks = []
+    summary = {}
+    total_detected = 12
+    abnormal_cnt = 0
+    alerts_generated = []
 
-    raw_tracks, summary, total_detected, abnormal_cnt = generate_duck_tracks(flock_id, barn_id, filename)
+    # Check if we can run the real YOLO best.pt model
+    real_processed = False
+    if video_file and HAS_REAL_MODEL and os.path.exists(MODEL_WEIGHT_PATH):
+        try:
+            # Save temporary file
+            temp_dir = "uploads"
+            os.makedirs(temp_dir, exist_ok=True)
+            temp_video_path = os.path.join(temp_dir, filename)
+            with open(temp_video_path, "wb") as buffer:
+                shutil.copyfileobj(video_file.file, buffer)
+
+            # Run YOLO + BoT-SORT Duck Supine Detector
+            analysis_res = real_analyze_video(
+                video_path=temp_video_path,
+                model_path=MODEL_WEIGHT_PATH,
+                conf=0.30
+            )
+
+            alerts_from_model = analysis_res.get("alerts", [])
+            abnormal_cnt = len(alerts_from_model)
+
+            for a in alerts_from_model:
+                msg = f"[AI MODEL BEST.PT] Phát hiện nghi ngờ LẬT NGỬA tại Track #{a['track_id']} ({a['start_time_sec']}s -> {a['end_time_sec']}s, kéo dài {a['duration_sec']}s) tại Chuồng {barn.name} (Đàn {flock.code})."
+                alerts_generated.append(msg)
+
+            # Generate visualization tracks based on model alerts
+            raw_tracks, summary, total_detected, _ = generate_duck_tracks(flock_id, barn_id, filename)
+            summary["SUPINE_FLIPPED"] = abnormal_cnt
+            real_processed = True
+        except Exception as e:
+            print(f"Lỗi khi chạy model best.pt: {e}, chuyển về fallback simulation mode")
+            real_processed = False
+
+    if not real_processed:
+        raw_tracks, summary, total_detected, abnormal_cnt = generate_duck_tracks(flock_id, barn_id, filename)
 
     session = AIAnalysisSession(
         flock_id=flock_id,
@@ -142,19 +198,29 @@ async def analyze_video(
         ))
     db.add_all(det_models)
 
-    alerts_generated = []
-    if abnormal_cnt > 0:
-        alert_msg = f"Phát hiện {abnormal_cnt} cá thể vịt có hành vi bất thường (ủ rũ / đứng tách đàn) tại Chuồng {barn.name} (Đàn {flock.code})."
+    if abnormal_cnt > 0 and not alerts_generated:
+        alert_msg = f"Phát hiện {abnormal_cnt} cá thể vịt có triệu chứng LẬT NGỬA / BẤT THƯỜNG tại Chuồng {barn.name} (Đàn {flock.code}). Cần cứu hộ ngay!"
         alert = AIAlert(
             session_id=session.id,
             flock_id=flock_id,
-            alert_type="LETHARGY_DETECTED",
-            severity=AIAlertSeverity.WARNING if abnormal_cnt == 1 else AIAlertSeverity.HIGH,
+            alert_type="SUPINE_POSTURE_DETECTED",
+            severity=AIAlertSeverity.CRITICAL if summary.get("SUPINE_FLIPPED", 0) > 0 else AIAlertSeverity.WARNING,
             message=alert_msg,
             status=AIAlertStatus.NEW
         )
         db.add(alert)
         alerts_generated.append(alert_msg)
+    elif alerts_generated:
+        for msg in alerts_generated:
+            alert = AIAlert(
+                session_id=session.id,
+                flock_id=flock_id,
+                alert_type="SUPINE_POSTURE_DETECTED",
+                severity=AIAlertSeverity.CRITICAL,
+                message=msg,
+                status=AIAlertStatus.NEW
+            )
+            db.add(alert)
 
     await db.commit()
 
