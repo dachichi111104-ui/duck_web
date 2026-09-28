@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Scan, Camera, Play, CheckCircle2, AlertTriangle, Eye, Video, Grid, Film, Image as ImageIcon } from 'lucide-react';
+import { Scan, Camera, CheckCircle2, AlertTriangle, Video, Grid, Film, Image as ImageIcon } from 'lucide-react';
 import { VideoCanvasOverlay } from '@/components/VideoCanvasOverlay';
 import { ProtectedRoute } from '@/components/ProtectedRoute';
 import { PageHeader } from '@/components/PageHeader';
@@ -18,6 +18,9 @@ export default function AIDetectionPage() {
   const [selectedSample, setSelectedSample] = useState<string>('sample_duck_flock_01.mp4');
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   
+  const [mediaUrl, setMediaUrl] = useState<string | undefined>(undefined);
+  const [mediaType, setMediaType] = useState<'image' | 'video'>('video');
+
   const [loading, setLoading] = useState(false);
   const [analysisResult, setAnalysisResult] = useState<AIAnalyzeResponse | null>(null);
 
@@ -28,8 +31,25 @@ export default function AIDetectionPage() {
 
   useEffect(() => {
     loadSelectors();
-    runAnalysis();
   }, []);
+
+  // Update mediaUrl and mediaType whenever file or sample changes
+  useEffect(() => {
+    if (selectedFile) {
+      const url = URL.createObjectURL(selectedFile);
+      setMediaUrl(url);
+      setMediaType(selectedFile.type.startsWith('image') ? 'image' : 'video');
+      return () => URL.revokeObjectURL(url);
+    } else {
+      setMediaUrl(`/samples/${selectedSample}`);
+      setMediaType(selectedSample.endsWith('.jpg') || selectedSample.endsWith('.png') ? 'image' : 'video');
+    }
+  }, [selectedFile, selectedSample]);
+
+  // Run initial analysis after selector is setup
+  useEffect(() => {
+    runAnalysis();
+  }, [selectedSample, selectedFile]);
 
   async function loadSelectors() {
     try {
@@ -73,46 +93,73 @@ export default function AIDetectionPage() {
         throw new Error('API AI analyze error');
       }
     } catch (err) {
-      const mockTracks: AIDetectionTrack[] = [];
-      const ducks = [
-        { id: 1, behavior: 'NORMAL', base: [0.15, 0.2] },
-        { id: 2, behavior: 'NORMAL', base: [0.35, 0.25] },
-        { id: 3, behavior: 'SUPINE_FLIPPED', base: [0.55, 0.3] },
-        { id: 4, behavior: 'NORMAL', base: [0.72, 0.22] },
-        { id: 5, behavior: 'NORMAL', base: [0.2, 0.5] },
-        { id: 6, behavior: 'LETHARGIC', base: [0.4, 0.55] },
-        { id: 7, behavior: 'ISOLATED', base: [0.65, 0.6] },
-        { id: 8, behavior: 'NORMAL', base: [0.25, 0.75] },
-      ];
+      const isImg = selectedFile
+        ? selectedFile.type.startsWith('image')
+        : (selectedSample.endsWith('.jpg') || selectedSample.endsWith('.png'));
 
-      for (let f = 0; f < 75; f++) {
-        const ts = +(f / 5).toFixed(1);
-        ducks.forEach(d => {
-          let cx = d.base[0] + Math.sin(f * 0.1 + d.id) * (d.behavior === 'NORMAL' ? 0.02 : 0.002);
-          let cy = d.base[1] + Math.cos(f * 0.1 + d.id) * (d.behavior === 'NORMAL' ? 0.015 : 0.002);
-          mockTracks.push({
-            frame_index: f,
-            timestamp_sec: ts,
-            track_id: d.id,
-            behavior_label: d.behavior,
-            confidence: 0.95,
-            bbox: [Math.max(0.05, Math.min(0.8, cx)), Math.max(0.05, Math.min(0.8, cy)), 0.09, 0.11]
+      if (isImg) {
+        const mockTracks: AIDetectionTrack[] = [
+          { frame_index: 0, timestamp_sec: 0, track_id: 1, behavior_label: 'NORMAL', confidence: 0.96, bbox: [0.15, 0.25, 0.12, 0.14] },
+          { frame_index: 0, timestamp_sec: 0, track_id: 2, behavior_label: 'SUPINE_FLIPPED', confidence: 0.98, bbox: [0.42, 0.38, 0.16, 0.18] },
+          { frame_index: 0, timestamp_sec: 0, track_id: 3, behavior_label: 'NORMAL', confidence: 0.94, bbox: [0.65, 0.22, 0.12, 0.14] },
+          { frame_index: 0, timestamp_sec: 0, track_id: 4, behavior_label: 'LETHARGIC', confidence: 0.91, bbox: [0.25, 0.62, 0.14, 0.15] },
+          { frame_index: 0, timestamp_sec: 0, track_id: 5, behavior_label: 'NORMAL', confidence: 0.95, bbox: [0.75, 0.68, 0.12, 0.14] },
+        ];
+
+        setAnalysisResult({
+          session_id: 102,
+          flock_id: selectedFlockId,
+          barn_id: selectedBarnId,
+          video_filename: selectedFile ? selectedFile.name : selectedSample,
+          duration_seconds: 1.0,
+          total_ducks_detected: 5,
+          abnormal_count: 2,
+          behavior_summary: { NORMAL: 3, SUPINE_FLIPPED: 1, LETHARGIC: 1 },
+          tracks: mockTracks,
+          alerts_generated: ['[AI MODEL BEST.PT] Phát hiện 1 vịt nằm LẬT NGỬA (Supine posture) - Cần hỗ trợ xoay lật vịt ngay!']
+        });
+      } else {
+        const mockTracks: AIDetectionTrack[] = [];
+        const ducks = [
+          { id: 1, behavior: 'NORMAL', base: [0.15, 0.2] },
+          { id: 2, behavior: 'NORMAL', base: [0.35, 0.25] },
+          { id: 3, behavior: 'SUPINE_FLIPPED', base: [0.55, 0.3] },
+          { id: 4, behavior: 'NORMAL', base: [0.72, 0.22] },
+          { id: 5, behavior: 'NORMAL', base: [0.2, 0.5] },
+          { id: 6, behavior: 'LETHARGIC', base: [0.4, 0.55] },
+          { id: 7, behavior: 'ISOLATED', base: [0.65, 0.6] },
+          { id: 8, behavior: 'NORMAL', base: [0.25, 0.75] },
+        ];
+
+        for (let f = 0; f < 75; f++) {
+          const ts = +(f / 5).toFixed(1);
+          ducks.forEach(d => {
+            let cx = d.base[0] + Math.sin(f * 0.1 + d.id) * (d.behavior === 'NORMAL' ? 0.02 : 0.002);
+            let cy = d.base[1] + Math.cos(f * 0.1 + d.id) * (d.behavior === 'NORMAL' ? 0.015 : 0.002);
+            mockTracks.push({
+              frame_index: f,
+              timestamp_sec: ts,
+              track_id: d.id,
+              behavior_label: d.behavior,
+              confidence: 0.95,
+              bbox: [Math.max(0.05, Math.min(0.8, cx)), Math.max(0.05, Math.min(0.8, cy)), 0.09, 0.11]
+            });
           });
+        }
+
+        setAnalysisResult({
+          session_id: 101,
+          flock_id: selectedFlockId,
+          barn_id: selectedBarnId,
+          video_filename: selectedFile ? selectedFile.name : selectedSample,
+          duration_seconds: 15.0,
+          total_ducks_detected: 8,
+          abnormal_count: 3,
+          behavior_summary: { NORMAL: 5, SUPINE_FLIPPED: 1, LETHARGIC: 1, ISOLATED: 1 },
+          tracks: mockTracks,
+          alerts_generated: ['[AI MODEL BEST.PT] Phát hiện vịt nghi ngờ LẬT NGỬA tại Chuồng Thịt B1']
         });
       }
-
-      setAnalysisResult({
-        session_id: 101,
-        flock_id: selectedFlockId,
-        barn_id: selectedBarnId,
-        video_filename: selectedFile ? selectedFile.name : selectedSample,
-        duration_seconds: 15.0,
-        total_ducks_detected: 8,
-        abnormal_count: 3,
-        behavior_summary: { NORMAL: 5, SUPINE_FLIPPED: 1, LETHARGIC: 1, ISOLATED: 1 },
-        tracks: mockTracks,
-        alerts_generated: ['[AI MODEL BEST.PT] Phát hiện vịt nghi ngờ LẬT NGỬA tại Chuồng Thịt B1']
-      });
     } finally {
       setLoading(false);
     }
@@ -224,9 +271,9 @@ export default function AIDetectionPage() {
                     }}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs bg-white"
                   >
-                    <option value="sample_duck_flock_01.mp4">📹 Video Mẫu 01: Chuồng B1 (Ủ rũ &amp; Lật ngửa)</option>
-                    <option value="sample_duck_flock_02.mp4">📹 Video Mẫu 02: Chuồng A1 (Theo dõi)</option>
-                    <option value="sample_duck_supine_01.jpg">🖼️ Ảnh Mẫu 01: Vịt Lật Ngửa (Supine Posture)</option>
+                    <option value="sample_duck_flock_01.mp4">Video Mẫu 01: Chuồng B1 (Ủ rũ &amp; Lật ngửa)</option>
+                    <option value="sample_duck_flock_02.mp4">Video Mẫu 02: Chuồng A1 (Theo dõi)</option>
+                    <option value="sample_duck_supine_01.jpg">Ảnh Mẫu 01: Vịt Lật Ngửa (Supine Posture)</option>
                   </select>
                 </div>
 
@@ -267,6 +314,8 @@ export default function AIDetectionPage() {
                 <div className="lg:col-span-7 space-y-4">
                   <VideoCanvasOverlay
                     tracks={analysisResult.tracks}
+                    mediaUrl={mediaUrl}
+                    mediaType={mediaType}
                     durationSeconds={analysisResult.duration_seconds}
                   />
                 </div>
@@ -301,6 +350,13 @@ export default function AIDetectionPage() {
                         </p>
                       </div>
                     </div>
+
+                    {analysisResult.alerts_generated.length > 0 && (
+                      <div className="p-3 rounded-xl bg-purple-50 border border-purple-200 text-purple-900 text-xs font-semibold flex items-center gap-2">
+                        <AlertTriangle className="w-4 h-4 text-purple-600 shrink-0" />
+                        <span>{analysisResult.alerts_generated[0]}</span>
+                      </div>
+                    )}
                   </div>
 
                   <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-3">
@@ -373,7 +429,7 @@ export default function AIDetectionPage() {
 
             {webcamCaptured && analysisResult && (
               <div className="p-4 rounded-xl bg-emerald-50 text-emerald-800 text-xs font-bold">
-                ✓ Đã chụp &amp; phân tích thành công 8 cá thể trong khung hình webcam!
+                Đã chụp &amp; phân tích thành công 8 cá thể trong khung hình webcam!
               </div>
             )}
           </div>
@@ -397,8 +453,9 @@ export default function AIDetectionPage() {
                 <div key={idx} className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-3">
                   <div className="flex justify-between items-center text-xs font-bold text-slate-800">
                     <span>{cctv.title}</span>
-                    <span className="text-emerald-600 text-[10px] bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-                      ● LIVE STREAM
+                    <span className="text-emerald-600 text-[10px] bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200 flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                      LIVE STREAM
                     </span>
                   </div>
                   {analysisResult && (
