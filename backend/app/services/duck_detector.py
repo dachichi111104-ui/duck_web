@@ -268,6 +268,112 @@ def analyze_video(
     }
 
 
+def analyze_image(
+    image_path,
+    model_path,
+    conf=0.30,
+    margin=0.3,
+    span_ratio=1.2,
+):
+    """
+    Phân tích 1 ảnh đơn (Single Image AI Inference), trả về danh sách tracks & alerts Lật Ngửa.
+    """
+    model = YOLO(model_path)
+    frame = cv2.imread(image_path)
+    if frame is None:
+        raise FileNotFoundError(f"Không mở được ảnh: {image_path}")
+    
+    h, w, _ = frame.shape
+    results = model(frame, conf=conf, verbose=False)[0]
+    
+    boxes = []
+    if results.boxes is not None:
+        for idx, box in enumerate(results.boxes):
+            cls_id = int(box.cls[0])
+            cls_name = model.names[cls_id]
+            x1, y1, x2, y2 = map(int, box.xyxy[0])
+            conf_val = float(box.conf[0])
+            boxes.append((cls_name, x1, y1, x2, y2, idx + 1, conf_val))
+            
+    than_boxes = [b for b in boxes if b[0] == "than"]
+    chan_boxes = [b for b in boxes if b[0] == "chan"]
+    
+    than_info = []
+    for than in than_boxes:
+        _, x1, y1, x2, y2, tid, conf_val = than
+        than_info.append({
+            "box": than, "cx": (x1 + x2) / 2, "cy": (y1 + y2) / 2,
+            "w": x2 - x1, "h": y2 - y1, "chans": [], "tid": tid, "conf": conf_val
+        })
+        
+    for chan in chan_boxes:
+        ccx = (chan[1] + chan[3]) / 2
+        ccy = (chan[2] + chan[4]) / 2
+        best_i, best_dist = None, float("inf")
+        for i, t in enumerate(than_info):
+            dx = abs(ccx - t["cx"]) / max(t["w"], 1e-6)
+            dy = abs(ccy - t["cy"]) / max(t["h"], 1e-6)
+            dist = dx + dy
+            if dist < best_dist:
+                best_dist = dist
+                best_i = i
+        if best_i is not None:
+            than_info[best_i]["chans"].append(chan)
+            
+    alerts = []
+    tracks = []
+    
+    for t in than_info:
+        _, x1, y1, x2, y2, tid, conf_val = t["box"]
+        than_cx, than_cy, than_h = t["cx"], t["cy"], t["h"]
+        my_chans = t["chans"]
+        
+        flipped_by_yrule = False
+        if my_chans:
+            closest_chan = min(my_chans, key=lambda c: abs(((c[1] + c[3]) / 2) - than_cx))
+            chan_cy = (closest_chan[2] + closest_chan[4]) / 2
+            flipped_by_yrule = chan_cy < than_cy - margin * than_h
+            
+        flipped_by_span = False
+        if len(my_chans) >= 2:
+            centers_x = [(c[1] + c[3]) / 2 for c in my_chans]
+            span = max(centers_x) - min(centers_x)
+            flipped_by_span = (span / max(t["w"], 1e-6)) >= span_ratio
+            
+        is_supine = flipped_by_yrule or flipped_by_span
+        behavior_label = "SUPINE_FLIPPED" if is_supine else "NORMAL"
+        
+        if is_supine:
+            alerts.append({
+                "track_id": tid,
+                "start_frame": 0,
+                "end_frame": 0,
+                "start_time_sec": 0.0,
+                "end_time_sec": 0.0,
+                "duration_sec": 1.0,
+            })
+            
+        for f in range(15):
+            tracks.append({
+                "frame_index": f,
+                "timestamp_sec": round(f / 5, 2),
+                "track_id": tid,
+                "behavior_label": behavior_label,
+                "confidence": round(conf_val, 2),
+                "bbox": [round(x1 / w, 4), round(y1 / h, 4), round(t["w"] / w, 4), round(t["h"] / h, 4)]
+            })
+            
+    return {
+        "image_path": image_path,
+        "width": w,
+        "height": h,
+        "alerts": alerts,
+        "tracks": tracks,
+        "total_ducks_detected": len(than_info),
+        "abnormal_count": len(alerts)
+    }
+
+
 def _make_alert(track_id, start_frame, end_frame, fps):
     return {
         "track_id": track_id,
@@ -277,3 +383,4 @@ def _make_alert(track_id, start_frame, end_frame, fps):
         "end_time_sec": round(end_frame / fps, 2) if fps else 0.0,
         "duration_sec": round((end_frame - start_frame) / fps, 2) if fps else 0.0,
     }
+

@@ -19,7 +19,7 @@ from app.api.deps import get_current_user
 
 # Try importing the real Duck Supine Detection Engine (YOLOv8 + BoT-SORT)
 try:
-    from app.services.duck_detector import analyze_video as real_analyze_video
+    from app.services.duck_detector import analyze_video as real_analyze_video, analyze_image as real_analyze_image
     HAS_REAL_MODEL = True
 except Exception:
     HAS_REAL_MODEL = False
@@ -31,7 +31,7 @@ MODEL_WEIGHT_PATH = os.path.abspath("app/ai_models/best.pt")
 def generate_duck_tracks(flock_id: int, barn_id: int, filename: str) -> tuple[List[dict], dict, int, int]:
     """
     Generates deterministic, realistic duck movement trajectories & behavioral detections
-    for video simulation including SUPINE_FLIPPED (Lật ngửa) posture detection.
+    for video/image simulation including SUPINE_FLIPPED (Lật ngửa) posture detection.
     """
     random.seed(flock_id * 100 + len(filename))
     
@@ -132,35 +132,52 @@ async def analyze_video(
     abnormal_cnt = 0
     alerts_generated = []
 
-    # Check if we can run the real YOLO best.pt model
+    # Check if we can run the real YOLO best.pt model for Image or Video
     real_processed = False
     if video_file and HAS_REAL_MODEL and os.path.exists(MODEL_WEIGHT_PATH):
         try:
-            # Save temporary file
             temp_dir = "uploads"
             os.makedirs(temp_dir, exist_ok=True)
-            temp_video_path = os.path.join(temp_dir, filename)
-            with open(temp_video_path, "wb") as buffer:
+            temp_media_path = os.path.join(temp_dir, filename)
+            with open(temp_media_path, "wb") as buffer:
                 shutil.copyfileobj(video_file.file, buffer)
 
-            # Run YOLO + BoT-SORT Duck Supine Detector
-            analysis_res = real_analyze_video(
-                video_path=temp_video_path,
-                model_path=MODEL_WEIGHT_PATH,
-                conf=0.30
-            )
+            ext = os.path.splitext(filename)[1].lower()
+            is_image = ext in [".jpg", ".jpeg", ".png", ".webp", ".bmp"]
 
-            alerts_from_model = analysis_res.get("alerts", [])
-            abnormal_cnt = len(alerts_from_model)
+            if is_image:
+                img_res = real_analyze_image(image_path=temp_media_path, model_path=MODEL_WEIGHT_PATH, conf=0.30)
+                raw_tracks = img_res["tracks"]
+                abnormal_cnt = img_res["abnormal_count"]
+                total_detected = img_res["total_ducks_detected"]
+                summary = {
+                    "NORMAL": max(0, total_detected - abnormal_cnt),
+                    "SUPINE_FLIPPED": abnormal_cnt,
+                    "LETHARGIC": 0,
+                    "ISOLATED": 0,
+                    "FEVER_GROUPING": 0
+                }
+                for a in img_res["alerts"]:
+                    msg = f"[AI MODEL BEST.PT] Phát hiện nghi ngờ LẬT NGỬA trên Ảnh (Track #{a['track_id']}) tại Chuồng {barn.name} (Đàn {flock.code})."
+                    alerts_generated.append(msg)
+                real_processed = True
+            else:
+                # Run YOLO + BoT-SORT Duck Supine Video Detector
+                analysis_res = real_analyze_video(
+                    video_path=temp_media_path,
+                    model_path=MODEL_WEIGHT_PATH,
+                    conf=0.30
+                )
+                alerts_from_model = analysis_res.get("alerts", [])
+                abnormal_cnt = len(alerts_from_model)
 
-            for a in alerts_from_model:
-                msg = f"[AI MODEL BEST.PT] Phát hiện nghi ngờ LẬT NGỬA tại Track #{a['track_id']} ({a['start_time_sec']}s -> {a['end_time_sec']}s, kéo dài {a['duration_sec']}s) tại Chuồng {barn.name} (Đàn {flock.code})."
-                alerts_generated.append(msg)
+                for a in alerts_from_model:
+                    msg = f"[AI MODEL BEST.PT] Phát hiện nghi ngờ LẬT NGỬA tại Track #{a['track_id']} ({a['start_time_sec']}s -> {a['end_time_sec']}s, kéo dài {a['duration_sec']}s) tại Chuồng {barn.name} (Đàn {flock.code})."
+                    alerts_generated.append(msg)
 
-            # Generate visualization tracks based on model alerts
-            raw_tracks, summary, total_detected, _ = generate_duck_tracks(flock_id, barn_id, filename)
-            summary["SUPINE_FLIPPED"] = abnormal_cnt
-            real_processed = True
+                raw_tracks, summary, total_detected, _ = generate_duck_tracks(flock_id, barn_id, filename)
+                summary["SUPINE_FLIPPED"] = abnormal_cnt
+                real_processed = True
         except Exception as e:
             print(f"Lỗi khi chạy model best.pt: {e}, chuyển về fallback simulation mode")
             real_processed = False
