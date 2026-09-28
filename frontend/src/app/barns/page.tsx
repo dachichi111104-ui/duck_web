@@ -144,7 +144,6 @@ export default function BarnsPage() {
                       </div>
                       <div>
                         <h3 className="font-bold text-slate-900 text-base">{barn.name}</h3>
-                        <p className="font-mono text-xs text-slate-400">Mã: {barn.code}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
@@ -289,7 +288,7 @@ export default function BarnsPage() {
               <div>
                 <h3 className="font-bold text-slate-900 text-base">Xác Nhận Xóa Chuồng Nuôi</h3>
                 <p className="text-xs text-slate-500 mt-1">
-                  Bạn có chắc chắn muốn xóa chuồng <span className="font-bold text-slate-800">{deletingBarn.name}</span> ({deletingBarn.code})?
+                  Bạn có chắc chắn muốn xóa chuồng <span className="font-bold text-slate-800">{deletingBarn.name}</span>?
                 </p>
               </div>
               <div className="flex items-center justify-center gap-2 pt-2">

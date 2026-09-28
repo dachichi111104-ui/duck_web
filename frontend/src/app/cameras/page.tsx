@@ -149,10 +149,7 @@ export default function CamerasPage() {
                       <Video className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="flex items-center gap-2">
-                        <h3 className="font-bold text-slate-900 text-base">{cam.name}</h3>
-                        {cam.code && <span className="font-mono text-xs text-slate-400">({cam.code})</span>}
-                      </div>
+                      <h3 className="font-bold text-slate-900 text-base">{cam.name}</h3>
                       <p className="text-xs text-slate-500">Khu vực: {cam.barn?.name || `Chuồng #${cam.barn_id}`}</p>
                       {cam.location && <p className="text-[11px] text-slate-400">Vị trí: {cam.location}</p>}
                     </div>
@@ -238,7 +235,7 @@ export default function CamerasPage() {
                     className="w-full px-3 py-2 rounded-xl border bg-white"
                   >
                     {barns.map(b => (
-                      <option key={b.id} value={b.id}>{b.name} ({b.code})</option>
+                      <option key={b.id} value={b.id}>{b.name}</option>
                     ))}
                   </select>
                 </div>

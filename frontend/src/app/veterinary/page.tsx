@@ -390,9 +390,8 @@ export default function VeterinaryPage() {
             {diseases.map((d) => (
               <div key={d.id} className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-3 relative group">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
+                  <div>
                     <h3 className="font-bold text-slate-900 text-base">{d.name}</h3>
-                    <span className="font-mono text-xs text-slate-400">({d.code})</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className={`px-2.5 py-1 rounded-full text-[11px] font-bold ${
@@ -509,7 +508,7 @@ export default function VeterinaryPage() {
                       className="w-full px-3 py-2 rounded-xl border bg-white"
                     >
                       {flocks.map(f => (
-                        <option key={f.id} value={f.id}>{f.name} ({f.code})</option>
+                        <option key={f.id} value={f.id}>{f.name}</option>
                       ))}
                     </select>
                   </div>
@@ -522,7 +521,7 @@ export default function VeterinaryPage() {
                       className="w-full px-3 py-2 rounded-xl border bg-white"
                     >
                       {diseases.map(d => (
-                        <option key={d.id} value={d.id}>{d.name} ({d.code})</option>
+                        <option key={d.id} value={d.id}>{d.name}</option>
                       ))}
                     </select>
                   </div>
@@ -705,7 +704,7 @@ export default function VeterinaryPage() {
                     className="w-full px-3 py-2 rounded-xl border bg-white"
                   >
                     {flocks.map(f => (
-                      <option key={f.id} value={f.id}>{f.name} ({f.code})</option>
+                      <option key={f.id} value={f.id}>{f.name}</option>
                     ))}
                   </select>
                 </div>

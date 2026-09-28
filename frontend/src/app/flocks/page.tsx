@@ -170,7 +170,7 @@ export default function FlocksPage() {
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
             <input
               type="text"
-              placeholder="Tìm theo tên hoặc mã đàn vịt..."
+              placeholder="Tìm theo tên đàn vịt..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500"
@@ -180,11 +180,11 @@ export default function FlocksPage() {
           <select
             value={selectedBarn}
             onChange={(e) => setSelectedBarn(e.target.value)}
-            className="px-3.5 py-2 rounded-xl border border-slate-200 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-brand-500"
+            className="px-3.5 py-2 rounded-xl border border-slate-200 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-brand-500 font-medium"
           >
             <option value="">Tất cả chuồng nuôi</option>
             {barns.map(b => (
-              <option key={b.id} value={b.id}>{b.name} ({b.code})</option>
+              <option key={b.id} value={b.id}>{b.name}</option>
             ))}
           </select>
         </div>
@@ -203,7 +203,7 @@ export default function FlocksPage() {
               <table className="w-full text-left text-xs text-slate-600">
                 <thead className="bg-slate-50 border-b border-slate-200 text-slate-700 font-bold uppercase tracking-wider">
                   <tr>
-                    <th className="p-4">Mã / Tên Đàn</th>
+                    <th className="p-4">Tên Đàn</th>
                     <th className="p-4">Chuồng Nuôi</th>
                     <th className="p-4">Sĩ Số</th>
                     <th className="p-4">Tuổi (Tuần)</th>
@@ -215,9 +215,8 @@ export default function FlocksPage() {
                 <tbody className="divide-y divide-slate-100">
                   {flocks.map((flock) => (
                     <tr key={flock.id} className="hover:bg-slate-50/80 transition-colors">
-                      <td className="p-4">
-                        <p className="font-bold text-slate-900 text-sm">{flock.name}</p>
-                        <span className="font-mono text-[11px] text-slate-400">{flock.code}</span>
+                      <td className="p-4 font-bold text-slate-900 text-sm">
+                        {flock.name}
                       </td>
                       <td className="p-4 font-medium text-slate-800">
                         {flock.barn?.name || `Chuồng #${flock.barn_id}`}
@@ -298,7 +297,7 @@ export default function FlocksPage() {
                       className="w-full px-3 py-2 rounded-xl border bg-white"
                     >
                       {barns.map(b => (
-                        <option key={b.id} value={b.id}>{b.name} ({b.code})</option>
+                        <option key={b.id} value={b.id}>{b.name}</option>
                       ))}
                     </select>
                   </div>
@@ -407,7 +406,7 @@ export default function FlocksPage() {
               <div>
                 <h3 className="font-bold text-slate-900 text-base">Xác Nhận Xóa Đàn Vịt</h3>
                 <p className="text-xs text-slate-500 mt-1">
-                  Bạn có chắc muốn xóa <span className="font-bold text-slate-800">{deletingFlock.name}</span> ({deletingFlock.code})?
+                  Bạn có chắc muốn xóa <span className="font-bold text-slate-800">{deletingFlock.name}</span>?
                 </p>
               </div>
               <div className="flex items-center justify-center gap-2 pt-2">
@@ -436,7 +435,7 @@ export default function FlocksPage() {
               <div className="flex items-center justify-between pb-3 border-b">
                 <div>
                   <h3 className="font-bold text-slate-900 text-xl">{selectedFlock.name}</h3>
-                  <p className="text-xs text-slate-500">Mã: {selectedFlock.code} | Vị trí: {selectedFlock.barn?.name}</p>
+                  <p className="text-xs text-slate-500">Vị trí: {selectedFlock.barn?.name}</p>
                 </div>
                 <button onClick={() => setSelectedFlock(null)}><X className="w-5 h-5 text-slate-400" /></button>
               </div>

@@ -275,7 +275,7 @@ export default function InventoryPage() {
               <table className="w-full text-left text-xs text-slate-600">
                 <thead className="bg-slate-50 border-b border-slate-200 text-slate-700 font-bold uppercase tracking-wider">
                   <tr>
-                    <th className="p-4">Mã / Tên Vật Tư</th>
+                    <th className="p-4">Tên Vật Tư</th>
                     <th className="p-4">Danh Mục</th>
                     <th className="p-4">Tồn Kho Hiện Tại</th>
                     <th className="p-4">Ngưỡng Tối Thiểu</th>
@@ -289,9 +289,8 @@ export default function InventoryPage() {
                     const isLow = item.current_quantity <= item.min_quantity;
                     return (
                       <tr key={item.id} className="hover:bg-slate-50/80 transition-colors">
-                        <td className="p-4">
-                          <p className="font-bold text-slate-900 text-sm">{item.name}</p>
-                          <span className="font-mono text-[11px] text-slate-400">{item.code}</span>
+                        <td className="p-4 font-bold text-slate-900 text-sm">
+                          {item.name}
                         </td>
                         <td className="p-4">{item.category?.name || 'Vật tư'}</td>
                         <td className="p-4">
@@ -477,7 +476,7 @@ export default function InventoryPage() {
               <div>
                 <h3 className="font-bold text-slate-900 text-base">Xác Nhận Xóa Vật Tư</h3>
                 <p className="text-xs text-slate-500 mt-1">
-                  Bạn có chắc chắn muốn xóa vật tư <span className="font-bold text-slate-800">{deletingItem.name}</span> ({deletingItem.code}) khỏi hệ thống?
+                  Bạn có chắc chắn muốn xóa vật tư <span className="font-bold text-slate-800">{deletingItem.name}</span> khỏi hệ thống?
                 </p>
               </div>
               <div className="flex items-center justify-center gap-2 pt-2">
