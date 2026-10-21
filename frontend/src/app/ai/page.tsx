@@ -108,7 +108,8 @@ export default function AIDetectionPage() {
         formData.append('sample_video', selectedSample);
       }
 
-      const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8001/api/v1';
+      const isLocalHost = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+      const API_BASE_URL = isLocalHost ? 'http://localhost:8001/api/v1' : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8001/api/v1');
       const res = await fetch(`${API_BASE_URL}/ai/analyze`, {
         method: 'POST',
         headers: {
