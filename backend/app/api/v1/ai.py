@@ -170,11 +170,11 @@ async def analyze_video(
         raw_tracks, summary, total_detected, abnormal_cnt = generate_duck_behavior_simulation(flock_id, barn_id, filename)
         if summary.get("SUPINE_FLIPPED", 0) > 0:
             alerts_generated.append(
-                f"[AI LAT NGUA] Phát hiện {summary['SUPINE_FLIPPED']} cá thể vịt LẬT NGỬA / CO GIẬT CHÂN tại Chuồng {barn.name} (Đàn {flock.code}). Cảnh báo nguy cơ Viêm gan siêu vi (DVH) hoặc Bại liệt!"
+                f"[AI HÀNH VI] Phát hiện {summary['SUPINE_FLIPPED']} cá thể vịt LẬT NGỬA / CO GIẬT CHÂN tại Chuồng {barn.name} (Đàn {flock.code}). Cảnh báo hành vi bất thường, khuyến nghị kiểm tra!"
             )
         if summary.get("ISOLATED_LOW_MOBILITY", 0) > 0:
             alerts_generated.append(
-                f"[AI BEHAVIOR RUN A] Phát hiện {summary['ISOLATED_LOW_MOBILITY']} cá thể TÁCH ĐÀN & GIẢM VẬN ĐỘNG KÉO DÀI (>=40s) tại Chuồng {barn.name} (Đàn {flock.code}). Cảnh báo dấu hiệu sớm Dịch tả hoặc Tụ huyết trùng!"
+                f"[AI HÀNH VI] Phát hiện {summary['ISOLATED_LOW_MOBILITY']} cá thể TÁCH ĐÀN & GIẢM VẬN ĐỘNG KÉO DÀI (>=40s) tại Chuồng {barn.name} (Đàn {flock.code}). Cảnh báo hành vi bất thường!"
             )
 
     session = AIAnalysisSession(
@@ -213,7 +213,7 @@ async def analyze_video(
                 session_id=session.id,
                 flock_id=flock_id,
                 alert_type="BEHAVIOR_ANOMALY_DETECTED",
-                severity=AIAlertSeverity.CRITICAL if ("LẬT NGỬA" in msg or "DVH" in msg) else AIAlertSeverity.WARNING,
+                severity=AIAlertSeverity.CRITICAL if ("LẬT NGỬA" in msg) else AIAlertSeverity.WARNING,
                 message=msg,
                 status=AIAlertStatus.NEW
             )

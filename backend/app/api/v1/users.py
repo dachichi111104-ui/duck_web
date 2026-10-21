@@ -6,9 +6,26 @@ from app.core.database import get_db
 from app.core.security import get_password_hash
 from app.models.models import User, UserRole
 from app.schemas.schemas import UserOut, UserCreate, UserUpdate
-from app.api.deps import require_roles
+from app.api.deps import require_roles, get_current_user
 
 router = APIRouter()
+
+@router.get("/veterinarians", response_model=List[UserOut])
+async def list_veterinarians(
+    db: AsyncSession = Depends(get_db),
+    current_user = Depends(get_current_user)
+):
+    """
+    Lấy danh sách Bác sĩ Thú y và nhân sự phụ trách để phân công trên bệnh án.
+    Tất cả tài khoản đăng nhập đều có thể xem danh sách phân công.
+    """
+    res = await db.execute(
+        select(User).where(
+            User.role.in_([UserRole.VETERINARIAN, UserRole.ADMIN, UserRole.FARM_MANAGER]),
+            User.is_active == True
+        ).order_by(User.full_name.asc())
+    )
+    return res.scalars().all()
 
 @router.get("", response_model=List[UserOut])
 async def list_users(

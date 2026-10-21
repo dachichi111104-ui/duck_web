@@ -21,13 +21,13 @@ export function VideoCanvasOverlay({
   const [isPlaying, setIsPlaying] = useState(true);
   const [currentTime, setCurrentTime] = useState(0);
 
-  // Behavior colors mapping khớp chính xác với Model Hành Vi & Lật Ngửa
+  // Behavior colors mapping chuẩn hóa cho nhận diện hành vi bất thường
   const behaviorColors: Record<string, { stroke: string; fill: string; label: string }> = {
     NORMAL: { stroke: '#2E7D32', fill: 'rgba(46, 125, 50, 0.2)', label: 'Bình thường' },
-    SUPINE_FLIPPED: { stroke: '#7B1FA2', fill: 'rgba(123, 31, 162, 0.35)', label: 'Nghi Lật Ngửa / Co Giật (DVH/Liệt)' },
-    ISOLATED_LOW_MOBILITY: { stroke: '#D32F2F', fill: 'rgba(211, 47, 47, 0.35)', label: 'Tách Đàn & Giảm Vận Động (≥40s)' },
-    LETHARGIC: { stroke: '#F57C00', fill: 'rgba(245, 124, 0, 0.25)', label: 'Ủ rũ / Kém vận động' },
-    ISOLATED: { stroke: '#0288D1', fill: 'rgba(2, 136, 209, 0.25)', label: 'Tách đàn đơn lẻ' },
+    SUPINE_FLIPPED: { stroke: '#7B1FA2', fill: 'rgba(123, 31, 162, 0.35)', label: 'Lật ngửa / Co giật' },
+    ISOLATED_LOW_MOBILITY: { stroke: '#D32F2F', fill: 'rgba(211, 47, 47, 0.35)', label: 'Tách đàn & Kém VĐ (≥40s)' },
+    LETHARGIC: { stroke: '#F57C00', fill: 'rgba(245, 124, 0, 0.25)', label: 'Ủ rũ / Kém VĐ' },
+    ISOLATED: { stroke: '#0288D1', fill: 'rgba(2, 136, 209, 0.25)', label: 'Tách đàn' },
   };
 
   // Sync hidden video playback
@@ -145,17 +145,30 @@ export function VideoCanvasOverlay({
       ctx.arc(x + w / 2, y + h / 2, 5, 0, 2 * Math.PI);
       ctx.fill();
 
-      // Top Tag Badge
-      const tagText = `#${track.track_id} ${style.label} (${Math.round(track.confidence * 100)}%)`;
+      // Top Tag Badge (Gọn gàng, bo tròn, giới hạn biên không tràn ra ngoài)
+      const tagText = `#${track.track_id} ${style.label}`;
       ctx.font = 'bold 11px system-ui, sans-serif';
       const textWidth = ctx.measureText(tagText).width;
+      const badgeW = textWidth + 12;
+      const badgeH = 18;
 
-      const tagY = y - 20 > 0 ? y - 20 : y;
+      // Clamp tag position
+      const tagX = Math.max(4, Math.min(x, width - badgeW - 4));
+      const tagY = y >= badgeH + 4 ? y - badgeH - 2 : y + h + 2;
+
+      ctx.save();
+      ctx.beginPath();
+      if (typeof (ctx as any).roundRect === 'function') {
+        (ctx as any).roundRect(tagX, tagY, badgeW, badgeH, 4);
+      } else {
+        ctx.rect(tagX, tagY, badgeW, badgeH);
+      }
       ctx.fillStyle = style.stroke;
-      ctx.fillRect(x, tagY, textWidth + 12, 18);
+      ctx.fill();
 
       ctx.fillStyle = '#FFFFFF';
-      ctx.fillText(tagText, x + 6, tagY + 13);
+      ctx.fillText(tagText, tagX + 6, tagY + 13);
+      ctx.restore();
     });
 
     // 4. Time / Info Overlay Top Left

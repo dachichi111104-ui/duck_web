@@ -382,15 +382,15 @@ def analyze_video_full_pipeline(
     alerts_generated = []
     if supine_track_ids:
         alerts_generated.append(
-            f"[AI LAT NGUA] Phát hiện {len(supine_track_ids)} cá thể có tư thế LẬT NGỬA / CO GIẬT CHÂN (Track #{list(supine_track_ids)}). Cảnh báo nguy cơ Viêm gan siêu vi (DVH) hoặc Bại liệt!"
+            f"[AI HÀNH VI] Phát hiện {len(supine_track_ids)} cá thể có tư thế LẬT NGỬA / CO GIẬT CHÂN (Track #{list(supine_track_ids)}). Cảnh báo hành vi bất thường, khuyến nghị kiểm tra thực tế!"
         )
     if isolated_low_mobility_ids:
         alerts_generated.append(
-            f"[AI BEHAVIOR RUN A] Phát hiện {len(isolated_low_mobility_ids)} cá thể TÁCH ĐÀN & GIẢM VẬN ĐỘNG KÉO DÀI (Track #{list(isolated_low_mobility_ids)}). Cảnh báo dấu hiệu sớm Dịch tả hoặc Tụ huyết trùng!"
+            f"[AI HÀNH VI] Phát hiện {len(isolated_low_mobility_ids)} cá thể TÁCH ĐÀN & GIẢM VẬN ĐỘNG KÉO DÀI (Track #{list(isolated_low_mobility_ids)}). Cảnh báo hành vi bất thường kéo dài!"
         )
     if lethargic_ids and not isolated_low_mobility_ids:
         alerts_generated.append(
-            f"[AI BEHAVIOR] Phát hiện {len(lethargic_ids)} cá thể ủ rũ, giảm vận động so với tốc độ chung của đàn (Track #{list(lethargic_ids)})."
+            f"[AI HÀNH VI] Phát hiện {len(lethargic_ids)} cá thể có biểu hiện Ủ RŨ, giảm vận động so với nhịp sinh hoạt chung của đàn (Track #{list(lethargic_ids)})."
         )
 
     return {

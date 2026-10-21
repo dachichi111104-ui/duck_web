@@ -5,7 +5,7 @@ import { Stethoscope, Syringe, AlertTriangle, Plus, Edit, Trash2, X } from 'luci
 import { ProtectedRoute } from '@/components/ProtectedRoute';
 import { PageHeader } from '@/components/PageHeader';
 import { fetchApi } from '@/lib/api';
-import { VetRecord, Vaccination, Disease, Flock } from '@/lib/types';
+import { VetRecord, Vaccination, Disease, Flock, User } from '@/lib/types';
 import { useAuth } from '@/lib/auth-context';
 
 export default function VeterinaryPage() {
@@ -14,6 +14,7 @@ export default function VeterinaryPage() {
   const [diseases, setDiseases] = useState<Disease[]>([]);
   const [vaccinations, setVaccinations] = useState<Vaccination[]>([]);
   const [flocks, setFlocks] = useState<Flock[]>([]);
+  const [veterinarians, setVeterinarians] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
 
   // Modals for Records
@@ -56,7 +57,7 @@ export default function VeterinaryPage() {
   // Delete Confirm Modal
   const [deleteTarget, setDeleteTarget] = useState<{ type: 'record' | 'disease' | 'vaccination'; id: number; name: string } | null>(null);
 
-  const { hasRole } = useAuth();
+  const { user, hasRole } = useAuth();
 
   useEffect(() => {
     loadVetData();
@@ -81,6 +82,26 @@ export default function VeterinaryPage() {
       setVaccinations(vaccinationsList);
       setFlocks(flocksList);
 
+      // Load veterinarians list for assignment
+      try {
+        const vets = await fetchApi<User[]>('/users/veterinarians');
+        if (Array.isArray(vets) && vets.length > 0) {
+          setVeterinarians(vets);
+        } else {
+          setVeterinarians([
+            { id: 3, username: 'vet', full_name: 'BS. Lê Hoàng Thú Y (vet)', role: 'VETERINARIAN', email: 'vet@duckcare.ai', is_active: true, created_at: '' },
+            { id: 1, username: 'admin', full_name: 'Nguyễn Văn Quản Trị (admin)', role: 'ADMIN', email: 'admin@duckcare.ai', is_active: true, created_at: '' },
+            { id: 2, username: 'manager', full_name: 'Trần Thị Quản Lý (manager)', role: 'FARM_MANAGER', email: 'manager@duckcare.ai', is_active: true, created_at: '' },
+          ]);
+        }
+      } catch {
+        setVeterinarians([
+          { id: 3, username: 'vet', full_name: 'BS. Lê Hoàng Thú Y (vet)', role: 'VETERINARIAN', email: 'vet@duckcare.ai', is_active: true, created_at: '' },
+          { id: 1, username: 'admin', full_name: 'Nguyễn Văn Quản Trị (admin)', role: 'ADMIN', email: 'admin@duckcare.ai', is_active: true, created_at: '' },
+          { id: 2, username: 'manager', full_name: 'Trần Thị Quản Lý (manager)', role: 'FARM_MANAGER', email: 'manager@duckcare.ai', is_active: true, created_at: '' },
+        ]);
+      }
+
       if (flocksList.length > 0) {
         setRecordForm(prev => ({ ...prev, flock_id: flocksList[0].id }));
         setVaccinationForm(prev => ({ ...prev, flock_id: flocksList[0].id }));
@@ -100,6 +121,18 @@ export default function VeterinaryPage() {
     setEditingRecord(null);
     const safeFlocks = Array.isArray(flocks) ? flocks : [];
     const safeDiseases = Array.isArray(diseases) ? diseases : [];
+
+    // Tự động gán mặc định bác sĩ phụ trách:
+    // - Nếu là VETERINARIAN: Mặc định là chính mình
+    // - Nếu là ADMIN/FARM_MANAGER: Mặc định phân công cho bác sĩ thú y đầu tiên trong danh sách
+    let defaultVet = '';
+    if (user?.role === 'VETERINARIAN') {
+      defaultVet = user.full_name || user.username;
+    } else {
+      const vetUser = veterinarians.find(v => v.role === 'VETERINARIAN') || veterinarians[0];
+      defaultVet = vetUser ? (vetUser.full_name || vetUser.username) : 'BS. Lê Hoàng Thú Y (vet)';
+    }
+
     setRecordForm({
       flock_id: safeFlocks.length > 0 ? safeFlocks[0].id : 1,
       disease_id: safeDiseases.length > 0 ? safeDiseases[0].id : 1,
@@ -107,7 +140,7 @@ export default function VeterinaryPage() {
       status: 'TREATING',
       affected_count: 10,
       treatment_plan: '',
-      veterinarian_name: '',
+      veterinarian_name: defaultVet,
       notes: '',
     });
     setShowRecordModal(true);
@@ -334,6 +367,15 @@ export default function VeterinaryPage() {
           </button>
         </div>
 
+        {user?.role === 'STAFF' && (
+          <div className="p-3.5 rounded-2xl bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold flex items-center gap-2.5">
+            <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0" />
+            <span>
+              Chế độ xem dành cho <strong>Nhân viên (STAFF)</strong>: Theo dõi danh sách bệnh án và lịch tiêm phòng (Chỉ đọc). Quyền lập bệnh án, sửa phác đồ và phân công bác sĩ thuộc Quản trị viên, Quản lý và Bác sĩ thú y.
+            </span>
+          </div>
+        )}
+
         {/* SUB-TAB 1: VET RECORDS */}
         {activeSubTab === 'records' && (
           <div className="space-y-4">
@@ -397,42 +439,12 @@ export default function VeterinaryPage() {
         {/* SUB-TAB 2: DISEASES REFERENCE */}
         {activeSubTab === 'diseases' && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {(Array.isArray(diseases) ? diseases : []).map((d) => {
-              const text = (d.name + ' ' + d.symptoms).toLowerCase();
-              let aiBadge = null;
-              if (text.includes('lật ngửa') || text.includes('viêm gan') || text.includes('dvh') || text.includes('co giật')) {
-                aiBadge = {
-                  label: 'AI: Nhận diện qua Lật Ngửa / Co Giật (SUPINE_FLIPPED)',
-                  color: 'bg-purple-50 text-purple-700 border-purple-200'
-                };
-              } else if (text.includes('dịch tả') || text.includes('tách đàn') || text.includes('40s') || text.includes('giảm vận động')) {
-                aiBadge = {
-                  label: 'AI: Cảnh báo Tách Đàn & Giảm Vận Động ≥40s (behavior_runA)',
-                  color: 'bg-red-50 text-red-700 border-red-200'
-                };
-              } else if (text.includes('tụ huyết trùng') || text.includes('ủ rũ') || text.includes('kém vận động')) {
-                aiBadge = {
-                  label: 'AI: Phát hiện Ủ Rũ / Kém Di Chuyển (LETHARGIC)',
-                  color: 'bg-amber-50 text-amber-700 border-amber-200'
-                };
-              } else if (text.includes('riemerella') || text.includes('bại liệt')) {
-                aiBadge = {
-                  label: 'AI: Phát hiện Tách Đàn Đơn Lẻ (ISOLATED)',
-                  color: 'bg-sky-50 text-sky-700 border-sky-200'
-                };
-              }
-
-              return (
-                <div key={d.id} className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-3 relative group">
-                  <div className="flex items-start justify-between gap-2">
-                    <div className="space-y-1">
-                      <h3 className="font-bold text-slate-900 text-base">{d.name}</h3>
-                      {aiBadge && (
-                        <span className={`inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${aiBadge.color}`}>
-                          {aiBadge.label}
-                        </span>
-                      )}
-                    </div>
+            {(Array.isArray(diseases) ? diseases : []).map((d) => (
+              <div key={d.id} className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-3 relative group">
+                <div className="flex items-start justify-between gap-2">
+                  <div className="space-y-1">
+                    <h3 className="font-bold text-slate-900 text-base">{d.name}</h3>
+                  </div>
                     <div className="flex items-center gap-2 shrink-0">
                       <span className={`px-2.5 py-1 rounded-full text-[11px] font-bold ${
                         d.severity === 'CRITICAL' ? 'bg-red-100 text-red-700' : 'bg-amber-100 text-amber-700'
@@ -460,7 +472,7 @@ export default function VeterinaryPage() {
                     </div>
                   </div>
                   <div>
-                    <p className="font-bold text-slate-700 text-xs mb-1">Triệu chứng lâm sàng &amp; Dấu hiệu nhận diện AI:</p>
+                    <p className="font-bold text-slate-700 text-xs mb-1">Triệu chứng lâm sàng:</p>
                     <p className="text-xs text-slate-600 leading-relaxed bg-slate-50 p-2.5 rounded-xl border border-slate-100">{d.symptoms}</p>
                   </div>
                   <div>
@@ -468,8 +480,7 @@ export default function VeterinaryPage() {
                     <p className="text-xs text-emerald-800 leading-relaxed bg-emerald-50/50 p-2.5 rounded-xl border border-emerald-100">{d.treatment}</p>
                   </div>
                 </div>
-              );
-            })}
+              ))}
           </div>
         )}
 
@@ -606,15 +617,34 @@ export default function VeterinaryPage() {
                 </div>
 
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">Bác Sĩ Phụ Trách</label>
-                  <input
-                    type="text"
+                  <label className="block font-bold text-slate-700 mb-1">
+                    Bác Sĩ Phụ Trách {hasRole(['ADMIN', 'FARM_MANAGER']) ? '(Phân công phụ trách)' : ''} *
+                  </label>
+                  <select
                     required
-                    placeholder="Bác sĩ Thú y..."
                     value={recordForm.veterinarian_name}
                     onChange={(e) => setRecordForm({ ...recordForm, veterinarian_name: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl border"
-                  />
+                    className="w-full px-3 py-2 rounded-xl border bg-white font-medium"
+                  >
+                    <option value="">-- Chọn bác sĩ phụ trách --</option>
+                    {veterinarians.map((v) => {
+                      const displayName = v.full_name || v.username;
+                      const roleLabel = v.role === 'VETERINARIAN' ? 'Bác sĩ Thú y' : v.role === 'ADMIN' ? 'Quản trị viên' : 'Quản lý';
+                      return (
+                        <option key={v.id} value={displayName}>
+                          {displayName} ({roleLabel})
+                        </option>
+                      );
+                    })}
+                    {recordForm.veterinarian_name && !veterinarians.some(v => (v.full_name || v.username) === recordForm.veterinarian_name) && (
+                      <option value={recordForm.veterinarian_name}>{recordForm.veterinarian_name}</option>
+                    )}
+                  </select>
+                  <p className="text-[10px] text-slate-400 mt-1">
+                    {hasRole(['ADMIN', 'FARM_MANAGER'])
+                      ? 'Chọn bác sĩ thú y từ danh sách nhân sự để phân công điều trị ca bệnh này.'
+                      : 'Bác sĩ thú y trực tiếp phụ trách theo dõi và điều trị ca bệnh.'}
+                  </p>
                 </div>
 
                 <div>

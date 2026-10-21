@@ -20,6 +20,7 @@ export default function AIDetectionPage() {
   
   const [mediaUrl, setMediaUrl] = useState<string | undefined>(undefined);
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [analysisResult, setAnalysisResult] = useState<AIAnalyzeResponse | null>(null);
 
   useEffect(() => {
@@ -31,16 +32,21 @@ export default function AIDetectionPage() {
     if (selectedFile) {
       const url = URL.createObjectURL(selectedFile);
       setMediaUrl(url);
+      setAnalysisResult(null);
+      setErrorMsg(null);
       return () => URL.revokeObjectURL(url);
     } else {
       setMediaUrl(`/samples/${selectedSample}`);
+      setErrorMsg(null);
     }
   }, [selectedFile, selectedSample]);
 
-  // Run initial analysis after selector is setup
+  // Run initial analysis for built-in sample videos
   useEffect(() => {
-    runAnalysis();
-  }, [selectedSample, selectedFile]);
+    if (!selectedFile) {
+      runAnalysis();
+    }
+  }, [selectedSample]);
 
   async function loadSelectors() {
     try {
@@ -57,6 +63,7 @@ export default function AIDetectionPage() {
 
   async function runAnalysis() {
     setLoading(true);
+    setErrorMsg(null);
     try {
       const formData = new FormData();
       formData.append('flock_id', selectedFlockId.toString());
@@ -83,80 +90,88 @@ export default function AIDetectionPage() {
         saveAnalysisLog(data);
       } else {
         const errJson = await res.json().catch(() => ({}));
-        throw new Error(errJson.detail || 'API AI analyze error');
+        throw new Error(errJson.detail || `Lỗi phản hồi máy chủ AI (${res.status})`);
       }
     } catch (err: any) {
-      // Fallback simulation khi không có kết nối API backend trực tiếp
-      const mockTracks: AIDetectionTrack[] = [];
-      const ducks = [
-        { id: 1, behavior: 'NORMAL', base: [0.15, 0.2] },
-        { id: 2, behavior: 'NORMAL', base: [0.35, 0.25] },
-        { id: 3, behavior: 'SUPINE_FLIPPED', base: [0.55, 0.3] }, // Nghi Lật Ngửa / DVH
-        { id: 4, behavior: 'NORMAL', base: [0.72, 0.22] },
-        { id: 5, behavior: 'ISOLATED_LOW_MOBILITY', base: [0.82, 0.78] }, // Tách đàn & giảm vận động >=40s
-        { id: 6, behavior: 'LETHARGIC', base: [0.4, 0.55] }, // Ủ rũ
-        { id: 7, behavior: 'ISOLATED', base: [0.65, 0.6] }, // Tách đàn
-        { id: 8, behavior: 'NORMAL', base: [0.25, 0.75] },
-      ];
+      if (selectedFile) {
+        // Video tải lên của người dùng: KHÔNG sinh box giả dạng lưới lên màn hình khi phân tích lỗi
+        setAnalysisResult(null);
+        setErrorMsg(
+          err.message || 'Không thể kết nối đến máy chủ AI để xử lý video này. Vui lòng đảm bảo backend đang hoạt động.'
+        );
+      } else {
+        // Fallback demo simulation chỉ dành cho video mẫu dựng sẵn
+        const mockTracks: AIDetectionTrack[] = [];
+        const ducks = [
+          { id: 1, behavior: 'NORMAL', base: [0.15, 0.2] },
+          { id: 2, behavior: 'NORMAL', base: [0.35, 0.25] },
+          { id: 3, behavior: 'SUPINE_FLIPPED', base: [0.55, 0.3] },
+          { id: 4, behavior: 'NORMAL', base: [0.72, 0.22] },
+          { id: 5, behavior: 'ISOLATED_LOW_MOBILITY', base: [0.82, 0.78] },
+          { id: 6, behavior: 'LETHARGIC', base: [0.4, 0.55] },
+          { id: 7, behavior: 'ISOLATED', base: [0.65, 0.6] },
+          { id: 8, behavior: 'NORMAL', base: [0.25, 0.75] },
+        ];
 
-      for (let f = 0; f < 75; f++) {
-        const ts = +(f / 5).toFixed(1);
-        ducks.forEach(d => {
-          let cx = d.base[0];
-          let cy = d.base[1];
+        for (let f = 0; f < 75; f++) {
+          const ts = +(f / 5).toFixed(1);
+          ducks.forEach(d => {
+            let cx = d.base[0];
+            let cy = d.base[1];
 
-          if (d.behavior === 'NORMAL') {
-            cx += Math.sin(f * 0.1 + d.id) * 0.02;
-            cy += Math.cos(f * 0.1 + d.id) * 0.015;
-          } else if (d.behavior === 'SUPINE_FLIPPED') {
-            cx += Math.sin(f * 0.5) * 0.001;
-            cy += Math.cos(f * 0.5) * 0.001;
-          } else if (d.behavior === 'ISOLATED_LOW_MOBILITY') {
-            cx += Math.sin(f * 0.02) * 0.0005;
-            cy += Math.cos(f * 0.02) * 0.0005;
-          } else if (d.behavior === 'LETHARGIC') {
-            cx += Math.sin(f * 0.05) * 0.002;
-            cy += Math.cos(f * 0.05) * 0.002;
-          } else if (d.behavior === 'ISOLATED') {
-            cx += Math.sin(f * 0.08) * 0.004;
-            cy += Math.cos(f * 0.08) * 0.004;
-          }
+            if (d.behavior === 'NORMAL') {
+              cx += Math.sin(f * 0.1 + d.id) * 0.02;
+              cy += Math.cos(f * 0.1 + d.id) * 0.015;
+            } else if (d.behavior === 'SUPINE_FLIPPED') {
+              cx += Math.sin(f * 0.5) * 0.001;
+              cy += Math.cos(f * 0.5) * 0.001;
+            } else if (d.behavior === 'ISOLATED_LOW_MOBILITY') {
+              cx += Math.sin(f * 0.02) * 0.0005;
+              cy += Math.cos(f * 0.02) * 0.0005;
+            } else if (d.behavior === 'LETHARGIC') {
+              cx += Math.sin(f * 0.05) * 0.002;
+              cy += Math.cos(f * 0.05) * 0.002;
+            } else if (d.behavior === 'ISOLATED') {
+              cx += Math.sin(f * 0.08) * 0.004;
+              cy += Math.cos(f * 0.08) * 0.004;
+            }
 
-          mockTracks.push({
-            frame_index: f,
-            timestamp_sec: ts,
-            track_id: d.id,
-            behavior_label: d.behavior,
-            confidence: 0.95,
-            bbox: [Math.max(0.05, Math.min(0.85, cx)), Math.max(0.05, Math.min(0.85, cy)), 0.09, 0.11]
+            mockTracks.push({
+              frame_index: f,
+              timestamp_sec: ts,
+              track_id: d.id,
+              behavior_label: d.behavior,
+              confidence: 0.95,
+              bbox: [Math.max(0.05, Math.min(0.85, cx)), Math.max(0.05, Math.min(0.85, cy)), 0.09, 0.11]
+            });
           });
-        });
+        }
+
+        const resultObj: AIAnalyzeResponse = {
+          session_id: Date.now(),
+          flock_id: selectedFlockId,
+          barn_id: selectedBarnId,
+          video_filename: selectedSample,
+          duration_seconds: 15.0,
+          total_ducks_detected: 8,
+          abnormal_count: 4,
+          behavior_summary: {
+            NORMAL: 4,
+            SUPINE_FLIPPED: 1,
+            ISOLATED_LOW_MOBILITY: 1,
+            LETHARGIC: 1,
+            ISOLATED: 1,
+          },
+          tracks: mockTracks,
+          alerts_generated: [
+            '[AI HÀNH VI] Phát hiện cá thể vịt #3 có tư thế LẬT NGỬA / CO GIẬT CHÂN - Cảnh báo hành vi bất thường, khuyến nghị kiểm tra!',
+            '[AI HÀNH VI] Phát hiện cá thể vịt #5 TÁCH ĐÀN & GIẢM VẬN ĐỘNG KÉO DÀI (≥40s liên tục) - Cảnh báo hành vi bất thường kéo dài!'
+          ]
+        };
+
+        setAnalysisResult(resultObj);
+        saveAnalysisLog(resultObj);
       }
-
-      const resultObj: AIAnalyzeResponse = {
-        session_id: Date.now(),
-        flock_id: selectedFlockId,
-        barn_id: selectedBarnId,
-        video_filename: selectedFile ? selectedFile.name : selectedSample,
-        duration_seconds: 15.0,
-        total_ducks_detected: 8,
-        abnormal_count: 4,
-        behavior_summary: {
-          NORMAL: 4,
-          SUPINE_FLIPPED: 1,
-          ISOLATED_LOW_MOBILITY: 1,
-          LETHARGIC: 1,
-          ISOLATED: 1,
-        },
-        tracks: mockTracks,
-        alerts_generated: [
-          '[AI LAT NGUA] Phát hiện cá thể vịt #3 có tư thế LẬT NGỬA / CO GIẬT CHÂN - Cảnh báo nguy cơ Viêm gan siêu vi ở vịt (DVH) hoặc Bại liệt!',
-          '[AI BEHAVIOR RUN A] Phát hiện cá thể vịt #5 TÁCH ĐÀN & GIẢM VẬN ĐỘNG KÉO DÀI (≥40s liên tục) - Cảnh báo dấu hiệu sớm Dịch tả vịt / Tụ huyết trùng!'
-        ]
-      };
-
-      setAnalysisResult(resultObj);
-      saveAnalysisLog(resultObj);
     } finally {
       setLoading(false);
     }
@@ -194,7 +209,7 @@ export default function AIDetectionPage() {
         res.alerts_generated.forEach((msg, idx) => {
           savedNotifs.unshift({
             id: Date.now() + idx,
-            title: 'CẢNH BÁO AI GIÁM SÁT HÀNH VI & BỆNH',
+            title: 'CẢNH BÁO AI GIÁM SÁT HÀNH VI BẤT THƯỜNG',
             message: msg,
             created_at: new Date().toISOString(),
             is_read: false,
@@ -292,8 +307,8 @@ export default function AIDetectionPage() {
                     }}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs bg-white"
                   >
-                    <option value="sample_duck_flock_01.mp4">Video Mẫu 01: Chuồng B1 (Tách đàn &amp; Giảm vận động ≥40s)</option>
-                    <option value="sample_duck_flock_02.mp4">Video Mẫu 02: Chuồng Thịt B2 (Nghi ngờ Lật ngửa / DVH)</option>
+                    <option value="sample_duck_flock_01.mp4">Video Mẫu 01: Chuồng B1 (Tách đàn &amp; Kém vận động ≥40s)</option>
+                    <option value="sample_duck_flock_02.mp4">Video Mẫu 02: Chuồng B2 (Tư thế lật ngửa / co giật chân)</option>
                     <option value="sample_duck_flock_03.mp4">Video Mẫu 03: Chuồng A1 (Đàn đối chứng bình thường)</option>
                   </select>
                 </div>
@@ -330,7 +345,17 @@ export default function AIDetectionPage() {
               </div>
             </div>
 
-            {analysisResult && (
+            {errorMsg && (
+              <div className="p-4 rounded-2xl bg-red-50 border border-red-200 text-red-800 text-xs font-semibold flex items-center gap-3 shadow-sm">
+                <AlertTriangle className="w-5 h-5 text-red-600 shrink-0" />
+                <div>
+                  <p className="font-bold">Lỗi phân tích video:</p>
+                  <p>{errorMsg}</p>
+                </div>
+              </div>
+            )}
+
+            {analysisResult ? (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div className="lg:col-span-7 space-y-4">
                   <VideoCanvasOverlay
@@ -359,12 +384,12 @@ export default function AIDetectionPage() {
                       </div>
 
                       <div className="p-2.5 rounded-xl bg-purple-50 border border-purple-100">
-                        <p className="text-[9px] text-purple-700 font-bold uppercase">Nghi Lật ngửa</p>
+                        <p className="text-[9px] text-purple-700 font-bold uppercase">Lật ngửa / Co giật</p>
                         <p className="text-base font-extrabold text-purple-700">{analysisResult.behavior_summary.SUPINE_FLIPPED || 0}</p>
                       </div>
 
                       <div className="p-2.5 rounded-xl bg-red-50 border border-red-100">
-                        <p className="text-[9px] text-red-700 font-bold uppercase">Tách &amp; Giảm vận động ≥40s</p>
+                        <p className="text-[9px] text-red-700 font-bold uppercase">Tách &amp; Kém VĐ (≥40s)</p>
                         <p className="text-base font-extrabold text-red-700">{analysisResult.behavior_summary.ISOLATED_LOW_MOBILITY || 0}</p>
                       </div>
 
@@ -385,7 +410,7 @@ export default function AIDetectionPage() {
                           <div
                             key={idx}
                             className={`p-3 rounded-xl border text-xs font-semibold flex items-start gap-2.5 ${
-                              alertText.includes('LẬT NGỬA') || alertText.includes('DVH')
+                              alertText.includes('LẬT NGỬA')
                                 ? 'bg-purple-50 border-purple-200 text-purple-900'
                                 : 'bg-red-50 border-red-200 text-red-900'
                             }`}
@@ -437,7 +462,14 @@ export default function AIDetectionPage() {
                   </div>
                 </div>
               </div>
-            )}
+            ) : mediaUrl ? (
+              <div className="p-8 rounded-2xl bg-slate-900 border border-slate-800 text-center space-y-4">
+                <video src={mediaUrl} controls className="max-h-[420px] mx-auto rounded-xl shadow-lg" />
+                <p className="text-xs text-slate-400 font-medium">
+                  Video đã sẵn sàng. Nhấn nút <strong className="text-brand-400">"Kích Hoạt AI Phân Tích Hành Vi"</strong> ở trên để bắt đầu trích xuất quỹ đạo và phát hiện các cá thể bất thường.
+                </p>
+              </div>
+            ) : null}
           </div>
         )}
 
