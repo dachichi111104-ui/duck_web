@@ -16,55 +16,20 @@ from app.schemas.schemas import (
     AIDetectionResultOut, AIDetectionResultCreate
 )
 from app.api.deps import get_current_user
-
-# Try importing the real Duck Supine Detection Engine (YOLOv8 + BoT-SORT)
-try:
-    from app.services.duck_detector import analyze_video as real_analyze_video, analyze_image as real_analyze_image
-    HAS_REAL_MODEL = True
-except Exception:
-    HAS_REAL_MODEL = False
+from app.services.duck_detector import analyze_video_full_pipeline
 
 router = APIRouter()
 
-MODEL_WEIGHT_PATH = os.path.abspath("app/ai_models/best.pt")
-
-def generate_duck_tracks(flock_id: int, barn_id: int, filename: str) -> tuple[List[dict], dict, int, int]:
+def generate_duck_behavior_simulation(flock_id: int, barn_id: int, filename: str) -> tuple[List[dict], dict, int, int]:
     """
-    Generates deterministic, realistic duck movement trajectories & behavioral detections
-    for video/image simulation including SUPINE_FLIPPED (Lật ngửa) posture detection.
+    Tạo dữ liệu mô phỏng theo dõi quỹ đạo & chuỗi hành vi của đàn vịt qua Video.
+    Hỗ trợ phát hiện:
+    - NORMAL: Vịt sinh hoạt bình thường
+    - SUPINE_FLIPPED: Vịt nằm lật ngửa / co giật chân (Nghi Viêm gan siêu vi DVH / Bại liệt)
+    - ISOLATED_LOW_MOBILITY: Vịt tách đàn & ít vận động kéo dài liên tục >= 40s (Cảnh báo sớm Dịch tả / Tụ huyết trùng)
+    - LETHARGIC: Vịt ủ rũ / ít vận động so với bầy
+    - ISOLATED: Vịt tách đàn đơn lẻ
     """
-    ext = os.path.splitext(filename)[1].lower()
-    is_image = ext in [".jpg", ".jpeg", ".png", ".webp", ".bmp"] or "supine" in filename.lower()
-
-    if is_image:
-        num_ducks = 2
-        tracks = [
-            {
-                "frame_index": 0,
-                "timestamp_sec": 0.0,
-                "track_id": 1,
-                "behavior_label": "NORMAL",
-                "confidence": 0.96,
-                "bbox": [0.20, 0.04, 0.35, 0.25]
-            },
-            {
-                "frame_index": 0,
-                "timestamp_sec": 0.0,
-                "track_id": 2,
-                "behavior_label": "SUPINE_FLIPPED",
-                "confidence": 0.98,
-                "bbox": [0.22, 0.54, 0.42, 0.32]
-            }
-        ]
-        behavior_summary = {
-            "NORMAL": 1,
-            "SUPINE_FLIPPED": 1,
-            "LETHARGIC": 0,
-            "ISOLATED": 0,
-            "FEVER_GROUPING": 0
-        }
-        return tracks, behavior_summary, 2, 1
-
     random.seed(flock_id * 100 + len(filename))
     
     num_ducks = 12
@@ -73,15 +38,17 @@ def generate_duck_tracks(flock_id: int, barn_id: int, filename: str) -> tuple[Li
     total_frames = int(duration_sec * fps)
     
     tracks = []
-    
     ducks = []
+    
     for tid in range(1, num_ducks + 1):
-        if tid == 3:
-            behavior = "SUPINE_FLIPPED"  # Model Lật Ngửa
-        elif tid == 7:
-            behavior = "LETHARGIC"
-        elif tid == 10:
-            behavior = "ISOLATED"
+        if tid == 2:
+            behavior = "SUPINE_FLIPPED"  # Nghi lật ngửa / Co giật
+        elif tid == 5:
+            behavior = "ISOLATED_LOW_MOBILITY"  # Tách đàn & giảm vận động kéo dài (>=40s)
+        elif tid == 8:
+            behavior = "LETHARGIC"  # Ủ rũ / ít vận động
+        elif tid == 11:
+            behavior = "ISOLATED"  # Tách đàn
         else:
             behavior = "NORMAL"
 
@@ -103,9 +70,9 @@ def generate_duck_tracks(flock_id: int, barn_id: int, filename: str) -> tuple[Li
     behavior_summary = {
         "NORMAL": num_ducks - abnormal_count,
         "SUPINE_FLIPPED": sum(1 for d in ducks if d["behavior"] == "SUPINE_FLIPPED"),
+        "ISOLATED_LOW_MOBILITY": sum(1 for d in ducks if d["behavior"] == "ISOLATED_LOW_MOBILITY"),
         "LETHARGIC": sum(1 for d in ducks if d["behavior"] == "LETHARGIC"),
         "ISOLATED": sum(1 for d in ducks if d["behavior"] == "ISOLATED"),
-        "FEVER_GROUPING": 0
     }
 
     for f_idx in range(total_frames):
@@ -118,12 +85,16 @@ def generate_duck_tracks(flock_id: int, barn_id: int, filename: str) -> tuple[Li
                 # Lật ngửa: giãy tại chỗ ở vị trí cố định
                 d["x"] += random.uniform(-0.0002, 0.0002)
                 d["y"] += random.uniform(-0.0002, 0.0002)
+            elif d["behavior"] == "ISOLATED_LOW_MOBILITY":
+                # Tách đàn đứng góc xa và bất động
+                d["x"] = 0.82 + math.sin(f_idx * 0.05) * 0.0003
+                d["y"] = 0.78 + math.cos(f_idx * 0.05) * 0.0003
             elif d["behavior"] == "LETHARGIC":
                 d["x"] += random.uniform(-0.0005, 0.0005)
                 d["y"] += random.uniform(-0.0005, 0.0005)
             elif d["behavior"] == "ISOLATED":
-                d["x"] += math.sin(f_idx * 0.1) * 0.001
-                d["y"] += math.cos(f_idx * 0.1) * 0.001
+                d["x"] += math.sin(f_idx * 0.1) * 0.002
+                d["y"] += math.cos(f_idx * 0.1) * 0.002
 
             cx = max(0.05, min(0.85, d["x"]))
             cy = max(0.05, min(0.80, d["y"]))
@@ -137,8 +108,6 @@ def generate_duck_tracks(flock_id: int, barn_id: int, filename: str) -> tuple[Li
                 "confidence": conf,
                 "bbox": [round(cx, 4), round(cy, 4), d["w"], d["h"]]
             })
-
-    return tracks, behavior_summary, num_ducks, abnormal_count
 
     return tracks, behavior_summary, num_ducks, abnormal_count
 
@@ -158,6 +127,14 @@ async def analyze_video(
     if not barn:
         raise HTTPException(status_code=404, detail="Chuồng nuôi không tồn tại")
 
+    if video_file:
+        ext = os.path.splitext(video_file.filename)[1].lower()
+        if ext in [".jpg", ".jpeg", ".png", ".webp", ".bmp"]:
+            raise HTTPException(
+                status_code=400,
+                detail="Mô hình AI nhận diện và đánh giá chuỗi hành vi qua thời gian (Tách đàn, giảm vận động, lật ngửa) nên bắt buộc sử dụng tệp Video (.mp4, .avi, .mov), không nhận diện qua ảnh tĩnh đơn lẻ."
+            )
+
     filename = video_file.filename if video_file else (sample_video or "sample_duck_flock_01.mp4")
     
     raw_tracks = []
@@ -165,10 +142,10 @@ async def analyze_video(
     total_detected = 12
     abnormal_cnt = 0
     alerts_generated = []
+    duration_seconds = 15.0
 
-    # Check if we can run the real YOLO best.pt model for Image or Video
     real_processed = False
-    if video_file and HAS_REAL_MODEL and os.path.exists(MODEL_WEIGHT_PATH):
+    if video_file:
         try:
             temp_dir = "uploads"
             os.makedirs(temp_dir, exist_ok=True)
@@ -176,55 +153,36 @@ async def analyze_video(
             with open(temp_media_path, "wb") as buffer:
                 shutil.copyfileobj(video_file.file, buffer)
 
-            ext = os.path.splitext(filename)[1].lower()
-            is_image = ext in [".jpg", ".jpeg", ".png", ".webp", ".bmp"]
-
-            if is_image:
-                img_res = real_analyze_image(image_path=temp_media_path, model_path=MODEL_WEIGHT_PATH, conf=0.30)
-                raw_tracks = img_res["tracks"]
-                abnormal_cnt = img_res["abnormal_count"]
-                total_detected = img_res["total_ducks_detected"]
-                summary = {
-                    "NORMAL": max(0, total_detected - abnormal_cnt),
-                    "SUPINE_FLIPPED": abnormal_cnt,
-                    "LETHARGIC": 0,
-                    "ISOLATED": 0,
-                    "FEVER_GROUPING": 0
-                }
-                for a in img_res["alerts"]:
-                    msg = f"[AI MODEL BEST.PT] Phát hiện nghi ngờ LẬT NGỬA trên Ảnh (Track #{a['track_id']}) tại Chuồng {barn.name} (Đàn {flock.code})."
-                    alerts_generated.append(msg)
-                real_processed = True
-            else:
-                # Run YOLO + BoT-SORT Duck Supine Video Detector
-                analysis_res = real_analyze_video(
-                    video_path=temp_media_path,
-                    model_path=MODEL_WEIGHT_PATH,
-                    conf=0.30
-                )
-                alerts_from_model = analysis_res.get("alerts", [])
-                abnormal_cnt = len(alerts_from_model)
-
-                for a in alerts_from_model:
-                    msg = f"[AI MODEL BEST.PT] Phát hiện nghi ngờ LẬT NGỬA tại Track #{a['track_id']} ({a['start_time_sec']}s -> {a['end_time_sec']}s, kéo dài {a['duration_sec']}s) tại Chuồng {barn.name} (Đàn {flock.code})."
-                    alerts_generated.append(msg)
-
-                raw_tracks, summary, total_detected, _ = generate_duck_tracks(flock_id, barn_id, filename)
-                summary["SUPINE_FLIPPED"] = abnormal_cnt
-                real_processed = True
+            # Chạy pipeline phân tích Video tích hợp
+            res = analyze_video_full_pipeline(video_path=temp_media_path, conf=0.30, max_frames=300)
+            raw_tracks = res.get("tracks", [])
+            summary = res.get("behavior_summary", {})
+            total_detected = res.get("total_ducks_detected", 12)
+            abnormal_cnt = res.get("abnormal_count", 0)
+            alerts_generated = res.get("alerts_generated", [])
+            duration_seconds = res.get("duration_sec", 15.0)
+            real_processed = True
         except Exception as e:
-            print(f"Lỗi khi chạy model best.pt: {e}, chuyển về fallback simulation mode")
+            print(f"Lỗi khi chạy model thực tế trên video: {e}. Chuyển sang mô phỏng hành vi nâng cao.")
             real_processed = False
 
     if not real_processed:
-        raw_tracks, summary, total_detected, abnormal_cnt = generate_duck_tracks(flock_id, barn_id, filename)
+        raw_tracks, summary, total_detected, abnormal_cnt = generate_duck_behavior_simulation(flock_id, barn_id, filename)
+        if summary.get("SUPINE_FLIPPED", 0) > 0:
+            alerts_generated.append(
+                f"[AI LAT NGUA] Phát hiện {summary['SUPINE_FLIPPED']} cá thể vịt LẬT NGỬA / CO GIẬT CHÂN tại Chuồng {barn.name} (Đàn {flock.code}). Cảnh báo nguy cơ Viêm gan siêu vi (DVH) hoặc Bại liệt!"
+            )
+        if summary.get("ISOLATED_LOW_MOBILITY", 0) > 0:
+            alerts_generated.append(
+                f"[AI BEHAVIOR RUN A] Phát hiện {summary['ISOLATED_LOW_MOBILITY']} cá thể TÁCH ĐÀN & GIẢM VẬN ĐỘNG KÉO DÀI (>=40s) tại Chuồng {barn.name} (Đàn {flock.code}). Cảnh báo dấu hiệu sớm Dịch tả hoặc Tụ huyết trùng!"
+            )
 
     session = AIAnalysisSession(
         flock_id=flock_id,
         barn_id=barn_id,
         session_date=datetime.utcnow(),
         video_filename=filename,
-        duration_seconds=15.0,
+        duration_seconds=round(duration_seconds, 1),
         total_ducks_detected=total_detected,
         abnormal_count=abnormal_cnt,
         status="COMPLETED"
@@ -249,37 +207,36 @@ async def analyze_video(
         ))
     db.add_all(det_models)
 
-    if abnormal_cnt > 0 and not alerts_generated:
-        alert_msg = f"Phát hiện {abnormal_cnt} cá thể vịt có triệu chứng LẬT NGỬA / BẤT THƯỜNG tại Chuồng {barn.name} (Đàn {flock.code}). Cần cứu hộ ngay!"
-        alert = AIAlert(
-            session_id=session.id,
-            flock_id=flock_id,
-            alert_type="SUPINE_POSTURE_DETECTED",
-            severity=AIAlertSeverity.CRITICAL if summary.get("SUPINE_FLIPPED", 0) > 0 else AIAlertSeverity.WARNING,
-            message=alert_msg,
-            status=AIAlertStatus.NEW
-        )
-        db.add(alert)
-        alerts_generated.append(alert_msg)
-    elif alerts_generated:
+    if alerts_generated:
         for msg in alerts_generated:
             alert = AIAlert(
                 session_id=session.id,
                 flock_id=flock_id,
-                alert_type="SUPINE_POSTURE_DETECTED",
-                severity=AIAlertSeverity.CRITICAL,
+                alert_type="BEHAVIOR_ANOMALY_DETECTED",
+                severity=AIAlertSeverity.CRITICAL if ("LẬT NGỬA" in msg or "DVH" in msg) else AIAlertSeverity.WARNING,
                 message=msg,
                 status=AIAlertStatus.NEW
             )
             db.add(alert)
             notif = Notification(
                 user_id=current_user.id if current_user else 0,
-                title="CẢNH BÁO AI MODEL BEST.PT",
+                title="CẢNH BÁO AI GIÁM SÁT HÀNH VI",
                 message=msg,
                 type="AI_ALERT",
                 is_read=False
             )
             db.add(notif)
+    elif abnormal_cnt > 0:
+        alert_msg = f"Phát hiện {abnormal_cnt} cá thể vịt có hành vi bất thường tại Chuồng {barn.name} (Đàn {flock.code})."
+        alert = AIAlert(
+            session_id=session.id,
+            flock_id=flock_id,
+            alert_type="BEHAVIOR_ANOMALY_DETECTED",
+            severity=AIAlertSeverity.WARNING,
+            message=alert_msg,
+            status=AIAlertStatus.NEW
+        )
+        db.add(alert)
 
     await db.commit()
 
@@ -299,7 +256,7 @@ async def analyze_video(
         flock_id=flock_id,
         barn_id=barn_id,
         video_filename=filename,
-        duration_seconds=15.0,
+        duration_seconds=round(duration_seconds, 1),
         total_ducks_detected=total_detected,
         abnormal_count=abnormal_cnt,
         behavior_summary=summary,

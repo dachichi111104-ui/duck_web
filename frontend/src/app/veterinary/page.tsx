@@ -397,48 +397,79 @@ export default function VeterinaryPage() {
         {/* SUB-TAB 2: DISEASES REFERENCE */}
         {activeSubTab === 'diseases' && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {(Array.isArray(diseases) ? diseases : []).map((d) => (
-              <div key={d.id} className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-3 relative group">
-                <div className="flex items-center justify-between">
+            {(Array.isArray(diseases) ? diseases : []).map((d) => {
+              const text = (d.name + ' ' + d.symptoms).toLowerCase();
+              let aiBadge = null;
+              if (text.includes('lật ngửa') || text.includes('viêm gan') || text.includes('dvh') || text.includes('co giật')) {
+                aiBadge = {
+                  label: 'AI: Nhận diện qua Lật Ngửa / Co Giật (SUPINE_FLIPPED)',
+                  color: 'bg-purple-50 text-purple-700 border-purple-200'
+                };
+              } else if (text.includes('dịch tả') || text.includes('tách đàn') || text.includes('40s') || text.includes('giảm vận động')) {
+                aiBadge = {
+                  label: 'AI: Cảnh báo Tách Đàn & Giảm Vận Động ≥40s (behavior_runA)',
+                  color: 'bg-red-50 text-red-700 border-red-200'
+                };
+              } else if (text.includes('tụ huyết trùng') || text.includes('ủ rũ') || text.includes('kém vận động')) {
+                aiBadge = {
+                  label: 'AI: Phát hiện Ủ Rũ / Kém Di Chuyển (LETHARGIC)',
+                  color: 'bg-amber-50 text-amber-700 border-amber-200'
+                };
+              } else if (text.includes('riemerella') || text.includes('bại liệt')) {
+                aiBadge = {
+                  label: 'AI: Phát hiện Tách Đàn Đơn Lẻ (ISOLATED)',
+                  color: 'bg-sky-50 text-sky-700 border-sky-200'
+                };
+              }
+
+              return (
+                <div key={d.id} className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-3 relative group">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="space-y-1">
+                      <h3 className="font-bold text-slate-900 text-base">{d.name}</h3>
+                      {aiBadge && (
+                        <span className={`inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${aiBadge.color}`}>
+                          {aiBadge.label}
+                        </span>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <span className={`px-2.5 py-1 rounded-full text-[11px] font-bold ${
+                        d.severity === 'CRITICAL' ? 'bg-red-100 text-red-700' : 'bg-amber-100 text-amber-700'
+                      }`}>
+                        {d.severity}
+                      </span>
+                      {hasRole(['ADMIN', 'FARM_MANAGER', 'VETERINARIAN']) && (
+                        <div className="flex items-center gap-1">
+                          <button
+                            onClick={() => openEditDiseaseModal(d)}
+                            className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500 hover:text-slate-800"
+                            title="Sửa bệnh"
+                          >
+                            <Edit className="w-4 h-4" />
+                          </button>
+                          <button
+                            onClick={() => setDeleteTarget({ type: 'disease', id: d.id, name: d.name })}
+                            className="p-1.5 rounded-lg hover:bg-red-50 text-slate-400 hover:text-red-600"
+                            title="Xóa bệnh"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base">{d.name}</h3>
+                    <p className="font-bold text-slate-700 text-xs mb-1">Triệu chứng lâm sàng &amp; Dấu hiệu nhận diện AI:</p>
+                    <p className="text-xs text-slate-600 leading-relaxed bg-slate-50 p-2.5 rounded-xl border border-slate-100">{d.symptoms}</p>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className={`px-2.5 py-1 rounded-full text-[11px] font-bold ${
-                      d.severity === 'CRITICAL' ? 'bg-red-100 text-red-700' : 'bg-amber-100 text-amber-700'
-                    }`}>
-                      {d.severity}
-                    </span>
-                    {hasRole(['ADMIN', 'FARM_MANAGER', 'VETERINARIAN']) && (
-                      <div className="flex items-center gap-1">
-                        <button
-                          onClick={() => openEditDiseaseModal(d)}
-                          className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500 hover:text-slate-800"
-                          title="Sửa bệnh"
-                        >
-                          <Edit className="w-4 h-4" />
-                        </button>
-                        <button
-                          onClick={() => setDeleteTarget({ type: 'disease', id: d.id, name: d.name })}
-                          className="p-1.5 rounded-lg hover:bg-red-50 text-slate-400 hover:text-red-600"
-                          title="Xóa bệnh"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      </div>
-                    )}
+                  <div>
+                    <p className="font-bold text-slate-700 text-xs mb-1">Hướng điều trị &amp; Kháng sinh can thiệp:</p>
+                    <p className="text-xs text-emerald-800 leading-relaxed bg-emerald-50/50 p-2.5 rounded-xl border border-emerald-100">{d.treatment}</p>
                   </div>
                 </div>
-                <div>
-                  <p className="font-bold text-slate-700 text-xs mb-1">Triệu chứng lâm sàng:</p>
-                  <p className="text-xs text-slate-600 leading-relaxed bg-slate-50 p-2.5 rounded-xl border border-slate-100">{d.symptoms}</p>
-                </div>
-                <div>
-                  <p className="font-bold text-slate-700 text-xs mb-1">Hướng điều trị &amp; Kháng sinh:</p>
-                  <p className="text-xs text-emerald-800 leading-relaxed bg-emerald-50/50 p-2.5 rounded-xl border border-emerald-100">{d.treatment}</p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
 

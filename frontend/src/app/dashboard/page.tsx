@@ -114,7 +114,7 @@ export default function DashboardPage() {
                 <div>
                   <p className="text-3xl font-extrabold text-slate-900">{stats?.active_alerts_count || 2} cảnh báo</p>
                   <p className="text-xs text-amber-600 font-medium mt-1">
-                    Phát hiện vịt di chuyển ủ rũ
+                    Phát hiện lật ngửa &amp; tách đàn ≥40s
                   </p>
                 </div>
               </div>

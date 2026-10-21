@@ -299,7 +299,7 @@ export default function ReportsPage() {
           <div className="flex items-center justify-between">
             <h3 className="font-bold text-slate-900 text-base flex items-center gap-2">
               <Scan className="w-5 h-5 text-purple-600" />
-              Lịch Sử Các Phiên Phân Tích AI Model (best.pt)
+              Lịch Sử Các Phiên Phân Tích Video AI (behavior_runA &amp; lat_ngua)
             </h3>
             <span className="text-xs text-slate-500 font-mono">Tổng số: {aiSessions.length} phiên</span>
           </div>
@@ -310,9 +310,9 @@ export default function ReportsPage() {
                 <tr>
                   <th className="p-3">Thời Gian</th>
                   <th className="p-3">Đàn / Chuồng</th>
-                  <th className="p-3">Tệp Phân Tích</th>
+                  <th className="p-3">Tệp Video</th>
                   <th className="p-3">Tổng Phát Hiện</th>
-                  <th className="p-3">Số Ca Lật Ngửa / Ủ Rũ</th>
+                  <th className="p-3">Số Ca Bất Thường (Lật ngửa / Tách đàn ≥40s)</th>
                   <th className="p-3">Trạng Thái</th>
                 </tr>
               </thead>

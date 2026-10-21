@@ -45,10 +45,10 @@ export default function HistoryPage() {
           combinedLogs.push({
             id: `api-ai-${s.id}`,
             time: new Date(s.session_date || s.created_at).toLocaleString('vi-VN'),
-            user: 'AI Model (best.pt) System',
+            user: 'Hệ thống AI (behavior_runA & lat_ngua)',
             type: 'AI',
-            action: `Phân Tích AI Media (${s.video_filename})`,
-            detail: `Phát hiện ${s.total_ducks_detected} cá thể vịt (${s.abnormal_count} lật ngửa / bất thường) tại Chuồng ${s.barn?.name || s.barn_id} (${s.flock?.name || s.flock_id}). Status: ${s.status}`,
+            action: `Phân Tích Video AI (${s.video_filename})`,
+            detail: `Phát hiện ${s.total_ducks_detected} cá thể vịt (${s.abnormal_count} bất thường: Lật ngửa / Tách đàn & giảm vận động ≥40s) tại Chuồng ${s.barn?.name || s.barn_id} (${s.flock?.name || s.flock_id}). Status: ${s.status}`,
             isAlert: s.abnormal_count > 0,
           });
         });
@@ -67,9 +67,9 @@ export default function HistoryPage() {
             time: ls.time || new Date(ls.session_date).toLocaleString('vi-VN'),
             user: ls.user || 'Nhân viên trang trại',
             type: 'AI',
-            action: `Kích hoạt Phân Tích AI (${ls.video_filename})`,
-            detail: `Tổng ${ls.total_ducks_detected} cá thể (${ls.supine_count || ls.abnormal_count} nghi LẬT NGỬA) tại ${ls.barn_name} (${ls.flock_name}). ${ls.alerts?.[0] || ''}`,
-            isAlert: (ls.supine_count || ls.abnormal_count) > 0,
+            action: `Kích hoạt Phân Tích Video AI (${ls.video_filename})`,
+            detail: `Tổng ${ls.total_ducks_detected} cá thể (${ls.abnormal_count || 0} ca bất thường) tại ${ls.barn_name} (${ls.flock_name}). ${ls.alerts?.[0] || ''}`,
+            isAlert: (ls.abnormal_count || 0) > 0,
           });
         });
       } catch (e) {

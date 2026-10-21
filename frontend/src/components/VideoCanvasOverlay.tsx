@@ -7,59 +7,39 @@ import { AIDetectionTrack } from '@/lib/types';
 interface VideoCanvasOverlayProps {
   tracks: AIDetectionTrack[];
   mediaUrl?: string;
-  mediaType?: 'image' | 'video';
   durationSeconds?: number;
 }
 
 export function VideoCanvasOverlay({
   tracks,
   mediaUrl,
-  mediaType = 'video',
   durationSeconds = 15,
 }: VideoCanvasOverlayProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const hiddenVideoRef = useRef<HTMLVideoElement | null>(null);
-  const imgRef = useRef<HTMLImageElement | null>(null);
 
   const [isPlaying, setIsPlaying] = useState(true);
   const [currentTime, setCurrentTime] = useState(0);
 
-  // Behavior colors mapping
+  // Behavior colors mapping khớp chính xác với Model Hành Vi & Lật Ngửa
   const behaviorColors: Record<string, { stroke: string; fill: string; label: string }> = {
     NORMAL: { stroke: '#2E7D32', fill: 'rgba(46, 125, 50, 0.2)', label: 'Bình thường' },
-    LETHARGIC: { stroke: '#F4A62D', fill: 'rgba(244, 166, 45, 0.25)', label: 'Ủ rũ / Ít vận động' },
-    SUPINE_FLIPPED: { stroke: '#9C27B0', fill: 'rgba(156, 39, 176, 0.35)', label: 'Nghi LẬT NGỬA (Nguy hiểm)' },
-    ISOLATED: { stroke: '#D32F2F', fill: 'rgba(211, 47, 47, 0.25)', label: 'Tách đàn / Nghi bệnh' },
-    FEVER_GROUPING: { stroke: '#FF9800', fill: 'rgba(255, 152, 0, 0.25)', label: 'Tụ tập cụm sốt' },
+    SUPINE_FLIPPED: { stroke: '#7B1FA2', fill: 'rgba(123, 31, 162, 0.35)', label: 'Nghi Lật Ngửa / Co Giật (DVH/Liệt)' },
+    ISOLATED_LOW_MOBILITY: { stroke: '#D32F2F', fill: 'rgba(211, 47, 47, 0.35)', label: 'Tách Đàn & Giảm Vận Động (≥40s)' },
+    LETHARGIC: { stroke: '#F57C00', fill: 'rgba(245, 124, 0, 0.25)', label: 'Ủ rũ / Kém vận động' },
+    ISOLATED: { stroke: '#0288D1', fill: 'rgba(2, 136, 209, 0.25)', label: 'Tách đàn đơn lẻ' },
   };
-
-  // Load image media
-  useEffect(() => {
-    if (mediaType === 'image' && mediaUrl) {
-      const img = new Image();
-      img.crossOrigin = 'anonymous';
-      img.src = mediaUrl;
-      img.onload = () => {
-        imgRef.current = img;
-      };
-      img.onerror = () => {
-        imgRef.current = null;
-      };
-    } else {
-      imgRef.current = null;
-    }
-  }, [mediaUrl, mediaType]);
 
   // Sync hidden video playback
   useEffect(() => {
-    if (mediaType === 'video' && hiddenVideoRef.current && mediaUrl) {
+    if (hiddenVideoRef.current && mediaUrl) {
       if (isPlaying) {
         hiddenVideoRef.current.play().catch(() => {});
       } else {
         hiddenVideoRef.current.pause();
       }
     }
-  }, [isPlaying, mediaUrl, mediaType]);
+  }, [isPlaying, mediaUrl]);
 
   useEffect(() => {
     let animationFrameId: number;
@@ -69,7 +49,7 @@ export function VideoCanvasOverlay({
       const dt = (now - lastTime) / 1000;
       lastTime = now;
 
-      if (isPlaying && mediaType !== 'image') {
+      if (isPlaying) {
         setCurrentTime((prev) => {
           const next = prev + dt;
           return next >= durationSeconds ? 0 : next;
@@ -82,7 +62,7 @@ export function VideoCanvasOverlay({
 
     animationFrameId = requestAnimationFrame(render);
     return () => cancelAnimationFrame(animationFrameId);
-  }, [isPlaying, currentTime, tracks, durationSeconds, mediaType, mediaUrl]);
+  }, [isPlaying, currentTime, tracks, durationSeconds, mediaUrl]);
 
   const drawFrame = () => {
     const canvas = canvasRef.current;
@@ -97,11 +77,8 @@ export function VideoCanvasOverlay({
 
     let drawnMedia = false;
 
-    // 1. Draw Media Background (Image or Video)
-    if (mediaType === 'image' && imgRef.current && imgRef.current.complete) {
-      ctx.drawImage(imgRef.current, 0, 0, width, height);
-      drawnMedia = true;
-    } else if (mediaType === 'video' && hiddenVideoRef.current && hiddenVideoRef.current.readyState >= 2) {
+    // 1. Draw Video Background
+    if (hiddenVideoRef.current && hiddenVideoRef.current.readyState >= 2) {
       ctx.drawImage(hiddenVideoRef.current, 0, 0, width, height);
       drawnMedia = true;
     }
@@ -137,19 +114,11 @@ export function VideoCanvasOverlay({
       ctx.fill();
       ctx.strokeStyle = 'rgba(56, 189, 248, 0.3)';
       ctx.stroke();
-
-      if (mediaType === 'image') {
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
-        ctx.font = 'bold 14px system-ui, sans-serif';
-        ctx.fillText('HÌNH ẢNH DỮ LIỆU ĐANG PHÂN TÍCH', 20, height - 20);
-      }
     }
 
     // 2. Filter active tracks at current time / frame
-    const currentFrameIdx = mediaType === 'image' ? 0 : Math.floor(currentTime * 5);
-    const activeTracks = mediaType === 'image' 
-      ? (tracks.filter(t => t.frame_index === 0).length > 0 ? tracks.filter(t => t.frame_index === 0) : tracks.slice(0, 5))
-      : tracks.filter((t) => t.frame_index === currentFrameIdx);
+    const currentFrameIdx = Math.floor(currentTime * 5);
+    const activeTracks = tracks.filter((t) => t.frame_index === currentFrameIdx);
 
     // 3. Render Bounding Boxes & Tags
     activeTracks.forEach((track) => {
@@ -191,20 +160,16 @@ export function VideoCanvasOverlay({
 
     // 4. Time / Info Overlay Top Left
     ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-    ctx.fillRect(12, 12, 230, 32);
+    ctx.fillRect(12, 12, 260, 32);
     ctx.fillStyle = '#10B981';
     ctx.font = 'bold 12px monospace';
-    if (mediaType === 'image') {
-      ctx.fillText(`MODE: STILL IMAGE | BBOX: ${activeTracks.length}`, 22, 32);
-    } else {
-      ctx.fillText(`FRAME: ${currentFrameIdx} | SEC: ${currentTime.toFixed(1)}s`, 22, 32);
-    }
+    ctx.fillText(`FRAME: ${currentFrameIdx} | TIME: ${currentTime.toFixed(1)}s | TRACKS: ${activeTracks.length}`, 20, 32);
   };
 
   return (
     <div className="space-y-4">
-      {/* Hidden Video element for syncing canvas frame playback when mediaType === 'video' */}
-      {mediaType === 'video' && mediaUrl && (
+      {/* Hidden Video element for syncing canvas frame playback */}
+      {mediaUrl && (
         <video
           ref={hiddenVideoRef}
           src={mediaUrl}
@@ -233,63 +198,63 @@ export function VideoCanvasOverlay({
         {/* Floating status badge */}
         <div className="absolute top-4 right-4 flex items-center gap-2 bg-slate-900/80 backdrop-blur-md border border-slate-700/60 px-3 py-1.5 rounded-full text-xs text-white">
           <Eye className="w-3.5 h-3.5 text-brand-500 animate-pulse" />
-          <span>{mediaType === 'image' ? 'Image BBox Analysis' : 'Live Video BBox Overlay'}</span>
+          <span>Live Video BBox & Behavior Stream</span>
         </div>
 
         {/* Video / Control Bar */}
-        {mediaType === 'video' && (
-          <div className="p-4 bg-slate-900/90 border-t border-slate-800 flex items-center justify-between gap-4">
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => setIsPlaying(!isPlaying)}
-                className="p-2 rounded-xl bg-brand-500 hover:bg-brand-600 text-white transition-colors"
-              >
-                {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-              </button>
-              <button
-                onClick={() => {
-                  setCurrentTime(0);
-                  if (hiddenVideoRef.current) hiddenVideoRef.current.currentTime = 0;
-                }}
-                className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
-              >
-                <RotateCcw className="w-4 h-4" />
-              </button>
-            </div>
-
-            <div className="flex-1 max-w-md flex items-center gap-3">
-              <span className="text-xs text-slate-400 font-mono w-10">{currentTime.toFixed(1)}s</span>
-              <input
-                type="range"
-                min={0}
-                max={durationSeconds}
-                step={0.1}
-                value={currentTime}
-                onChange={(e) => {
-                  const val = parseFloat(e.target.value);
-                  setCurrentTime(val);
-                  if (hiddenVideoRef.current) hiddenVideoRef.current.currentTime = val;
-                }}
-                className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-brand-500"
-              />
-              <span className="text-xs text-slate-400 font-mono w-10">{durationSeconds}s</span>
-            </div>
-
-            <div className="text-xs text-slate-400 font-medium">
-              Tốc độ: <span className="text-white font-bold">5 FPS</span>
-            </div>
+        <div className="p-4 bg-slate-900/90 border-t border-slate-800 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setIsPlaying(!isPlaying)}
+              className="p-2 rounded-xl bg-brand-500 hover:bg-brand-600 text-white transition-colors"
+              title={isPlaying ? 'Tạm dừng' : 'Phát tiếp'}
+            >
+              {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+            </button>
+            <button
+              onClick={() => {
+                setCurrentTime(0);
+                if (hiddenVideoRef.current) hiddenVideoRef.current.currentTime = 0;
+              }}
+              className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
+              title="Phát lại từ đầu"
+            >
+              <RotateCcw className="w-4 h-4" />
+            </button>
           </div>
-        )}
+
+          <div className="flex-1 max-w-md flex items-center gap-3">
+            <span className="text-xs text-slate-400 font-mono w-10">{currentTime.toFixed(1)}s</span>
+            <input
+              type="range"
+              min={0}
+              max={durationSeconds}
+              step={0.1}
+              value={currentTime}
+              onChange={(e) => {
+                const val = parseFloat(e.target.value);
+                setCurrentTime(val);
+                if (hiddenVideoRef.current) hiddenVideoRef.current.currentTime = val;
+              }}
+              className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-brand-500"
+            />
+            <span className="text-xs text-slate-400 font-mono w-10">{durationSeconds}s</span>
+          </div>
+
+          <div className="text-xs text-slate-400 font-medium">
+            Tốc độ: <span className="text-white font-bold">5 FPS</span>
+          </div>
+        </div>
       </div>
 
       {/* Legend Bar */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
         {Object.entries(behaviorColors).map(([key, item]) => (
           <div key={key} className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200/80 shadow-sm">
-            <span className="w-3.5 h-3.5 rounded-full" style={{ backgroundColor: item.stroke }}></span>
-            <div>
-              <p className="text-xs font-bold text-slate-800">{item.label}</p>
-              <p className="text-[10px] text-slate-500 font-mono">Status: {key}</p>
+            <span className="w-3.5 h-3.5 rounded-full shrink-0" style={{ backgroundColor: item.stroke }}></span>
+            <div className="min-w-0">
+              <p className="text-xs font-bold text-slate-800 truncate">{item.label}</p>
+              <p className="text-[10px] text-slate-500 font-mono truncate">{key}</p>
             </div>
           </div>
         ))}
