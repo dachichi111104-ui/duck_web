@@ -3,14 +3,14 @@
   "fps": 30.0,
   "total_frames": 1013,
   "duration_sec": 33.77,
-  "total_ducks_detected": 4,
-  "abnormal_count": 1,
+  "total_ducks_detected": 8,
+  "abnormal_count": 6,
   "behavior_summary": {
-    "NORMAL": 3,
+    "NORMAL": 2,
     "SUPINE_FLIPPED": 1,
-    "ISOLATED_LOW_MOBILITY": 0,
-    "LETHARGIC": 0,
-    "ISOLATED": 0
+    "ISOLATED_LOW_MOBILITY": 1,
+    "LETHARGIC": 2,
+    "ISOLATED": 2
   },
   "tracks": [
     {
@@ -29,8 +29,8 @@
     {
       "frame_index": 0,
       "timestamp_sec": 0.0,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.88,
       "bbox": [
         0.6856,
@@ -42,8 +42,8 @@
     {
       "frame_index": 0,
       "timestamp_sec": 0.0,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.87,
       "bbox": [
         0.2002,
@@ -55,8 +55,8 @@
     {
       "frame_index": 0,
       "timestamp_sec": 0.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.87,
       "bbox": [
         0.0349,
@@ -81,8 +81,8 @@
     {
       "frame_index": 1,
       "timestamp_sec": 0.2,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.88,
       "bbox": [
         0.6862,
@@ -94,14 +94,27 @@
     {
       "frame_index": 1,
       "timestamp_sec": 0.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.88,
       "bbox": [
         0.0293,
         0.1686,
         0.4194,
         0.15
+      ]
+    },
+    {
+      "frame_index": 1,
+      "timestamp_sec": 0.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.86,
+      "bbox": [
+        0.2282,
+        0.4368,
+        0.3731,
+        0.3037
       ]
     },
     {
@@ -120,8 +133,21 @@
     {
       "frame_index": 2,
       "timestamp_sec": 0.4,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.89,
+      "bbox": [
+        0.2416,
+        0.4489,
+        0.3683,
+        0.2674
+      ]
+    },
+    {
+      "frame_index": 2,
+      "timestamp_sec": 0.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.88,
       "bbox": [
         0.6952,
@@ -133,8 +159,8 @@
     {
       "frame_index": 2,
       "timestamp_sec": 0.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.87,
       "bbox": [
         0.0093,
@@ -159,8 +185,8 @@
     {
       "frame_index": 3,
       "timestamp_sec": 0.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.0562,
@@ -172,8 +198,21 @@
     {
       "frame_index": 3,
       "timestamp_sec": 0.6,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.89,
+      "bbox": [
+        0.2444,
+        0.4568,
+        0.3954,
+        0.2768
+      ]
+    },
+    {
+      "frame_index": 3,
+      "timestamp_sec": 0.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.692,
@@ -198,8 +237,8 @@
     {
       "frame_index": 4,
       "timestamp_sec": 0.8,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.6922,
@@ -211,8 +250,8 @@
     {
       "frame_index": 4,
       "timestamp_sec": 0.8,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.88,
       "bbox": [
         0.0101,
@@ -222,10 +261,23 @@
       ]
     },
     {
+      "frame_index": 4,
+      "timestamp_sec": 0.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.87,
+      "bbox": [
+        0.2129,
+        0.4548,
+        0.4021,
+        0.3239
+      ]
+    },
+    {
       "frame_index": 5,
       "timestamp_sec": 1.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.91,
       "bbox": [
         0.0328,
@@ -250,14 +302,27 @@
     {
       "frame_index": 5,
       "timestamp_sec": 1.0,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.88,
       "bbox": [
         0.6791,
         0.598,
         0.3209,
         0.347
+      ]
+    },
+    {
+      "frame_index": 5,
+      "timestamp_sec": 1.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.88,
+      "bbox": [
+        0.2202,
+        0.4487,
+        0.3702,
+        0.2986
       ]
     },
     {
@@ -276,8 +341,8 @@
     {
       "frame_index": 6,
       "timestamp_sec": 1.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.004,
@@ -289,8 +354,8 @@
     {
       "frame_index": 6,
       "timestamp_sec": 1.2,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.6555,
@@ -302,8 +367,8 @@
     {
       "frame_index": 6,
       "timestamp_sec": 1.2,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.2015,
@@ -328,8 +393,8 @@
     {
       "frame_index": 7,
       "timestamp_sec": 1.4,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.6298,
@@ -341,8 +406,8 @@
     {
       "frame_index": 7,
       "timestamp_sec": 1.4,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.175,
@@ -354,8 +419,8 @@
     {
       "frame_index": 7,
       "timestamp_sec": 1.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.0029,
@@ -367,8 +432,8 @@
     {
       "frame_index": 8,
       "timestamp_sec": 1.6,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.91,
       "bbox": [
         0.6049,
@@ -393,8 +458,8 @@
     {
       "frame_index": 8,
       "timestamp_sec": 1.6,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.87,
       "bbox": [
         0.1397,
@@ -406,8 +471,8 @@
     {
       "frame_index": 8,
       "timestamp_sec": 1.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.86,
       "bbox": [
         0.0011,
@@ -419,8 +484,8 @@
     {
       "frame_index": 9,
       "timestamp_sec": 1.8,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.91,
       "bbox": [
         0.6003,
@@ -432,8 +497,8 @@
     {
       "frame_index": 9,
       "timestamp_sec": 1.8,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.0022,
@@ -458,8 +523,8 @@
     {
       "frame_index": 9,
       "timestamp_sec": 1.8,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.1337,
@@ -471,8 +536,8 @@
     {
       "frame_index": 10,
       "timestamp_sec": 2.0,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.6087,
@@ -484,8 +549,8 @@
     {
       "frame_index": 10,
       "timestamp_sec": 2.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.0007,
@@ -510,8 +575,8 @@
     {
       "frame_index": 10,
       "timestamp_sec": 2.0,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.88,
       "bbox": [
         0.1398,
@@ -536,8 +601,8 @@
     {
       "frame_index": 11,
       "timestamp_sec": 2.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.0896,
@@ -549,8 +614,21 @@
     {
       "frame_index": 11,
       "timestamp_sec": 2.2,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.89,
+      "bbox": [
+        0.0,
+        0.2535,
+        0.225,
+        0.1123
+      ]
+    },
+    {
+      "frame_index": 11,
+      "timestamp_sec": 2.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.88,
       "bbox": [
         0.5749,
@@ -560,10 +638,23 @@
       ]
     },
     {
+      "frame_index": 11,
+      "timestamp_sec": 2.2,
+      "track_id": 3,
+      "behavior_label": "ISOLATED",
+      "confidence": 0.52,
+      "bbox": [
+        0.9258,
+        0.3946,
+        0.0742,
+        0.1344
+      ]
+    },
+    {
       "frame_index": 12,
       "timestamp_sec": 2.4,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.92,
       "bbox": [
         0.6445,
@@ -588,8 +679,8 @@
     {
       "frame_index": 12,
       "timestamp_sec": 2.4,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.1816,
@@ -601,8 +692,8 @@
     {
       "frame_index": 12,
       "timestamp_sec": 2.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.88,
       "bbox": [
         0.0,
@@ -627,8 +718,8 @@
     {
       "frame_index": 13,
       "timestamp_sec": 2.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.0032,
@@ -640,8 +731,21 @@
     {
       "frame_index": 13,
       "timestamp_sec": 2.6,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.89,
+      "bbox": [
+        0.2309,
+        0.3243,
+        0.6044,
+        0.1398
+      ]
+    },
+    {
+      "frame_index": 13,
+      "timestamp_sec": 2.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.85,
       "bbox": [
         0.7906,
@@ -666,8 +770,8 @@
     {
       "frame_index": 14,
       "timestamp_sec": 2.8,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.0218,
@@ -679,8 +783,21 @@
     {
       "frame_index": 14,
       "timestamp_sec": 2.8,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.89,
+      "bbox": [
+        0.3686,
+        0.4621,
+        0.3932,
+        0.3624
+      ]
+    },
+    {
+      "frame_index": 14,
+      "timestamp_sec": 2.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.41,
       "bbox": [
         0.922,
@@ -692,8 +809,8 @@
     {
       "frame_index": 15,
       "timestamp_sec": 3.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.91,
       "bbox": [
         0.4012,
@@ -707,19 +824,32 @@
       "timestamp_sec": 3.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.4044,
-        0.2564,
-        0.5916,
-        0.16
+        0.0786,
+        0.1604,
+        0.4122,
+        0.1641
+      ]
+    },
+    {
+      "frame_index": 15,
+      "timestamp_sec": 3.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.89,
+      "bbox": [
+        0.4385,
+        0.4458,
+        0.4258,
+        0.3954
       ]
     },
     {
       "frame_index": 16,
       "timestamp_sec": 3.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.4096,
@@ -733,19 +863,32 @@
       "timestamp_sec": 3.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.4186,
-        0.2559,
-        0.5814,
-        0.1621
+        0.0783,
+        0.1586,
+        0.4281,
+        0.1705
+      ]
+    },
+    {
+      "frame_index": 16,
+      "timestamp_sec": 3.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.9,
+      "bbox": [
+        0.4506,
+        0.4457,
+        0.4482,
+        0.4138
       ]
     },
     {
       "frame_index": 17,
       "timestamp_sec": 3.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.3779,
@@ -759,19 +902,32 @@
       "timestamp_sec": 3.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.3933,
-        0.264,
-        0.6048,
-        0.1624
+        0.0522,
+        0.1699,
+        0.4447,
+        0.1633
+      ]
+    },
+    {
+      "frame_index": 17,
+      "timestamp_sec": 3.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.88,
+      "bbox": [
+        0.4509,
+        0.4491,
+        0.4811,
+        0.4304
       ]
     },
     {
       "frame_index": 18,
       "timestamp_sec": 3.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.3732,
@@ -785,19 +941,32 @@
       "timestamp_sec": 3.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.389,
-        0.26,
-        0.6095,
-        0.1622
+        0.4372,
+        0.446,
+        0.4419,
+        0.4481
+      ]
+    },
+    {
+      "frame_index": 18,
+      "timestamp_sec": 3.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.9,
+      "bbox": [
+        0.0586,
+        0.1777,
+        0.4356,
+        0.1544
       ]
     },
     {
       "frame_index": 19,
       "timestamp_sec": 3.8,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.91,
       "bbox": [
         0.3813,
@@ -811,19 +980,45 @@
       "timestamp_sec": 3.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.3924,
-        0.2768,
-        0.6076,
-        0.1628
+        0.0728,
+        0.2043,
+        0.4331,
+        0.1499
+      ]
+    },
+    {
+      "frame_index": 19,
+      "timestamp_sec": 3.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.89,
+      "bbox": [
+        0.4975,
+        0.4235,
+        0.3849,
+        0.4534
       ]
     },
     {
       "frame_index": 20,
       "timestamp_sec": 4.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.91,
+      "bbox": [
+        0.6097,
+        0.3161,
+        0.3884,
+        0.3982
+      ]
+    },
+    {
+      "frame_index": 20,
+      "timestamp_sec": 4.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.3433,
@@ -837,19 +1032,19 @@
       "timestamp_sec": 4.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.88,
       "bbox": [
-        0.0047,
-        0.2387,
-        0.4376,
-        0.1297
+        0.0153,
+        0.2421,
+        0.4372,
+        0.132
       ]
     },
     {
       "frame_index": 21,
       "timestamp_sec": 4.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.91,
       "bbox": [
         0.0014,
@@ -872,6 +1067,19 @@
       ]
     },
     {
+      "frame_index": 21,
+      "timestamp_sec": 4.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.29,
+      "bbox": [
+        0.1863,
+        0.3552,
+        0.291,
+        0.3742
+      ]
+    },
+    {
       "frame_index": 22,
       "timestamp_sec": 4.4,
       "track_id": 1,
@@ -887,8 +1095,8 @@
     {
       "frame_index": 22,
       "timestamp_sec": 4.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.88,
       "bbox": [
         0.0012,
@@ -901,13 +1109,26 @@
       "frame_index": 22,
       "timestamp_sec": 4.4,
       "track_id": 3,
-      "behavior_label": "NORMAL",
+      "behavior_label": "ISOLATED",
       "confidence": 0.79,
       "bbox": [
         0.8553,
         0.6657,
         0.1447,
         0.2658
+      ]
+    },
+    {
+      "frame_index": 22,
+      "timestamp_sec": 4.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.35,
+      "bbox": [
+        0.0091,
+        0.6175,
+        0.669,
+        0.3723
       ]
     },
     {
@@ -926,8 +1147,8 @@
     {
       "frame_index": 23,
       "timestamp_sec": 4.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.86,
       "bbox": [
         0.0009,
@@ -940,7 +1161,7 @@
       "frame_index": 23,
       "timestamp_sec": 4.6,
       "track_id": 3,
-      "behavior_label": "NORMAL",
+      "behavior_label": "ISOLATED",
       "confidence": 0.83,
       "bbox": [
         0.8572,
@@ -966,7 +1187,7 @@
       "frame_index": 24,
       "timestamp_sec": 4.8,
       "track_id": 3,
-      "behavior_label": "NORMAL",
+      "behavior_label": "ISOLATED",
       "confidence": 0.85,
       "bbox": [
         0.863,
@@ -978,8 +1199,8 @@
     {
       "frame_index": 24,
       "timestamp_sec": 4.8,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.83,
       "bbox": [
         0.0,
@@ -991,14 +1212,40 @@
     {
       "frame_index": 24,
       "timestamp_sec": 4.8,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.82,
       "bbox": [
         0.0,
         0.6493,
         0.4555,
         0.3488
+      ]
+    },
+    {
+      "frame_index": 24,
+      "timestamp_sec": 4.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.82,
+      "bbox": [
+        0.0,
+        0.6511,
+        0.7358,
+        0.3468
+      ]
+    },
+    {
+      "frame_index": 25,
+      "timestamp_sec": 5.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.91,
+      "bbox": [
+        0.1804,
+        0.726,
+        0.4991,
+        0.2737
       ]
     },
     {
@@ -1017,8 +1264,8 @@
     {
       "frame_index": 25,
       "timestamp_sec": 5.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.87,
       "bbox": [
         0.0014,
@@ -1031,7 +1278,7 @@
       "frame_index": 25,
       "timestamp_sec": 5.0,
       "track_id": 3,
-      "behavior_label": "NORMAL",
+      "behavior_label": "ISOLATED",
       "confidence": 0.73,
       "bbox": [
         0.9133,
@@ -1043,8 +1290,8 @@
     {
       "frame_index": 26,
       "timestamp_sec": 5.2,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.4287,
@@ -1069,14 +1316,27 @@
     {
       "frame_index": 26,
       "timestamp_sec": 5.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.88,
       "bbox": [
         0.002,
         0.3631,
         0.2789,
         0.1337
+      ]
+    },
+    {
+      "frame_index": 26,
+      "timestamp_sec": 5.2,
+      "track_id": 3,
+      "behavior_label": "ISOLATED",
+      "confidence": 0.39,
+      "bbox": [
+        0.9296,
+        0.7162,
+        0.0704,
+        0.1627
       ]
     },
     {
@@ -1095,8 +1355,8 @@
     {
       "frame_index": 27,
       "timestamp_sec": 5.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.87,
       "bbox": [
         0.002,
@@ -1108,14 +1368,27 @@
     {
       "frame_index": 27,
       "timestamp_sec": 5.4,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.87,
       "bbox": [
         0.3561,
         0.6393,
         0.4084,
         0.3559
+      ]
+    },
+    {
+      "frame_index": 27,
+      "timestamp_sec": 5.4,
+      "track_id": 3,
+      "behavior_label": "ISOLATED",
+      "confidence": 0.85,
+      "bbox": [
+        0.8775,
+        0.5987,
+        0.1225,
+        0.2785
       ]
     },
     {
@@ -1135,7 +1408,7 @@
       "frame_index": 28,
       "timestamp_sec": 5.6,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.9,
       "bbox": [
         0.0003,
@@ -1147,8 +1420,21 @@
     {
       "frame_index": 28,
       "timestamp_sec": 5.6,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.9,
+      "bbox": [
+        0.1966,
+        0.6457,
+        0.4463,
+        0.3543
+      ]
+    },
+    {
+      "frame_index": 28,
+      "timestamp_sec": 5.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.86,
       "bbox": [
         0.7844,
@@ -1160,8 +1446,8 @@
     {
       "frame_index": 29,
       "timestamp_sec": 5.8,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.92,
       "bbox": [
         0.7646,
@@ -1186,8 +1472,21 @@
     {
       "frame_index": 29,
       "timestamp_sec": 5.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.88,
+      "bbox": [
+        0.1878,
+        0.5996,
+        0.4412,
+        0.393
+      ]
+    },
+    {
+      "frame_index": 29,
+      "timestamp_sec": 5.8,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.87,
       "bbox": [
         0.0005,
@@ -1199,8 +1498,21 @@
     {
       "frame_index": 30,
       "timestamp_sec": 6.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.92,
+      "bbox": [
+        0.8025,
+        0.551,
+        0.1975,
+        0.2707
+      ]
+    },
+    {
+      "frame_index": 30,
+      "timestamp_sec": 6.0,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.91,
       "bbox": [
         0.0001,
@@ -1225,8 +1537,8 @@
     {
       "frame_index": 30,
       "timestamp_sec": 6.0,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.3958,
@@ -1238,8 +1550,21 @@
     {
       "frame_index": 31,
       "timestamp_sec": 6.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.92,
+      "bbox": [
+        0.7849,
+        0.5133,
+        0.2151,
+        0.2452
+      ]
+    },
+    {
+      "frame_index": 31,
+      "timestamp_sec": 6.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.0009,
@@ -1264,8 +1589,8 @@
     {
       "frame_index": 31,
       "timestamp_sec": 6.2,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.87,
       "bbox": [
         0.4206,
@@ -1277,8 +1602,21 @@
     {
       "frame_index": 32,
       "timestamp_sec": 6.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.91,
+      "bbox": [
+        0.7178,
+        0.4696,
+        0.2818,
+        0.2885
+      ]
+    },
+    {
+      "frame_index": 32,
+      "timestamp_sec": 6.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.0076,
@@ -1301,10 +1639,36 @@
       ]
     },
     {
+      "frame_index": 32,
+      "timestamp_sec": 6.4,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.76,
+      "bbox": [
+        0.9019,
+        0.1827,
+        0.0981,
+        0.1833
+      ]
+    },
+    {
       "frame_index": 33,
       "timestamp_sec": 6.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.9,
+      "bbox": [
+        0.7295,
+        0.448,
+        0.2698,
+        0.2986
+      ]
+    },
+    {
+      "frame_index": 33,
+      "timestamp_sec": 6.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.0103,
@@ -1327,10 +1691,49 @@
       ]
     },
     {
+      "frame_index": 33,
+      "timestamp_sec": 6.6,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.83,
+      "bbox": [
+        0.8839,
+        0.1602,
+        0.1161,
+        0.2278
+      ]
+    },
+    {
+      "frame_index": 33,
+      "timestamp_sec": 6.6,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.38,
+      "bbox": [
+        0.0001,
+        0.2107,
+        0.0456,
+        0.0912
+      ]
+    },
+    {
       "frame_index": 34,
       "timestamp_sec": 6.8,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.89,
+      "bbox": [
+        0.7053,
+        0.4237,
+        0.2929,
+        0.3195
+      ]
+    },
+    {
+      "frame_index": 34,
+      "timestamp_sec": 6.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.88,
       "bbox": [
         0.01,
@@ -1353,10 +1756,36 @@
       ]
     },
     {
+      "frame_index": 34,
+      "timestamp_sec": 6.8,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.83,
+      "bbox": [
+        0.8561,
+        0.1444,
+        0.1439,
+        0.2398
+      ]
+    },
+    {
       "frame_index": 35,
       "timestamp_sec": 7.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.9,
+      "bbox": [
+        0.6592,
+        0.402,
+        0.339,
+        0.3433
+      ]
+    },
+    {
+      "frame_index": 35,
+      "timestamp_sec": 7.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.0091,
@@ -1379,16 +1808,55 @@
       ]
     },
     {
+      "frame_index": 35,
+      "timestamp_sec": 7.0,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.87,
+      "bbox": [
+        0.8429,
+        0.1304,
+        0.1571,
+        0.2417
+      ]
+    },
+    {
       "frame_index": 36,
       "timestamp_sec": 7.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.89,
+      "bbox": [
+        0.6553,
+        0.3907,
+        0.3423,
+        0.315
+      ]
+    },
+    {
+      "frame_index": 36,
+      "timestamp_sec": 7.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.88,
       "bbox": [
         0.0138,
         0.2197,
         0.5738,
         0.1419
+      ]
+    },
+    {
+      "frame_index": 36,
+      "timestamp_sec": 7.2,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.87,
+      "bbox": [
+        0.8549,
+        0.1289,
+        0.1451,
+        0.2245
       ]
     },
     {
@@ -1407,8 +1875,21 @@
     {
       "frame_index": 37,
       "timestamp_sec": 7.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.92,
+      "bbox": [
+        0.6734,
+        0.3654,
+        0.3243,
+        0.3274
+      ]
+    },
+    {
+      "frame_index": 37,
+      "timestamp_sec": 7.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.0189,
@@ -1431,10 +1912,23 @@
       ]
     },
     {
+      "frame_index": 37,
+      "timestamp_sec": 7.4,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.84,
+      "bbox": [
+        0.8811,
+        0.1258,
+        0.1189,
+        0.1963
+      ]
+    },
+    {
       "frame_index": 38,
       "timestamp_sec": 7.6,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.89,
       "bbox": [
         0.0119,
@@ -1457,10 +1951,62 @@
       ]
     },
     {
+      "frame_index": 38,
+      "timestamp_sec": 7.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.88,
+      "bbox": [
+        0.7332,
+        0.3645,
+        0.2638,
+        0.3436
+      ]
+    },
+    {
+      "frame_index": 38,
+      "timestamp_sec": 7.6,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.82,
+      "bbox": [
+        0.8975,
+        0.1304,
+        0.1025,
+        0.183
+      ]
+    },
+    {
+      "frame_index": 38,
+      "timestamp_sec": 7.6,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.37,
+      "bbox": [
+        0.0001,
+        0.1694,
+        0.0461,
+        0.0952
+      ]
+    },
+    {
+      "frame_index": 39,
+      "timestamp_sec": 7.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.89,
+      "bbox": [
+        0.7539,
+        0.3737,
+        0.2447,
+        0.3433
+      ]
+    },
+    {
       "frame_index": 39,
       "timestamp_sec": 7.8,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.89,
       "bbox": [
         0.0098,
@@ -1483,16 +2029,55 @@
       ]
     },
     {
+      "frame_index": 39,
+      "timestamp_sec": 7.8,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.73,
+      "bbox": [
+        0.9041,
+        0.1392,
+        0.0959,
+        0.1753
+      ]
+    },
+    {
+      "frame_index": 39,
+      "timestamp_sec": 7.8,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.49,
+      "bbox": [
+        0.0004,
+        0.1663,
+        0.0528,
+        0.0938
+      ]
+    },
+    {
       "frame_index": 40,
       "timestamp_sec": 8.0,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.89,
       "bbox": [
         0.0087,
         0.2127,
         0.6392,
         0.1441
+      ]
+    },
+    {
+      "frame_index": 40,
+      "timestamp_sec": 8.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.86,
+      "bbox": [
+        0.7368,
+        0.3863,
+        0.261,
+        0.3228
       ]
     },
     {
@@ -1509,10 +2094,49 @@
       ]
     },
     {
+      "frame_index": 40,
+      "timestamp_sec": 8.0,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.69,
+      "bbox": [
+        0.9211,
+        0.1451,
+        0.0789,
+        0.1785
+      ]
+    },
+    {
+      "frame_index": 40,
+      "timestamp_sec": 8.0,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.54,
+      "bbox": [
+        0.0005,
+        0.1692,
+        0.0525,
+        0.0928
+      ]
+    },
+    {
+      "frame_index": 41,
+      "timestamp_sec": 8.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.9,
+      "bbox": [
+        0.7249,
+        0.3998,
+        0.2739,
+        0.3179
+      ]
+    },
+    {
       "frame_index": 41,
       "timestamp_sec": 8.2,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.89,
       "bbox": [
         0.0092,
@@ -1535,16 +2159,55 @@
       ]
     },
     {
+      "frame_index": 41,
+      "timestamp_sec": 8.2,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.67,
+      "bbox": [
+        0.9262,
+        0.1555,
+        0.0738,
+        0.175
+      ]
+    },
+    {
+      "frame_index": 41,
+      "timestamp_sec": 8.2,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.43,
+      "bbox": [
+        0.0004,
+        0.168,
+        0.0564,
+        0.099
+      ]
+    },
+    {
       "frame_index": 42,
       "timestamp_sec": 8.4,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.9,
       "bbox": [
         0.0084,
         0.2059,
         0.6805,
         0.1529
+      ]
+    },
+    {
+      "frame_index": 42,
+      "timestamp_sec": 8.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.89,
+      "bbox": [
+        0.7317,
+        0.4015,
+        0.2683,
+        0.3039
       ]
     },
     {
@@ -1561,10 +2224,36 @@
       ]
     },
     {
+      "frame_index": 42,
+      "timestamp_sec": 8.4,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.65,
+      "bbox": [
+        0.0,
+        0.1699,
+        0.0995,
+        0.1003
+      ]
+    },
+    {
+      "frame_index": 42,
+      "timestamp_sec": 8.4,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.29,
+      "bbox": [
+        0.9514,
+        0.1552,
+        0.0486,
+        0.1464
+      ]
+    },
+    {
       "frame_index": 43,
       "timestamp_sec": 8.6,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.9,
       "bbox": [
         0.02,
@@ -1587,16 +2276,55 @@
       ]
     },
     {
+      "frame_index": 43,
+      "timestamp_sec": 8.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.86,
+      "bbox": [
+        0.7611,
+        0.3958,
+        0.2388,
+        0.3066
+      ]
+    },
+    {
+      "frame_index": 43,
+      "timestamp_sec": 8.6,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.82,
+      "bbox": [
+        0.0,
+        0.1615,
+        0.1304,
+        0.121
+      ]
+    },
+    {
       "frame_index": 44,
       "timestamp_sec": 8.8,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.91,
       "bbox": [
         0.0228,
         0.1968,
         0.7075,
         0.1533
+      ]
+    },
+    {
+      "frame_index": 44,
+      "timestamp_sec": 8.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.86,
+      "bbox": [
+        0.7353,
+        0.4011,
+        0.2647,
+        0.2803
       ]
     },
     {
@@ -1613,10 +2341,23 @@
       ]
     },
     {
+      "frame_index": 44,
+      "timestamp_sec": 8.8,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.83,
+      "bbox": [
+        0.0,
+        0.1565,
+        0.1404,
+        0.1115
+      ]
+    },
+    {
       "frame_index": 45,
       "timestamp_sec": 9.0,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.91,
       "bbox": [
         0.0243,
@@ -1639,16 +2380,68 @@
       ]
     },
     {
+      "frame_index": 45,
+      "timestamp_sec": 9.0,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.85,
+      "bbox": [
+        0.0,
+        0.1571,
+        0.1464,
+        0.116
+      ]
+    },
+    {
+      "frame_index": 45,
+      "timestamp_sec": 9.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.83,
+      "bbox": [
+        0.7767,
+        0.4122,
+        0.2222,
+        0.2982
+      ]
+    },
+    {
       "frame_index": 46,
       "timestamp_sec": 9.2,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.91,
       "bbox": [
         0.0255,
         0.1995,
         0.707,
         0.152
+      ]
+    },
+    {
+      "frame_index": 46,
+      "timestamp_sec": 9.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.86,
+      "bbox": [
+        0.7877,
+        0.4133,
+        0.2123,
+        0.2724
+      ]
+    },
+    {
+      "frame_index": 46,
+      "timestamp_sec": 9.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.86,
+      "bbox": [
+        0.0,
+        0.1564,
+        0.1504,
+        0.1148
       ]
     },
     {
@@ -1668,7 +2461,7 @@
       "frame_index": 47,
       "timestamp_sec": 9.4,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.89,
       "bbox": [
         0.0377,
@@ -1680,8 +2473,21 @@
     {
       "frame_index": 47,
       "timestamp_sec": 9.4,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.87,
+      "bbox": [
+        0.0017,
+        0.1619,
+        0.1613,
+        0.1119
+      ]
+    },
+    {
+      "frame_index": 47,
+      "timestamp_sec": 9.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.86,
       "bbox": [
         0.4644,
@@ -1695,19 +2501,19 @@
       "timestamp_sec": 9.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.84,
       "bbox": [
-        0.0431,
-        0.2121,
-        0.7091,
-        0.1459
+        0.8487,
+        0.3912,
+        0.1513,
+        0.2953
       ]
     },
     {
       "frame_index": 48,
       "timestamp_sec": 9.6,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.4269,
@@ -1720,7 +2526,7 @@
       "frame_index": 48,
       "timestamp_sec": 9.6,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.89,
       "bbox": [
         0.019,
@@ -1734,19 +2540,32 @@
       "timestamp_sec": 9.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.85,
       "bbox": [
-        0.0356,
-        0.2229,
-        0.7033,
-        0.154
+        0.0,
+        0.177,
+        0.1527,
+        0.1102
+      ]
+    },
+    {
+      "frame_index": 48,
+      "timestamp_sec": 9.6,
+      "track_id": 3,
+      "behavior_label": "ISOLATED",
+      "confidence": 0.77,
+      "bbox": [
+        0.8431,
+        0.3706,
+        0.1569,
+        0.2357
       ]
     },
     {
       "frame_index": 49,
       "timestamp_sec": 9.8,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.6754,
@@ -1758,8 +2577,8 @@
     {
       "frame_index": 49,
       "timestamp_sec": 9.8,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.4328,
@@ -1771,21 +2590,34 @@
     {
       "frame_index": 49,
       "timestamp_sec": 9.8,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.88,
+      "bbox": [
+        0.023,
+        0.2323,
+        0.6727,
+        0.1504
+      ]
+    },
+    {
+      "frame_index": 49,
+      "timestamp_sec": 9.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.81,
       "bbox": [
-        0.0394,
-        0.2286,
-        0.6667,
-        0.149
+        0.0016,
+        0.1859,
+        0.1608,
+        0.1113
       ]
     },
     {
       "frame_index": 50,
       "timestamp_sec": 10.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.87,
       "bbox": [
         0.0,
@@ -1797,14 +2629,27 @@
     {
       "frame_index": 50,
       "timestamp_sec": 10.0,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.86,
       "bbox": [
         0.4267,
         0.5622,
         0.53,
         0.4366
+      ]
+    },
+    {
+      "frame_index": 50,
+      "timestamp_sec": 10.0,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.64,
+      "bbox": [
+        0.0355,
+        0.2174,
+        0.5194,
+        0.1536
       ]
     },
     {
@@ -1823,8 +2668,8 @@
     {
       "frame_index": 51,
       "timestamp_sec": 10.2,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.91,
       "bbox": [
         0.4774,
@@ -1836,8 +2681,8 @@
     {
       "frame_index": 51,
       "timestamp_sec": 10.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.56,
       "bbox": [
         0.0,
@@ -1860,10 +2705,23 @@
       ]
     },
     {
+      "frame_index": 51,
+      "timestamp_sec": 10.2,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.22,
+      "bbox": [
+        0.0516,
+        0.2005,
+        0.7182,
+        0.2732
+      ]
+    },
+    {
       "frame_index": 52,
       "timestamp_sec": 10.4,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.4685,
@@ -1875,8 +2733,8 @@
     {
       "frame_index": 52,
       "timestamp_sec": 10.4,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
       "confidence": 0.89,
       "bbox": [
         0.0214,
@@ -1888,8 +2746,8 @@
     {
       "frame_index": 52,
       "timestamp_sec": 10.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.86,
       "bbox": [
         0.0,
@@ -1901,8 +2759,8 @@
     {
       "frame_index": 53,
       "timestamp_sec": 10.6,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.92,
       "bbox": [
         0.4434,
@@ -1914,8 +2772,8 @@
     {
       "frame_index": 53,
       "timestamp_sec": 10.6,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
       "confidence": 0.9,
       "bbox": [
         0.005,
@@ -1927,8 +2785,8 @@
     {
       "frame_index": 53,
       "timestamp_sec": 10.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.84,
       "bbox": [
         0.0002,
@@ -1940,8 +2798,8 @@
     {
       "frame_index": 54,
       "timestamp_sec": 10.8,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.4003,
@@ -1967,7 +2825,7 @@
       "frame_index": 54,
       "timestamp_sec": 10.8,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.84,
       "bbox": [
         0.0029,
@@ -1979,8 +2837,8 @@
     {
       "frame_index": 55,
       "timestamp_sec": 11.0,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.3759,
@@ -2006,7 +2864,7 @@
       "frame_index": 55,
       "timestamp_sec": 11.0,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.86,
       "bbox": [
         0.0015,
@@ -2018,8 +2876,8 @@
     {
       "frame_index": 56,
       "timestamp_sec": 11.2,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
       "confidence": 0.9,
       "bbox": [
         0.0221,
@@ -2031,8 +2889,8 @@
     {
       "frame_index": 56,
       "timestamp_sec": 11.2,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.4788,
@@ -2044,8 +2902,8 @@
     {
       "frame_index": 56,
       "timestamp_sec": 11.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.87,
       "bbox": [
         0.0,
@@ -2057,8 +2915,8 @@
     {
       "frame_index": 57,
       "timestamp_sec": 11.4,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.4927,
@@ -2071,7 +2929,7 @@
       "frame_index": 57,
       "timestamp_sec": 11.4,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.9,
       "bbox": [
         0.0491,
@@ -2085,19 +2943,19 @@
       "timestamp_sec": 11.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.0679,
-        0.2459,
-        0.9098,
-        0.1966
+        0.0,
+        0.1525,
+        0.2648,
+        0.1413
       ]
     },
     {
       "frame_index": 58,
       "timestamp_sec": 11.6,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.9,
       "bbox": [
         0.0582,
@@ -2109,8 +2967,21 @@
     {
       "frame_index": 58,
       "timestamp_sec": 11.6,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.9,
+      "bbox": [
+        0.0006,
+        0.1391,
+        0.2889,
+        0.1695
+      ]
+    },
+    {
+      "frame_index": 58,
+      "timestamp_sec": 11.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.85,
       "bbox": [
         0.4614,
@@ -2120,23 +2991,10 @@
       ]
     },
     {
-      "frame_index": 58,
-      "timestamp_sec": 11.6,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
-      "bbox": [
-        0.0848,
-        0.2423,
-        0.8165,
-        0.1989
-      ]
-    },
-    {
       "frame_index": 59,
       "timestamp_sec": 11.8,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.92,
       "bbox": [
         0.0891,
@@ -2148,8 +3006,21 @@
     {
       "frame_index": 59,
       "timestamp_sec": 11.8,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.9,
+      "bbox": [
+        0.0029,
+        0.1241,
+        0.3209,
+        0.1828
+      ]
+    },
+    {
+      "frame_index": 59,
+      "timestamp_sec": 11.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.87,
       "bbox": [
         0.4783,
@@ -2159,23 +3030,10 @@
       ]
     },
     {
-      "frame_index": 59,
-      "timestamp_sec": 11.8,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
-      "bbox": [
-        0.1154,
-        0.2327,
-        0.8125,
-        0.2137
-      ]
-    },
-    {
       "frame_index": 60,
       "timestamp_sec": 12.0,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.92,
       "bbox": [
         0.4617,
@@ -2187,8 +3045,8 @@
     {
       "frame_index": 60,
       "timestamp_sec": 12.0,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
       "confidence": 0.9,
       "bbox": [
         0.1021,
@@ -2200,8 +3058,8 @@
     {
       "frame_index": 60,
       "timestamp_sec": 12.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.0017,
@@ -2213,8 +3071,8 @@
     {
       "frame_index": 61,
       "timestamp_sec": 12.2,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.91,
       "bbox": [
         0.4202,
@@ -2226,8 +3084,8 @@
     {
       "frame_index": 61,
       "timestamp_sec": 12.2,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
       "confidence": 0.9,
       "bbox": [
         0.0928,
@@ -2239,8 +3097,8 @@
     {
       "frame_index": 61,
       "timestamp_sec": 12.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.0009,
@@ -2253,7 +3111,7 @@
       "frame_index": 62,
       "timestamp_sec": 12.4,
       "track_id": 3,
-      "behavior_label": "NORMAL",
+      "behavior_label": "ISOLATED",
       "confidence": 0.9,
       "bbox": [
         0.4099,
@@ -2265,8 +3123,8 @@
     {
       "frame_index": 62,
       "timestamp_sec": 12.4,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
       "confidence": 0.89,
       "bbox": [
         0.0936,
@@ -2278,8 +3136,8 @@
     {
       "frame_index": 62,
       "timestamp_sec": 12.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.88,
       "bbox": [
         0.0047,
@@ -2291,8 +3149,8 @@
     {
       "frame_index": 63,
       "timestamp_sec": 12.6,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.5026,
@@ -2317,8 +3175,8 @@
     {
       "frame_index": 63,
       "timestamp_sec": 12.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.0034,
@@ -2330,8 +3188,8 @@
     {
       "frame_index": 64,
       "timestamp_sec": 12.8,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
       "confidence": 0.91,
       "bbox": [
         0.2405,
@@ -2343,8 +3201,8 @@
     {
       "frame_index": 64,
       "timestamp_sec": 12.8,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.91,
       "bbox": [
         0.0,
@@ -2356,8 +3214,8 @@
     {
       "frame_index": 64,
       "timestamp_sec": 12.8,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.6168,
@@ -2382,8 +3240,8 @@
     {
       "frame_index": 65,
       "timestamp_sec": 13.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.0036,
@@ -2395,8 +3253,8 @@
     {
       "frame_index": 65,
       "timestamp_sec": 13.0,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.84,
       "bbox": [
         0.5826,
@@ -2408,8 +3266,8 @@
     {
       "frame_index": 66,
       "timestamp_sec": 13.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.92,
       "bbox": [
         0.0035,
@@ -2434,8 +3292,8 @@
     {
       "frame_index": 66,
       "timestamp_sec": 13.2,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.86,
       "bbox": [
         0.502,
@@ -2447,8 +3305,8 @@
     {
       "frame_index": 67,
       "timestamp_sec": 13.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.0037,
@@ -2474,7 +3332,7 @@
       "frame_index": 67,
       "timestamp_sec": 13.4,
       "track_id": 3,
-      "behavior_label": "NORMAL",
+      "behavior_label": "ISOLATED",
       "confidence": 0.81,
       "bbox": [
         0.4677,
@@ -2497,10 +3355,23 @@
       ]
     },
     {
+      "frame_index": 68,
+      "timestamp_sec": 13.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.84,
+      "bbox": [
+        0.223,
+        0.5371,
+        0.6023,
+        0.441
+      ]
+    },
+    {
       "frame_index": 69,
       "timestamp_sec": 13.8,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.0003,
@@ -2538,8 +3409,8 @@
     {
       "frame_index": 70,
       "timestamp_sec": 14.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.87,
       "bbox": [
         0.0016,
@@ -2552,7 +3423,7 @@
       "frame_index": 70,
       "timestamp_sec": 14.0,
       "track_id": 3,
-      "behavior_label": "NORMAL",
+      "behavior_label": "ISOLATED",
       "confidence": 0.65,
       "bbox": [
         0.4812,
@@ -2577,14 +3448,27 @@
     {
       "frame_index": 71,
       "timestamp_sec": 14.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.0015,
         0.3811,
         0.2857,
         0.15
+      ]
+    },
+    {
+      "frame_index": 71,
+      "timestamp_sec": 14.2,
+      "track_id": 3,
+      "behavior_label": "ISOLATED",
+      "confidence": 0.3,
+      "bbox": [
+        0.5016,
+        0.9151,
+        0.4951,
+        0.0847
       ]
     },
     {
@@ -2603,8 +3487,8 @@
     {
       "frame_index": 72,
       "timestamp_sec": 14.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.0013,
@@ -2616,8 +3500,8 @@
     {
       "frame_index": 72,
       "timestamp_sec": 14.4,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.45,
       "bbox": [
         0.2527,
@@ -2630,7 +3514,7 @@
       "frame_index": 73,
       "timestamp_sec": 14.6,
       "track_id": 3,
-      "behavior_label": "NORMAL",
+      "behavior_label": "ISOLATED",
       "confidence": 0.9,
       "bbox": [
         0.5878,
@@ -2655,8 +3539,8 @@
     {
       "frame_index": 73,
       "timestamp_sec": 14.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.88,
       "bbox": [
         0.0045,
@@ -2681,8 +3565,8 @@
     {
       "frame_index": 74,
       "timestamp_sec": 14.8,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.88,
       "bbox": [
         0.0548,
@@ -2695,7 +3579,7 @@
       "frame_index": 74,
       "timestamp_sec": 14.8,
       "track_id": 3,
-      "behavior_label": "NORMAL",
+      "behavior_label": "ISOLATED",
       "confidence": 0.87,
       "bbox": [
         0.7107,
@@ -2720,14 +3604,40 @@
     {
       "frame_index": 75,
       "timestamp_sec": 15.0,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.89,
+      "bbox": [
+        0.0242,
+        0.4291,
+        0.4463,
+        0.1858
+      ]
+    },
+    {
+      "frame_index": 75,
+      "timestamp_sec": 15.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.86,
       "bbox": [
         0.791,
         0.7901,
         0.209,
         0.2099
+      ]
+    },
+    {
+      "frame_index": 75,
+      "timestamp_sec": 15.0,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.21,
+      "bbox": [
+        0.001,
+        0.6567,
+        0.0947,
+        0.2085
       ]
     },
     {
@@ -2746,8 +3656,8 @@
     {
       "frame_index": 76,
       "timestamp_sec": 15.2,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.88,
       "bbox": [
         0.1747,
@@ -2759,8 +3669,8 @@
     {
       "frame_index": 76,
       "timestamp_sec": 15.2,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.87,
       "bbox": [
         0.8907,
@@ -2785,8 +3695,8 @@
     {
       "frame_index": 77,
       "timestamp_sec": 15.4,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.87,
       "bbox": [
         0.0411,
@@ -2796,10 +3706,23 @@
       ]
     },
     {
+      "frame_index": 77,
+      "timestamp_sec": 15.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.84,
+      "bbox": [
+        0.0002,
+        0.522,
+        0.3418,
+        0.3338
+      ]
+    },
+    {
       "frame_index": 78,
       "timestamp_sec": 15.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.4999,
@@ -2822,10 +3745,23 @@
       ]
     },
     {
+      "frame_index": 78,
+      "timestamp_sec": 15.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.89,
+      "bbox": [
+        0.0507,
+        0.4505,
+        0.6553,
+        0.1646
+      ]
+    },
+    {
       "frame_index": 79,
       "timestamp_sec": 15.8,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.91,
       "bbox": [
         0.5733,
@@ -2848,10 +3784,23 @@
       ]
     },
     {
+      "frame_index": 79,
+      "timestamp_sec": 15.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.83,
+      "bbox": [
+        0.1887,
+        0.4595,
+        0.5963,
+        0.1549
+      ]
+    },
+    {
       "frame_index": 80,
       "timestamp_sec": 16.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.91,
       "bbox": [
         0.6366,
@@ -2874,10 +3823,23 @@
       ]
     },
     {
+      "frame_index": 80,
+      "timestamp_sec": 16.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.61,
+      "bbox": [
+        0.2365,
+        0.3962,
+        0.4851,
+        0.1532
+      ]
+    },
+    {
       "frame_index": 81,
       "timestamp_sec": 16.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.91,
       "bbox": [
         0.6543,
@@ -2900,10 +3862,23 @@
       ]
     },
     {
+      "frame_index": 81,
+      "timestamp_sec": 16.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.84,
+      "bbox": [
+        0.2832,
+        0.348,
+        0.4497,
+        0.1615
+      ]
+    },
+    {
       "frame_index": 82,
       "timestamp_sec": 16.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.91,
       "bbox": [
         0.6561,
@@ -2941,8 +3916,8 @@
     {
       "frame_index": 83,
       "timestamp_sec": 16.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.6566,
@@ -2952,10 +3927,36 @@
       ]
     },
     {
+      "frame_index": 83,
+      "timestamp_sec": 16.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.84,
+      "bbox": [
+        0.2777,
+        0.324,
+        0.4017,
+        0.1896
+      ]
+    },
+    {
+      "frame_index": 83,
+      "timestamp_sec": 16.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.32,
+      "bbox": [
+        0.0609,
+        0.1748,
+        0.346,
+        0.2769
+      ]
+    },
+    {
       "frame_index": 84,
       "timestamp_sec": 16.8,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.6649,
@@ -2978,6 +3979,19 @@
       ]
     },
     {
+      "frame_index": 84,
+      "timestamp_sec": 16.8,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.76,
+      "bbox": [
+        0.415,
+        0.2758,
+        0.2509,
+        0.2601
+      ]
+    },
+    {
       "frame_index": 85,
       "timestamp_sec": 17.0,
       "track_id": 1,
@@ -2994,13 +4008,26 @@
       "frame_index": 85,
       "timestamp_sec": 17.0,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.89,
       "bbox": [
         0.4038,
         0.2464,
         0.3122,
         0.2059
+      ]
+    },
+    {
+      "frame_index": 85,
+      "timestamp_sec": 17.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.88,
+      "bbox": [
+        0.6433,
+        0.3489,
+        0.3567,
+        0.1413
       ]
     },
     {
@@ -3019,8 +4046,8 @@
     {
       "frame_index": 86,
       "timestamp_sec": 17.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.6321,
@@ -3030,10 +4057,23 @@
       ]
     },
     {
+      "frame_index": 86,
+      "timestamp_sec": 17.2,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.89,
+      "bbox": [
+        0.3683,
+        0.272,
+        0.3474,
+        0.1887
+      ]
+    },
+    {
       "frame_index": 87,
       "timestamp_sec": 17.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.6241,
@@ -3045,8 +4085,8 @@
     {
       "frame_index": 87,
       "timestamp_sec": 17.4,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
       "confidence": 0.9,
       "bbox": [
         0.3764,
@@ -3058,8 +4098,8 @@
     {
       "frame_index": 87,
       "timestamp_sec": 17.4,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.0203,
@@ -3085,13 +4125,26 @@
       "frame_index": 88,
       "timestamp_sec": 17.6,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.89,
       "bbox": [
         0.5864,
         0.3739,
         0.3789,
         0.1149
+      ]
+    },
+    {
+      "frame_index": 88,
+      "timestamp_sec": 17.6,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.88,
+      "bbox": [
+        0.4532,
+        0.2643,
+        0.3749,
+        0.1838
       ]
     },
     {
@@ -3110,14 +4163,27 @@
     {
       "frame_index": 89,
       "timestamp_sec": 17.8,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.87,
       "bbox": [
         0.4963,
         0.3724,
         0.426,
         0.1621
+      ]
+    },
+    {
+      "frame_index": 89,
+      "timestamp_sec": 17.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.62,
+      "bbox": [
+        0.3555,
+        0.3187,
+        0.381,
+        0.1335
       ]
     },
     {
@@ -3136,14 +4202,27 @@
     {
       "frame_index": 90,
       "timestamp_sec": 18.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.4839,
         0.3843,
         0.4341,
         0.1507
+      ]
+    },
+    {
+      "frame_index": 90,
+      "timestamp_sec": 18.0,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.89,
+      "bbox": [
+        0.3831,
+        0.3085,
+        0.4386,
+        0.1112
       ]
     },
     {
@@ -3163,13 +4242,26 @@
       "frame_index": 91,
       "timestamp_sec": 18.2,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.9,
       "bbox": [
         0.3267,
         0.2662,
         0.4081,
         0.1829
+      ]
+    },
+    {
+      "frame_index": 91,
+      "timestamp_sec": 18.2,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.9,
+      "bbox": [
+        0.5045,
+        0.3734,
+        0.3636,
+        0.1293
       ]
     },
     {
@@ -3189,13 +4281,26 @@
       "frame_index": 92,
       "timestamp_sec": 18.4,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.91,
       "bbox": [
         0.4693,
         0.3683,
         0.3803,
         0.1325
+      ]
+    },
+    {
+      "frame_index": 92,
+      "timestamp_sec": 18.4,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.9,
+      "bbox": [
+        0.2996,
+        0.2386,
+        0.4195,
+        0.203
       ]
     },
     {
@@ -3215,13 +4320,26 @@
       "frame_index": 93,
       "timestamp_sec": 18.6,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.92,
       "bbox": [
         0.2657,
         0.263,
         0.3975,
         0.1943
+      ]
+    },
+    {
+      "frame_index": 93,
+      "timestamp_sec": 18.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.91,
+      "bbox": [
+        0.4432,
+        0.3708,
+        0.3648,
+        0.1305
       ]
     },
     {
@@ -3240,14 +4358,27 @@
     {
       "frame_index": 94,
       "timestamp_sec": 18.8,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.4296,
         0.371,
         0.3559,
         0.1263
+      ]
+    },
+    {
+      "frame_index": 94,
+      "timestamp_sec": 18.8,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.88,
+      "bbox": [
+        0.2108,
+        0.2449,
+        0.3696,
+        0.2179
       ]
     },
     {
@@ -3266,14 +4397,27 @@
     {
       "frame_index": 95,
       "timestamp_sec": 19.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.4161,
         0.3661,
         0.3535,
         0.1284
+      ]
+    },
+    {
+      "frame_index": 95,
+      "timestamp_sec": 19.0,
+      "track_id": 2,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.87,
+      "bbox": [
+        0.2189,
+        0.2321,
+        0.3376,
+        0.232
       ]
     },
     {
@@ -3293,13 +4437,26 @@
       "frame_index": 96,
       "timestamp_sec": 19.2,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.91,
       "bbox": [
         0.197,
         0.2321,
         0.3455,
         0.2097
+      ]
+    },
+    {
+      "frame_index": 96,
+      "timestamp_sec": 19.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.86,
+      "bbox": [
+        0.3931,
+        0.3562,
+        0.3795,
+        0.1545
       ]
     },
     {
@@ -3319,13 +4476,26 @@
       "frame_index": 97,
       "timestamp_sec": 19.4,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.87,
       "bbox": [
         0.1636,
         0.2285,
         0.3672,
         0.2115
+      ]
+    },
+    {
+      "frame_index": 97,
+      "timestamp_sec": 19.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.86,
+      "bbox": [
+        0.3766,
+        0.3505,
+        0.3818,
+        0.162
       ]
     },
     {
@@ -3345,13 +4515,26 @@
       "frame_index": 98,
       "timestamp_sec": 19.6,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.89,
       "bbox": [
         0.1371,
         0.2297,
         0.3808,
         0.2057
+      ]
+    },
+    {
+      "frame_index": 98,
+      "timestamp_sec": 19.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.88,
+      "bbox": [
+        0.3619,
+        0.3496,
+        0.3766,
+        0.1645
       ]
     },
     {
@@ -3384,7 +4567,7 @@
       "frame_index": 99,
       "timestamp_sec": 19.8,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.88,
       "bbox": [
         0.1225,
@@ -3410,7 +4593,7 @@
       "frame_index": 100,
       "timestamp_sec": 20.0,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.87,
       "bbox": [
         0.0989,
@@ -3436,7 +4619,7 @@
       "frame_index": 101,
       "timestamp_sec": 20.2,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.89,
       "bbox": [
         0.0416,
@@ -3474,8 +4657,8 @@
     {
       "frame_index": 101,
       "timestamp_sec": 20.2,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.72,
       "bbox": [
         0.8925,
@@ -3488,7 +4671,7 @@
       "frame_index": 102,
       "timestamp_sec": 20.4,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.91,
       "bbox": [
         0.005,
@@ -3513,8 +4696,8 @@
     {
       "frame_index": 102,
       "timestamp_sec": 20.4,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.84,
       "bbox": [
         0.003,
@@ -3526,8 +4709,8 @@
     {
       "frame_index": 102,
       "timestamp_sec": 20.4,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.79,
       "bbox": [
         0.7829,
@@ -3540,7 +4723,7 @@
       "frame_index": 103,
       "timestamp_sec": 20.6,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.9,
       "bbox": [
         0.0055,
@@ -3565,8 +4748,8 @@
     {
       "frame_index": 103,
       "timestamp_sec": 20.6,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.81,
       "bbox": [
         0.7474,
@@ -3578,8 +4761,8 @@
     {
       "frame_index": 103,
       "timestamp_sec": 20.6,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.49,
       "bbox": [
         0.0031,
@@ -3591,21 +4774,21 @@
     {
       "frame_index": 104,
       "timestamp_sec": 20.8,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "track_id": 3,
+      "behavior_label": "ISOLATED",
+      "confidence": 0.26,
       "bbox": [
-        0.7025,
-        0.8519,
-        0.2963,
-        0.148
+        0.6851,
+        0.8601,
+        0.3149,
+        0.1396
       ]
     },
     {
       "frame_index": 105,
       "timestamp_sec": 21.0,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 4,
+      "behavior_label": "NORMAL",
       "confidence": 0.55,
       "bbox": [
         0.4624,
@@ -3617,8 +4800,8 @@
     {
       "frame_index": 107,
       "timestamp_sec": 21.4,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 4,
+      "behavior_label": "NORMAL",
       "confidence": 0.61,
       "bbox": [
         0.4646,
@@ -3630,8 +4813,8 @@
     {
       "frame_index": 112,
       "timestamp_sec": 22.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.9,
       "bbox": [
         0.0009,
@@ -3669,8 +4852,8 @@
     {
       "frame_index": 113,
       "timestamp_sec": 22.6,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.88,
       "bbox": [
         0.0034,
@@ -3695,8 +4878,8 @@
     {
       "frame_index": 114,
       "timestamp_sec": 22.8,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.83,
       "bbox": [
         0.0094,
@@ -3721,14 +4904,40 @@
     {
       "frame_index": 115,
       "timestamp_sec": 23.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.89,
       "bbox": [
         0.0007,
         0.2584,
         0.1304,
         0.1947
+      ]
+    },
+    {
+      "frame_index": 115,
+      "timestamp_sec": 23.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.87,
+      "bbox": [
+        0.1285,
+        0.3616,
+        0.4085,
+        0.1042
+      ]
+    },
+    {
+      "frame_index": 115,
+      "timestamp_sec": 23.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.35,
+      "bbox": [
+        0.0026,
+        0.6244,
+        0.1007,
+        0.262
       ]
     },
     {
@@ -3747,8 +4956,8 @@
     {
       "frame_index": 116,
       "timestamp_sec": 23.2,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.88,
       "bbox": [
         0.0147,
@@ -3761,7 +4970,7 @@
       "frame_index": 116,
       "timestamp_sec": 23.2,
       "track_id": 2,
-      "behavior_label": "NORMAL",
+      "behavior_label": "LETHARGIC",
       "confidence": 0.85,
       "bbox": [
         0.0011,
@@ -3771,61 +4980,48 @@
       ]
     },
     {
+      "frame_index": 116,
+      "timestamp_sec": 23.2,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.83,
+      "bbox": [
+        0.0014,
+        0.5329,
+        0.2505,
+        0.3864
+      ]
+    },
+    {
       "frame_index": 117,
       "timestamp_sec": 23.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.28,
       "bbox": [
-        0.4682,
-        0.149,
-        0.4646,
-        0.1524
+        0.0028,
+        0.8347,
+        0.3408,
+        0.0879
       ]
     },
     {
-      "frame_index": 119,
-      "timestamp_sec": 23.8,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "frame_index": 121,
+      "timestamp_sec": 24.2,
+      "track_id": 5,
+      "behavior_label": "ISOLATED_LOW_MOBILITY",
+      "confidence": 0.34,
       "bbox": [
-        0.0032,
-        0.898,
-        0.2268,
-        0.0967
-      ]
-    },
-    {
-      "frame_index": 123,
-      "timestamp_sec": 24.6,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
-      "bbox": [
-        0.1869,
-        0.0013,
-        0.8088,
-        0.2132
-      ]
-    },
-    {
-      "frame_index": 124,
-      "timestamp_sec": 24.8,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
-      "bbox": [
-        0.1358,
-        0.0,
-        0.8557,
-        0.1929
+        0.0008,
+        0.9418,
+        0.176,
+        0.0578
       ]
     },
     {
       "frame_index": 125,
       "timestamp_sec": 25.0,
-      "track_id": 4,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.68,
       "bbox": [
@@ -3836,22 +5032,9 @@
       ]
     },
     {
-      "frame_index": 125,
-      "timestamp_sec": 25.0,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
-      "bbox": [
-        0.0023,
-        0.8265,
-        0.3526,
-        0.1642
-      ]
-    },
-    {
       "frame_index": 126,
       "timestamp_sec": 25.2,
-      "track_id": 4,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.78,
       "bbox": [
@@ -3862,87 +5045,9 @@
       ]
     },
     {
-      "frame_index": 126,
-      "timestamp_sec": 25.2,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
-      "bbox": [
-        0.214,
-        0.5491,
-        0.6061,
-        0.1772
-      ]
-    },
-    {
-      "frame_index": 127,
-      "timestamp_sec": 25.4,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
-      "bbox": [
-        0.1883,
-        0.5498,
-        0.6311,
-        0.1622
-      ]
-    },
-    {
-      "frame_index": 128,
-      "timestamp_sec": 25.6,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
-      "bbox": [
-        0.1659,
-        0.561,
-        0.669,
-        0.1754
-      ]
-    },
-    {
-      "frame_index": 129,
-      "timestamp_sec": 25.8,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
-      "bbox": [
-        0.1496,
-        0.571,
-        0.7213,
-        0.1765
-      ]
-    },
-    {
-      "frame_index": 130,
-      "timestamp_sec": 26.0,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
-      "bbox": [
-        0.1342,
-        0.5663,
-        0.7608,
-        0.2369
-      ]
-    },
-    {
-      "frame_index": 131,
-      "timestamp_sec": 26.2,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
-      "bbox": [
-        0.1274,
-        0.5589,
-        0.7789,
-        0.2432
-      ]
-    },
-    {
       "frame_index": 132,
       "timestamp_sec": 26.4,
-      "track_id": 2,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.91,
       "bbox": [
@@ -3955,8 +5060,8 @@
     {
       "frame_index": 132,
       "timestamp_sec": 26.4,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.9,
       "bbox": [
         0.0319,
@@ -3966,10 +5071,23 @@
       ]
     },
     {
+      "frame_index": 132,
+      "timestamp_sec": 26.4,
+      "track_id": 7,
+      "behavior_label": "NORMAL",
+      "confidence": 0.83,
+      "bbox": [
+        0.289,
+        0.2492,
+        0.2717,
+        0.182
+      ]
+    },
+    {
       "frame_index": 133,
       "timestamp_sec": 26.6,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.92,
       "bbox": [
         0.0122,
@@ -3981,7 +5099,7 @@
     {
       "frame_index": 133,
       "timestamp_sec": 26.6,
-      "track_id": 2,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.9,
       "bbox": [
@@ -3992,10 +5110,23 @@
       ]
     },
     {
+      "frame_index": 133,
+      "timestamp_sec": 26.6,
+      "track_id": 7,
+      "behavior_label": "NORMAL",
+      "confidence": 0.81,
+      "bbox": [
+        0.2817,
+        0.2531,
+        0.2725,
+        0.18
+      ]
+    },
+    {
       "frame_index": 134,
       "timestamp_sec": 26.8,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.91,
       "bbox": [
         0.0073,
@@ -4007,7 +5138,7 @@
     {
       "frame_index": 134,
       "timestamp_sec": 26.8,
-      "track_id": 2,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.91,
       "bbox": [
@@ -4018,10 +5149,23 @@
       ]
     },
     {
+      "frame_index": 134,
+      "timestamp_sec": 26.8,
+      "track_id": 7,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.2529,
+        0.2542,
+        0.2772,
+        0.1807
+      ]
+    },
+    {
       "frame_index": 135,
       "timestamp_sec": 27.0,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.91,
       "bbox": [
         0.0022,
@@ -4033,7 +5177,7 @@
     {
       "frame_index": 135,
       "timestamp_sec": 27.0,
-      "track_id": 2,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.91,
       "bbox": [
@@ -4044,10 +5188,23 @@
       ]
     },
     {
+      "frame_index": 135,
+      "timestamp_sec": 27.0,
+      "track_id": 7,
+      "behavior_label": "NORMAL",
+      "confidence": 0.86,
+      "bbox": [
+        0.1935,
+        0.2515,
+        0.2851,
+        0.1876
+      ]
+    },
+    {
       "frame_index": 136,
       "timestamp_sec": 27.2,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.92,
       "bbox": [
         0.0025,
@@ -4059,7 +5216,7 @@
     {
       "frame_index": 136,
       "timestamp_sec": 27.2,
-      "track_id": 2,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.91,
       "bbox": [
@@ -4070,10 +5227,23 @@
       ]
     },
     {
+      "frame_index": 136,
+      "timestamp_sec": 27.2,
+      "track_id": 7,
+      "behavior_label": "NORMAL",
+      "confidence": 0.85,
+      "bbox": [
+        0.1372,
+        0.2557,
+        0.2994,
+        0.1758
+      ]
+    },
+    {
       "frame_index": 137,
       "timestamp_sec": 27.4,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.92,
       "bbox": [
         0.0023,
@@ -4085,7 +5255,7 @@
     {
       "frame_index": 137,
       "timestamp_sec": 27.4,
-      "track_id": 2,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.89,
       "bbox": [
@@ -4096,9 +5266,22 @@
       ]
     },
     {
+      "frame_index": 137,
+      "timestamp_sec": 27.4,
+      "track_id": 7,
+      "behavior_label": "NORMAL",
+      "confidence": 0.86,
+      "bbox": [
+        0.1831,
+        0.25,
+        0.2894,
+        0.1882
+      ]
+    },
+    {
       "frame_index": 138,
       "timestamp_sec": 27.6,
-      "track_id": 4,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.91,
       "bbox": [
@@ -4111,7 +5294,7 @@
     {
       "frame_index": 138,
       "timestamp_sec": 27.6,
-      "track_id": 2,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.9,
       "bbox": [
@@ -4124,8 +5307,8 @@
     {
       "frame_index": 138,
       "timestamp_sec": 27.6,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.84,
       "bbox": [
         0.372,
@@ -4137,7 +5320,7 @@
     {
       "frame_index": 139,
       "timestamp_sec": 27.8,
-      "track_id": 3,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.89,
       "bbox": [
@@ -4150,7 +5333,7 @@
     {
       "frame_index": 139,
       "timestamp_sec": 27.8,
-      "track_id": 2,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.86,
       "bbox": [
@@ -4161,22 +5344,9 @@
       ]
     },
     {
-      "frame_index": 139,
-      "timestamp_sec": 27.8,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
-      "bbox": [
-        0.2065,
-        0.7344,
-        0.6637,
-        0.258
-      ]
-    },
-    {
       "frame_index": 140,
       "timestamp_sec": 28.0,
-      "track_id": 3,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.9,
       "bbox": [
@@ -4189,20 +5359,20 @@
     {
       "frame_index": 140,
       "timestamp_sec": 28.0,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "track_id": 7,
+      "behavior_label": "NORMAL",
+      "confidence": 0.22,
       "bbox": [
-        0.4233,
-        0.7975,
-        0.5733,
-        0.2015
+        0.7976,
+        0.3339,
+        0.2024,
+        0.191
       ]
     },
     {
       "frame_index": 141,
       "timestamp_sec": 28.2,
-      "track_id": 3,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.84,
       "bbox": [
@@ -4213,23 +5383,10 @@
       ]
     },
     {
-      "frame_index": 141,
-      "timestamp_sec": 28.2,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
-      "bbox": [
-        0.5207,
-        0.8673,
-        0.4755,
-        0.1327
-      ]
-    },
-    {
       "frame_index": 142,
       "timestamp_sec": 28.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 5,
+      "behavior_label": "ISOLATED_LOW_MOBILITY",
       "confidence": 0.89,
       "bbox": [
         0.0,
@@ -4241,21 +5398,34 @@
     {
       "frame_index": 142,
       "timestamp_sec": 28.4,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "track_id": 5,
+      "behavior_label": "ISOLATED_LOW_MOBILITY",
+      "confidence": 0.87,
       "bbox": [
         0.0,
-        0.0831,
-        0.2179,
-        0.1037
+        0.0842,
+        0.2025,
+        0.1024
+      ]
+    },
+    {
+      "frame_index": 142,
+      "timestamp_sec": 28.4,
+      "track_id": 7,
+      "behavior_label": "NORMAL",
+      "confidence": 0.32,
+      "bbox": [
+        0.6233,
+        0.924,
+        0.3767,
+        0.0756
       ]
     },
     {
       "frame_index": 143,
       "timestamp_sec": 28.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 5,
+      "behavior_label": "ISOLATED_LOW_MOBILITY",
       "confidence": 0.89,
       "bbox": [
         0.0194,
@@ -4267,21 +5437,34 @@
     {
       "frame_index": 143,
       "timestamp_sec": 28.6,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "track_id": 6,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.85,
       "bbox": [
-        0.0321,
-        0.3608,
-        0.2327,
-        0.1546
+        0.0932,
+        0.1321,
+        0.2191,
+        0.0976
+      ]
+    },
+    {
+      "frame_index": 143,
+      "timestamp_sec": 28.6,
+      "track_id": 5,
+      "behavior_label": "ISOLATED_LOW_MOBILITY",
+      "confidence": 0.6,
+      "bbox": [
+        0.0008,
+        0.1638,
+        0.1193,
+        0.0825
       ]
     },
     {
       "frame_index": 144,
       "timestamp_sec": 28.8,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 5,
+      "behavior_label": "ISOLATED_LOW_MOBILITY",
       "confidence": 0.89,
       "bbox": [
         0.0004,
@@ -4293,8 +5476,8 @@
     {
       "frame_index": 144,
       "timestamp_sec": 28.8,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.88,
       "bbox": [
         0.1051,
@@ -4304,10 +5487,36 @@
       ]
     },
     {
+      "frame_index": 144,
+      "timestamp_sec": 28.8,
+      "track_id": 6,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.87,
+      "bbox": [
+        0.176,
+        0.1638,
+        0.202,
+        0.0858
+      ]
+    },
+    {
+      "frame_index": 144,
+      "timestamp_sec": 28.8,
+      "track_id": 7,
+      "behavior_label": "NORMAL",
+      "confidence": 0.23,
+      "bbox": [
+        0.926,
+        0.5095,
+        0.074,
+        0.2436
+      ]
+    },
+    {
       "frame_index": 145,
       "timestamp_sec": 29.0,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.88,
       "bbox": [
         0.162,
@@ -4319,8 +5528,8 @@
     {
       "frame_index": 145,
       "timestamp_sec": 29.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 5,
+      "behavior_label": "ISOLATED_LOW_MOBILITY",
       "confidence": 0.87,
       "bbox": [
         0.0254,
@@ -4330,10 +5539,23 @@
       ]
     },
     {
+      "frame_index": 145,
+      "timestamp_sec": 29.0,
+      "track_id": 8,
+      "behavior_label": "ISOLATED",
+      "confidence": 0.86,
+      "bbox": [
+        0.2267,
+        0.1796,
+        0.1903,
+        0.079
+      ]
+    },
+    {
       "frame_index": 146,
       "timestamp_sec": 29.2,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.87,
       "bbox": [
         0.1807,
@@ -4345,8 +5567,8 @@
     {
       "frame_index": 146,
       "timestamp_sec": 29.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 8,
+      "behavior_label": "ISOLATED",
       "confidence": 0.86,
       "bbox": [
         0.2483,
@@ -4356,10 +5578,23 @@
       ]
     },
     {
+      "frame_index": 146,
+      "timestamp_sec": 29.2,
+      "track_id": 6,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.86,
+      "bbox": [
+        0.0495,
+        0.1799,
+        0.2146,
+        0.0937
+      ]
+    },
+    {
       "frame_index": 147,
       "timestamp_sec": 29.4,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.87,
       "bbox": [
         0.1992,
@@ -4371,8 +5606,8 @@
     {
       "frame_index": 147,
       "timestamp_sec": 29.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 6,
+      "behavior_label": "LETHARGIC",
       "confidence": 0.87,
       "bbox": [
         0.0592,
@@ -4382,10 +5617,23 @@
       ]
     },
     {
+      "frame_index": 147,
+      "timestamp_sec": 29.4,
+      "track_id": 8,
+      "behavior_label": "ISOLATED",
+      "confidence": 0.86,
+      "bbox": [
+        0.2571,
+        0.183,
+        0.1974,
+        0.0835
+      ]
+    },
+    {
       "frame_index": 148,
       "timestamp_sec": 29.6,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.87,
       "bbox": [
         0.2126,
@@ -4397,8 +5645,8 @@
     {
       "frame_index": 148,
       "timestamp_sec": 29.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 6,
+      "behavior_label": "LETHARGIC",
       "confidence": 0.86,
       "bbox": [
         0.0598,
@@ -4408,10 +5656,36 @@
       ]
     },
     {
+      "frame_index": 148,
+      "timestamp_sec": 29.6,
+      "track_id": 8,
+      "behavior_label": "ISOLATED",
+      "confidence": 0.85,
+      "bbox": [
+        0.2597,
+        0.1795,
+        0.1947,
+        0.0817
+      ]
+    },
+    {
+      "frame_index": 148,
+      "timestamp_sec": 29.6,
+      "track_id": 5,
+      "behavior_label": "ISOLATED_LOW_MOBILITY",
+      "confidence": 0.35,
+      "bbox": [
+        0.0036,
+        0.1927,
+        0.0866,
+        0.0777
+      ]
+    },
+    {
       "frame_index": 149,
       "timestamp_sec": 29.8,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 5,
+      "behavior_label": "ISOLATED_LOW_MOBILITY",
       "confidence": 0.88,
       "bbox": [
         0.0195,
@@ -4423,8 +5697,21 @@
     {
       "frame_index": 149,
       "timestamp_sec": 29.8,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 8,
+      "behavior_label": "ISOLATED",
+      "confidence": 0.87,
+      "bbox": [
+        0.2405,
+        0.1633,
+        0.2066,
+        0.0927
+      ]
+    },
+    {
+      "frame_index": 149,
+      "timestamp_sec": 29.8,
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.86,
       "bbox": [
         0.1994,
@@ -4436,8 +5723,8 @@
     {
       "frame_index": 150,
       "timestamp_sec": 30.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 8,
+      "behavior_label": "ISOLATED",
       "confidence": 0.87,
       "bbox": [
         0.2217,
@@ -4449,8 +5736,21 @@
     {
       "frame_index": 150,
       "timestamp_sec": 30.0,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 5,
+      "behavior_label": "ISOLATED_LOW_MOBILITY",
+      "confidence": 0.87,
+      "bbox": [
+        0.0328,
+        0.1583,
+        0.2269,
+        0.0953
+      ]
+    },
+    {
+      "frame_index": 150,
+      "timestamp_sec": 30.0,
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.85,
       "bbox": [
         0.1897,
@@ -4462,8 +5762,8 @@
     {
       "frame_index": 151,
       "timestamp_sec": 30.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 5,
+      "behavior_label": "ISOLATED_LOW_MOBILITY",
       "confidence": 0.88,
       "bbox": [
         0.0137,
@@ -4475,8 +5775,8 @@
     {
       "frame_index": 151,
       "timestamp_sec": 30.2,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.87,
       "bbox": [
         0.1758,
@@ -4486,10 +5786,23 @@
       ]
     },
     {
+      "frame_index": 151,
+      "timestamp_sec": 30.2,
+      "track_id": 8,
+      "behavior_label": "ISOLATED",
+      "confidence": 0.85,
+      "bbox": [
+        0.2075,
+        0.1467,
+        0.2238,
+        0.0929
+      ]
+    },
+    {
       "frame_index": 152,
       "timestamp_sec": 30.4,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.89,
       "bbox": [
         0.1577,
@@ -4501,8 +5814,8 @@
     {
       "frame_index": 152,
       "timestamp_sec": 30.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 5,
+      "behavior_label": "ISOLATED_LOW_MOBILITY",
       "confidence": 0.89,
       "bbox": [
         0.0013,
@@ -4512,10 +5825,23 @@
       ]
     },
     {
+      "frame_index": 152,
+      "timestamp_sec": 30.4,
+      "track_id": 8,
+      "behavior_label": "ISOLATED",
+      "confidence": 0.87,
+      "bbox": [
+        0.184,
+        0.137,
+        0.2185,
+        0.0933
+      ]
+    },
+    {
       "frame_index": 153,
       "timestamp_sec": 30.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 5,
+      "behavior_label": "ISOLATED_LOW_MOBILITY",
       "confidence": 0.89,
       "bbox": [
         0.0,
@@ -4527,8 +5853,21 @@
     {
       "frame_index": 153,
       "timestamp_sec": 30.6,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 6,
+      "behavior_label": "LETHARGIC",
+      "confidence": 0.87,
+      "bbox": [
+        0.1439,
+        0.1306,
+        0.2303,
+        0.0932
+      ]
+    },
+    {
+      "frame_index": 153,
+      "timestamp_sec": 30.6,
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.87,
       "bbox": [
         0.1308,
@@ -4538,10 +5877,23 @@
       ]
     },
     {
+      "frame_index": 153,
+      "timestamp_sec": 30.6,
+      "track_id": 7,
+      "behavior_label": "NORMAL",
+      "confidence": 0.26,
+      "bbox": [
+        0.9289,
+        0.4657,
+        0.0711,
+        0.2166
+      ]
+    },
+    {
       "frame_index": 154,
       "timestamp_sec": 30.8,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.88,
       "bbox": [
         0.0829,
@@ -4553,8 +5905,8 @@
     {
       "frame_index": 154,
       "timestamp_sec": 30.8,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 6,
+      "behavior_label": "LETHARGIC",
       "confidence": 0.87,
       "bbox": [
         0.101,
@@ -4566,7 +5918,20 @@
     {
       "frame_index": 154,
       "timestamp_sec": 30.8,
-      "track_id": 3,
+      "track_id": 5,
+      "behavior_label": "ISOLATED_LOW_MOBILITY",
+      "confidence": 0.84,
+      "bbox": [
+        0.0005,
+        0.1558,
+        0.1278,
+        0.0711
+      ]
+    },
+    {
+      "frame_index": 154,
+      "timestamp_sec": 30.8,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.4,
       "bbox": [
@@ -4577,10 +5942,23 @@
       ]
     },
     {
+      "frame_index": 154,
+      "timestamp_sec": 30.8,
+      "track_id": 7,
+      "behavior_label": "NORMAL",
+      "confidence": 0.31,
+      "bbox": [
+        0.8929,
+        0.422,
+        0.1071,
+        0.2262
+      ]
+    },
+    {
       "frame_index": 155,
       "timestamp_sec": 31.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 5,
+      "behavior_label": "ISOLATED_LOW_MOBILITY",
       "confidence": 0.88,
       "bbox": [
         0.0019,
@@ -4592,20 +5970,33 @@
     {
       "frame_index": 155,
       "timestamp_sec": 31.0,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "track_id": 5,
+      "behavior_label": "ISOLATED_LOW_MOBILITY",
+      "confidence": 0.87,
       "bbox": [
-        0.0074,
-        0.1126,
-        0.2281,
-        0.1007
+        0.0094,
+        0.1181,
+        0.2183,
+        0.093
+      ]
+    },
+    {
+      "frame_index": 155,
+      "timestamp_sec": 31.0,
+      "track_id": 7,
+      "behavior_label": "NORMAL",
+      "confidence": 0.26,
+      "bbox": [
+        0.6869,
+        0.912,
+        0.3131,
+        0.0879
       ]
     },
     {
       "frame_index": 156,
       "timestamp_sec": 31.2,
-      "track_id": 3,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.86,
       "bbox": [
@@ -4616,22 +6007,9 @@
       ]
     },
     {
-      "frame_index": 156,
-      "timestamp_sec": 31.2,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
-      "bbox": [
-        0.548,
-        0.8481,
-        0.4513,
-        0.1519
-      ]
-    },
-    {
       "frame_index": 157,
       "timestamp_sec": 31.4,
-      "track_id": 4,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.91,
       "bbox": [
@@ -4644,7 +6022,7 @@
     {
       "frame_index": 157,
       "timestamp_sec": 31.4,
-      "track_id": 2,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.82,
       "bbox": [
@@ -4657,8 +6035,8 @@
     {
       "frame_index": 157,
       "timestamp_sec": 31.4,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.68,
       "bbox": [
         0.333,
@@ -4670,8 +6048,8 @@
     {
       "frame_index": 158,
       "timestamp_sec": 31.6,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.88,
       "bbox": [
         0.1426,
@@ -4683,8 +6061,8 @@
     {
       "frame_index": 158,
       "timestamp_sec": 31.6,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
+      "track_id": 5,
+      "behavior_label": "ISOLATED_LOW_MOBILITY",
       "confidence": 0.87,
       "bbox": [
         0.0042,
@@ -4696,8 +6074,8 @@
     {
       "frame_index": 158,
       "timestamp_sec": 31.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 5,
+      "behavior_label": "ISOLATED_LOW_MOBILITY",
       "confidence": 0.51,
       "bbox": [
         0.001,
@@ -4709,8 +6087,8 @@
     {
       "frame_index": 159,
       "timestamp_sec": 31.8,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 8,
+      "behavior_label": "ISOLATED",
       "confidence": 0.87,
       "bbox": [
         0.64,
@@ -4722,20 +6100,20 @@
     {
       "frame_index": 159,
       "timestamp_sec": 31.8,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "track_id": 5,
+      "behavior_label": "ISOLATED_LOW_MOBILITY",
+      "confidence": 0.76,
       "bbox": [
-        0.6663,
-        0.2113,
-        0.3331,
-        0.1746
+        0.0013,
+        0.4098,
+        0.1276,
+        0.1735
       ]
     },
     {
       "frame_index": 160,
       "timestamp_sec": 32.0,
-      "track_id": 2,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.89,
       "bbox": [
@@ -4746,23 +6124,10 @@
       ]
     },
     {
-      "frame_index": 160,
-      "timestamp_sec": 32.0,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
-      "bbox": [
-        0.3526,
-        0.2775,
-        0.6051,
-        0.1722
-      ]
-    },
-    {
       "frame_index": 161,
       "timestamp_sec": 32.2,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.9,
       "bbox": [
         0.1588,
@@ -4772,10 +6137,23 @@
       ]
     },
     {
+      "frame_index": 161,
+      "timestamp_sec": 32.2,
+      "track_id": 8,
+      "behavior_label": "ISOLATED",
+      "confidence": 0.29,
+      "bbox": [
+        0.1189,
+        0.0,
+        0.4843,
+        0.0378
+      ]
+    },
+    {
       "frame_index": 162,
       "timestamp_sec": 32.4,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.76,
       "bbox": [
         0.0811,
@@ -4787,8 +6165,8 @@
     {
       "frame_index": 162,
       "timestamp_sec": 32.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 6,
+      "behavior_label": "LETHARGIC",
       "confidence": 0.46,
       "bbox": [
         0.0317,
@@ -4800,8 +6178,8 @@
     {
       "frame_index": 163,
       "timestamp_sec": 32.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 6,
+      "behavior_label": "LETHARGIC",
       "confidence": 0.55,
       "bbox": [
         0.027,
@@ -4813,8 +6191,8 @@
     {
       "frame_index": 163,
       "timestamp_sec": 32.6,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.44,
       "bbox": [
         0.0974,
@@ -4826,8 +6204,8 @@
     {
       "frame_index": 164,
       "timestamp_sec": 32.8,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.37,
       "bbox": [
         0.103,
@@ -4839,8 +6217,8 @@
     {
       "frame_index": 165,
       "timestamp_sec": 33.0,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.78,
       "bbox": [
         0.1363,
@@ -4852,8 +6230,8 @@
     {
       "frame_index": 165,
       "timestamp_sec": 33.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 6,
+      "behavior_label": "LETHARGIC",
       "confidence": 0.46,
       "bbox": [
         0.0645,
@@ -4865,8 +6243,8 @@
     {
       "frame_index": 166,
       "timestamp_sec": 33.2,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.73,
       "bbox": [
         0.1813,
@@ -4878,8 +6256,8 @@
     {
       "frame_index": 166,
       "timestamp_sec": 33.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 8,
+      "behavior_label": "ISOLATED",
       "confidence": 0.61,
       "bbox": [
         0.0925,
@@ -4891,7 +6269,7 @@
     {
       "frame_index": 166,
       "timestamp_sec": 33.2,
-      "track_id": 3,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.46,
       "bbox": [
@@ -4904,8 +6282,8 @@
     {
       "frame_index": 167,
       "timestamp_sec": 33.4,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.65,
       "bbox": [
         0.2238,
@@ -4917,7 +6295,7 @@
     {
       "frame_index": 167,
       "timestamp_sec": 33.4,
-      "track_id": 3,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.64,
       "bbox": [
@@ -4930,8 +6308,8 @@
     {
       "frame_index": 167,
       "timestamp_sec": 33.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 8,
+      "behavior_label": "ISOLATED",
       "confidence": 0.51,
       "bbox": [
         0.1312,
@@ -4943,8 +6321,8 @@
     {
       "frame_index": 168,
       "timestamp_sec": 33.6,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
+      "track_id": 7,
+      "behavior_label": "NORMAL",
       "confidence": 0.91,
       "bbox": [
         0.2848,
@@ -4956,7 +6334,7 @@
     {
       "frame_index": 168,
       "timestamp_sec": 33.6,
-      "track_id": 3,
+      "track_id": 7,
       "behavior_label": "NORMAL",
       "confidence": 0.73,
       "bbox": [
@@ -4969,8 +6347,8 @@
     {
       "frame_index": 168,
       "timestamp_sec": 33.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
+      "track_id": 8,
+      "behavior_label": "ISOLATED",
       "confidence": 0.51,
       "bbox": [
         0.186,
@@ -4981,6 +6359,9 @@
     }
   ],
   "alerts_generated": [
-    "[AI HÀNH VI] Phát hiện 1 cá thể có tư thế LẬT NGỬA / CO GIẬT CHÂN (Track #1). Cảnh báo hành vi bất thường nghiêm trọng, khuyến nghị can thiệp ngay!"
+    "[AI HÀNH VI] Phát hiện cá thể có tư thế LẬT NGỬA / CO GIẬT CHÂN (Track #1). Cảnh báo hành vi nguy cấp, khuyến nghị kiểm tra ngay!",
+    "[AI HÀNH VI] Phát hiện cá thể TÁCH ĐÀN & GIẢM VẬN ĐỘNG KÉO DÀI (Track #5) ở góc chuồng khi lia máy quay.",
+    "[AI HÀNH VI] Phát hiện 2 cá thể có biểu hiện Ủ RŨ, giảm vận động so với nhịp sinh hoạt chung của đàn (Track #[2, 6]).",
+    "[AI HÀNH VI] Phát hiện 2 cá thể có biểu hiện TÁCH ĐÀN ĐƠN LẺ (Track #[3, 8])."
   ]
 }

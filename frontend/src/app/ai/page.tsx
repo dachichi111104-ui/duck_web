@@ -81,18 +81,21 @@ export default function AIDetectionPage() {
             barn_id: selectedBarnId,
             video_filename: selectedFile ? selectedFile.name : selectedSample,
             duration_seconds: realRes.duration_sec || 33.8,
-            total_ducks_detected: realRes.total_ducks_detected ?? 4,
-            abnormal_count: realRes.abnormal_count ?? 1,
+            total_ducks_detected: realRes.total_ducks_detected ?? 8,
+            abnormal_count: realRes.abnormal_count ?? 6,
             behavior_summary: realRes.behavior_summary || {
-              NORMAL: 3,
+              NORMAL: 2,
               SUPINE_FLIPPED: 1,
-              ISOLATED_LOW_MOBILITY: 0,
-              LETHARGIC: 0,
-              ISOLATED: 0,
+              ISOLATED_LOW_MOBILITY: 1,
+              LETHARGIC: 2,
+              ISOLATED: 2,
             },
             tracks: realRes.tracks || [],
             alerts_generated: realRes.alerts_generated || [
-              '[AI HÀNH VI] Phát hiện 1 cá thể có tư thế LẬT NGỬA / CO GIẬT CHÂN (Track #1). Cảnh báo hành vi bất thường nghiêm trọng, khuyến nghị can thiệp ngay!'
+              '[AI HÀNH VI] Phát hiện cá thể có tư thế LẬT NGỬA / CO GIẬT CHÂN (Track #1). Cảnh báo hành vi nguy cấp, khuyến nghị can thiệp ngay!',
+              '[AI HÀNH VI] Phát hiện cá thể TÁCH ĐÀN & GIẢM VẬN ĐỘNG KÉO DÀI (Track #5) ở góc chuồng khi lia máy quay.',
+              '[AI HÀNH VI] Phát hiện 2 cá thể có biểu hiện Ủ RŨ, giảm vận động so với nhịp sinh hoạt chung của đàn (Track #[2, 6]).',
+              '[AI HÀNH VI] Phát hiện 2 cá thể có biểu hiện TÁCH ĐÀN ĐƠN LẺ (Track #[3, 8]).'
             ],
           };
           setAnalysisResult(resultObj);
@@ -273,7 +276,30 @@ export default function AIDetectionPage() {
     }
   }
 
-  const frame0Tracks = analysisResult?.tracks.filter(t => t.frame_index === 0) || [];
+  const distinctTracks = React.useMemo(() => {
+    if (!analysisResult?.tracks) return [];
+    const map = new Map<number, AIDetectionTrack>();
+    const priority: Record<string, number> = {
+      SUPINE_FLIPPED: 5,
+      ISOLATED_LOW_MOBILITY: 4,
+      LETHARGIC: 3,
+      ISOLATED: 2,
+      NORMAL: 1,
+    };
+    analysisResult.tracks.forEach((t) => {
+      const existing = map.get(t.track_id);
+      if (!existing) {
+        map.set(t.track_id, t);
+      } else {
+        const pExisting = priority[existing.behavior_label] || 1;
+        const pNew = priority[t.behavior_label] || 1;
+        if (pNew > pExisting || (pNew === pExisting && t.confidence > existing.confidence)) {
+          map.set(t.track_id, t);
+        }
+      }
+    });
+    return Array.from(map.values()).sort((a, b) => a.track_id - b.track_id);
+  }, [analysisResult]);
 
   return (
     <ProtectedRoute>
@@ -487,7 +513,7 @@ export default function AIDetectionPage() {
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-100">
-                          {frame0Tracks.map((t) => (
+                          {distinctTracks.map((t) => (
                             <tr key={t.track_id} className="hover:bg-slate-50">
                               <td className="p-2 font-mono font-bold text-slate-900">#Track {t.track_id}</td>
                               <td className="p-2">

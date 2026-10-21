@@ -50,7 +50,11 @@ export function VideoCanvasOverlay({
       const dt = (now - lastTime) / 1000;
       lastTime = now;
 
-      if (isPlaying) {
+      if (hiddenVideoRef.current && mediaUrl) {
+        if (!hiddenVideoRef.current.paused) {
+          setCurrentTime(hiddenVideoRef.current.currentTime);
+        }
+      } else if (isPlaying) {
         setCurrentTime((prev) => {
           const next = prev + dt;
           return next >= durationSeconds ? 0 : next;
@@ -63,7 +67,7 @@ export function VideoCanvasOverlay({
 
     animationFrameId = requestAnimationFrame(render);
     return () => cancelAnimationFrame(animationFrameId);
-  }, [isPlaying, currentTime, tracks, durationSeconds, mediaUrl]);
+  }, [isPlaying, tracks, durationSeconds, mediaUrl]);
 
   const drawFrame = () => {
     const canvas = canvasRef.current;
@@ -118,8 +122,26 @@ export function VideoCanvasOverlay({
     }
 
     // 2. Filter active tracks at current time / frame
-    const currentFrameIdx = Math.floor(currentTime * 5);
-    const activeTracks = tracks.filter((t) => t.frame_index === currentFrameIdx);
+    const v = hiddenVideoRef.current;
+    const effectiveTime = v && !isNaN(v.currentTime) ? v.currentTime : currentTime;
+    const currentFrameIdx = Math.round(effectiveTime * 5);
+    let activeTracks = tracks.filter((t) => t.frame_index === currentFrameIdx);
+
+    // Smooth fallback if current exact frame index has no detection (e.g. minor jump/gap)
+    if (activeTracks.length === 0 && tracks.length > 0) {
+      let minDiff = Infinity;
+      let nearestFrame = -1;
+      for (const t of tracks) {
+        const diff = Math.abs(t.frame_index - currentFrameIdx);
+        if (diff < minDiff) {
+          minDiff = diff;
+          nearestFrame = t.frame_index;
+        }
+      }
+      if (minDiff <= 3) {
+        activeTracks = tracks.filter((t) => t.frame_index === nearestFrame);
+      }
+    }
 
     // 3. Render Bounding Boxes & Tags
     activeTracks.forEach((track) => {
