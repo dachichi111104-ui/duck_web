@@ -81,10 +81,10 @@ export default function AIDetectionPage() {
             barn_id: selectedBarnId,
             video_filename: selectedFile ? selectedFile.name : selectedSample,
             duration_seconds: realRes.duration_sec || 33.8,
-            total_ducks_detected: realRes.total_ducks_detected ?? 1,
+            total_ducks_detected: realRes.total_ducks_detected ?? 4,
             abnormal_count: realRes.abnormal_count ?? 1,
             behavior_summary: realRes.behavior_summary || {
-              NORMAL: 0,
+              NORMAL: 3,
               SUPINE_FLIPPED: 1,
               ISOLATED_LOW_MOBILITY: 0,
               LETHARGIC: 0,

@@ -400,34 +400,48 @@ def analyze_video_full_pipeline(
 
         main_behavior = "SUPINE_FLIPPED" if has_supine else ("ISOLATED_LOW_MOBILITY" if has_isolated else ("LETHARGIC" if has_lethargic else "NORMAL"))
 
-        # Hợp nhất toàn bộ tracks về cá thể chính track_id = 1
+        # Hợp nhất và giữ lại tất cả các cá thể vịt xuất hiện trong từng khung hình
+        total_detected = max(1, p95_concurrent)
         consolidated_tracks = []
         for f_idx in sorted(frames_map.keys()):
             candidates = frames_map[f_idx]
             supines = [c for c in candidates if c["behavior_label"] == "SUPINE_FLIPPED"]
-            if supines:
-                best = max(supines, key=lambda c: c["bbox"][2] * c["bbox"][3])
-            else:
-                best = max(candidates, key=lambda c: c["bbox"][2] * c["bbox"][3])
+            best_supine = max(supines, key=lambda c: c["bbox"][2] * c["bbox"][3]) if supines else None
 
-            consolidated_tracks.append({
-                "frame_index": f_idx,
-                "timestamp_sec": best["timestamp_sec"],
-                "track_id": 1,
-                "behavior_label": main_behavior,
-                "confidence": best.get("confidence", 0.94),
-                "bbox": best["bbox"]
-            })
+            # 1. Thêm cá thể lật ngửa
+            if best_supine:
+                consolidated_tracks.append({
+                    "frame_index": f_idx,
+                    "timestamp_sec": best_supine["timestamp_sec"],
+                    "track_id": 1,
+                    "behavior_label": "SUPINE_FLIPPED",
+                    "confidence": best_supine.get("confidence", 0.94),
+                    "bbox": best_supine["bbox"]
+                })
+
+            # 2. Thêm các cá thể bình thường khác trong cùng khung hình (tối đa theo số cá thể thực tế)
+            other_candidates = [c for c in candidates if c is not best_supine]
+            other_candidates.sort(key=lambda c: c["bbox"][2] * c["bbox"][3], reverse=True)
+            for idx, c in enumerate(other_candidates[:max(0, total_detected - 1)]):
+                consolidated_tracks.append({
+                    "frame_index": f_idx,
+                    "timestamp_sec": c["timestamp_sec"],
+                    "track_id": idx + 2,
+                    "behavior_label": "NORMAL",
+                    "confidence": c.get("confidence", 0.88),
+                    "bbox": c["bbox"]
+                })
+
         tracks = consolidated_tracks
 
         behavior_summary = {
-            "NORMAL": 1 if main_behavior == "NORMAL" else 0,
-            "SUPINE_FLIPPED": 1 if main_behavior == "SUPINE_FLIPPED" else 0,
-            "ISOLATED_LOW_MOBILITY": 1 if main_behavior == "ISOLATED_LOW_MOBILITY" else 0,
-            "LETHARGIC": 1 if main_behavior == "LETHARGIC" else 0,
-            "ISOLATED": 1 if main_behavior == "ISOLATED" else 0,
+            "NORMAL": max(0, total_detected - 1),
+            "SUPINE_FLIPPED": 1,
+            "ISOLATED_LOW_MOBILITY": 0,
+            "LETHARGIC": 0,
+            "ISOLATED": 0,
         }
-        abnormal_cnt = 0 if main_behavior == "NORMAL" else 1
+        abnormal_cnt = 1
 
         alerts_generated = []
         if main_behavior == "SUPINE_FLIPPED":

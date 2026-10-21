@@ -1,12 +1,12 @@
 {
-  "video_path": "C:/Downloads/5.mp4",
+  "video_path": "5.mp4",
   "fps": 30.0,
   "total_frames": 1013,
-  "duration_sec": 33.766666666666666,
-  "total_ducks_detected": 1,
+  "duration_sec": 33.77,
+  "total_ducks_detected": 4,
   "abnormal_count": 1,
   "behavior_summary": {
-    "NORMAL": 0,
+    "NORMAL": 3,
     "SUPINE_FLIPPED": 1,
     "ISOLATED_LOW_MOBILITY": 0,
     "LETHARGIC": 0,
@@ -18,7 +18,33 @@
       "timestamp_sec": 0.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
+      "bbox": [
+        0.284,
+        0.2712,
+        0.5942,
+        0.1656
+      ]
+    },
+    {
+      "frame_index": 0,
+      "timestamp_sec": 0.0,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.6856,
+        0.58,
+        0.3134,
+        0.357
+      ]
+    },
+    {
+      "frame_index": 0,
+      "timestamp_sec": 0.0,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
       "bbox": [
         0.2002,
         0.4323,
@@ -27,16 +53,55 @@
       ]
     },
     {
+      "frame_index": 0,
+      "timestamp_sec": 0.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.0349,
+        0.1658,
+        0.4266,
+        0.1445
+      ]
+    },
+    {
       "frame_index": 1,
       "timestamp_sec": 0.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.2165,
-        0.4353,
-        0.3729,
-        0.3127
+        0.2865,
+        0.2818,
+        0.5952,
+        0.1474
+      ]
+    },
+    {
+      "frame_index": 1,
+      "timestamp_sec": 0.2,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.6862,
+        0.5827,
+        0.3138,
+        0.3513
+      ]
+    },
+    {
+      "frame_index": 1,
+      "timestamp_sec": 0.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.0293,
+        0.1686,
+        0.4194,
+        0.15
       ]
     },
     {
@@ -44,12 +109,38 @@
       "timestamp_sec": 0.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.5273,
-        0.5366,
-        0.329,
-        0.3367
+        0.2961,
+        0.2905,
+        0.5925,
+        0.1504
+      ]
+    },
+    {
+      "frame_index": 2,
+      "timestamp_sec": 0.4,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.6952,
+        0.5915,
+        0.3048,
+        0.3498
+      ]
+    },
+    {
+      "frame_index": 2,
+      "timestamp_sec": 0.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.0093,
+        0.1846,
+        0.4503,
+        0.144
       ]
     },
     {
@@ -57,12 +148,38 @@
       "timestamp_sec": 0.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.92,
       "bbox": [
-        0.3788,
-        0.3829,
-        0.5008,
-        0.2148
+        0.2981,
+        0.3003,
+        0.5943,
+        0.1501
+      ]
+    },
+    {
+      "frame_index": 3,
+      "timestamp_sec": 0.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0562,
+        0.201,
+        0.4002,
+        0.1258
+      ]
+    },
+    {
+      "frame_index": 3,
+      "timestamp_sec": 0.6,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.692,
+        0.6007,
+        0.308,
+        0.3571
       ]
     },
     {
@@ -70,12 +187,51 @@
       "timestamp_sec": 0.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.92,
       "bbox": [
-        0.3198,
-        0.3298,
-        0.5583,
-        0.1715
+        0.2898,
+        0.3007,
+        0.5865,
+        0.1483
+      ]
+    },
+    {
+      "frame_index": 4,
+      "timestamp_sec": 0.8,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.6922,
+        0.6038,
+        0.3078,
+        0.3546
+      ]
+    },
+    {
+      "frame_index": 4,
+      "timestamp_sec": 0.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.0101,
+        0.1812,
+        0.4303,
+        0.1619
+      ]
+    },
+    {
+      "frame_index": 5,
+      "timestamp_sec": 1.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.0328,
+        0.2125,
+        0.3973,
+        0.1099
       ]
     },
     {
@@ -83,12 +239,25 @@
       "timestamp_sec": 1.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.2829,
-        0.3088,
-        0.5814,
-        0.1545
+        0.261,
+        0.2968,
+        0.5957,
+        0.145
+      ]
+    },
+    {
+      "frame_index": 5,
+      "timestamp_sec": 1.0,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.6791,
+        0.598,
+        0.3209,
+        0.347
       ]
     },
     {
@@ -96,12 +265,51 @@
       "timestamp_sec": 1.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.2281,
-        0.3986,
-        0.4454,
-        0.245
+        0.2398,
+        0.2981,
+        0.5829,
+        0.1418
+      ]
+    },
+    {
+      "frame_index": 6,
+      "timestamp_sec": 1.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.004,
+        0.175,
+        0.3944,
+        0.1618
+      ]
+    },
+    {
+      "frame_index": 6,
+      "timestamp_sec": 1.2,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.6555,
+        0.5967,
+        0.3411,
+        0.3351
+      ]
+    },
+    {
+      "frame_index": 6,
+      "timestamp_sec": 1.2,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.2015,
+        0.4458,
+        0.3664,
+        0.2899
       ]
     },
     {
@@ -109,12 +317,64 @@
       "timestamp_sec": 1.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.1936,
-        0.4364,
-        0.3931,
-        0.2657
+        0.2092,
+        0.3004,
+        0.5864,
+        0.1423
+      ]
+    },
+    {
+      "frame_index": 7,
+      "timestamp_sec": 1.4,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.6298,
+        0.5947,
+        0.3595,
+        0.3327
+      ]
+    },
+    {
+      "frame_index": 7,
+      "timestamp_sec": 1.4,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.175,
+        0.4592,
+        0.3613,
+        0.2702
+      ]
+    },
+    {
+      "frame_index": 7,
+      "timestamp_sec": 1.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0029,
+        0.2039,
+        0.3618,
+        0.1232
+      ]
+    },
+    {
+      "frame_index": 8,
+      "timestamp_sec": 1.6,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.6049,
+        0.6001,
+        0.3598,
+        0.3347
       ]
     },
     {
@@ -122,12 +382,64 @@
       "timestamp_sec": 1.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.1615,
-        0.4578,
-        0.3764,
-        0.2778
+        0.1922,
+        0.3141,
+        0.5727,
+        0.1353
+      ]
+    },
+    {
+      "frame_index": 8,
+      "timestamp_sec": 1.6,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.1397,
+        0.4701,
+        0.3682,
+        0.2897
+      ]
+    },
+    {
+      "frame_index": 8,
+      "timestamp_sec": 1.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.86,
+      "bbox": [
+        0.0011,
+        0.2218,
+        0.3361,
+        0.1121
+      ]
+    },
+    {
+      "frame_index": 9,
+      "timestamp_sec": 1.8,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.6003,
+        0.6127,
+        0.3601,
+        0.3337
+      ]
+    },
+    {
+      "frame_index": 9,
+      "timestamp_sec": 1.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.0022,
+        0.2278,
+        0.2984,
+        0.1229
       ]
     },
     {
@@ -135,12 +447,51 @@
       "timestamp_sec": 1.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.1421,
-        0.4767,
-        0.3696,
-        0.2758
+        0.1684,
+        0.3265,
+        0.5722,
+        0.1393
+      ]
+    },
+    {
+      "frame_index": 9,
+      "timestamp_sec": 1.8,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.1337,
+        0.4868,
+        0.3648,
+        0.2731
+      ]
+    },
+    {
+      "frame_index": 10,
+      "timestamp_sec": 2.0,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.6087,
+        0.6001,
+        0.3604,
+        0.3306
+      ]
+    },
+    {
+      "frame_index": 10,
+      "timestamp_sec": 2.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0007,
+        0.2427,
+        0.2861,
+        0.1197
       ]
     },
     {
@@ -148,12 +499,25 @@
       "timestamp_sec": 2.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.1375,
-        0.4853,
-        0.3611,
-        0.2714
+        0.1522,
+        0.3308,
+        0.5762,
+        0.1335
+      ]
+    },
+    {
+      "frame_index": 10,
+      "timestamp_sec": 2.0,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.1398,
+        0.4898,
+        0.3505,
+        0.2701
       ]
     },
     {
@@ -161,12 +525,51 @@
       "timestamp_sec": 2.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.1126,
-        0.4952,
-        0.3545,
-        0.2741
+        0.1055,
+        0.4992,
+        0.3473,
+        0.2821
+      ]
+    },
+    {
+      "frame_index": 11,
+      "timestamp_sec": 2.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.0896,
+        0.3411,
+        0.5874,
+        0.1327
+      ]
+    },
+    {
+      "frame_index": 11,
+      "timestamp_sec": 2.2,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.5749,
+        0.6011,
+        0.3576,
+        0.3324
+      ]
+    },
+    {
+      "frame_index": 12,
+      "timestamp_sec": 2.4,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.92,
+      "bbox": [
+        0.6445,
+        0.5802,
+        0.3479,
+        0.3376
       ]
     },
     {
@@ -174,12 +577,38 @@
       "timestamp_sec": 2.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.1507,
-        0.5003,
-        0.3462,
-        0.2689
+        0.143,
+        0.3354,
+        0.5799,
+        0.1335
+      ]
+    },
+    {
+      "frame_index": 12,
+      "timestamp_sec": 2.4,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.1816,
+        0.5065,
+        0.3364,
+        0.2637
+      ]
+    },
+    {
+      "frame_index": 12,
+      "timestamp_sec": 2.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.0,
+        0.237,
+        0.2688,
+        0.1314
       ]
     },
     {
@@ -187,12 +616,38 @@
       "timestamp_sec": 2.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.236,
-        0.4969,
-        0.3526,
-        0.2938
+        0.2883,
+        0.4886,
+        0.3535,
+        0.3249
+      ]
+    },
+    {
+      "frame_index": 13,
+      "timestamp_sec": 2.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.0032,
+        0.2373,
+        0.3547,
+        0.1366
+      ]
+    },
+    {
+      "frame_index": 13,
+      "timestamp_sec": 2.6,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.85,
+      "bbox": [
+        0.7906,
+        0.5797,
+        0.2094,
+        0.3285
       ]
     },
     {
@@ -200,12 +655,51 @@
       "timestamp_sec": 2.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.3211,
-        0.478,
-        0.3747,
-        0.3306
+        0.3052,
+        0.2945,
+        0.6504,
+        0.1488
+      ]
+    },
+    {
+      "frame_index": 14,
+      "timestamp_sec": 2.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.0218,
+        0.1973,
+        0.3969,
+        0.152
+      ]
+    },
+    {
+      "frame_index": 14,
+      "timestamp_sec": 2.8,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.41,
+      "bbox": [
+        0.922,
+        0.6168,
+        0.078,
+        0.2275
+      ]
+    },
+    {
+      "frame_index": 15,
+      "timestamp_sec": 3.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.4012,
+        0.2594,
+        0.5988,
+        0.1572
       ]
     },
     {
@@ -215,10 +709,23 @@
       "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.3658,
-        0.3376,
-        0.5277,
-        0.2181
+        0.4044,
+        0.2564,
+        0.5916,
+        0.16
+      ]
+    },
+    {
+      "frame_index": 16,
+      "timestamp_sec": 3.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.4096,
+        0.2581,
+        0.5904,
+        0.1628
       ]
     },
     {
@@ -228,10 +735,23 @@
       "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.3942,
-        0.2861,
-        0.5685,
-        0.1824
+        0.4186,
+        0.2559,
+        0.5814,
+        0.1621
+      ]
+    },
+    {
+      "frame_index": 17,
+      "timestamp_sec": 3.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.3779,
+        0.2653,
+        0.6221,
+        0.1571
       ]
     },
     {
@@ -241,10 +761,23 @@
       "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.3899,
-        0.2723,
-        0.597,
-        0.1697
+        0.3933,
+        0.264,
+        0.6048,
+        0.1624
+      ]
+    },
+    {
+      "frame_index": 18,
+      "timestamp_sec": 3.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.3732,
+        0.2635,
+        0.6268,
+        0.1543
       ]
     },
     {
@@ -254,10 +787,23 @@
       "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.3828,
-        0.2657,
-        0.6127,
+        0.389,
+        0.26,
+        0.6095,
         0.1622
+      ]
+    },
+    {
+      "frame_index": 19,
+      "timestamp_sec": 3.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.3813,
+        0.2722,
+        0.6187,
+        0.172
       ]
     },
     {
@@ -267,10 +813,23 @@
       "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.3832,
-        0.2712,
-        0.6142,
-        0.1643
+        0.3924,
+        0.2768,
+        0.6076,
+        0.1628
+      ]
+    },
+    {
+      "frame_index": 20,
+      "timestamp_sec": 4.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.3433,
+        0.2788,
+        0.5651,
+        0.1232
       ]
     },
     {
@@ -280,10 +839,23 @@
       "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.3558,
-        0.2789,
-        0.5928,
-        0.1477
+        0.0047,
+        0.2387,
+        0.4376,
+        0.1297
+      ]
+    },
+    {
+      "frame_index": 21,
+      "timestamp_sec": 4.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.0014,
+        0.2418,
+        0.3289,
+        0.1514
       ]
     },
     {
@@ -291,12 +863,12 @@
       "timestamp_sec": 4.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.2683,
-        0.2983,
-        0.6434,
-        0.1613
+        0.217,
+        0.3111,
+        0.717,
+        0.181
       ]
     },
     {
@@ -304,12 +876,38 @@
       "timestamp_sec": 4.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.1929,
-        0.3174,
-        0.6858,
-        0.1601
+        0.1415,
+        0.3325,
+        0.7288,
+        0.1556
+      ]
+    },
+    {
+      "frame_index": 22,
+      "timestamp_sec": 4.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.0012,
+        0.2708,
+        0.2684,
+        0.137
+      ]
+    },
+    {
+      "frame_index": 22,
+      "timestamp_sec": 4.4,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.79,
+      "bbox": [
+        0.8553,
+        0.6657,
+        0.1447,
+        0.2658
       ]
     },
     {
@@ -317,12 +915,38 @@
       "timestamp_sec": 4.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.1511,
-        0.326,
-        0.7112,
-        0.1586
+        0.1249,
+        0.3311,
+        0.7302,
+        0.1598
+      ]
+    },
+    {
+      "frame_index": 23,
+      "timestamp_sec": 4.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.86,
+      "bbox": [
+        0.0009,
+        0.2714,
+        0.2512,
+        0.1309
+      ]
+    },
+    {
+      "frame_index": 23,
+      "timestamp_sec": 4.6,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.83,
+      "bbox": [
+        0.8572,
+        0.659,
+        0.1428,
+        0.2392
       ]
     },
     {
@@ -330,12 +954,51 @@
       "timestamp_sec": 4.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.87,
       "bbox": [
-        0.1516,
-        0.3558,
-        0.6985,
-        0.1559
+        0.1663,
+        0.3719,
+        0.6747,
+        0.1565
+      ]
+    },
+    {
+      "frame_index": 24,
+      "timestamp_sec": 4.8,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.85,
+      "bbox": [
+        0.863,
+        0.6848,
+        0.137,
+        0.2444
+      ]
+    },
+    {
+      "frame_index": 24,
+      "timestamp_sec": 4.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.83,
+      "bbox": [
+        0.0,
+        0.3202,
+        0.2494,
+        0.1391
+      ]
+    },
+    {
+      "frame_index": 24,
+      "timestamp_sec": 4.8,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.82,
+      "bbox": [
+        0.0,
+        0.6493,
+        0.4555,
+        0.3488
       ]
     },
     {
@@ -343,12 +1006,51 @@
       "timestamp_sec": 5.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.88,
       "bbox": [
-        0.1769,
-        0.3835,
-        0.6863,
-        0.1454
+        0.1969,
+        0.4002,
+        0.6704,
+        0.1353
+      ]
+    },
+    {
+      "frame_index": 25,
+      "timestamp_sec": 5.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.0014,
+        0.3575,
+        0.2841,
+        0.1408
+      ]
+    },
+    {
+      "frame_index": 25,
+      "timestamp_sec": 5.0,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.73,
+      "bbox": [
+        0.9133,
+        0.7184,
+        0.0867,
+        0.2125
+      ]
+    },
+    {
+      "frame_index": 26,
+      "timestamp_sec": 5.2,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.4287,
+        0.7172,
+        0.4073,
+        0.2826
       ]
     },
     {
@@ -356,12 +1058,25 @@
       "timestamp_sec": 5.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.88,
       "bbox": [
-        0.2107,
-        0.3887,
-        0.6675,
-        0.1392
+        0.24,
+        0.3925,
+        0.643,
+        0.1356
+      ]
+    },
+    {
+      "frame_index": 26,
+      "timestamp_sec": 5.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.002,
+        0.3631,
+        0.2789,
+        0.1337
       ]
     },
     {
@@ -369,12 +1084,38 @@
       "timestamp_sec": 5.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.92,
       "bbox": [
-        0.172,
-        0.3575,
-        0.6679,
-        0.1487
+        0.1402,
+        0.338,
+        0.6734,
+        0.1623
+      ]
+    },
+    {
+      "frame_index": 27,
+      "timestamp_sec": 5.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.002,
+        0.2987,
+        0.2358,
+        0.1402
+      ]
+    },
+    {
+      "frame_index": 27,
+      "timestamp_sec": 5.4,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.3561,
+        0.6393,
+        0.4084,
+        0.3559
       ]
     },
     {
@@ -382,12 +1123,51 @@
       "timestamp_sec": 5.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.0915,
-        0.3424,
-        0.6801,
-        0.1544
+        0.0367,
+        0.3357,
+        0.6912,
+        0.1555
+      ]
+    },
+    {
+      "frame_index": 28,
+      "timestamp_sec": 5.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.0003,
+        0.2946,
+        0.1568,
+        0.1327
+      ]
+    },
+    {
+      "frame_index": 28,
+      "timestamp_sec": 5.6,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.86,
+      "bbox": [
+        0.7844,
+        0.5819,
+        0.2156,
+        0.2954
+      ]
+    },
+    {
+      "frame_index": 29,
+      "timestamp_sec": 5.8,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.92,
+      "bbox": [
+        0.7646,
+        0.5692,
+        0.2354,
+        0.2955
       ]
     },
     {
@@ -395,12 +1175,38 @@
       "timestamp_sec": 5.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.0495,
-        0.3316,
-        0.6809,
-        0.1584
+        0.0249,
+        0.3254,
+        0.6767,
+        0.1615
+      ]
+    },
+    {
+      "frame_index": 29,
+      "timestamp_sec": 5.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.0005,
+        0.2884,
+        0.137,
+        0.1365
+      ]
+    },
+    {
+      "frame_index": 30,
+      "timestamp_sec": 6.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.0001,
+        0.2756,
+        0.1735,
+        0.1373
       ]
     },
     {
@@ -408,12 +1214,38 @@
       "timestamp_sec": 6.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.0589,
-        0.3215,
-        0.6756,
-        0.159
+        0.0675,
+        0.3169,
+        0.6683,
+        0.1588
+      ]
+    },
+    {
+      "frame_index": 30,
+      "timestamp_sec": 6.0,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.3958,
+        0.6107,
+        0.3987,
+        0.3893
+      ]
+    },
+    {
+      "frame_index": 31,
+      "timestamp_sec": 6.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.0009,
+        0.2565,
+        0.1575,
+        0.1222
       ]
     },
     {
@@ -421,12 +1253,38 @@
       "timestamp_sec": 6.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.059,
-        0.2971,
-        0.6622,
-        0.1567
+        0.0621,
+        0.2816,
+        0.6494,
+        0.1523
+      ]
+    },
+    {
+      "frame_index": 31,
+      "timestamp_sec": 6.2,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.4206,
+        0.563,
+        0.3751,
+        0.4323
+      ]
+    },
+    {
+      "frame_index": 32,
+      "timestamp_sec": 6.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.0076,
+        0.2599,
+        0.6471,
+        0.1406
       ]
     },
     {
@@ -434,12 +1292,25 @@
       "timestamp_sec": 6.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.88,
       "bbox": [
-        0.0215,
-        0.2711,
-        0.6533,
-        0.1514
+        0.3373,
+        0.52,
+        0.358,
+        0.4658
+      ]
+    },
+    {
+      "frame_index": 33,
+      "timestamp_sec": 6.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0103,
+        0.2411,
+        0.6007,
+        0.1426
       ]
     },
     {
@@ -447,12 +1318,25 @@
       "timestamp_sec": 6.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.0075,
-        0.2513,
-        0.6272,
-        0.1479
+        0.3542,
+        0.5013,
+        0.3735,
+        0.4483
+      ]
+    },
+    {
+      "frame_index": 34,
+      "timestamp_sec": 6.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.01,
+        0.2328,
+        0.5845,
+        0.1427
       ]
     },
     {
@@ -460,12 +1344,25 @@
       "timestamp_sec": 6.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.88,
       "bbox": [
-        0.0046,
-        0.2385,
-        0.6058,
-        0.1456
+        0.3595,
+        0.5026,
+        0.3352,
+        0.4568
+      ]
+    },
+    {
+      "frame_index": 35,
+      "timestamp_sec": 7.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0091,
+        0.2249,
+        0.5802,
+        0.1429
       ]
     },
     {
@@ -473,12 +1370,25 @@
       "timestamp_sec": 7.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.005,
-        0.229,
-        0.5907,
-        0.1447
+        0.3147,
+        0.4851,
+        0.3682,
+        0.3977
+      ]
+    },
+    {
+      "frame_index": 36,
+      "timestamp_sec": 7.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.0138,
+        0.2197,
+        0.5738,
+        0.1419
       ]
     },
     {
@@ -486,12 +1396,25 @@
       "timestamp_sec": 7.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.87,
       "bbox": [
-        0.0112,
-        0.2213,
-        0.5816,
-        0.1441
+        0.3621,
+        0.4784,
+        0.3291,
+        0.3683
+      ]
+    },
+    {
+      "frame_index": 37,
+      "timestamp_sec": 7.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0189,
+        0.2119,
+        0.5892,
+        0.1358
       ]
     },
     {
@@ -499,12 +1422,25 @@
       "timestamp_sec": 7.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.88,
       "bbox": [
-        0.0193,
-        0.2139,
-        0.5838,
-        0.1412
+        0.3202,
+        0.4306,
+        0.3699,
+        0.3821
+      ]
+    },
+    {
+      "frame_index": 38,
+      "timestamp_sec": 7.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0119,
+        0.2119,
+        0.6211,
+        0.1355
       ]
     },
     {
@@ -512,12 +1448,25 @@
       "timestamp_sec": 7.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.0208,
-        0.2114,
-        0.6,
-        0.1391
+        0.358,
+        0.4833,
+        0.3938,
+        0.4277
+      ]
+    },
+    {
+      "frame_index": 39,
+      "timestamp_sec": 7.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0098,
+        0.2091,
+        0.6322,
+        0.1419
       ]
     },
     {
@@ -525,12 +1474,25 @@
       "timestamp_sec": 7.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.87,
       "bbox": [
-        0.0181,
-        0.209,
-        0.6159,
-        0.1411
+        0.3201,
+        0.4869,
+        0.4482,
+        0.3801
+      ]
+    },
+    {
+      "frame_index": 40,
+      "timestamp_sec": 8.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0087,
+        0.2127,
+        0.6392,
+        0.1441
       ]
     },
     {
@@ -538,12 +1500,25 @@
       "timestamp_sec": 8.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.86,
       "bbox": [
-        0.0158,
-        0.21,
-        0.6267,
-        0.1434
+        0.4053,
+        0.4799,
+        0.3908,
+        0.3932
+      ]
+    },
+    {
+      "frame_index": 41,
+      "timestamp_sec": 8.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0092,
+        0.2147,
+        0.6426,
+        0.1455
       ]
     },
     {
@@ -551,12 +1526,25 @@
       "timestamp_sec": 8.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.86,
       "bbox": [
-        0.0151,
-        0.2115,
-        0.6339,
-        0.1457
+        0.376,
+        0.4932,
+        0.4262,
+        0.429
+      ]
+    },
+    {
+      "frame_index": 42,
+      "timestamp_sec": 8.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.0084,
+        0.2059,
+        0.6805,
+        0.1529
       ]
     },
     {
@@ -564,12 +1552,25 @@
       "timestamp_sec": 8.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.88,
       "bbox": [
-        0.0187,
-        0.208,
-        0.6551,
-        0.1499
+        0.3898,
+        0.513,
+        0.4541,
+        0.487
+      ]
+    },
+    {
+      "frame_index": 43,
+      "timestamp_sec": 8.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.02,
+        0.1988,
+        0.689,
+        0.155
       ]
     },
     {
@@ -577,12 +1578,25 @@
       "timestamp_sec": 8.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.87,
       "bbox": [
-        0.0244,
-        0.2021,
-        0.6724,
-        0.1541
+        0.4229,
+        0.5043,
+        0.4276,
+        0.4957
+      ]
+    },
+    {
+      "frame_index": 44,
+      "timestamp_sec": 8.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.0228,
+        0.1968,
+        0.7075,
+        0.1533
       ]
     },
     {
@@ -590,12 +1604,25 @@
       "timestamp_sec": 8.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.85,
       "bbox": [
-        0.0251,
-        0.1977,
-        0.6906,
-        0.1559
+        0.3979,
+        0.5049,
+        0.4546,
+        0.4923
+      ]
+    },
+    {
+      "frame_index": 45,
+      "timestamp_sec": 9.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.0243,
+        0.1965,
+        0.7098,
+        0.1567
       ]
     },
     {
@@ -603,12 +1630,25 @@
       "timestamp_sec": 9.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.87,
       "bbox": [
-        0.2791,
-        0.4062,
-        0.5308,
-        0.3624
+        0.4148,
+        0.5246,
+        0.4471,
+        0.4524
+      ]
+    },
+    {
+      "frame_index": 46,
+      "timestamp_sec": 9.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.0255,
+        0.1995,
+        0.707,
+        0.152
       ]
     },
     {
@@ -616,12 +1656,38 @@
       "timestamp_sec": 9.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.85,
       "bbox": [
-        0.3648,
-        0.4807,
-        0.4838,
-        0.4218
+        0.4075,
+        0.5195,
+        0.4675,
+        0.4388
+      ]
+    },
+    {
+      "frame_index": 47,
+      "timestamp_sec": 9.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0377,
+        0.2087,
+        0.6898,
+        0.1532
+      ]
+    },
+    {
+      "frame_index": 47,
+      "timestamp_sec": 9.4,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.86,
+      "bbox": [
+        0.4644,
+        0.5415,
+        0.4464,
+        0.4555
       ]
     },
     {
@@ -631,10 +1697,36 @@
       "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.4193,
-        0.5174,
-        0.4619,
-        0.4436
+        0.0431,
+        0.2121,
+        0.7091,
+        0.1459
+      ]
+    },
+    {
+      "frame_index": 48,
+      "timestamp_sec": 9.6,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.4269,
+        0.5523,
+        0.481,
+        0.4451
+      ]
+    },
+    {
+      "frame_index": 48,
+      "timestamp_sec": 9.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.019,
+        0.2307,
+        0.7053,
+        0.1489
       ]
     },
     {
@@ -644,10 +1736,36 @@
       "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.4272,
-        0.5409,
-        0.467,
-        0.4455
+        0.0356,
+        0.2229,
+        0.7033,
+        0.154
+      ]
+    },
+    {
+      "frame_index": 49,
+      "timestamp_sec": 9.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.6754,
+        0.2104,
+        0.3246,
+        0.3349
+      ]
+    },
+    {
+      "frame_index": 49,
+      "timestamp_sec": 9.8,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.4328,
+        0.5499,
+        0.4884,
+        0.4449
       ]
     },
     {
@@ -657,10 +1775,36 @@
       "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.4343,
-        0.5483,
-        0.4771,
-        0.4459
+        0.0394,
+        0.2286,
+        0.6667,
+        0.149
+      ]
+    },
+    {
+      "frame_index": 50,
+      "timestamp_sec": 10.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.0,
+        0.1823,
+        0.1758,
+        0.1139
+      ]
+    },
+    {
+      "frame_index": 50,
+      "timestamp_sec": 10.0,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.86,
+      "bbox": [
+        0.4267,
+        0.5622,
+        0.53,
+        0.4366
       ]
     },
     {
@@ -668,12 +1812,38 @@
       "timestamp_sec": 10.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.43,
       "bbox": [
-        0.4368,
-        0.5556,
-        0.5022,
-        0.4422
+        0.3073,
+        0.2635,
+        0.5504,
+        0.278
+      ]
+    },
+    {
+      "frame_index": 51,
+      "timestamp_sec": 10.2,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.4774,
+        0.5946,
+        0.4868,
+        0.4054
+      ]
+    },
+    {
+      "frame_index": 51,
+      "timestamp_sec": 10.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.56,
+      "bbox": [
+        0.0,
+        0.112,
+        0.1563,
+        0.1817
       ]
     },
     {
@@ -681,12 +1851,25 @@
       "timestamp_sec": 10.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.45,
       "bbox": [
-        0.4542,
-        0.578,
-        0.5025,
-        0.4212
+        0.0,
+        0.3902,
+        0.453,
+        0.2919
+      ]
+    },
+    {
+      "frame_index": 52,
+      "timestamp_sec": 10.4,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.4685,
+        0.6571,
+        0.484,
+        0.3429
       ]
     },
     {
@@ -694,12 +1877,38 @@
       "timestamp_sec": 10.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.4598,
-        0.6264,
-        0.4967,
-        0.3733
+        0.0214,
+        0.2476,
+        0.7869,
+        0.2201
+      ]
+    },
+    {
+      "frame_index": 52,
+      "timestamp_sec": 10.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.86,
+      "bbox": [
+        0.0,
+        0.2249,
+        0.1925,
+        0.1293
+      ]
+    },
+    {
+      "frame_index": 53,
+      "timestamp_sec": 10.6,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.92,
+      "bbox": [
+        0.4434,
+        0.6711,
+        0.5273,
+        0.3289
       ]
     },
     {
@@ -707,12 +1916,38 @@
       "timestamp_sec": 10.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.4514,
-        0.6594,
-        0.5146,
-        0.3405
+        0.005,
+        0.3119,
+        0.7245,
+        0.1618
+      ]
+    },
+    {
+      "frame_index": 53,
+      "timestamp_sec": 10.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.84,
+      "bbox": [
+        0.0002,
+        0.2393,
+        0.1485,
+        0.1128
+      ]
+    },
+    {
+      "frame_index": 54,
+      "timestamp_sec": 10.8,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.4003,
+        0.721,
+        0.5451,
+        0.279
       ]
     },
     {
@@ -720,12 +1955,38 @@
       "timestamp_sec": 10.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.4206,
-        0.6996,
-        0.5371,
-        0.3004
+        0.0057,
+        0.3442,
+        0.7101,
+        0.1573
+      ]
+    },
+    {
+      "frame_index": 54,
+      "timestamp_sec": 10.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.84,
+      "bbox": [
+        0.0029,
+        0.2704,
+        0.127,
+        0.1106
+      ]
+    },
+    {
+      "frame_index": 55,
+      "timestamp_sec": 11.0,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.3759,
+        0.765,
+        0.6052,
+        0.2346
       ]
     },
     {
@@ -733,12 +1994,25 @@
       "timestamp_sec": 11.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.4023,
-        0.7383,
-        0.578,
-        0.2617
+        0.0128,
+        0.336,
+        0.7305,
+        0.1796
+      ]
+    },
+    {
+      "frame_index": 55,
+      "timestamp_sec": 11.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.86,
+      "bbox": [
+        0.0015,
+        0.2502,
+        0.1199,
+        0.1204
       ]
     },
     {
@@ -746,12 +2020,64 @@
       "timestamp_sec": 11.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.1657,
-        0.4274,
-        0.7441,
-        0.2267
+        0.0221,
+        0.2564,
+        0.8384,
+        0.2122
+      ]
+    },
+    {
+      "frame_index": 56,
+      "timestamp_sec": 11.2,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.4788,
+        0.7437,
+        0.5212,
+        0.2563
+      ]
+    },
+    {
+      "frame_index": 56,
+      "timestamp_sec": 11.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.0,
+        0.1582,
+        0.21,
+        0.162
+      ]
+    },
+    {
+      "frame_index": 57,
+      "timestamp_sec": 11.4,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.4927,
+        0.7439,
+        0.5068,
+        0.2561
+      ]
+    },
+    {
+      "frame_index": 57,
+      "timestamp_sec": 11.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.0491,
+        0.2437,
+        0.8753,
+        0.195
       ]
     },
     {
@@ -761,10 +2087,36 @@
       "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.0976,
-        0.3054,
-        0.831,
-        0.214
+        0.0679,
+        0.2459,
+        0.9098,
+        0.1966
+      ]
+    },
+    {
+      "frame_index": 58,
+      "timestamp_sec": 11.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.0582,
+        0.2369,
+        0.9149,
+        0.2155
+      ]
+    },
+    {
+      "frame_index": 58,
+      "timestamp_sec": 11.6,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.85,
+      "bbox": [
+        0.4614,
+        0.7509,
+        0.5348,
+        0.2487
       ]
     },
     {
@@ -774,10 +2126,36 @@
       "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.0769,
-        0.2611,
-        0.8798,
-        0.2142
+        0.0848,
+        0.2423,
+        0.8165,
+        0.1989
+      ]
+    },
+    {
+      "frame_index": 59,
+      "timestamp_sec": 11.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.92,
+      "bbox": [
+        0.0891,
+        0.2327,
+        0.879,
+        0.2275
+      ]
+    },
+    {
+      "frame_index": 59,
+      "timestamp_sec": 11.8,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.4783,
+        0.7324,
+        0.5201,
+        0.2676
       ]
     },
     {
@@ -787,10 +2165,23 @@
       "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.0837,
-        0.2427,
-        0.8867,
-        0.2223
+        0.1154,
+        0.2327,
+        0.8125,
+        0.2137
+      ]
+    },
+    {
+      "frame_index": 60,
+      "timestamp_sec": 12.0,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.92,
+      "bbox": [
+        0.4617,
+        0.7571,
+        0.5352,
+        0.2425
       ]
     },
     {
@@ -798,12 +2189,38 @@
       "timestamp_sec": 12.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.096,
-        0.2497,
-        0.872,
-        0.2211
+        0.1021,
+        0.2603,
+        0.8655,
+        0.2167
+      ]
+    },
+    {
+      "frame_index": 60,
+      "timestamp_sec": 12.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0017,
+        0.1306,
+        0.3245,
+        0.1923
+      ]
+    },
+    {
+      "frame_index": 61,
+      "timestamp_sec": 12.2,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.4202,
+        0.7817,
+        0.5702,
+        0.2181
       ]
     },
     {
@@ -811,12 +2228,38 @@
       "timestamp_sec": 12.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.0954,
-        0.2652,
-        0.875,
-        0.2147
+        0.0928,
+        0.2816,
+        0.8795,
+        0.2084
+      ]
+    },
+    {
+      "frame_index": 61,
+      "timestamp_sec": 12.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0009,
+        0.1673,
+        0.3133,
+        0.1764
+      ]
+    },
+    {
+      "frame_index": 62,
+      "timestamp_sec": 12.4,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.4099,
+        0.8077,
+        0.5841,
+        0.192
       ]
     },
     {
@@ -824,12 +2267,38 @@
       "timestamp_sec": 12.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.0959,
-        0.282,
-        0.8678,
-        0.1975
+        0.0936,
+        0.2953,
+        0.8633,
+        0.1794
+      ]
+    },
+    {
+      "frame_index": 62,
+      "timestamp_sec": 12.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.0047,
+        0.178,
+        0.3204,
+        0.1768
+      ]
+    },
+    {
+      "frame_index": 63,
+      "timestamp_sec": 12.6,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.5026,
+        0.8197,
+        0.4974,
+        0.1803
       ]
     },
     {
@@ -837,12 +2306,25 @@
       "timestamp_sec": 12.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.1343,
-        0.2945,
-        0.853,
-        0.1974
+        0.157,
+        0.3011,
+        0.8342,
+        0.2064
+      ]
+    },
+    {
+      "frame_index": 63,
+      "timestamp_sec": 12.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0034,
+        0.1955,
+        0.3609,
+        0.1611
       ]
     },
     {
@@ -850,12 +2332,38 @@
       "timestamp_sec": 12.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.1981,
-        0.2977,
-        0.7975,
-        0.1906
+        0.2405,
+        0.2948,
+        0.7588,
+        0.1892
+      ]
+    },
+    {
+      "frame_index": 64,
+      "timestamp_sec": 12.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.0,
+        0.2064,
+        0.3796,
+        0.1448
+      ]
+    },
+    {
+      "frame_index": 64,
+      "timestamp_sec": 12.8,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.6168,
+        0.7979,
+        0.3832,
+        0.2021
       ]
     },
     {
@@ -863,12 +2371,51 @@
       "timestamp_sec": 13.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.2182,
-        0.3104,
-        0.7801,
-        0.1955
+        0.233,
+        0.3156,
+        0.7627,
+        0.2067
+      ]
+    },
+    {
+      "frame_index": 65,
+      "timestamp_sec": 13.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0036,
+        0.2271,
+        0.4037,
+        0.1425
+      ]
+    },
+    {
+      "frame_index": 65,
+      "timestamp_sec": 13.0,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.84,
+      "bbox": [
+        0.5826,
+        0.8093,
+        0.4174,
+        0.1907
+      ]
+    },
+    {
+      "frame_index": 66,
+      "timestamp_sec": 13.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.92,
+      "bbox": [
+        0.0035,
+        0.2454,
+        0.3699,
+        0.1345
       ]
     },
     {
@@ -876,12 +2423,38 @@
       "timestamp_sec": 13.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.2051,
-        0.3158,
-        0.7802,
-        0.192
+        0.2016,
+        0.3069,
+        0.7927,
+        0.187
+      ]
+    },
+    {
+      "frame_index": 66,
+      "timestamp_sec": 13.2,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.86,
+      "bbox": [
+        0.502,
+        0.8147,
+        0.498,
+        0.1853
+      ]
+    },
+    {
+      "frame_index": 67,
+      "timestamp_sec": 13.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0037,
+        0.2731,
+        0.3371,
+        0.1267
       ]
     },
     {
@@ -889,12 +2462,25 @@
       "timestamp_sec": 13.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.83,
       "bbox": [
-        0.1759,
-        0.3432,
-        0.7422,
-        0.2277
+        0.1563,
+        0.3634,
+        0.7048,
+        0.2784
+      ]
+    },
+    {
+      "frame_index": 67,
+      "timestamp_sec": 13.4,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.81,
+      "bbox": [
+        0.4677,
+        0.8293,
+        0.5322,
+        0.1707
       ]
     },
     {
@@ -902,12 +2488,25 @@
       "timestamp_sec": 13.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.0616,
-        0.3088,
-        0.4578,
-        0.1677
+        0.0021,
+        0.2854,
+        0.3042,
+        0.1414
+      ]
+    },
+    {
+      "frame_index": 69,
+      "timestamp_sec": 13.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.0003,
+        0.2892,
+        0.283,
+        0.1595
       ]
     },
     {
@@ -915,12 +2514,12 @@
       "timestamp_sec": 13.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.87,
       "bbox": [
-        0.038,
-        0.4268,
-        0.6731,
-        0.2173
+        0.0078,
+        0.5197,
+        0.8142,
+        0.2471
       ]
     },
     {
@@ -928,12 +2527,38 @@
       "timestamp_sec": 14.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.0133,
-        0.4737,
-        0.6721,
-        0.2819
+        0.0029,
+        0.4771,
+        0.615,
+        0.3583
+      ]
+    },
+    {
+      "frame_index": 70,
+      "timestamp_sec": 14.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.0016,
+        0.3524,
+        0.2319,
+        0.1111
+      ]
+    },
+    {
+      "frame_index": 70,
+      "timestamp_sec": 14.0,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.65,
+      "bbox": [
+        0.4812,
+        0.8946,
+        0.5188,
+        0.1054
       ]
     },
     {
@@ -941,12 +2566,25 @@
       "timestamp_sec": 14.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.0135,
-        0.5497,
-        0.7073,
-        0.2935
+        0.0071,
+        0.6215,
+        0.7544,
+        0.2917
+      ]
+    },
+    {
+      "frame_index": 71,
+      "timestamp_sec": 14.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.0015,
+        0.3811,
+        0.2857,
+        0.15
       ]
     },
     {
@@ -954,12 +2592,51 @@
       "timestamp_sec": 14.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.0125,
-        0.5884,
-        0.6673,
-        0.2715
+        0.003,
+        0.6147,
+        0.6014,
+        0.2354
+      ]
+    },
+    {
+      "frame_index": 72,
+      "timestamp_sec": 14.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0013,
+        0.3708,
+        0.3048,
+        0.1574
+      ]
+    },
+    {
+      "frame_index": 72,
+      "timestamp_sec": 14.4,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.45,
+      "bbox": [
+        0.2527,
+        0.89,
+        0.7473,
+        0.11
+      ]
+    },
+    {
+      "frame_index": 73,
+      "timestamp_sec": 14.6,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.5878,
+        0.8479,
+        0.4122,
+        0.1521
       ]
     },
     {
@@ -967,12 +2644,25 @@
       "timestamp_sec": 14.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.0184,
-        0.5681,
-        0.6409,
-        0.2436
+        0.0055,
+        0.5476,
+        0.6224,
+        0.2131
+      ]
+    },
+    {
+      "frame_index": 73,
+      "timestamp_sec": 14.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.0045,
+        0.3037,
+        0.3583,
+        0.2012
       ]
     },
     {
@@ -980,12 +2670,38 @@
       "timestamp_sec": 14.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.0465,
-        0.5275,
-        0.6608,
-        0.2128
+        0.0232,
+        0.4865,
+        0.7051,
+        0.1869
+      ]
+    },
+    {
+      "frame_index": 74,
+      "timestamp_sec": 14.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.0548,
+        0.3216,
+        0.4401,
+        0.1456
+      ]
+    },
+    {
+      "frame_index": 74,
+      "timestamp_sec": 14.8,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.7107,
+        0.7871,
+        0.2893,
+        0.2126
       ]
     },
     {
@@ -993,12 +2709,25 @@
       "timestamp_sec": 15.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.92,
       "bbox": [
-        0.0582,
-        0.478,
-        0.5705,
-        0.1961
+        0.1861,
+        0.3185,
+        0.3878,
+        0.1255
+      ]
+    },
+    {
+      "frame_index": 75,
+      "timestamp_sec": 15.0,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.86,
+      "bbox": [
+        0.791,
+        0.7901,
+        0.209,
+        0.2099
       ]
     },
     {
@@ -1006,12 +2735,38 @@
       "timestamp_sec": 15.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.93,
       "bbox": [
-        0.1266,
-        0.4672,
-        0.4467,
-        0.2326
+        0.2906,
+        0.3273,
+        0.3777,
+        0.1278
+      ]
+    },
+    {
+      "frame_index": 76,
+      "timestamp_sec": 15.2,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.1747,
+        0.4669,
+        0.3331,
+        0.2858
+      ]
+    },
+    {
+      "frame_index": 76,
+      "timestamp_sec": 15.2,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.8907,
+        0.8034,
+        0.1093,
+        0.1916
       ]
     },
     {
@@ -1019,12 +2774,38 @@
       "timestamp_sec": 15.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.1014,
-        0.4737,
-        0.4746,
-        0.2188
+        0.4014,
+        0.3361,
+        0.3698,
+        0.1263
+      ]
+    },
+    {
+      "frame_index": 77,
+      "timestamp_sec": 15.4,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.0411,
+        0.4795,
+        0.5309,
+        0.1787
+      ]
+    },
+    {
+      "frame_index": 78,
+      "timestamp_sec": 15.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.4999,
+        0.3412,
+        0.3743,
+        0.1293
       ]
     },
     {
@@ -1032,12 +2813,25 @@
       "timestamp_sec": 15.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.0542,
-        0.553,
-        0.4488,
-        0.2497
+        0.0091,
+        0.6135,
+        0.4588,
+        0.2503
+      ]
+    },
+    {
+      "frame_index": 79,
+      "timestamp_sec": 15.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.5733,
+        0.3352,
+        0.358,
+        0.122
       ]
     },
     {
@@ -1045,12 +2839,25 @@
       "timestamp_sec": 15.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.0433,
-        0.5488,
-        0.4793,
-        0.3033
+        0.0125,
+        0.5364,
+        0.5196,
+        0.3462
+      ]
+    },
+    {
+      "frame_index": 80,
+      "timestamp_sec": 16.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.6366,
+        0.3139,
+        0.3548,
+        0.1358
       ]
     },
     {
@@ -1058,12 +2865,25 @@
       "timestamp_sec": 16.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.0459,
-        0.5587,
-        0.5431,
-        0.3204
+        0.0382,
+        0.5815,
+        0.6044,
+        0.3154
+      ]
+    },
+    {
+      "frame_index": 81,
+      "timestamp_sec": 16.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.6543,
+        0.3247,
+        0.3436,
+        0.1275
       ]
     },
     {
@@ -1071,12 +2891,25 @@
       "timestamp_sec": 16.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.0386,
-        0.5618,
-        0.5538,
-        0.3283
+        0.0288,
+        0.5663,
+        0.5316,
+        0.3268
+      ]
+    },
+    {
+      "frame_index": 82,
+      "timestamp_sec": 16.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.6561,
+        0.3363,
+        0.3422,
+        0.1219
       ]
     },
     {
@@ -1084,12 +2917,12 @@
       "timestamp_sec": 16.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.0296,
-        0.5676,
-        0.5389,
-        0.3213
+        0.0315,
+        0.5766,
+        0.51,
+        0.3065
       ]
     },
     {
@@ -1097,12 +2930,38 @@
       "timestamp_sec": 16.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.0226,
-        0.5745,
-        0.5402,
-        0.3159
+        0.0241,
+        0.5824,
+        0.5412,
+        0.3101
+      ]
+    },
+    {
+      "frame_index": 83,
+      "timestamp_sec": 16.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.6566,
+        0.3356,
+        0.3427,
+        0.1338
+      ]
+    },
+    {
+      "frame_index": 84,
+      "timestamp_sec": 16.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.6649,
+        0.3406,
+        0.3347,
+        0.1349
       ]
     },
     {
@@ -1110,12 +2969,12 @@
       "timestamp_sec": 16.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.0278,
-        0.5852,
-        0.5362,
-        0.3178
+        0.0458,
+        0.5948,
+        0.5187,
+        0.3226
       ]
     },
     {
@@ -1123,12 +2982,25 @@
       "timestamp_sec": 17.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.0218,
-        0.5948,
-        0.5356,
-        0.3231
+        0.0199,
+        0.6026,
+        0.5285,
+        0.3288
+      ]
+    },
+    {
+      "frame_index": 85,
+      "timestamp_sec": 17.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.4038,
+        0.2464,
+        0.3122,
+        0.2059
       ]
     },
     {
@@ -1136,12 +3008,38 @@
       "timestamp_sec": 17.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.4182,
-        0.4449,
-        0.4217,
-        0.1923
+        0.0215,
+        0.6097,
+        0.5176,
+        0.3314
+      ]
+    },
+    {
+      "frame_index": 86,
+      "timestamp_sec": 17.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.6321,
+        0.3739,
+        0.3617,
+        0.1157
+      ]
+    },
+    {
+      "frame_index": 87,
+      "timestamp_sec": 17.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.6241,
+        0.3789,
+        0.3635,
+        0.1162
       ]
     },
     {
@@ -1149,12 +3047,25 @@
       "timestamp_sec": 17.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.5511,
-        0.3994,
-        0.3855,
-        0.1432
+        0.3764,
+        0.2957,
+        0.4139,
+        0.168
+      ]
+    },
+    {
+      "frame_index": 87,
+      "timestamp_sec": 17.4,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0203,
+        0.6149,
+        0.5194,
+        0.3383
       ]
     },
     {
@@ -1162,12 +3073,25 @@
       "timestamp_sec": 17.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.5797,
-        0.383,
-        0.3811,
-        0.1238
+        0.0154,
+        0.6136,
+        0.5094,
+        0.343
+      ]
+    },
+    {
+      "frame_index": 88,
+      "timestamp_sec": 17.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.5864,
+        0.3739,
+        0.3789,
+        0.1149
       ]
     },
     {
@@ -1175,12 +3099,25 @@
       "timestamp_sec": 17.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.88,
       "bbox": [
-        0.5391,
-        0.3776,
-        0.4005,
-        0.1382
+        0.0035,
+        0.6212,
+        0.494,
+        0.3208
+      ]
+    },
+    {
+      "frame_index": 89,
+      "timestamp_sec": 17.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.4963,
+        0.3724,
+        0.426,
+        0.1621
       ]
     },
     {
@@ -1188,12 +3125,25 @@
       "timestamp_sec": 18.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.92,
       "bbox": [
-        0.4974,
-        0.3804,
-        0.4181,
-        0.1464
+        0.0038,
+        0.6219,
+        0.4246,
+        0.2912
+      ]
+    },
+    {
+      "frame_index": 90,
+      "timestamp_sec": 18.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.4839,
+        0.3843,
+        0.4341,
+        0.1507
       ]
     },
     {
@@ -1201,12 +3151,25 @@
       "timestamp_sec": 18.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.4865,
-        0.3783,
-        0.3998,
-        0.1415
+        0.0032,
+        0.6124,
+        0.3836,
+        0.2926
+      ]
+    },
+    {
+      "frame_index": 91,
+      "timestamp_sec": 18.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.3267,
+        0.2662,
+        0.4081,
+        0.1829
       ]
     },
     {
@@ -1214,12 +3177,25 @@
       "timestamp_sec": 18.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.92,
       "bbox": [
-        0.473,
-        0.3741,
-        0.3903,
-        0.1377
+        0.0042,
+        0.6085,
+        0.3691,
+        0.2955
+      ]
+    },
+    {
+      "frame_index": 92,
+      "timestamp_sec": 18.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.4693,
+        0.3683,
+        0.3803,
+        0.1325
       ]
     },
     {
@@ -1227,12 +3203,25 @@
       "timestamp_sec": 18.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.92,
       "bbox": [
-        0.1655,
-        0.528,
-        0.3685,
-        0.2398
+        0.0021,
+        0.6104,
+        0.3604,
+        0.2925
+      ]
+    },
+    {
+      "frame_index": 93,
+      "timestamp_sec": 18.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.92,
+      "bbox": [
+        0.2657,
+        0.263,
+        0.3975,
+        0.1943
       ]
     },
     {
@@ -1240,12 +3229,25 @@
       "timestamp_sec": 18.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.0579,
-        0.5816,
-        0.3506,
-        0.2755
+        0.0046,
+        0.6106,
+        0.3412,
+        0.2938
+      ]
+    },
+    {
+      "frame_index": 94,
+      "timestamp_sec": 18.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.4296,
+        0.371,
+        0.3559,
+        0.1263
       ]
     },
     {
@@ -1253,12 +3255,25 @@
       "timestamp_sec": 19.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.0203,
-        0.6,
-        0.3459,
-        0.2878
+        0.002,
+        0.6098,
+        0.3502,
+        0.2936
+      ]
+    },
+    {
+      "frame_index": 95,
+      "timestamp_sec": 19.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.4161,
+        0.3661,
+        0.3535,
+        0.1284
       ]
     },
     {
@@ -1266,12 +3281,25 @@
       "timestamp_sec": 19.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.0071,
-        0.6077,
-        0.3474,
-        0.2892
+        0.0013,
+        0.614,
+        0.3542,
+        0.2865
+      ]
+    },
+    {
+      "frame_index": 96,
+      "timestamp_sec": 19.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.197,
+        0.2321,
+        0.3455,
+        0.2097
       ]
     },
     {
@@ -1279,12 +3307,25 @@
       "timestamp_sec": 19.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.0025,
-        0.6058,
-        0.3342,
-        0.2922
+        0.0012,
+        0.6024,
+        0.3227,
+        0.2951
+      ]
+    },
+    {
+      "frame_index": 97,
+      "timestamp_sec": 19.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.1636,
+        0.2285,
+        0.3672,
+        0.2115
       ]
     },
     {
@@ -1292,12 +3333,25 @@
       "timestamp_sec": 19.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.0009,
-        0.6021,
-        0.3179,
-        0.2921
+        0.0012,
+        0.599,
+        0.3081,
+        0.2904
+      ]
+    },
+    {
+      "frame_index": 98,
+      "timestamp_sec": 19.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.1371,
+        0.2297,
+        0.3808,
+        0.2057
       ]
     },
     {
@@ -1305,12 +3359,64 @@
       "timestamp_sec": 19.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.0003,
-        0.5953,
-        0.3045,
-        0.2942
+        0.3499,
+        0.3427,
+        0.3646,
+        0.1721
+      ]
+    },
+    {
+      "frame_index": 99,
+      "timestamp_sec": 19.8,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.0011,
+        0.5896,
+        0.2987,
+        0.2964
+      ]
+    },
+    {
+      "frame_index": 99,
+      "timestamp_sec": 19.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.1225,
+        0.2286,
+        0.3868,
+        0.2108
+      ]
+    },
+    {
+      "frame_index": 100,
+      "timestamp_sec": 20.0,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.0,
+        0.586,
+        0.2756,
+        0.2905
+      ]
+    },
+    {
+      "frame_index": 100,
+      "timestamp_sec": 20.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.0989,
+        0.2226,
+        0.3903,
+        0.2156
       ]
     },
     {
@@ -1318,12 +3424,25 @@
       "timestamp_sec": 20.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.85,
       "bbox": [
-        0.0654,
-        0.3496,
-        0.3588,
-        0.244
+        0.307,
+        0.3358,
+        0.3943,
+        0.1672
+      ]
+    },
+    {
+      "frame_index": 101,
+      "timestamp_sec": 20.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0416,
+        0.2191,
+        0.3871,
+        0.2097
       ]
     },
     {
@@ -1331,12 +3450,51 @@
       "timestamp_sec": 20.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.88,
       "bbox": [
-        0.0529,
-        0.2612,
-        0.3778,
-        0.2256
+        0.2499,
+        0.3285,
+        0.422,
+        0.1793
+      ]
+    },
+    {
+      "frame_index": 101,
+      "timestamp_sec": 20.2,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.86,
+      "bbox": [
+        0.001,
+        0.5794,
+        0.2078,
+        0.3079
+      ]
+    },
+    {
+      "frame_index": 101,
+      "timestamp_sec": 20.2,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.72,
+      "bbox": [
+        0.8925,
+        0.7864,
+        0.1075,
+        0.2101
+      ]
+    },
+    {
+      "frame_index": 102,
+      "timestamp_sec": 20.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.005,
+        0.2059,
+        0.3687,
+        0.2255
       ]
     },
     {
@@ -1344,12 +3502,51 @@
       "timestamp_sec": 20.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.1206,
-        0.2987,
-        0.4215,
-        0.2033
+        0.1427,
+        0.3192,
+        0.4588,
+        0.1917
+      ]
+    },
+    {
+      "frame_index": 102,
+      "timestamp_sec": 20.4,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.84,
+      "bbox": [
+        0.003,
+        0.5947,
+        0.1222,
+        0.265
+      ]
+    },
+    {
+      "frame_index": 102,
+      "timestamp_sec": 20.4,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.79,
+      "bbox": [
+        0.7829,
+        0.7583,
+        0.2171,
+        0.2417
+      ]
+    },
+    {
+      "frame_index": 103,
+      "timestamp_sec": 20.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.0055,
+        0.1949,
+        0.3264,
+        0.2324
       ]
     },
     {
@@ -1357,12 +3554,90 @@
       "timestamp_sec": 20.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
         0.1204,
-        0.3026,
-        0.4442,
-        0.2002
+        0.3029,
+        0.457,
+        0.1984
+      ]
+    },
+    {
+      "frame_index": 103,
+      "timestamp_sec": 20.6,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.81,
+      "bbox": [
+        0.7474,
+        0.7554,
+        0.2526,
+        0.2446
+      ]
+    },
+    {
+      "frame_index": 103,
+      "timestamp_sec": 20.6,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.49,
+      "bbox": [
+        0.0031,
+        0.5882,
+        0.0755,
+        0.2509
+      ]
+    },
+    {
+      "frame_index": 104,
+      "timestamp_sec": 20.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.7025,
+        0.8519,
+        0.2963,
+        0.148
+      ]
+    },
+    {
+      "frame_index": 105,
+      "timestamp_sec": 21.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.55,
+      "bbox": [
+        0.4624,
+        0.594,
+        0.1649,
+        0.0844
+      ]
+    },
+    {
+      "frame_index": 107,
+      "timestamp_sec": 21.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.61,
+      "bbox": [
+        0.4646,
+        0.609,
+        0.1875,
+        0.0838
+      ]
+    },
+    {
+      "frame_index": 112,
+      "timestamp_sec": 22.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.0009,
+        0.3327,
+        0.2357,
+        0.1441
       ]
     },
     {
@@ -1370,12 +3645,12 @@
       "timestamp_sec": 22.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.88,
       "bbox": [
-        0.0421,
-        0.322,
-        0.3134,
-        0.1642
+        0.057,
+        0.4363,
+        0.3421,
+        0.1906
       ]
     },
     {
@@ -1383,12 +3658,25 @@
       "timestamp_sec": 22.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.92,
       "bbox": [
-        0.0327,
-        0.4153,
-        0.3685,
-        0.1752
+        0.0012,
+        0.3262,
+        0.3134,
+        0.1507
+      ]
+    },
+    {
+      "frame_index": 113,
+      "timestamp_sec": 22.6,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.0034,
+        0.4734,
+        0.4123,
+        0.1792
       ]
     },
     {
@@ -1396,12 +3684,25 @@
       "timestamp_sec": 22.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.0363,
-        0.4563,
-        0.3911,
-        0.2115
+        0.0197,
+        0.3348,
+        0.3868,
+        0.1522
+      ]
+    },
+    {
+      "frame_index": 114,
+      "timestamp_sec": 22.8,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.83,
+      "bbox": [
+        0.0094,
+        0.4809,
+        0.4068,
+        0.2453
       ]
     },
     {
@@ -1409,12 +3710,25 @@
       "timestamp_sec": 23.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.0361,
-        0.4813,
-        0.451,
-        0.2079
+        0.0037,
+        0.4981,
+        0.5092,
+        0.1825
+      ]
+    },
+    {
+      "frame_index": 115,
+      "timestamp_sec": 23.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0007,
+        0.2584,
+        0.1304,
+        0.1947
       ]
     },
     {
@@ -1422,12 +3736,103 @@
       "timestamp_sec": 23.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.89,
+      "bbox": [
+        0.2972,
+        0.3608,
+        0.3699,
+        0.1131
+      ]
+    },
+    {
+      "frame_index": 116,
+      "timestamp_sec": 23.2,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.0147,
+        0.5033,
+        0.6153,
+        0.1569
+      ]
+    },
+    {
+      "frame_index": 116,
+      "timestamp_sec": 23.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.85,
+      "bbox": [
+        0.0011,
+        0.2461,
+        0.2588,
+        0.1783
+      ]
+    },
+    {
+      "frame_index": 117,
+      "timestamp_sec": 23.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.0415,
-        0.4957,
-        0.5354,
-        0.184
+        0.4682,
+        0.149,
+        0.4646,
+        0.1524
+      ]
+    },
+    {
+      "frame_index": 119,
+      "timestamp_sec": 23.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0032,
+        0.898,
+        0.2268,
+        0.0967
+      ]
+    },
+    {
+      "frame_index": 123,
+      "timestamp_sec": 24.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.1869,
+        0.0013,
+        0.8088,
+        0.2132
+      ]
+    },
+    {
+      "frame_index": 124,
+      "timestamp_sec": 24.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.1358,
+        0.0,
+        0.8557,
+        0.1929
+      ]
+    },
+    {
+      "frame_index": 125,
+      "timestamp_sec": 25.0,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.68,
+      "bbox": [
+        0.003,
+        0.8183,
+        0.3877,
+        0.1714
       ]
     },
     {
@@ -1437,10 +3842,23 @@
       "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.0159,
-        0.7056,
-        0.4393,
-        0.1756
+        0.0023,
+        0.8265,
+        0.3526,
+        0.1642
+      ]
+    },
+    {
+      "frame_index": 126,
+      "timestamp_sec": 25.2,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.78,
+      "bbox": [
+        0.0021,
+        0.8485,
+        0.3066,
+        0.1451
       ]
     },
     {
@@ -1450,10 +3868,101 @@
       "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.0056,
-        0.7971,
-        0.3722,
-        0.1613
+        0.214,
+        0.5491,
+        0.6061,
+        0.1772
+      ]
+    },
+    {
+      "frame_index": 127,
+      "timestamp_sec": 25.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.1883,
+        0.5498,
+        0.6311,
+        0.1622
+      ]
+    },
+    {
+      "frame_index": 128,
+      "timestamp_sec": 25.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.1659,
+        0.561,
+        0.669,
+        0.1754
+      ]
+    },
+    {
+      "frame_index": 129,
+      "timestamp_sec": 25.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.1496,
+        0.571,
+        0.7213,
+        0.1765
+      ]
+    },
+    {
+      "frame_index": 130,
+      "timestamp_sec": 26.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.1342,
+        0.5663,
+        0.7608,
+        0.2369
+      ]
+    },
+    {
+      "frame_index": 131,
+      "timestamp_sec": 26.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.1274,
+        0.5589,
+        0.7789,
+        0.2432
+      ]
+    },
+    {
+      "frame_index": 132,
+      "timestamp_sec": 26.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.6164,
+        0.3668,
+        0.3637,
+        0.1272
+      ]
+    },
+    {
+      "frame_index": 132,
+      "timestamp_sec": 26.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.9,
+      "bbox": [
+        0.0319,
+        0.6672,
+        0.5899,
+        0.3223
       ]
     },
     {
@@ -1461,12 +3970,25 @@
       "timestamp_sec": 26.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.92,
       "bbox": [
-        0.0125,
-        0.7198,
-        0.5151,
-        0.2621
+        0.0122,
+        0.6805,
+        0.5918,
+        0.3152
+      ]
+    },
+    {
+      "frame_index": 133,
+      "timestamp_sec": 26.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.6144,
+        0.3456,
+        0.3531,
+        0.1521
       ]
     },
     {
@@ -1474,12 +3996,25 @@
       "timestamp_sec": 26.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.0066,
-        0.6883,
-        0.5548,
-        0.3003
+        0.0073,
+        0.6698,
+        0.572,
+        0.3217
+      ]
+    },
+    {
+      "frame_index": 134,
+      "timestamp_sec": 26.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.5875,
+        0.3438,
+        0.3503,
+        0.1545
       ]
     },
     {
@@ -1487,12 +4022,25 @@
       "timestamp_sec": 27.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.0023,
-        0.6888,
-        0.5392,
-        0.3006
+        0.0022,
+        0.6954,
+        0.5312,
+        0.2923
+      ]
+    },
+    {
+      "frame_index": 135,
+      "timestamp_sec": 27.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.5421,
+        0.3626,
+        0.3594,
+        0.1344
       ]
     },
     {
@@ -1500,12 +4048,25 @@
       "timestamp_sec": 27.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.92,
       "bbox": [
-        0.0008,
-        0.6922,
-        0.4982,
-        0.3002
+        0.0025,
+        0.6932,
+        0.4712,
+        0.3003
+      ]
+    },
+    {
+      "frame_index": 136,
+      "timestamp_sec": 27.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.4821,
+        0.3665,
+        0.3783,
+        0.1287
       ]
     },
     {
@@ -1513,12 +4074,51 @@
       "timestamp_sec": 27.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.92,
       "bbox": [
-        0.0091,
-        0.6927,
-        0.4898,
-        0.2966
+        0.0023,
+        0.6919,
+        0.4972,
+        0.2947
+      ]
+    },
+    {
+      "frame_index": 137,
+      "timestamp_sec": 27.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.5204,
+        0.3733,
+        0.3785,
+        0.1256
+      ]
+    },
+    {
+      "frame_index": 138,
+      "timestamp_sec": 27.6,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.0208,
+        0.7058,
+        0.6549,
+        0.2913
+      ]
+    },
+    {
+      "frame_index": 138,
+      "timestamp_sec": 27.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.6654,
+        0.3934,
+        0.3344,
+        0.1338
       ]
     },
     {
@@ -1526,12 +4126,38 @@
       "timestamp_sec": 27.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.84,
       "bbox": [
-        0.048,
-        0.6967,
-        0.5596,
-        0.2922
+        0.372,
+        0.2638,
+        0.2904,
+        0.1866
+      ]
+    },
+    {
+      "frame_index": 139,
+      "timestamp_sec": 27.8,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.3019,
+        0.7226,
+        0.5661,
+        0.2656
+      ]
+    },
+    {
+      "frame_index": 139,
+      "timestamp_sec": 27.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.86,
+      "bbox": [
+        0.5968,
+        0.2821,
+        0.2657,
+        0.1889
       ]
     },
     {
@@ -1541,10 +4167,23 @@
       "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.196,
-        0.7111,
-        0.5705,
-        0.2841
+        0.2065,
+        0.7344,
+        0.6637,
+        0.258
+      ]
+    },
+    {
+      "frame_index": 140,
+      "timestamp_sec": 28.0,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.9,
+      "bbox": [
+        0.5033,
+        0.7882,
+        0.4899,
+        0.2117
       ]
     },
     {
@@ -1554,10 +4193,23 @@
       "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.3826,
-        0.7501,
-        0.5357,
-        0.246
+        0.4233,
+        0.7975,
+        0.5733,
+        0.2015
+      ]
+    },
+    {
+      "frame_index": 141,
+      "timestamp_sec": 28.2,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.84,
+      "bbox": [
+        0.5803,
+        0.8693,
+        0.4187,
+        0.1307
       ]
     },
     {
@@ -1567,10 +4219,49 @@
       "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.5218,
-        0.82,
-        0.4496,
-        0.1787
+        0.5207,
+        0.8673,
+        0.4755,
+        0.1327
+      ]
+    },
+    {
+      "frame_index": 142,
+      "timestamp_sec": 28.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0,
+        0.3187,
+        0.1566,
+        0.1755
+      ]
+    },
+    {
+      "frame_index": 142,
+      "timestamp_sec": 28.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0,
+        0.0831,
+        0.2179,
+        0.1037
+      ]
+    },
+    {
+      "frame_index": 143,
+      "timestamp_sec": 28.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0194,
+        0.3668,
+        0.2454,
+        0.1502
       ]
     },
     {
@@ -1580,10 +4271,23 @@
       "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.2065,
-        0.5248,
-        0.3052,
-        0.163
+        0.0321,
+        0.3608,
+        0.2327,
+        0.1546
+      ]
+    },
+    {
+      "frame_index": 144,
+      "timestamp_sec": 28.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0004,
+        0.1649,
+        0.1906,
+        0.0947
       ]
     },
     {
@@ -1591,12 +4295,12 @@
       "timestamp_sec": 28.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.88,
       "bbox": [
-        0.142,
-        0.4372,
-        0.2524,
-        0.1373
+        0.1051,
+        0.3914,
+        0.225,
+        0.1152
       ]
     },
     {
@@ -1604,12 +4308,25 @@
       "timestamp_sec": 29.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.88,
       "bbox": [
-        0.1529,
-        0.4105,
-        0.2202,
-        0.1296
+        0.162,
+        0.3953,
+        0.1961,
+        0.1279
+      ]
+    },
+    {
+      "frame_index": 145,
+      "timestamp_sec": 29.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.0254,
+        0.1765,
+        0.2135,
+        0.0913
       ]
     },
     {
@@ -1617,12 +4334,25 @@
       "timestamp_sec": 29.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.87,
       "bbox": [
-        0.1714,
-        0.4082,
-        0.208,
-        0.1237
+        0.1807,
+        0.4092,
+        0.2027,
+        0.1212
+      ]
+    },
+    {
+      "frame_index": 146,
+      "timestamp_sec": 29.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.86,
+      "bbox": [
+        0.2483,
+        0.1868,
+        0.1972,
+        0.0828
       ]
     },
     {
@@ -1630,12 +4360,25 @@
       "timestamp_sec": 29.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.87,
       "bbox": [
-        0.1886,
-        0.4061,
-        0.199,
-        0.1231
+        0.1992,
+        0.4043,
+        0.1928,
+        0.1257
+      ]
+    },
+    {
+      "frame_index": 147,
+      "timestamp_sec": 29.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.0592,
+        0.1795,
+        0.2105,
+        0.0925
       ]
     },
     {
@@ -1643,12 +4386,38 @@
       "timestamp_sec": 29.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.87,
       "bbox": [
-        0.2028,
-        0.3986,
-        0.1933,
-        0.1324
+        0.2126,
+        0.3915,
+        0.1899,
+        0.1447
+      ]
+    },
+    {
+      "frame_index": 148,
+      "timestamp_sec": 29.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.86,
+      "bbox": [
+        0.0598,
+        0.176,
+        0.2188,
+        0.0925
+      ]
+    },
+    {
+      "frame_index": 149,
+      "timestamp_sec": 29.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.0195,
+        0.1973,
+        0.1715,
+        0.1081
       ]
     },
     {
@@ -1656,12 +4425,25 @@
       "timestamp_sec": 29.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.86,
       "bbox": [
-        0.2025,
-        0.3948,
-        0.1964,
-        0.1365
+        0.1994,
+        0.3903,
+        0.2011,
+        0.1402
+      ]
+    },
+    {
+      "frame_index": 150,
+      "timestamp_sec": 30.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.2217,
+        0.1565,
+        0.2213,
+        0.0931
       ]
     },
     {
@@ -1669,12 +4451,25 @@
       "timestamp_sec": 30.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.85,
       "bbox": [
-        0.1941,
-        0.386,
-        0.1955,
-        0.1401
+        0.1897,
+        0.3793,
+        0.194,
+        0.1432
+      ]
+    },
+    {
+      "frame_index": 151,
+      "timestamp_sec": 30.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.0137,
+        0.1506,
+        0.2275,
+        0.095
       ]
     },
     {
@@ -1682,12 +4477,12 @@
       "timestamp_sec": 30.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.87,
       "bbox": [
-        0.1827,
-        0.3772,
-        0.193,
-        0.1409
+        0.1758,
+        0.3725,
+        0.1909,
+        0.1404
       ]
     },
     {
@@ -1695,12 +4490,38 @@
       "timestamp_sec": 30.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.89,
       "bbox": [
-        0.1664,
-        0.3684,
-        0.1959,
-        0.1406
+        0.1577,
+        0.3637,
+        0.2003,
+        0.1394
+      ]
+    },
+    {
+      "frame_index": 152,
+      "timestamp_sec": 30.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0013,
+        0.1448,
+        0.2241,
+        0.0949
+      ]
+    },
+    {
+      "frame_index": 153,
+      "timestamp_sec": 30.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.0,
+        0.1408,
+        0.1856,
+        0.0895
       ]
     },
     {
@@ -1708,12 +4529,12 @@
       "timestamp_sec": 30.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.87,
       "bbox": [
-        0.1422,
-        0.3631,
-        0.1951,
-        0.1379
+        0.1308,
+        0.3616,
+        0.1929,
+        0.1343
       ]
     },
     {
@@ -1721,12 +4542,51 @@
       "timestamp_sec": 30.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.88,
       "bbox": [
-        0.104,
-        0.3581,
-        0.1954,
-        0.1361
+        0.0829,
+        0.3558,
+        0.1948,
+        0.1349
+      ]
+    },
+    {
+      "frame_index": 154,
+      "timestamp_sec": 30.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.101,
+        0.1234,
+        0.2259,
+        0.0931
+      ]
+    },
+    {
+      "frame_index": 154,
+      "timestamp_sec": 30.8,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.4,
+      "bbox": [
+        0.7407,
+        0.9422,
+        0.2578,
+        0.0578
+      ]
+    },
+    {
+      "frame_index": 155,
+      "timestamp_sec": 31.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.88,
+      "bbox": [
+        0.0019,
+        0.3566,
+        0.1959,
+        0.1337
       ]
     },
     {
@@ -1736,10 +4596,153 @@
       "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.0396,
-        0.3555,
-        0.1944,
-        0.1354
+        0.0074,
+        0.1126,
+        0.2281,
+        0.1007
+      ]
+    },
+    {
+      "frame_index": 156,
+      "timestamp_sec": 31.2,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.86,
+      "bbox": [
+        0.5744,
+        0.8573,
+        0.4249,
+        0.1427
+      ]
+    },
+    {
+      "frame_index": 156,
+      "timestamp_sec": 31.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.548,
+        0.8481,
+        0.4513,
+        0.1519
+      ]
+    },
+    {
+      "frame_index": 157,
+      "timestamp_sec": 31.4,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.91,
+      "bbox": [
+        0.0108,
+        0.7615,
+        0.7299,
+        0.2381
+      ]
+    },
+    {
+      "frame_index": 157,
+      "timestamp_sec": 31.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.82,
+      "bbox": [
+        0.6932,
+        0.4025,
+        0.3068,
+        0.1705
+      ]
+    },
+    {
+      "frame_index": 157,
+      "timestamp_sec": 31.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.68,
+      "bbox": [
+        0.333,
+        0.3051,
+        0.3232,
+        0.1621
+      ]
+    },
+    {
+      "frame_index": 158,
+      "timestamp_sec": 31.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.88,
+      "bbox": [
+        0.1426,
+        0.3676,
+        0.4335,
+        0.1921
+      ]
+    },
+    {
+      "frame_index": 158,
+      "timestamp_sec": 31.6,
+      "track_id": 4,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.0042,
+        0.7629,
+        0.2435,
+        0.2371
+      ]
+    },
+    {
+      "frame_index": 158,
+      "timestamp_sec": 31.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.51,
+      "bbox": [
+        0.001,
+        0.2725,
+        0.1142,
+        0.225
+      ]
+    },
+    {
+      "frame_index": 159,
+      "timestamp_sec": 31.8,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.87,
+      "bbox": [
+        0.64,
+        0.2045,
+        0.36,
+        0.2003
+      ]
+    },
+    {
+      "frame_index": 159,
+      "timestamp_sec": 31.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.6663,
+        0.2113,
+        0.3331,
+        0.1746
+      ]
+    },
+    {
+      "frame_index": 160,
+      "timestamp_sec": 32.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.89,
+      "bbox": [
+        0.362,
+        0.2679,
+        0.6035,
+        0.1911
       ]
     },
     {
@@ -1749,10 +4752,10 @@
       "behavior_label": "SUPINE_FLIPPED",
       "confidence": 0.94,
       "bbox": [
-        0.2663,
-        0.3036,
-        0.4232,
-        0.1686
+        0.3526,
+        0.2775,
+        0.6051,
+        0.1722
       ]
     },
     {
@@ -1760,12 +4763,12 @@
       "timestamp_sec": 32.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.9,
       "bbox": [
-        0.2061,
-        0.3241,
-        0.5374,
-        0.1865
+        0.1588,
+        0.334,
+        0.6172,
+        0.1977
       ]
     },
     {
@@ -1773,12 +4776,38 @@
       "timestamp_sec": 32.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.76,
       "bbox": [
-        0.1245,
-        0.3736,
-        0.594,
-        0.1779
+        0.0811,
+        0.4117,
+        0.624,
+        0.1618
+      ]
+    },
+    {
+      "frame_index": 162,
+      "timestamp_sec": 32.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.46,
+      "bbox": [
+        0.0317,
+        0.0,
+        0.4232,
+        0.0418
+      ]
+    },
+    {
+      "frame_index": 163,
+      "timestamp_sec": 32.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.55,
+      "bbox": [
+        0.027,
+        0.0,
+        0.4478,
+        0.0452
       ]
     },
     {
@@ -1786,12 +4815,12 @@
       "timestamp_sec": 32.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.44,
       "bbox": [
-        0.0987,
-        0.407,
-        0.6146,
-        0.1702
+        0.0974,
+        0.4272,
+        0.6159,
+        0.1653
       ]
     },
     {
@@ -1799,12 +4828,12 @@
       "timestamp_sec": 32.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.37,
       "bbox": [
-        0.0978,
-        0.4241,
-        0.5936,
-        0.1647
+        0.103,
+        0.4318,
+        0.5608,
+        0.1642
       ]
     },
     {
@@ -1812,12 +4841,25 @@
       "timestamp_sec": 33.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.78,
       "bbox": [
-        0.1231,
-        0.4691,
-        0.5345,
-        0.1337
+        0.1363,
+        0.5055,
+        0.4805,
+        0.1075
+      ]
+    },
+    {
+      "frame_index": 165,
+      "timestamp_sec": 33.0,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.46,
+      "bbox": [
+        0.0645,
+        0.0,
+        0.4168,
+        0.0415
       ]
     },
     {
@@ -1825,12 +4867,38 @@
       "timestamp_sec": 33.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.73,
       "bbox": [
-        0.1603,
-        0.4838,
-        0.4815,
-        0.1249
+        0.1813,
+        0.486,
+        0.4512,
+        0.1261
+      ]
+    },
+    {
+      "frame_index": 166,
+      "timestamp_sec": 33.2,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.61,
+      "bbox": [
+        0.0925,
+        0.0,
+        0.3982,
+        0.0599
+      ]
+    },
+    {
+      "frame_index": 166,
+      "timestamp_sec": 33.2,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.46,
+      "bbox": [
+        0.8941,
+        0.8118,
+        0.1059,
+        0.1869
       ]
     },
     {
@@ -1838,12 +4906,38 @@
       "timestamp_sec": 33.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.65,
       "bbox": [
-        0.1995,
-        0.4713,
-        0.4457,
-        0.1213
+        0.2238,
+        0.4551,
+        0.4306,
+        0.1235
+      ]
+    },
+    {
+      "frame_index": 167,
+      "timestamp_sec": 33.4,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.64,
+      "bbox": [
+        0.8707,
+        0.7658,
+        0.1293,
+        0.2342
+      ]
+    },
+    {
+      "frame_index": 167,
+      "timestamp_sec": 33.4,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.51,
+      "bbox": [
+        0.1312,
+        0.0,
+        0.3927,
+        0.0573
       ]
     },
     {
@@ -1851,12 +4945,38 @@
       "timestamp_sec": 33.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.94,
+      "confidence": 0.91,
       "bbox": [
-        0.2521,
-        0.4316,
-        0.4293,
-        0.1239
+        0.2848,
+        0.3975,
+        0.4305,
+        0.1313
+      ]
+    },
+    {
+      "frame_index": 168,
+      "timestamp_sec": 33.6,
+      "track_id": 3,
+      "behavior_label": "NORMAL",
+      "confidence": 0.73,
+      "bbox": [
+        0.8568,
+        0.7076,
+        0.1432,
+        0.2836
+      ]
+    },
+    {
+      "frame_index": 168,
+      "timestamp_sec": 33.6,
+      "track_id": 2,
+      "behavior_label": "NORMAL",
+      "confidence": 0.51,
+      "bbox": [
+        0.186,
+        0.0,
+        0.3993,
+        0.049
       ]
     }
   ],
