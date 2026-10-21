@@ -20,6 +20,7 @@ export function VideoCanvasOverlay({
 
   const [isPlaying, setIsPlaying] = useState(true);
   const [currentTime, setCurrentTime] = useState(0);
+  const [canvasDim, setCanvasDim] = useState({ w: 720, h: 450 });
 
   // Behavior colors mapping chuẩn hóa cho nhận diện hành vi bất thường
   const behaviorColors: Record<string, { stroke: string; fill: string; label: string }> = {
@@ -190,6 +191,15 @@ export function VideoCanvasOverlay({
           muted
           loop
           playsInline
+          onLoadedMetadata={(e) => {
+            const v = e.currentTarget;
+            if (v.videoWidth && v.videoHeight) {
+              const baseW = 720;
+              const scale = baseW / v.videoWidth;
+              const calcH = Math.min(540, Math.max(360, Math.round(v.videoHeight * scale)));
+              setCanvasDim({ w: baseW, h: calcH });
+            }
+          }}
           onTimeUpdate={(e) => {
             const v = e.currentTarget;
             if (v.duration) {
@@ -202,9 +212,9 @@ export function VideoCanvasOverlay({
       <div className="relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 shadow-xl group">
         <canvas
           ref={canvasRef}
-          width={720}
-          height={400}
-          className="w-full h-auto object-cover block cursor-pointer"
+          width={canvasDim.w}
+          height={canvasDim.h}
+          className="w-full h-auto object-contain block cursor-pointer"
           onClick={() => setIsPlaying(!isPlaying)}
         />
 
