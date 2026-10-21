@@ -13,9 +13,16 @@ from pathlib import Path
 from collections import deque, defaultdict
 from typing import List, Dict, Any, Optional
 
-import cv2
-import numpy as np
-from ultralytics import YOLO
+try:
+    import cv2
+    import numpy as np
+    from ultralytics import YOLO
+    HAS_YOLO = True
+except Exception as e:
+    cv2 = None
+    np = None
+    YOLO = None
+    HAS_YOLO = False
 
 # Add behavior tools submodule to sys.path
 BEHAVIOR_DIR = Path(__file__).resolve().parent / "behavior"
@@ -199,6 +206,9 @@ def analyze_video_full_pipeline(
     Chạy pipeline AI tích hợp cả model hành vi mới (behavior_runA.pt) và model lật ngửa (lat_ngua_v1_5.pt).
     Trả về danh sách tracks chuẩn hóa, thống kê hành vi và danh sách cảnh báo.
     """
+    if not HAS_YOLO or cv2 is None or YOLO is None:
+        raise RuntimeError("Gói ultralytics / opencv-python chưa được cài đặt trên môi trường máy chủ này.")
+
     model_behavior = BEHAVIOR_MODEL_PATH if BEHAVIOR_MODEL_PATH.exists() else FALLBACK_MODEL_PATH
     model_latngua = LAT_NGUA_MODEL_PATH if LAT_NGUA_MODEL_PATH.exists() else FALLBACK_MODEL_PATH
     tracker_config = BOTSORT_CONFIG_PATH if BOTSORT_CONFIG_PATH.exists() else Path("botsort.yaml")

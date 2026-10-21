@@ -16,7 +16,12 @@ from app.schemas.schemas import (
     AIDetectionResultOut, AIDetectionResultCreate
 )
 from app.api.deps import get_current_user
-from app.services.duck_detector import analyze_video_full_pipeline
+try:
+    from app.services.duck_detector import analyze_video_full_pipeline
+    HAS_PIPELINE = True
+except Exception as e:
+    HAS_PIPELINE = False
+    analyze_video_full_pipeline = None
 
 router = APIRouter()
 
@@ -144,8 +149,12 @@ async def analyze_video(
     alerts_generated = []
     duration_seconds = 15.0
 
-    real_processed = False
     if video_file:
+        if not HAS_PIPELINE or analyze_video_full_pipeline is None:
+            raise HTTPException(
+                status_code=503,
+                detail="Mô hình AI nhận diện (YOLO & BoT-SORT) chưa thể chạy trên máy chủ đám mây do giới hạn tài nguyên GPU/RAM (Render Free 512MB). Vui lòng chạy backend cục bộ (local) để phân tích tệp video thực tế."
+            )
         try:
             temp_dir = "uploads"
             os.makedirs(temp_dir, exist_ok=True)
@@ -157,16 +166,18 @@ async def analyze_video(
             res = analyze_video_full_pipeline(video_path=temp_media_path, conf=0.30, max_frames=300)
             raw_tracks = res.get("tracks", [])
             summary = res.get("behavior_summary", {})
-            total_detected = res.get("total_ducks_detected", 12)
+            total_detected = res.get("total_ducks_detected", 0)
             abnormal_cnt = res.get("abnormal_count", 0)
             alerts_generated = res.get("alerts_generated", [])
             duration_seconds = res.get("duration_sec", 15.0)
-            real_processed = True
         except Exception as e:
-            print(f"Lỗi khi chạy model thực tế trên video: {e}. Chuyển sang mô phỏng hành vi nâng cao.")
-            real_processed = False
-
-    if not real_processed:
+            print(f"Lỗi khi chạy model thực tế trên video: {e}")
+            raise HTTPException(
+                status_code=500,
+                detail=f"Lỗi khi phân tích video qua mô hình AI: {str(e)}"
+            )
+    else:
+        # CHỈ mô phỏng khi người dùng xem video mẫu có sẵn trong hệ thống (sample_video)
         raw_tracks, summary, total_detected, abnormal_cnt = generate_duck_behavior_simulation(flock_id, barn_id, filename)
         if summary.get("SUPINE_FLIPPED", 0) > 0:
             alerts_generated.append(
