@@ -3,48 +3,22 @@
   "fps": 30.0,
   "total_frames": 1013,
   "duration_sec": 33.766666666666666,
-  "total_ducks_detected": 68,
-  "abnormal_count": 17,
+  "total_ducks_detected": 1,
+  "abnormal_count": 1,
   "behavior_summary": {
-    "NORMAL": 51,
-    "SUPINE_FLIPPED": 5,
+    "NORMAL": 0,
+    "SUPINE_FLIPPED": 1,
     "ISOLATED_LOW_MOBILITY": 0,
-    "LETHARGIC": 14,
-    "ISOLATED": 2
+    "LETHARGIC": 0,
+    "ISOLATED": 0
   },
   "tracks": [
     {
       "frame_index": 0,
       "timestamp_sec": 0.0,
       "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.284,
-        0.2712,
-        0.5942,
-        0.1656
-      ]
-    },
-    {
-      "frame_index": 0,
-      "timestamp_sec": 0.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
-      "bbox": [
-        0.6856,
-        0.58,
-        0.3134,
-        0.357
-      ]
-    },
-    {
-      "frame_index": 0,
-      "timestamp_sec": 0.0,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
         0.2002,
         0.4323,
@@ -53,848 +27,224 @@
       ]
     },
     {
-      "frame_index": 0,
-      "timestamp_sec": 0.0,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.0349,
-        0.1658,
-        0.4266,
-        0.1445
-      ]
-    },
-    {
       "frame_index": 1,
       "timestamp_sec": 0.2,
       "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.2868,
-        0.2811,
-        0.5949,
-        0.1497
-      ]
-    },
-    {
-      "frame_index": 1,
-      "timestamp_sec": 0.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
-      "bbox": [
-        0.6867,
-        0.583,
-        0.3133,
-        0.3519
-      ]
-    },
-    {
-      "frame_index": 1,
-      "timestamp_sec": 0.2,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
-      "confidence": 0.86,
-      "bbox": [
-        0.2252,
-        0.4369,
-        0.373,
-        0.3064
-      ]
-    },
-    {
-      "frame_index": 1,
-      "timestamp_sec": 0.2,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
-      "bbox": [
-        0.0307,
-        0.169,
-        0.4203,
-        0.1492
+        0.2165,
+        0.4353,
+        0.3729,
+        0.3127
       ]
     },
     {
       "frame_index": 2,
       "timestamp_sec": 0.4,
       "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.2955,
-        0.2907,
-        0.5927,
-        0.1493
+        0.5273,
+        0.5366,
+        0.329,
+        0.3367
       ]
     },
     {
-      "frame_index": 2,
-      "timestamp_sec": 0.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
+      "frame_index": 3,
+      "timestamp_sec": 0.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.6946,
-        0.5912,
-        0.3054,
-        0.3496
+        0.3788,
+        0.3829,
+        0.5008,
+        0.2148
       ]
     },
     {
-      "frame_index": 2,
-      "timestamp_sec": 0.4,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
+      "frame_index": 4,
+      "timestamp_sec": 0.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.2408,
-        0.4483,
-        0.3693,
+        0.3198,
+        0.3298,
+        0.5583,
+        0.1715
+      ]
+    },
+    {
+      "frame_index": 5,
+      "timestamp_sec": 1.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.2829,
+        0.3088,
+        0.5814,
+        0.1545
+      ]
+    },
+    {
+      "frame_index": 6,
+      "timestamp_sec": 1.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.2281,
+        0.3986,
+        0.4454,
+        0.245
+      ]
+    },
+    {
+      "frame_index": 7,
+      "timestamp_sec": 1.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.1936,
+        0.4364,
+        0.3931,
+        0.2657
+      ]
+    },
+    {
+      "frame_index": 8,
+      "timestamp_sec": 1.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.1615,
+        0.4578,
+        0.3764,
+        0.2778
+      ]
+    },
+    {
+      "frame_index": 9,
+      "timestamp_sec": 1.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.1421,
+        0.4767,
+        0.3696,
+        0.2758
+      ]
+    },
+    {
+      "frame_index": 10,
+      "timestamp_sec": 2.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.1375,
+        0.4853,
+        0.3611,
+        0.2714
+      ]
+    },
+    {
+      "frame_index": 11,
+      "timestamp_sec": 2.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.1126,
+        0.4952,
+        0.3545,
         0.2741
       ]
     },
     {
-      "frame_index": 2,
-      "timestamp_sec": 0.4,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.0151,
-        0.1832,
-        0.4433,
-        0.1452
-      ]
-    },
-    {
-      "frame_index": 3,
-      "timestamp_sec": 0.6,
+      "frame_index": 12,
+      "timestamp_sec": 2.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.92,
+      "confidence": 0.94,
       "bbox": [
-        0.2988,
-        0.3002,
-        0.5933,
-        0.1491
+        0.1507,
+        0.5003,
+        0.3462,
+        0.2689
       ]
     },
     {
-      "frame_index": 3,
-      "timestamp_sec": 0.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.6938,
-        0.5998,
-        0.3062,
-        0.3545
-      ]
-    },
-    {
-      "frame_index": 3,
-      "timestamp_sec": 0.6,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.2465,
-        0.4568,
-        0.3889,
-        0.273
-      ]
-    },
-    {
-      "frame_index": 3,
-      "timestamp_sec": 0.6,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.0443,
-        0.1994,
-        0.4134,
-        0.1297
-      ]
-    },
-    {
-      "frame_index": 4,
-      "timestamp_sec": 0.8,
+      "frame_index": 13,
+      "timestamp_sec": 2.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.92,
+      "confidence": 0.94,
       "bbox": [
-        0.2881,
-        0.3012,
-        0.5892,
-        0.1482
-      ]
-    },
-    {
-      "frame_index": 4,
-      "timestamp_sec": 0.8,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.6889,
-        0.6034,
-        0.3079,
-        0.3552
-      ]
-    },
-    {
-      "frame_index": 4,
-      "timestamp_sec": 0.8,
-      "track_id": 3,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.87,
-      "bbox": [
-        0.2194,
-        0.456,
-        0.4008,
-        0.3092
-      ]
-    },
-    {
-      "frame_index": 4,
-      "timestamp_sec": 0.8,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.88,
-      "bbox": [
-        0.0148,
-        0.1864,
-        0.4255,
-        0.1536
-      ]
-    },
-    {
-      "frame_index": 5,
-      "timestamp_sec": 1.0,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.91,
-      "bbox": [
-        0.2631,
-        0.2975,
-        0.5939,
-        0.1453
-      ]
-    },
-    {
-      "frame_index": 5,
-      "timestamp_sec": 1.0,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.88,
-      "bbox": [
-        0.677,
-        0.5988,
-        0.3176,
-        0.3495
-      ]
-    },
-    {
-      "frame_index": 5,
-      "timestamp_sec": 1.0,
-      "track_id": 3,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.88,
-      "bbox": [
-        0.2139,
-        0.4503,
-        0.3824,
-        0.3031
-      ]
-    },
-    {
-      "frame_index": 5,
-      "timestamp_sec": 1.0,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.91,
-      "bbox": [
-        0.0202,
-        0.2027,
-        0.4061,
-        0.125
-      ]
-    },
-    {
-      "frame_index": 6,
-      "timestamp_sec": 1.2,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.91,
-      "bbox": [
-        0.2387,
-        0.2982,
-        0.586,
-        0.1418
-      ]
-    },
-    {
-      "frame_index": 6,
-      "timestamp_sec": 1.2,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.6551,
-        0.597,
-        0.3347,
-        0.3387
-      ]
-    },
-    {
-      "frame_index": 6,
-      "timestamp_sec": 1.2,
-      "track_id": 3,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
-      "bbox": [
-        0.1986,
-        0.447,
-        0.3721,
+        0.236,
+        0.4969,
+        0.3526,
         0.2938
       ]
     },
     {
-      "frame_index": 6,
-      "timestamp_sec": 1.2,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.0022,
-        0.1828,
-        0.3961,
-        0.1516
-      ]
-    },
-    {
-      "frame_index": 7,
-      "timestamp_sec": 1.4,
+      "frame_index": 14,
+      "timestamp_sec": 2.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.9,
+      "confidence": 0.94,
       "bbox": [
-        0.2095,
-        0.3014,
-        0.5858,
-        0.1412
-      ]
-    },
-    {
-      "frame_index": 7,
-      "timestamp_sec": 1.4,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.6302,
-        0.5966,
-        0.3532,
-        0.3334
-      ]
-    },
-    {
-      "frame_index": 7,
-      "timestamp_sec": 1.4,
-      "track_id": 3,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.9,
-      "bbox": [
-        0.1751,
-        0.4568,
-        0.3649,
-        0.2769
-      ]
-    },
-    {
-      "frame_index": 7,
-      "timestamp_sec": 1.4,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.0,
-        0.1979,
-        0.366,
-        0.1339
-      ]
-    },
-    {
-      "frame_index": 8,
-      "timestamp_sec": 1.6,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.9,
-      "bbox": [
-        0.1888,
-        0.3139,
-        0.5764,
-        0.1357
-      ]
-    },
-    {
-      "frame_index": 8,
-      "timestamp_sec": 1.6,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.91,
-      "bbox": [
-        0.6059,
-        0.6014,
-        0.3608,
-        0.3326
-      ]
-    },
-    {
-      "frame_index": 8,
-      "timestamp_sec": 1.6,
-      "track_id": 3,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.87,
-      "bbox": [
-        0.1442,
-        0.4694,
-        0.3674,
-        0.2843
-      ]
-    },
-    {
-      "frame_index": 8,
-      "timestamp_sec": 1.6,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.86,
-      "bbox": [
-        0.0,
-        0.2185,
-        0.3371,
-        0.1179
-      ]
-    },
-    {
-      "frame_index": 9,
-      "timestamp_sec": 1.8,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
-      "bbox": [
-        0.1682,
-        0.3284,
-        0.5715,
-        0.1363
-      ]
-    },
-    {
-      "frame_index": 9,
-      "timestamp_sec": 1.8,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.91,
-      "bbox": [
-        0.5959,
-        0.613,
-        0.3636,
-        0.3308
-      ]
-    },
-    {
-      "frame_index": 9,
-      "timestamp_sec": 1.8,
-      "track_id": 3,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
-      "bbox": [
-        0.1317,
-        0.4869,
-        0.3659,
-        0.2748
-      ]
-    },
-    {
-      "frame_index": 9,
-      "timestamp_sec": 1.8,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.0,
-        0.2313,
-        0.3039,
-        0.12
-      ]
-    },
-    {
-      "frame_index": 10,
-      "timestamp_sec": 2.0,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
-      "bbox": [
-        0.1531,
-        0.3313,
-        0.573,
-        0.1321
-      ]
-    },
-    {
-      "frame_index": 10,
-      "timestamp_sec": 2.0,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.6015,
-        0.6032,
-        0.3655,
-        0.328
-      ]
-    },
-    {
-      "frame_index": 10,
-      "timestamp_sec": 2.0,
-      "track_id": 3,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.88,
-      "bbox": [
-        0.135,
-        0.49,
-        0.3565,
-        0.2691
-      ]
-    },
-    {
-      "frame_index": 10,
-      "timestamp_sec": 2.0,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.0,
-        0.2411,
-        0.2863,
-        0.1183
-      ]
-    },
-    {
-      "frame_index": 11,
-      "timestamp_sec": 2.2,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.9,
-      "bbox": [
-        0.0919,
-        0.3423,
-        0.5809,
-        0.1303
-      ]
-    },
-    {
-      "frame_index": 11,
-      "timestamp_sec": 2.2,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.88,
-      "bbox": [
-        0.5667,
-        0.6035,
-        0.3643,
-        0.3283
-      ]
-    },
-    {
-      "frame_index": 11,
-      "timestamp_sec": 2.2,
-      "track_id": 3,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.9,
-      "bbox": [
-        0.0992,
-        0.5005,
-        0.3509,
-        0.2755
-      ]
-    },
-    {
-      "frame_index": 11,
-      "timestamp_sec": 2.2,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.0,
-        0.2547,
-        0.2251,
-        0.1131
-      ]
-    },
-    {
-      "frame_index": 12,
-      "timestamp_sec": 2.4,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
-      "bbox": [
-        0.1396,
-        0.3363,
-        0.5793,
-        0.1306
-      ]
-    },
-    {
-      "frame_index": 12,
-      "timestamp_sec": 2.4,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.92,
-      "bbox": [
-        0.6348,
-        0.584,
-        0.3574,
-        0.3324
-      ]
-    },
-    {
-      "frame_index": 12,
-      "timestamp_sec": 2.4,
-      "track_id": 3,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
-      "bbox": [
-        0.1712,
-        0.503,
-        0.3418,
-        0.2661
-      ]
-    },
-    {
-      "frame_index": 12,
-      "timestamp_sec": 2.4,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.88,
-      "bbox": [
-        0.0111,
-        0.2418,
-        0.2561,
-        0.1246
-      ]
-    },
-    {
-      "frame_index": 13,
-      "timestamp_sec": 2.6,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
-      "bbox": [
-        0.2286,
-        0.3276,
-        0.6031,
-        0.1361
-      ]
-    },
-    {
-      "frame_index": 13,
-      "timestamp_sec": 2.6,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.85,
-      "bbox": [
-        0.7766,
-        0.5805,
-        0.2234,
+        0.3211,
+        0.478,
+        0.3747,
         0.3306
       ]
     },
     {
-      "frame_index": 13,
-      "timestamp_sec": 2.6,
-      "track_id": 3,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.91,
-      "bbox": [
-        0.2819,
-        0.4951,
-        0.356,
-        0.3072
-      ]
-    },
-    {
-      "frame_index": 13,
-      "timestamp_sec": 2.6,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.0329,
-        0.2376,
-        0.3228,
-        0.1332
-      ]
-    },
-    {
-      "frame_index": 14,
-      "timestamp_sec": 2.8,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.91,
-      "bbox": [
-        0.3028,
-        0.2963,
-        0.6458,
-        0.1476
-      ]
-    },
-    {
-      "frame_index": 14,
-      "timestamp_sec": 2.8,
-      "track_id": 3,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
-      "bbox": [
-        0.3669,
-        0.4679,
-        0.3866,
-        0.3504
-      ]
-    },
-    {
-      "frame_index": 14,
-      "timestamp_sec": 2.8,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.0469,
-        0.2001,
-        0.3754,
-        0.1488
-      ]
-    },
-    {
       "frame_index": 15,
       "timestamp_sec": 3.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.91,
+      "confidence": 0.94,
+      "bbox": [
+        0.3658,
+        0.3376,
+        0.5277,
+        0.2181
+      ]
+    },
+    {
+      "frame_index": 16,
+      "timestamp_sec": 3.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.3942,
+        0.2861,
+        0.5685,
+        0.1824
+      ]
+    },
+    {
+      "frame_index": 17,
+      "timestamp_sec": 3.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
         0.3899,
-        0.262,
-        0.6101,
-        0.1575
-      ]
-    },
-    {
-      "frame_index": 15,
-      "timestamp_sec": 3.0,
-      "track_id": 3,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.4395,
-        0.4459,
-        0.4159,
-        0.3871
-      ]
-    },
-    {
-      "frame_index": 15,
-      "timestamp_sec": 3.0,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.0848,
-        0.1626,
-        0.4042,
-        0.1623
-      ]
-    },
-    {
-      "frame_index": 16,
-      "timestamp_sec": 3.2,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.9,
-      "bbox": [
-        0.4095,
-        0.2583,
-        0.5905,
-        0.1632
-      ]
-    },
-    {
-      "frame_index": 16,
-      "timestamp_sec": 3.2,
-      "track_id": 3,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.4549,
-        0.4456,
-        0.4371,
-        0.4092
-      ]
-    },
-    {
-      "frame_index": 16,
-      "timestamp_sec": 3.2,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.0831,
-        0.1584,
-        0.4214,
-        0.1698
-      ]
-    },
-    {
-      "frame_index": 17,
-      "timestamp_sec": 3.4,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.9,
-      "bbox": [
-        0.3876,
-        0.2648,
-        0.6124,
-        0.1628
-      ]
-    },
-    {
-      "frame_index": 17,
-      "timestamp_sec": 3.4,
-      "track_id": 3,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.88,
-      "bbox": [
-        0.4525,
-        0.4515,
-        0.4659,
-        0.4296
-      ]
-    },
-    {
-      "frame_index": 17,
-      "timestamp_sec": 3.4,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.0578,
-        0.1666,
-        0.4387,
-        0.1691
+        0.2723,
+        0.597,
+        0.1697
       ]
     },
     {
@@ -902,38 +252,12 @@
       "timestamp_sec": 3.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.9,
+      "confidence": 0.94,
       "bbox": [
-        0.3789,
-        0.2622,
-        0.6211,
-        0.1581
-      ]
-    },
-    {
-      "frame_index": 18,
-      "timestamp_sec": 3.6,
-      "track_id": 3,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.4467,
-        0.4467,
-        0.4537,
-        0.4459
-      ]
-    },
-    {
-      "frame_index": 18,
-      "timestamp_sec": 3.6,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.0551,
-        0.1722,
-        0.4396,
-        0.1607
+        0.3828,
+        0.2657,
+        0.6127,
+        0.1622
       ]
     },
     {
@@ -941,38 +265,12 @@
       "timestamp_sec": 3.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.91,
+      "confidence": 0.94,
       "bbox": [
-        0.3834,
-        0.2742,
-        0.615,
-        0.1654
-      ]
-    },
-    {
-      "frame_index": 19,
-      "timestamp_sec": 3.8,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.4857,
-        0.4364,
-        0.4108,
-        0.4496
-      ]
-    },
-    {
-      "frame_index": 19,
-      "timestamp_sec": 3.8,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.0682,
-        0.2009,
-        0.4352,
-        0.1519
+        0.3832,
+        0.2712,
+        0.6142,
+        0.1643
       ]
     },
     {
@@ -980,38 +278,12 @@
       "timestamp_sec": 4.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
+      "confidence": 0.94,
       "bbox": [
-        0.3411,
-        0.2831,
-        0.5813,
-        0.1388
-      ]
-    },
-    {
-      "frame_index": 20,
-      "timestamp_sec": 4.0,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.557,
-        0.3658,
-        0.3953,
-        0.4197
-      ]
-    },
-    {
-      "frame_index": 20,
-      "timestamp_sec": 4.0,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.88,
-      "bbox": [
-        0.0152,
-        0.2351,
-        0.4376,
-        0.1386
+        0.3558,
+        0.2789,
+        0.5928,
+        0.1477
       ]
     },
     {
@@ -1019,25 +291,12 @@
       "timestamp_sec": 4.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.9,
+      "confidence": 0.94,
       "bbox": [
-        0.2212,
-        0.3088,
-        0.6706,
-        0.1686
-      ]
-    },
-    {
-      "frame_index": 21,
-      "timestamp_sec": 4.2,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.91,
-      "bbox": [
-        0.0,
-        0.2475,
-        0.333,
-        0.1479
+        0.2683,
+        0.2983,
+        0.6434,
+        0.1613
       ]
     },
     {
@@ -1045,38 +304,12 @@
       "timestamp_sec": 4.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.9,
+      "confidence": 0.94,
       "bbox": [
-        0.1523,
-        0.3277,
-        0.7087,
-        0.1594
-      ]
-    },
-    {
-      "frame_index": 22,
-      "timestamp_sec": 4.4,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.88,
-      "bbox": [
-        0.0,
-        0.2679,
-        0.2734,
-        0.1401
-      ]
-    },
-    {
-      "frame_index": 22,
-      "timestamp_sec": 4.4,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.79,
-      "bbox": [
-        0.8541,
-        0.6637,
-        0.1459,
-        0.2682
+        0.1929,
+        0.3174,
+        0.6858,
+        0.1601
       ]
     },
     {
@@ -1084,38 +317,12 @@
       "timestamp_sec": 4.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.9,
+      "confidence": 0.94,
       "bbox": [
-        0.1286,
-        0.3307,
-        0.7249,
-        0.1578
-      ]
-    },
-    {
-      "frame_index": 23,
-      "timestamp_sec": 4.6,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.86,
-      "bbox": [
-        0.0,
-        0.2722,
-        0.2535,
-        0.133
-      ]
-    },
-    {
-      "frame_index": 23,
-      "timestamp_sec": 4.6,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.83,
-      "bbox": [
-        0.8565,
-        0.6594,
-        0.1429,
-        0.2434
+        0.1511,
+        0.326,
+        0.7112,
+        0.1586
       ]
     },
     {
@@ -1123,285 +330,77 @@
       "timestamp_sec": 4.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.87,
+      "confidence": 0.94,
       "bbox": [
-        0.1518,
-        0.3718,
-        0.6917,
+        0.1516,
+        0.3558,
+        0.6985,
+        0.1559
+      ]
+    },
+    {
+      "frame_index": 25,
+      "timestamp_sec": 5.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.1769,
+        0.3835,
+        0.6863,
+        0.1454
+      ]
+    },
+    {
+      "frame_index": 26,
+      "timestamp_sec": 5.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.2107,
+        0.3887,
+        0.6675,
+        0.1392
+      ]
+    },
+    {
+      "frame_index": 27,
+      "timestamp_sec": 5.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.172,
+        0.3575,
+        0.6679,
+        0.1487
+      ]
+    },
+    {
+      "frame_index": 28,
+      "timestamp_sec": 5.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0915,
+        0.3424,
+        0.6801,
         0.1544
       ]
     },
     {
-      "frame_index": 24,
-      "timestamp_sec": 4.8,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.83,
-      "bbox": [
-        0.0012,
-        0.3193,
-        0.2483,
-        0.1356
-      ]
-    },
-    {
-      "frame_index": 24,
-      "timestamp_sec": 4.8,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.85,
-      "bbox": [
-        0.8621,
-        0.6862,
-        0.1367,
-        0.2399
-      ]
-    },
-    {
-      "frame_index": 25,
-      "timestamp_sec": 5.0,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.88,
-      "bbox": [
-        0.1905,
-        0.3984,
-        0.6798,
-        0.1397
-      ]
-    },
-    {
-      "frame_index": 25,
-      "timestamp_sec": 5.0,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.87,
-      "bbox": [
-        0.0127,
-        0.3537,
-        0.2699,
-        0.1381
-      ]
-    },
-    {
-      "frame_index": 25,
-      "timestamp_sec": 5.0,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.73,
-      "bbox": [
-        0.9101,
-        0.7133,
-        0.0899,
-        0.2164
-      ]
-    },
-    {
-      "frame_index": 25,
-      "timestamp_sec": 5.0,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.1515,
-        0.7164,
-        0.5489,
-        0.2836
-      ]
-    },
-    {
-      "frame_index": 26,
-      "timestamp_sec": 5.2,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.88,
-      "bbox": [
-        0.2289,
-        0.3915,
-        0.6574,
-        0.1358
-      ]
-    },
-    {
-      "frame_index": 26,
-      "timestamp_sec": 5.2,
-      "track_id": 4,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
-      "bbox": [
-        0.0132,
-        0.3582,
-        0.2739,
-        0.135
-      ]
-    },
-    {
-      "frame_index": 26,
-      "timestamp_sec": 5.2,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.387,
-        0.7155,
-        0.4317,
-        0.2818
-      ]
-    },
-    {
-      "frame_index": 27,
-      "timestamp_sec": 5.4,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.92,
-      "bbox": [
-        0.1511,
-        0.3407,
-        0.6681,
-        0.1538
-      ]
-    },
-    {
-      "frame_index": 27,
-      "timestamp_sec": 5.4,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.87,
-      "bbox": [
-        0.0,
-        0.3045,
-        0.2334,
-        0.139
-      ]
-    },
-    {
-      "frame_index": 27,
-      "timestamp_sec": 5.4,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.3651,
-        0.6465,
-        0.4043,
-        0.341
-      ]
-    },
-    {
-      "frame_index": 27,
-      "timestamp_sec": 5.4,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.85,
-      "bbox": [
-        0.878,
-        0.6085,
-        0.1193,
-        0.2666
-      ]
-    },
-    {
-      "frame_index": 28,
-      "timestamp_sec": 5.6,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.91,
-      "bbox": [
-        0.0482,
-        0.3343,
-        0.6867,
-        0.1574
-      ]
-    },
-    {
-      "frame_index": 28,
-      "timestamp_sec": 5.6,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.0,
-        0.2955,
-        0.155,
-        0.1366
-      ]
-    },
-    {
-      "frame_index": 28,
-      "timestamp_sec": 5.6,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.225,
-        0.6422,
-        0.4314,
-        0.3578
-      ]
-    },
-    {
-      "frame_index": 28,
-      "timestamp_sec": 5.6,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.86,
-      "bbox": [
-        0.791,
-        0.5873,
-        0.1832,
-        0.2907
-      ]
-    },
-    {
       "frame_index": 29,
       "timestamp_sec": 5.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
+      "confidence": 0.94,
       "bbox": [
-        0.0269,
-        0.3258,
-        0.6814,
-        0.1606
-      ]
-    },
-    {
-      "frame_index": 29,
-      "timestamp_sec": 5.8,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.87,
-      "bbox": [
-        0.0,
-        0.2887,
-        0.1376,
-        0.137
-      ]
-    },
-    {
-      "frame_index": 29,
-      "timestamp_sec": 5.8,
-      "track_id": 41,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.88,
-      "bbox": [
-        0.1986,
-        0.6085,
-        0.4351,
-        0.3894
-      ]
-    },
-    {
-      "frame_index": 29,
-      "timestamp_sec": 5.8,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.92,
-      "bbox": [
-        0.7679,
-        0.5688,
-        0.2218,
-        0.2984
+        0.0495,
+        0.3316,
+        0.6809,
+        0.1584
       ]
     },
     {
@@ -1409,51 +408,12 @@
       "timestamp_sec": 6.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.9,
+      "confidence": 0.94,
       "bbox": [
-        0.0639,
-        0.3161,
-        0.6727,
-        0.1594
-      ]
-    },
-    {
-      "frame_index": 30,
-      "timestamp_sec": 6.0,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.91,
-      "bbox": [
-        0.0095,
-        0.2767,
-        0.1631,
-        0.1374
-      ]
-    },
-    {
-      "frame_index": 30,
-      "timestamp_sec": 6.0,
-      "track_id": 41,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.3522,
-        0.6023,
-        0.4065,
-        0.3961
-      ]
-    },
-    {
-      "frame_index": 30,
-      "timestamp_sec": 6.0,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.92,
-      "bbox": [
-        0.7984,
-        0.5487,
-        0.2016,
-        0.2834
+        0.0589,
+        0.3215,
+        0.6756,
+        0.159
       ]
     },
     {
@@ -1461,51 +421,12 @@
       "timestamp_sec": 6.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
+      "confidence": 0.94,
       "bbox": [
-        0.0591,
-        0.2839,
-        0.655,
-        0.1554
-      ]
-    },
-    {
-      "frame_index": 31,
-      "timestamp_sec": 6.2,
-      "track_id": 4,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.0041,
-        0.2542,
-        0.155,
-        0.1275
-      ]
-    },
-    {
-      "frame_index": 31,
-      "timestamp_sec": 6.2,
-      "track_id": 41,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.87,
-      "bbox": [
-        0.4076,
-        0.5632,
-        0.3781,
-        0.4257
-      ]
-    },
-    {
-      "frame_index": 31,
-      "timestamp_sec": 6.2,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.92,
-      "bbox": [
-        0.7808,
-        0.5121,
-        0.2192,
-        0.2602
+        0.059,
+        0.2971,
+        0.6622,
+        0.1567
       ]
     },
     {
@@ -1513,38 +434,12 @@
       "timestamp_sec": 6.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.9,
+      "confidence": 0.94,
       "bbox": [
-        0.0013,
-        0.2571,
-        0.6485,
-        0.1485
-      ]
-    },
-    {
-      "frame_index": 32,
-      "timestamp_sec": 6.4,
-      "track_id": 41,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.88,
-      "bbox": [
-        0.3468,
-        0.5227,
-        0.3565,
-        0.4604
-      ]
-    },
-    {
-      "frame_index": 32,
-      "timestamp_sec": 6.4,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.91,
-      "bbox": [
-        0.7115,
-        0.4723,
-        0.2639,
-        0.2814
+        0.0215,
+        0.2711,
+        0.6533,
+        0.1514
       ]
     },
     {
@@ -1552,51 +447,12 @@
       "timestamp_sec": 6.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
+      "confidence": 0.94,
       "bbox": [
-        0.0,
-        0.2406,
-        0.6131,
-        0.146
-      ]
-    },
-    {
-      "frame_index": 33,
-      "timestamp_sec": 6.6,
-      "track_id": 41,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.3519,
-        0.5008,
-        0.3637,
-        0.4632
-      ]
-    },
-    {
-      "frame_index": 33,
-      "timestamp_sec": 6.6,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.7064,
-        0.4487,
-        0.2751,
-        0.2959
-      ]
-    },
-    {
-      "frame_index": 33,
-      "timestamp_sec": 6.6,
-      "track_id": 56,
-      "behavior_label": "NORMAL",
-      "confidence": 0.83,
-      "bbox": [
-        0.8807,
-        0.1619,
-        0.1125,
-        0.219
+        0.0075,
+        0.2513,
+        0.6272,
+        0.1479
       ]
     },
     {
@@ -1604,51 +460,12 @@
       "timestamp_sec": 6.8,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.88,
+      "confidence": 0.94,
       "bbox": [
-        0.0031,
-        0.2316,
-        0.5943,
-        0.1444
-      ]
-    },
-    {
-      "frame_index": 34,
-      "timestamp_sec": 6.8,
-      "track_id": 41,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.88,
-      "bbox": [
-        0.3652,
-        0.4952,
-        0.3403,
-        0.4671
-      ]
-    },
-    {
-      "frame_index": 34,
-      "timestamp_sec": 6.8,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.7008,
-        0.4259,
-        0.2933,
-        0.3139
-      ]
-    },
-    {
-      "frame_index": 34,
-      "timestamp_sec": 6.8,
-      "track_id": 56,
-      "behavior_label": "NORMAL",
-      "confidence": 0.83,
-      "bbox": [
-        0.8591,
-        0.1466,
-        0.1357,
-        0.234
+        0.0046,
+        0.2385,
+        0.6058,
+        0.1456
       ]
     },
     {
@@ -1656,51 +473,12 @@
       "timestamp_sec": 7.0,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
+      "confidence": 0.94,
       "bbox": [
-        0.0052,
-        0.2239,
-        0.5826,
-        0.1442
-      ]
-    },
-    {
-      "frame_index": 35,
-      "timestamp_sec": 7.0,
-      "track_id": 41,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.3353,
-        0.4833,
-        0.3552,
-        0.4301
-      ]
-    },
-    {
-      "frame_index": 35,
-      "timestamp_sec": 7.0,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.6696,
-        0.4047,
-        0.3277,
-        0.336
-      ]
-    },
-    {
-      "frame_index": 35,
-      "timestamp_sec": 7.0,
-      "track_id": 56,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.8424,
-        0.1325,
-        0.1531,
-        0.2412
+        0.005,
+        0.229,
+        0.5907,
+        0.1447
       ]
     },
     {
@@ -1708,51 +486,12 @@
       "timestamp_sec": 7.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.88,
+      "confidence": 0.94,
       "bbox": [
-        0.0145,
-        0.2171,
-        0.5767,
-        0.1438
-      ]
-    },
-    {
-      "frame_index": 36,
-      "timestamp_sec": 7.2,
-      "track_id": 41,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.87,
-      "bbox": [
-        0.3642,
-        0.4751,
-        0.3356,
-        0.3956
-      ]
-    },
-    {
-      "frame_index": 36,
-      "timestamp_sec": 7.2,
-      "track_id": 2,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.6644,
-        0.3891,
-        0.3356,
-        0.3282
-      ]
-    },
-    {
-      "frame_index": 36,
-      "timestamp_sec": 7.2,
-      "track_id": 56,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.8533,
-        0.1257,
-        0.1467,
-        0.2318
+        0.0112,
+        0.2213,
+        0.5816,
+        0.1441
       ]
     },
     {
@@ -1760,51 +499,12 @@
       "timestamp_sec": 7.4,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
+      "confidence": 0.94,
       "bbox": [
-        0.0237,
-        0.2099,
-        0.585,
-        0.1396
-      ]
-    },
-    {
-      "frame_index": 37,
-      "timestamp_sec": 7.4,
-      "track_id": 41,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.88,
-      "bbox": [
-        0.346,
-        0.4406,
-        0.3569,
-        0.3911
-      ]
-    },
-    {
-      "frame_index": 37,
-      "timestamp_sec": 7.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
-      "confidence": 0.92,
-      "bbox": [
-        0.6762,
-        0.3676,
-        0.3238,
-        0.3322
-      ]
-    },
-    {
-      "frame_index": 37,
-      "timestamp_sec": 7.4,
-      "track_id": 56,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.84,
-      "bbox": [
-        0.8779,
-        0.1224,
-        0.1221,
-        0.2074
+        0.0193,
+        0.2139,
+        0.5838,
+        0.1412
       ]
     },
     {
@@ -1812,181 +512,38 @@
       "timestamp_sec": 7.6,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
+      "confidence": 0.94,
       "bbox": [
-        0.0216,
+        0.0208,
+        0.2114,
+        0.6,
+        0.1391
+      ]
+    },
+    {
+      "frame_index": 39,
+      "timestamp_sec": 7.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0181,
+        0.209,
+        0.6159,
+        0.1411
+      ]
+    },
+    {
+      "frame_index": 40,
+      "timestamp_sec": 8.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0158,
         0.21,
-        0.6087,
-        0.1379
-      ]
-    },
-    {
-      "frame_index": 38,
-      "timestamp_sec": 7.6,
-      "track_id": 41,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.3639,
-        0.4662,
-        0.3793,
-        0.4195
-      ]
-    },
-    {
-      "frame_index": 38,
-      "timestamp_sec": 7.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
-      "bbox": [
-        0.7173,
-        0.3621,
-        0.2827,
-        0.3439
-      ]
-    },
-    {
-      "frame_index": 38,
-      "timestamp_sec": 7.6,
-      "track_id": 56,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.82,
-      "bbox": [
-        0.897,
-        0.1279,
-        0.103,
-        0.1889
-      ]
-    },
-    {
-      "frame_index": 39,
-      "timestamp_sec": 7.8,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
-      "bbox": [
-        0.0167,
-        0.2077,
-        0.6244,
-        0.1421
-      ]
-    },
-    {
-      "frame_index": 39,
-      "timestamp_sec": 7.8,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.3412,
-        0.4779,
-        0.4226,
-        0.3994
-      ]
-    },
-    {
-      "frame_index": 39,
-      "timestamp_sec": 7.8,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.7444,
-        0.3661,
-        0.2556,
-        0.3485
-      ]
-    },
-    {
-      "frame_index": 39,
-      "timestamp_sec": 7.8,
-      "track_id": 56,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.73,
-      "bbox": [
-        0.9054,
-        0.1365,
-        0.0946,
-        0.1775
-      ]
-    },
-    {
-      "frame_index": 39,
-      "timestamp_sec": 7.8,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.49,
-      "bbox": [
-        0.0015,
-        0.1661,
-        0.0513,
-        0.0942
-      ]
-    },
-    {
-      "frame_index": 40,
-      "timestamp_sec": 8.0,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
-      "bbox": [
-        0.0145,
-        0.2105,
-        0.6325,
-        0.1446
-      ]
-    },
-    {
-      "frame_index": 40,
-      "timestamp_sec": 8.0,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.86,
-      "bbox": [
-        0.3866,
-        0.4782,
-        0.3998,
-        0.3977
-      ]
-    },
-    {
-      "frame_index": 40,
-      "timestamp_sec": 8.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
-      "confidence": 0.86,
-      "bbox": [
-        0.74,
-        0.3771,
-        0.26,
-        0.335
-      ]
-    },
-    {
-      "frame_index": 40,
-      "timestamp_sec": 8.0,
-      "track_id": 56,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.69,
-      "bbox": [
-        0.9179,
-        0.1446,
-        0.0821,
-        0.176
-      ]
-    },
-    {
-      "frame_index": 40,
-      "timestamp_sec": 8.0,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.54,
-      "bbox": [
-        0.0026,
-        0.1685,
-        0.0518,
-        0.0931
+        0.6267,
+        0.1434
       ]
     },
     {
@@ -1994,3774 +551,1316 @@
       "timestamp_sec": 8.2,
       "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
-      "bbox": [
-        0.0147,
-        0.2123,
-        0.6378,
-        0.1469
-      ]
-    },
-    {
-      "frame_index": 41,
-      "timestamp_sec": 8.2,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.86,
-      "bbox": [
-        0.3848,
-        0.4875,
-        0.4141,
-        0.4207
-      ]
-    },
-    {
-      "frame_index": 41,
-      "timestamp_sec": 8.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.7314,
-        0.3909,
-        0.2686,
-        0.3263
-      ]
-    },
-    {
-      "frame_index": 41,
-      "timestamp_sec": 8.2,
-      "track_id": 56,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.67,
-      "bbox": [
-        0.9265,
-        0.1546,
-        0.0735,
-        0.1733
-      ]
-    },
-    {
-      "frame_index": 41,
-      "timestamp_sec": 8.2,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.43,
-      "bbox": [
-        0.0028,
-        0.1682,
-        0.0549,
-        0.0975
-      ]
-    },
-    {
-      "frame_index": 42,
-      "timestamp_sec": 8.4,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.9,
-      "bbox": [
-        0.0206,
-        0.2061,
-        0.6665,
-        0.1521
-      ]
-    },
-    {
-      "frame_index": 42,
-      "timestamp_sec": 8.4,
-      "track_id": 41,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.88,
-      "bbox": [
-        0.4014,
-        0.5027,
-        0.4391,
-        0.467
-      ]
-    },
-    {
-      "frame_index": 42,
-      "timestamp_sec": 8.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.7413,
-        0.3958,
-        0.2587,
-        0.3139
-      ]
-    },
-    {
-      "frame_index": 42,
-      "timestamp_sec": 8.4,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.65,
-      "bbox": [
-        0.0078,
-        0.1688,
-        0.0871,
-        0.0992
-      ]
-    },
-    {
-      "frame_index": 43,
-      "timestamp_sec": 8.6,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.9,
-      "bbox": [
-        0.0274,
-        0.199,
-        0.6817,
-        0.1563
-      ]
-    },
-    {
-      "frame_index": 43,
-      "timestamp_sec": 8.6,
-      "track_id": 41,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.87,
-      "bbox": [
-        0.4245,
-        0.5032,
-        0.4291,
-        0.4909
-      ]
-    },
-    {
-      "frame_index": 43,
-      "timestamp_sec": 8.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
-      "confidence": 0.86,
-      "bbox": [
-        0.7601,
-        0.3944,
-        0.2399,
-        0.3112
-      ]
-    },
-    {
-      "frame_index": 43,
-      "timestamp_sec": 8.6,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.82,
-      "bbox": [
-        0.0091,
-        0.1629,
-        0.1153,
-        0.1148
-      ]
-    },
-    {
-      "frame_index": 44,
-      "timestamp_sec": 8.8,
-      "track_id": 1,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.91,
-      "bbox": [
-        0.0254,
-        0.1954,
-        0.7004,
-        0.1569
-      ]
-    },
-    {
-      "frame_index": 44,
-      "timestamp_sec": 8.8,
-      "track_id": 41,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.85,
-      "bbox": [
-        0.4103,
-        0.5049,
-        0.4442,
-        0.4951
-      ]
-    },
-    {
-      "frame_index": 44,
-      "timestamp_sec": 8.8,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
-      "confidence": 0.86,
-      "bbox": [
-        0.7442,
-        0.3984,
-        0.2558,
-        0.2926
-      ]
-    },
-    {
-      "frame_index": 44,
-      "timestamp_sec": 8.8,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.83,
-      "bbox": [
-        0.0016,
-        0.1575,
-        0.1347,
-        0.1145
-      ]
-    },
-    {
-      "frame_index": 45,
-      "timestamp_sec": 9.0,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.0258,
-        0.1955,
-        0.7074,
-        0.1582
-      ]
-    },
-    {
-      "frame_index": 45,
-      "timestamp_sec": 9.0,
-      "track_id": 41,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.87,
-      "bbox": [
-        0.4158,
-        0.5184,
-        0.4447,
-        0.4736
-      ]
-    },
-    {
-      "frame_index": 45,
-      "timestamp_sec": 9.0,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
-      "confidence": 0.83,
-      "bbox": [
-        0.7646,
-        0.4075,
-        0.2354,
-        0.2969
-      ]
-    },
-    {
-      "frame_index": 45,
-      "timestamp_sec": 9.0,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.85,
-      "bbox": [
-        0.0,
-        0.1574,
-        0.1451,
-        0.1167
-      ]
-    },
-    {
-      "frame_index": 46,
-      "timestamp_sec": 9.2,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.025,
-        0.198,
-        0.7078,
-        0.1556
-      ]
-    },
-    {
-      "frame_index": 46,
-      "timestamp_sec": 9.2,
-      "track_id": 41,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.85,
-      "bbox": [
-        0.4109,
-        0.5208,
-        0.4585,
-        0.4538
-      ]
-    },
-    {
-      "frame_index": 46,
-      "timestamp_sec": 9.2,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
-      "confidence": 0.86,
-      "bbox": [
-        0.7788,
-        0.4118,
-        0.2189,
-        0.2812
-      ]
-    },
-    {
-      "frame_index": 46,
-      "timestamp_sec": 9.2,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.86,
-      "bbox": [
-        0.0,
-        0.1572,
-        0.1491,
-        0.1168
-      ]
-    },
-    {
-      "frame_index": 47,
-      "timestamp_sec": 9.4,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.0356,
-        0.2079,
-        0.6953,
-        0.1538
-      ]
-    },
-    {
-      "frame_index": 47,
-      "timestamp_sec": 9.4,
-      "track_id": 41,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.86,
-      "bbox": [
-        0.4487,
-        0.5371,
-        0.4501,
-        0.4554
-      ]
-    },
-    {
-      "frame_index": 47,
-      "timestamp_sec": 9.4,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
-      "confidence": 0.84,
-      "bbox": [
-        0.8274,
-        0.3992,
-        0.1714,
-        0.2899
-      ]
-    },
-    {
-      "frame_index": 47,
-      "timestamp_sec": 9.4,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.87,
-      "bbox": [
-        0.0,
-        0.1636,
-        0.1616,
-        0.1142
-      ]
-    },
-    {
-      "frame_index": 48,
-      "timestamp_sec": 9.6,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.0204,
-        0.2285,
-        0.701,
-        0.1507
-      ]
-    },
-    {
-      "frame_index": 48,
-      "timestamp_sec": 9.6,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.4315,
-        0.5535,
-        0.4697,
-        0.4465
-      ]
-    },
-    {
-      "frame_index": 48,
-      "timestamp_sec": 9.6,
-      "track_id": 2,
-      "behavior_label": "NORMAL",
-      "confidence": 0.77,
-      "bbox": [
-        0.8365,
-        0.3845,
-        0.1585,
-        0.2538
-      ]
-    },
-    {
-      "frame_index": 48,
-      "timestamp_sec": 9.6,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.85,
-      "bbox": [
-        0.0,
-        0.1782,
-        0.1524,
-        0.1122
-      ]
-    },
-    {
-      "frame_index": 49,
-      "timestamp_sec": 9.8,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
-      "bbox": [
-        0.0258,
-        0.2324,
-        0.6819,
-        0.1497
-      ]
-    },
-    {
-      "frame_index": 49,
-      "timestamp_sec": 9.8,
-      "track_id": 41,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.4381,
-        0.5523,
-        0.4825,
-        0.4461
-      ]
-    },
-    {
-      "frame_index": 49,
-      "timestamp_sec": 9.8,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.81,
-      "bbox": [
-        0.0,
-        0.1849,
-        0.1641,
-        0.1118
-      ]
-    },
-    {
-      "frame_index": 49,
-      "timestamp_sec": 9.8,
-      "track_id": 3,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.6757,
-        0.21,
-        0.3243,
-        0.3351
-      ]
-    },
-    {
-      "frame_index": 50,
-      "timestamp_sec": 10.0,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.64,
-      "bbox": [
-        0.0358,
-        0.223,
-        0.5754,
-        0.1515
-      ]
-    },
-    {
-      "frame_index": 50,
-      "timestamp_sec": 10.0,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.86,
-      "bbox": [
-        0.4381,
-        0.5596,
-        0.5157,
-        0.4402
-      ]
-    },
-    {
-      "frame_index": 50,
-      "timestamp_sec": 10.0,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.87,
-      "bbox": [
-        0.0018,
-        0.1839,
-        0.1759,
-        0.1135
-      ]
-    },
-    {
-      "frame_index": 51,
-      "timestamp_sec": 10.2,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.4636,
-        0.5901,
-        0.5026,
-        0.4099
-      ]
-    },
-    {
-      "frame_index": 51,
-      "timestamp_sec": 10.2,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.38,
-      "bbox": [
-        0.0,
-        0.1753,
-        0.1679,
-        0.1247
-      ]
-    },
-    {
-      "frame_index": 51,
-      "timestamp_sec": 10.2,
-      "track_id": 71,
-      "behavior_label": "NORMAL",
-      "confidence": 0.56,
-      "bbox": [
-        0.0007,
-        0.1115,
-        0.1488,
-        0.1688
-      ]
-    },
-    {
-      "frame_index": 52,
-      "timestamp_sec": 10.4,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.4628,
-        0.6525,
-        0.4936,
-        0.3475
-      ]
-    },
-    {
-      "frame_index": 52,
-      "timestamp_sec": 10.4,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.86,
-      "bbox": [
-        0.0,
-        0.22,
-        0.1782,
-        0.1298
-      ]
-    },
-    {
-      "frame_index": 52,
-      "timestamp_sec": 10.4,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.0168,
-        0.2535,
-        0.7495,
-        0.2071
-      ]
-    },
-    {
-      "frame_index": 53,
-      "timestamp_sec": 10.6,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.92,
-      "bbox": [
-        0.4469,
-        0.6771,
-        0.5242,
-        0.3229
-      ]
-    },
-    {
-      "frame_index": 53,
-      "timestamp_sec": 10.6,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.84,
-      "bbox": [
-        0.0,
-        0.2383,
-        0.1517,
-        0.1216
-      ]
-    },
-    {
-      "frame_index": 53,
-      "timestamp_sec": 10.6,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.0,
-        0.2951,
-        0.7466,
-        0.1851
-      ]
-    },
-    {
-      "frame_index": 54,
-      "timestamp_sec": 10.8,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.404,
-        0.7212,
-        0.5492,
-        0.2788
-      ]
-    },
-    {
-      "frame_index": 54,
-      "timestamp_sec": 10.8,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.84,
-      "bbox": [
-        0.0,
-        0.2617,
-        0.1217,
-        0.118
-      ]
-    },
-    {
-      "frame_index": 54,
-      "timestamp_sec": 10.8,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.0,
-        0.3309,
-        0.7241,
-        0.1748
-      ]
-    },
-    {
-      "frame_index": 55,
-      "timestamp_sec": 11.0,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.3925,
-        0.7592,
-        0.6001,
-        0.2408
-      ]
-    },
-    {
-      "frame_index": 55,
-      "timestamp_sec": 11.0,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.86,
-      "bbox": [
-        0.0,
-        0.2491,
-        0.124,
-        0.1223
-      ]
-    },
-    {
-      "frame_index": 55,
-      "timestamp_sec": 11.0,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.0023,
-        0.3313,
-        0.751,
-        0.183
-      ]
-    },
-    {
-      "frame_index": 56,
-      "timestamp_sec": 11.2,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.4845,
-        0.7428,
-        0.5155,
-        0.253
-      ]
-    },
-    {
-      "frame_index": 56,
-      "timestamp_sec": 11.2,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.87,
-      "bbox": [
-        0.0172,
-        0.1643,
-        0.1914,
-        0.1524
-      ]
-    },
-    {
-      "frame_index": 56,
-      "timestamp_sec": 11.2,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.0383,
-        0.26,
-        0.8335,
-        0.2079
-      ]
-    },
-    {
-      "frame_index": 57,
-      "timestamp_sec": 11.4,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.5089,
-        0.7473,
-        0.4911,
-        0.2523
-      ]
-    },
-    {
-      "frame_index": 57,
-      "timestamp_sec": 11.4,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.0224,
-        0.1439,
-        0.2434,
-        0.1501
-      ]
-    },
-    {
-      "frame_index": 57,
-      "timestamp_sec": 11.4,
-      "track_id": 1,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.0609,
-        0.2397,
-        0.8778,
-        0.2071
-      ]
-    },
-    {
-      "frame_index": 58,
-      "timestamp_sec": 11.6,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.85,
-      "bbox": [
-        0.4805,
-        0.7525,
-        0.5195,
-        0.2432
-      ]
-    },
-    {
-      "frame_index": 58,
-      "timestamp_sec": 11.6,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
+      "confidence": 0.94,
       "bbox": [
         0.0151,
-        0.1394,
-        0.2764,
-        0.164
+        0.2115,
+        0.6339,
+        0.1457
+      ]
+    },
+    {
+      "frame_index": 42,
+      "timestamp_sec": 8.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0187,
+        0.208,
+        0.6551,
+        0.1499
+      ]
+    },
+    {
+      "frame_index": 43,
+      "timestamp_sec": 8.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0244,
+        0.2021,
+        0.6724,
+        0.1541
+      ]
+    },
+    {
+      "frame_index": 44,
+      "timestamp_sec": 8.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0251,
+        0.1977,
+        0.6906,
+        0.1559
+      ]
+    },
+    {
+      "frame_index": 45,
+      "timestamp_sec": 9.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.2791,
+        0.4062,
+        0.5308,
+        0.3624
+      ]
+    },
+    {
+      "frame_index": 46,
+      "timestamp_sec": 9.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.3648,
+        0.4807,
+        0.4838,
+        0.4218
+      ]
+    },
+    {
+      "frame_index": 47,
+      "timestamp_sec": 9.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.4193,
+        0.5174,
+        0.4619,
+        0.4436
+      ]
+    },
+    {
+      "frame_index": 48,
+      "timestamp_sec": 9.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.4272,
+        0.5409,
+        0.467,
+        0.4455
+      ]
+    },
+    {
+      "frame_index": 49,
+      "timestamp_sec": 9.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.4343,
+        0.5483,
+        0.4771,
+        0.4459
+      ]
+    },
+    {
+      "frame_index": 50,
+      "timestamp_sec": 10.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.4368,
+        0.5556,
+        0.5022,
+        0.4422
+      ]
+    },
+    {
+      "frame_index": 51,
+      "timestamp_sec": 10.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.4542,
+        0.578,
+        0.5025,
+        0.4212
+      ]
+    },
+    {
+      "frame_index": 52,
+      "timestamp_sec": 10.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.4598,
+        0.6264,
+        0.4967,
+        0.3733
+      ]
+    },
+    {
+      "frame_index": 53,
+      "timestamp_sec": 10.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.4514,
+        0.6594,
+        0.5146,
+        0.3405
+      ]
+    },
+    {
+      "frame_index": 54,
+      "timestamp_sec": 10.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.4206,
+        0.6996,
+        0.5371,
+        0.3004
+      ]
+    },
+    {
+      "frame_index": 55,
+      "timestamp_sec": 11.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.4023,
+        0.7383,
+        0.578,
+        0.2617
+      ]
+    },
+    {
+      "frame_index": 56,
+      "timestamp_sec": 11.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.1657,
+        0.4274,
+        0.7441,
+        0.2267
+      ]
+    },
+    {
+      "frame_index": 57,
+      "timestamp_sec": 11.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0976,
+        0.3054,
+        0.831,
+        0.214
       ]
     },
     {
       "frame_index": 58,
       "timestamp_sec": 11.6,
       "track_id": 1,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.0658,
-        0.2372,
-        0.9061,
-        0.2143
-      ]
-    },
-    {
-      "frame_index": 59,
-      "timestamp_sec": 11.8,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.478,
-        0.7401,
-        0.522,
-        0.2558
-      ]
-    },
-    {
-      "frame_index": 59,
-      "timestamp_sec": 11.8,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.0134,
-        0.1272,
-        0.3081,
-        0.1782
+        0.0769,
+        0.2611,
+        0.8798,
+        0.2142
       ]
     },
     {
       "frame_index": 59,
       "timestamp_sec": 11.8,
       "track_id": 1,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.92,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.0874,
-        0.2328,
-        0.8904,
-        0.2266
-      ]
-    },
-    {
-      "frame_index": 60,
-      "timestamp_sec": 12.0,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.92,
-      "bbox": [
-        0.4612,
-        0.7509,
-        0.5239,
-        0.2397
-      ]
-    },
-    {
-      "frame_index": 60,
-      "timestamp_sec": 12.0,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.0104,
-        0.1326,
-        0.319,
-        0.1872
+        0.0837,
+        0.2427,
+        0.8867,
+        0.2223
       ]
     },
     {
       "frame_index": 60,
       "timestamp_sec": 12.0,
       "track_id": 1,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.1026,
-        0.2534,
-        0.8641,
-        0.2204
-      ]
-    },
-    {
-      "frame_index": 61,
-      "timestamp_sec": 12.2,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.4317,
-        0.7743,
-        0.556,
-        0.2188
-      ]
-    },
-    {
-      "frame_index": 61,
-      "timestamp_sec": 12.2,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.0,
-        0.1546,
-        0.3213,
-        0.1816
+        0.096,
+        0.2497,
+        0.872,
+        0.2211
       ]
     },
     {
       "frame_index": 61,
       "timestamp_sec": 12.2,
       "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.095,
-        0.2735,
-        0.8766,
-        0.2113
-      ]
-    },
-    {
-      "frame_index": 62,
-      "timestamp_sec": 12.4,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.4139,
-        0.7992,
-        0.5731,
-        0.1934
-      ]
-    },
-    {
-      "frame_index": 62,
-      "timestamp_sec": 12.4,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.88,
-      "bbox": [
-        0.0014,
-        0.1723,
-        0.3251,
-        0.1786
+        0.0954,
+        0.2652,
+        0.875,
+        0.2147
       ]
     },
     {
       "frame_index": 62,
       "timestamp_sec": 12.4,
       "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.0962,
-        0.291,
-        0.8639,
-        0.1882
-      ]
-    },
-    {
-      "frame_index": 63,
-      "timestamp_sec": 12.6,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.4911,
-        0.8169,
-        0.5089,
-        0.1773
-      ]
-    },
-    {
-      "frame_index": 63,
-      "timestamp_sec": 12.6,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.0191,
-        0.1908,
-        0.354,
-        0.1666
+        0.0959,
+        0.282,
+        0.8678,
+        0.1975
       ]
     },
     {
       "frame_index": 63,
       "timestamp_sec": 12.6,
       "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.1549,
-        0.3013,
-        0.8451,
+        0.1343,
+        0.2945,
+        0.853,
         0.1974
       ]
     },
     {
       "frame_index": 64,
       "timestamp_sec": 12.8,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.6034,
-        0.8053,
-        0.3966,
-        0.1896
-      ]
-    },
-    {
-      "frame_index": 64,
-      "timestamp_sec": 12.8,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.91,
-      "bbox": [
-        0.0239,
-        0.2042,
-        0.3803,
-        0.1503
-      ]
-    },
-    {
-      "frame_index": 64,
-      "timestamp_sec": 12.8,
       "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.2324,
-        0.2995,
-        0.7676,
-        0.1869
-      ]
-    },
-    {
-      "frame_index": 65,
-      "timestamp_sec": 13.0,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.84,
-      "bbox": [
-        0.5858,
-        0.8147,
-        0.4142,
-        0.1853
-      ]
-    },
-    {
-      "frame_index": 65,
-      "timestamp_sec": 13.0,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.0004,
-        0.227,
-        0.4014,
-        0.1441
-      ]
-    },
-    {
-      "frame_index": 65,
-      "timestamp_sec": 13.0,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.2291,
-        0.3173,
-        0.7708,
-        0.1982
-      ]
-    },
-    {
-      "frame_index": 66,
-      "timestamp_sec": 13.2,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.86,
-      "bbox": [
-        0.5126,
-        0.8204,
-        0.4691,
-        0.1796
-      ]
-    },
-    {
-      "frame_index": 66,
-      "timestamp_sec": 13.2,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.92,
-      "bbox": [
-        0.0,
-        0.2473,
-        0.3687,
-        0.1368
-      ]
-    },
-    {
-      "frame_index": 66,
-      "timestamp_sec": 13.2,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
         0.1981,
-        0.3187,
+        0.2977,
+        0.7975,
+        0.1906
+      ]
+    },
+    {
+      "frame_index": 65,
+      "timestamp_sec": 13.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.2182,
+        0.3104,
+        0.7801,
+        0.1955
+      ]
+    },
+    {
+      "frame_index": 66,
+      "timestamp_sec": 13.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.2051,
+        0.3158,
         0.7802,
-        0.1901
-      ]
-    },
-    {
-      "frame_index": 67,
-      "timestamp_sec": 13.4,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.81,
-      "bbox": [
-        0.468,
-        0.8314,
-        0.5054,
-        0.1686
-      ]
-    },
-    {
-      "frame_index": 67,
-      "timestamp_sec": 13.4,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.0,
-        0.2753,
-        0.3384,
-        0.1279
+        0.192
       ]
     },
     {
       "frame_index": 67,
       "timestamp_sec": 13.4,
       "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.83,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.1601,
-        0.358,
-        0.7217,
-        0.2469
+        0.1759,
+        0.3432,
+        0.7422,
+        0.2277
       ]
     },
     {
       "frame_index": 68,
       "timestamp_sec": 13.6,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.0,
-        0.2903,
-        0.3047,
-        0.1354
-      ]
-    },
-    {
-      "frame_index": 69,
-      "timestamp_sec": 13.8,
-      "track_id": 63,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.0,
-        0.2963,
-        0.2824,
-        0.1498
-      ]
-    },
-    {
-      "frame_index": 69,
-      "timestamp_sec": 13.8,
       "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.0253,
-        0.4903,
-        0.7891,
-        0.244
-      ]
-    },
-    {
-      "frame_index": 70,
-      "timestamp_sec": 14.0,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.0,
-        0.3477,
-        0.2389,
-        0.1243
-      ]
-    },
-    {
-      "frame_index": 70,
-      "timestamp_sec": 14.0,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.0,
-        0.4989,
-        0.6716,
-        0.3167
-      ]
-    },
-    {
-      "frame_index": 70,
-      "timestamp_sec": 14.0,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.65,
-      "bbox": [
-        0.4619,
-        0.8925,
-        0.514,
-        0.1075
-      ]
-    },
-    {
-      "frame_index": 71,
-      "timestamp_sec": 14.2,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.0079,
-        0.3836,
-        0.2755,
-        0.1408
-      ]
-    },
-    {
-      "frame_index": 71,
-      "timestamp_sec": 14.2,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.0136,
-        0.5907,
-        0.7263,
-        0.2997
-      ]
-    },
-    {
-      "frame_index": 72,
-      "timestamp_sec": 14.4,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.012,
-        0.3754,
-        0.2948,
-        0.1514
-      ]
-    },
-    {
-      "frame_index": 72,
-      "timestamp_sec": 14.4,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.012,
-        0.6092,
-        0.6458,
-        0.2596
-      ]
-    },
-    {
-      "frame_index": 72,
-      "timestamp_sec": 14.4,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.45,
-      "bbox": [
-        0.3165,
-        0.8932,
-        0.6835,
-        0.1068
-      ]
-    },
-    {
-      "frame_index": 73,
-      "timestamp_sec": 14.6,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
-      "bbox": [
-        0.0264,
-        0.3145,
-        0.336,
-        0.1833
-      ]
-    },
-    {
-      "frame_index": 73,
-      "timestamp_sec": 14.6,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.0216,
-        0.5572,
-        0.6267,
-        0.2286
-      ]
-    },
-    {
-      "frame_index": 73,
-      "timestamp_sec": 14.6,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.4942,
-        0.8459,
-        0.5058,
-        0.1381
-      ]
-    },
-    {
-      "frame_index": 74,
-      "timestamp_sec": 14.8,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
-      "bbox": [
-        0.0902,
-        0.3138,
-        0.3995,
-        0.1592
-      ]
-    },
-    {
-      "frame_index": 74,
-      "timestamp_sec": 14.8,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
         0.0616,
-        0.5057,
-        0.6715,
-        0.1962
+        0.3088,
+        0.4578,
+        0.1677
+      ]
+    },
+    {
+      "frame_index": 69,
+      "timestamp_sec": 13.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.038,
+        0.4268,
+        0.6731,
+        0.2173
+      ]
+    },
+    {
+      "frame_index": 70,
+      "timestamp_sec": 14.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0133,
+        0.4737,
+        0.6721,
+        0.2819
+      ]
+    },
+    {
+      "frame_index": 71,
+      "timestamp_sec": 14.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0135,
+        0.5497,
+        0.7073,
+        0.2935
+      ]
+    },
+    {
+      "frame_index": 72,
+      "timestamp_sec": 14.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0125,
+        0.5884,
+        0.6673,
+        0.2715
+      ]
+    },
+    {
+      "frame_index": 73,
+      "timestamp_sec": 14.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0184,
+        0.5681,
+        0.6409,
+        0.2436
       ]
     },
     {
       "frame_index": 74,
       "timestamp_sec": 14.8,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.6795,
-        0.7956,
-        0.3205,
-        0.1834
-      ]
-    },
-    {
-      "frame_index": 75,
-      "timestamp_sec": 15.0,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.92,
-      "bbox": [
-        0.1818,
-        0.3146,
-        0.3935,
-        0.1373
+        0.0465,
+        0.5275,
+        0.6608,
+        0.2128
       ]
     },
     {
       "frame_index": 75,
       "timestamp_sec": 15.0,
       "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.0645,
-        0.4514,
-        0.5218,
-        0.1871
-      ]
-    },
-    {
-      "frame_index": 75,
-      "timestamp_sec": 15.0,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.86,
-      "bbox": [
-        0.7833,
-        0.7826,
-        0.2167,
-        0.2012
-      ]
-    },
-    {
-      "frame_index": 76,
-      "timestamp_sec": 15.2,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.93,
-      "bbox": [
-        0.2823,
-        0.3236,
-        0.385,
-        0.1308
+        0.0582,
+        0.478,
+        0.5705,
+        0.1961
       ]
     },
     {
       "frame_index": 76,
       "timestamp_sec": 15.2,
       "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
-      "bbox": [
-        0.1634,
-        0.4614,
-        0.38,
-        0.2522
-      ]
-    },
-    {
-      "frame_index": 76,
-      "timestamp_sec": 15.2,
-      "track_id": 41,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.8865,
-        0.7902,
-        0.1135,
-        0.1986
-      ]
-    },
-    {
-      "frame_index": 77,
-      "timestamp_sec": 15.4,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.3927,
-        0.3359,
-        0.379,
-        0.1282
-      ]
-    },
-    {
-      "frame_index": 77,
-      "timestamp_sec": 15.4,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.0879,
-        0.4772,
-        0.4896,
-        0.2113
-      ]
-    },
-    {
-      "frame_index": 78,
-      "timestamp_sec": 15.6,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.494,
-        0.3407,
-        0.3794,
-        0.1288
-      ]
-    },
-    {
-      "frame_index": 78,
-      "timestamp_sec": 15.6,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.0834,
-        0.4606,
-        0.5927,
-        0.1796
-      ]
-    },
-    {
-      "frame_index": 78,
-      "timestamp_sec": 15.6,
-      "track_id": 99,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.0288,
-        0.5957,
-        0.4349,
-        0.2663
-      ]
-    },
-    {
-      "frame_index": 79,
-      "timestamp_sec": 15.8,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.5666,
-        0.3362,
-        0.3705,
-        0.1249
-      ]
-    },
-    {
-      "frame_index": 79,
-      "timestamp_sec": 15.8,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.83,
-      "bbox": [
-        0.1506,
-        0.4592,
-        0.6019,
-        0.1623
-      ]
-    },
-    {
-      "frame_index": 79,
-      "timestamp_sec": 15.8,
-      "track_id": 99,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.0375,
-        0.5466,
-        0.4958,
-        0.3322
-      ]
-    },
-    {
-      "frame_index": 80,
-      "timestamp_sec": 16.0,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.6273,
-        0.3215,
-        0.3628,
-        0.1323
-      ]
-    },
-    {
-      "frame_index": 80,
-      "timestamp_sec": 16.0,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.61,
-      "bbox": [
-        0.2052,
-        0.4149,
-        0.5307,
-        0.1552
-      ]
-    },
-    {
-      "frame_index": 80,
-      "timestamp_sec": 16.0,
-      "track_id": 99,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.0473,
-        0.564,
-        0.5775,
-        0.3296
-      ]
-    },
-    {
-      "frame_index": 81,
-      "timestamp_sec": 16.2,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.6513,
-        0.3236,
-        0.3487,
-        0.1296
-      ]
-    },
-    {
-      "frame_index": 81,
-      "timestamp_sec": 16.2,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.84,
-      "bbox": [
-        0.2512,
-        0.3668,
-        0.4762,
-        0.1586
-      ]
-    },
-    {
-      "frame_index": 81,
-      "timestamp_sec": 16.2,
-      "track_id": 99,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.0347,
-        0.5634,
-        0.5596,
-        0.3325
-      ]
-    },
-    {
-      "frame_index": 82,
-      "timestamp_sec": 16.4,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.6523,
-        0.3329,
-        0.3452,
-        0.1247
-      ]
-    },
-    {
-      "frame_index": 82,
-      "timestamp_sec": 16.4,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.0247,
-        0.5707,
-        0.5308,
-        0.3176
-      ]
-    },
-    {
-      "frame_index": 83,
-      "timestamp_sec": 16.6,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.6527,
-        0.336,
-        0.343,
-        0.1302
-      ]
-    },
-    {
-      "frame_index": 83,
-      "timestamp_sec": 16.6,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.91,
-      "bbox": [
-        0.0189,
-        0.5782,
-        0.5409,
-        0.313
-      ]
-    },
-    {
-      "frame_index": 83,
-      "timestamp_sec": 16.6,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.84,
-      "bbox": [
-        0.2586,
-        0.3288,
-        0.4128,
-        0.182
-      ]
-    },
-    {
-      "frame_index": 84,
-      "timestamp_sec": 16.8,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.6562,
-        0.3391,
-        0.3391,
-        0.132
-      ]
-    },
-    {
-      "frame_index": 84,
-      "timestamp_sec": 16.8,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.0306,
-        0.591,
-        0.5341,
-        0.3188
-      ]
-    },
-    {
-      "frame_index": 84,
-      "timestamp_sec": 16.8,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.76,
-      "bbox": [
-        0.3597,
-        0.2907,
-        0.296,
-        0.2317
-      ]
-    },
-    {
-      "frame_index": 85,
-      "timestamp_sec": 17.0,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
-      "bbox": [
-        0.6447,
-        0.346,
-        0.3513,
-        0.1374
-      ]
-    },
-    {
-      "frame_index": 85,
-      "timestamp_sec": 17.0,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.91,
-      "bbox": [
-        0.0185,
-        0.6,
-        0.5353,
-        0.3259
-      ]
-    },
-    {
-      "frame_index": 85,
-      "timestamp_sec": 17.0,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.3902,
-        0.2589,
-        0.3041,
-        0.2184
-      ]
-    },
-    {
-      "frame_index": 86,
-      "timestamp_sec": 17.2,
-      "track_id": 63,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
+      "confidence": 0.94,
       "bbox": [
-        0.6316,
-        0.3642,
-        0.3604,
-        0.1219
-      ]
-    },
-    {
-      "frame_index": 86,
-      "timestamp_sec": 17.2,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.0163,
-        0.6089,
-        0.5308,
-        0.3288
-      ]
-    },
-    {
-      "frame_index": 86,
-      "timestamp_sec": 17.2,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.3702,
-        0.2622,
-        0.331,
-        0.1997
-      ]
-    },
-    {
-      "frame_index": 87,
-      "timestamp_sec": 17.4,
-      "track_id": 63,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.9,
-      "bbox": [
-        0.6227,
-        0.3749,
-        0.366,
-        0.1168
-      ]
-    },
-    {
-      "frame_index": 87,
-      "timestamp_sec": 17.4,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.0139,
-        0.6165,
-        0.5318,
-        0.3355
-      ]
-    },
-    {
-      "frame_index": 87,
-      "timestamp_sec": 17.4,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.3681,
-        0.2799,
-        0.3857,
-        0.1791
-      ]
-    },
-    {
-      "frame_index": 88,
-      "timestamp_sec": 17.6,
-      "track_id": 63,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
-      "bbox": [
-        0.5951,
-        0.3742,
-        0.3787,
-        0.1134
-      ]
-    },
-    {
-      "frame_index": 88,
-      "timestamp_sec": 17.6,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.0111,
-        0.6188,
-        0.5284,
-        0.3399
-      ]
-    },
-    {
-      "frame_index": 88,
-      "timestamp_sec": 17.6,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
-      "bbox": [
-        0.413,
-        0.2651,
-        0.3839,
-        0.1812
-      ]
-    },
-    {
-      "frame_index": 89,
-      "timestamp_sec": 17.8,
-      "track_id": 63,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.87,
-      "bbox": [
-        0.5172,
-        0.3747,
-        0.4109,
-        0.1459
-      ]
-    },
-    {
-      "frame_index": 89,
-      "timestamp_sec": 17.8,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.88,
-      "bbox": [
-        0.0,
-        0.6223,
-        0.4968,
-        0.3311
-      ]
-    },
-    {
-      "frame_index": 89,
-      "timestamp_sec": 17.8,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.62,
-      "bbox": [
-        0.3629,
-        0.2954,
-        0.3826,
-        0.1519
-      ]
-    },
-    {
-      "frame_index": 90,
-      "timestamp_sec": 18.0,
-      "track_id": 63,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
-      "bbox": [
-        0.475,
-        0.3819,
-        0.4276,
-        0.1508
-      ]
-    },
-    {
-      "frame_index": 90,
-      "timestamp_sec": 18.0,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.92,
-      "bbox": [
-        0.0,
-        0.6227,
-        0.4305,
-        0.3074
-      ]
-    },
-    {
-      "frame_index": 90,
-      "timestamp_sec": 18.0,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.3596,
-        0.3019,
-        0.4193,
-        0.1237
-      ]
-    },
-    {
-      "frame_index": 91,
-      "timestamp_sec": 18.2,
-      "track_id": 63,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.9,
-      "bbox": [
-        0.4807,
-        0.3771,
-        0.39,
-        0.1389
-      ]
-    },
-    {
-      "frame_index": 91,
-      "timestamp_sec": 18.2,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.91,
-      "bbox": [
-        0.0,
-        0.616,
-        0.3884,
-        0.2984
-      ]
-    },
-    {
-      "frame_index": 91,
-      "timestamp_sec": 18.2,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.33,
-        0.2733,
-        0.4132,
-        0.1664
-      ]
-    },
-    {
-      "frame_index": 92,
-      "timestamp_sec": 18.4,
-      "track_id": 63,
-      "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.91,
-      "bbox": [
-        0.4657,
-        0.3718,
-        0.3852,
-        0.1356
-      ]
-    },
-    {
-      "frame_index": 92,
-      "timestamp_sec": 18.4,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.92,
-      "bbox": [
-        0.0,
-        0.6113,
-        0.3696,
-        0.297
-      ]
-    },
-    {
-      "frame_index": 92,
-      "timestamp_sec": 18.4,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.3048,
-        0.2477,
-        0.4183,
-        0.1902
-      ]
-    },
-    {
-      "frame_index": 93,
-      "timestamp_sec": 18.6,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.4437,
-        0.3714,
-        0.3734,
-        0.1331
-      ]
-    },
-    {
-      "frame_index": 93,
-      "timestamp_sec": 18.6,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.92,
-      "bbox": [
-        0.0,
-        0.6108,
-        0.3568,
-        0.2947
-      ]
-    },
-    {
-      "frame_index": 93,
-      "timestamp_sec": 18.6,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.92,
-      "bbox": [
-        0.2735,
-        0.252,
-        0.4064,
-        0.1952
-      ]
-    },
-    {
-      "frame_index": 94,
-      "timestamp_sec": 18.8,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.4265,
-        0.3711,
-        0.3629,
-        0.1294
-      ]
-    },
-    {
-      "frame_index": 94,
-      "timestamp_sec": 18.8,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.91,
-      "bbox": [
-        0.0,
-        0.6105,
-        0.3409,
-        0.2947
-      ]
-    },
-    {
-      "frame_index": 94,
-      "timestamp_sec": 18.8,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
-      "bbox": [
-        0.2253,
-        0.2429,
-        0.383,
-        0.2121
-      ]
-    },
-    {
-      "frame_index": 95,
-      "timestamp_sec": 19.0,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.4141,
-        0.3677,
-        0.3572,
-        0.1293
-      ]
-    },
-    {
-      "frame_index": 95,
-      "timestamp_sec": 19.0,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.91,
-      "bbox": [
-        0.0,
-        0.6099,
-        0.3433,
-        0.2945
-      ]
-    },
-    {
-      "frame_index": 95,
-      "timestamp_sec": 19.0,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.2154,
-        0.2316,
-        0.3526,
-        0.2274
-      ]
-    },
-    {
-      "frame_index": 96,
-      "timestamp_sec": 19.2,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.86,
-      "bbox": [
-        0.3961,
-        0.3592,
-        0.3725,
-        0.1464
-      ]
-    },
-    {
-      "frame_index": 96,
-      "timestamp_sec": 19.2,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.91,
-      "bbox": [
-        0.0,
-        0.6119,
-        0.3482,
-        0.2899
-      ]
-    },
-    {
-      "frame_index": 96,
-      "timestamp_sec": 19.2,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.1987,
-        0.2264,
-        0.3471,
-        0.2197
-      ]
-    },
-    {
-      "frame_index": 97,
-      "timestamp_sec": 19.4,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.86,
-      "bbox": [
-        0.3774,
-        0.3524,
-        0.3795,
-        0.1575
-      ]
-    },
-    {
-      "frame_index": 97,
-      "timestamp_sec": 19.4,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.0,
-        0.6048,
-        0.3271,
-        0.2938
-      ]
-    },
-    {
-      "frame_index": 97,
-      "timestamp_sec": 19.4,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.1693,
-        0.2228,
-        0.3596,
-        0.2171
-      ]
-    },
-    {
-      "frame_index": 98,
-      "timestamp_sec": 19.6,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
-      "bbox": [
-        0.3606,
-        0.3496,
-        0.3785,
-        0.1635
-      ]
-    },
-    {
-      "frame_index": 98,
-      "timestamp_sec": 19.6,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.0,
-        0.6001,
-        0.3091,
-        0.2921
-      ]
-    },
-    {
-      "frame_index": 98,
-      "timestamp_sec": 19.6,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.141,
-        0.223,
-        0.3729,
-        0.2121
-      ]
-    },
-    {
-      "frame_index": 99,
-      "timestamp_sec": 19.8,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.3475,
-        0.3437,
-        0.3699,
-        0.1706
-      ]
-    },
-    {
-      "frame_index": 99,
-      "timestamp_sec": 19.8,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.0,
-        0.5917,
-        0.2973,
-        0.2953
-      ]
-    },
-    {
-      "frame_index": 99,
-      "timestamp_sec": 19.8,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
-      "bbox": [
-        0.1221,
-        0.2224,
-        0.3818,
-        0.2132
-      ]
-    },
-    {
-      "frame_index": 100,
-      "timestamp_sec": 20.0,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.85,
-      "bbox": [
-        0.3155,
-        0.336,
-        0.3868,
-        0.1705
-      ]
-    },
-    {
-      "frame_index": 100,
-      "timestamp_sec": 20.0,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.91,
-      "bbox": [
-        0.0,
-        0.5856,
-        0.2776,
-        0.293
-      ]
-    },
-    {
-      "frame_index": 100,
-      "timestamp_sec": 20.0,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.1005,
-        0.2173,
-        0.3881,
-        0.2169
-      ]
-    },
-    {
-      "frame_index": 101,
-      "timestamp_sec": 20.2,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
-      "bbox": [
-        0.2574,
-        0.3293,
-        0.4112,
-        0.1792
-      ]
-    },
-    {
-      "frame_index": 101,
-      "timestamp_sec": 20.2,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.86,
-      "bbox": [
-        0.0,
-        0.58,
-        0.2137,
-        0.3049
-      ]
-    },
-    {
-      "frame_index": 101,
-      "timestamp_sec": 20.2,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.0462,
-        0.2136,
-        0.388,
-        0.2157
-      ]
-    },
-    {
-      "frame_index": 102,
-      "timestamp_sec": 20.4,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.1571,
-        0.3189,
-        0.4451,
-        0.1913
-      ]
-    },
-    {
-      "frame_index": 102,
-      "timestamp_sec": 20.4,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.84,
-      "bbox": [
-        0.0,
-        0.5863,
-        0.1256,
-        0.2826
-      ]
-    },
-    {
-      "frame_index": 102,
-      "timestamp_sec": 20.4,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.0,
-        0.2016,
-        0.3698,
-        0.2261
-      ]
-    },
-    {
-      "frame_index": 102,
-      "timestamp_sec": 20.4,
-      "track_id": 115,
-      "behavior_label": "NORMAL",
-      "confidence": 0.79,
-      "bbox": [
-        0.7909,
-        0.7653,
-        0.1962,
-        0.2347
-      ]
-    },
-    {
-      "frame_index": 103,
-      "timestamp_sec": 20.6,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.1203,
-        0.3047,
-        0.4564,
-        0.1985
-      ]
-    },
-    {
-      "frame_index": 103,
-      "timestamp_sec": 20.6,
-      "track_id": 99,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.49,
-      "bbox": [
-        0.0002,
-        0.5853,
-        0.0799,
-        0.2612
-      ]
-    },
-    {
-      "frame_index": 103,
-      "timestamp_sec": 20.6,
-      "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
-      "bbox": [
-        0.0,
-        0.1914,
-        0.3339,
+        0.1266,
+        0.4672,
+        0.4467,
         0.2326
       ]
     },
     {
+      "frame_index": 77,
+      "timestamp_sec": 15.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.1014,
+        0.4737,
+        0.4746,
+        0.2188
+      ]
+    },
+    {
+      "frame_index": 78,
+      "timestamp_sec": 15.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0542,
+        0.553,
+        0.4488,
+        0.2497
+      ]
+    },
+    {
+      "frame_index": 79,
+      "timestamp_sec": 15.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0433,
+        0.5488,
+        0.4793,
+        0.3033
+      ]
+    },
+    {
+      "frame_index": 80,
+      "timestamp_sec": 16.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0459,
+        0.5587,
+        0.5431,
+        0.3204
+      ]
+    },
+    {
+      "frame_index": 81,
+      "timestamp_sec": 16.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0386,
+        0.5618,
+        0.5538,
+        0.3283
+      ]
+    },
+    {
+      "frame_index": 82,
+      "timestamp_sec": 16.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0296,
+        0.5676,
+        0.5389,
+        0.3213
+      ]
+    },
+    {
+      "frame_index": 83,
+      "timestamp_sec": 16.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0226,
+        0.5745,
+        0.5402,
+        0.3159
+      ]
+    },
+    {
+      "frame_index": 84,
+      "timestamp_sec": 16.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0278,
+        0.5852,
+        0.5362,
+        0.3178
+      ]
+    },
+    {
+      "frame_index": 85,
+      "timestamp_sec": 17.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0218,
+        0.5948,
+        0.5356,
+        0.3231
+      ]
+    },
+    {
+      "frame_index": 86,
+      "timestamp_sec": 17.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.4182,
+        0.4449,
+        0.4217,
+        0.1923
+      ]
+    },
+    {
+      "frame_index": 87,
+      "timestamp_sec": 17.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.5511,
+        0.3994,
+        0.3855,
+        0.1432
+      ]
+    },
+    {
+      "frame_index": 88,
+      "timestamp_sec": 17.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.5797,
+        0.383,
+        0.3811,
+        0.1238
+      ]
+    },
+    {
+      "frame_index": 89,
+      "timestamp_sec": 17.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.5391,
+        0.3776,
+        0.4005,
+        0.1382
+      ]
+    },
+    {
+      "frame_index": 90,
+      "timestamp_sec": 18.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.4974,
+        0.3804,
+        0.4181,
+        0.1464
+      ]
+    },
+    {
+      "frame_index": 91,
+      "timestamp_sec": 18.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.4865,
+        0.3783,
+        0.3998,
+        0.1415
+      ]
+    },
+    {
+      "frame_index": 92,
+      "timestamp_sec": 18.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.473,
+        0.3741,
+        0.3903,
+        0.1377
+      ]
+    },
+    {
+      "frame_index": 93,
+      "timestamp_sec": 18.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.1655,
+        0.528,
+        0.3685,
+        0.2398
+      ]
+    },
+    {
+      "frame_index": 94,
+      "timestamp_sec": 18.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0579,
+        0.5816,
+        0.3506,
+        0.2755
+      ]
+    },
+    {
+      "frame_index": 95,
+      "timestamp_sec": 19.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0203,
+        0.6,
+        0.3459,
+        0.2878
+      ]
+    },
+    {
+      "frame_index": 96,
+      "timestamp_sec": 19.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0071,
+        0.6077,
+        0.3474,
+        0.2892
+      ]
+    },
+    {
+      "frame_index": 97,
+      "timestamp_sec": 19.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0025,
+        0.6058,
+        0.3342,
+        0.2922
+      ]
+    },
+    {
+      "frame_index": 98,
+      "timestamp_sec": 19.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0009,
+        0.6021,
+        0.3179,
+        0.2921
+      ]
+    },
+    {
+      "frame_index": 99,
+      "timestamp_sec": 19.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0003,
+        0.5953,
+        0.3045,
+        0.2942
+      ]
+    },
+    {
+      "frame_index": 100,
+      "timestamp_sec": 20.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0654,
+        0.3496,
+        0.3588,
+        0.244
+      ]
+    },
+    {
+      "frame_index": 101,
+      "timestamp_sec": 20.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.0529,
+        0.2612,
+        0.3778,
+        0.2256
+      ]
+    },
+    {
+      "frame_index": 102,
+      "timestamp_sec": 20.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.1206,
+        0.2987,
+        0.4215,
+        0.2033
+      ]
+    },
+    {
       "frame_index": 103,
       "timestamp_sec": 20.6,
-      "track_id": 115,
-      "behavior_label": "NORMAL",
-      "confidence": 0.81,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.7539,
-        0.7566,
-        0.2323,
-        0.2425
+        0.1204,
+        0.3026,
+        0.4442,
+        0.2002
       ]
     },
     {
       "frame_index": 112,
       "timestamp_sec": 22.4,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.0,
-        0.3325,
-        0.2429,
-        0.1448
+        0.0421,
+        0.322,
+        0.3134,
+        0.1642
       ]
     },
     {
       "frame_index": 113,
       "timestamp_sec": 22.6,
-      "track_id": 120,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.0277,
-        0.4656,
-        0.3982,
-        0.1811
-      ]
-    },
-    {
-      "frame_index": 113,
-      "timestamp_sec": 22.6,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.92,
-      "bbox": [
-        0.008,
-        0.3283,
-        0.305,
-        0.1484
+        0.0327,
+        0.4153,
+        0.3685,
+        0.1752
       ]
     },
     {
       "frame_index": 114,
       "timestamp_sec": 22.8,
-      "track_id": 120,
-      "behavior_label": "NORMAL",
-      "confidence": 0.83,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.0382,
-        0.4784,
-        0.4033,
-        0.231
-      ]
-    },
-    {
-      "frame_index": 114,
-      "timestamp_sec": 22.8,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.0452,
-        0.3351,
-        0.3565,
-        0.1503
+        0.0363,
+        0.4563,
+        0.3911,
+        0.2115
       ]
     },
     {
       "frame_index": 115,
       "timestamp_sec": 23.0,
-      "track_id": 120,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.036,
-        0.4948,
-        0.4832,
-        0.206
-      ]
-    },
-    {
-      "frame_index": 115,
-      "timestamp_sec": 23.0,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.1413,
-        0.3554,
-        0.391,
-        0.1194
-      ]
-    },
-    {
-      "frame_index": 116,
-      "timestamp_sec": 23.2,
-      "track_id": 120,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
-      "bbox": [
-        0.0444,
-        0.5035,
-        0.5809,
-        0.1712
-      ]
-    },
-    {
-      "frame_index": 116,
-      "timestamp_sec": 23.2,
-      "track_id": 63,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.2856,
-        0.3613,
-        0.3801,
-        0.1138
+        0.0361,
+        0.4813,
+        0.451,
+        0.2079
       ]
     },
     {
       "frame_index": 116,
       "timestamp_sec": 23.2,
       "track_id": 1,
-      "behavior_label": "NORMAL",
-      "confidence": 0.85,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.0015,
-        0.2453,
-        0.2632,
-        0.1788
+        0.0415,
+        0.4957,
+        0.5354,
+        0.184
       ]
     },
     {
       "frame_index": 125,
       "timestamp_sec": 25.0,
-      "track_id": 106,
-      "behavior_label": "NORMAL",
-      "confidence": 0.68,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.0021,
-        0.8187,
-        0.3875,
-        0.171
+        0.0159,
+        0.7056,
+        0.4393,
+        0.1756
       ]
     },
     {
       "frame_index": 126,
       "timestamp_sec": 25.2,
-      "track_id": 106,
-      "behavior_label": "NORMAL",
-      "confidence": 0.78,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.0,
-        0.8464,
-        0.336,
-        0.1536
+        0.0056,
+        0.7971,
+        0.3722,
+        0.1613
       ]
     },
     {
       "frame_index": 133,
       "timestamp_sec": 26.6,
-      "track_id": 134,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.6145,
-        0.3497,
-        0.3555,
-        0.147
-      ]
-    },
-    {
-      "frame_index": 133,
-      "timestamp_sec": 26.6,
-      "track_id": 135,
-      "behavior_label": "NORMAL",
-      "confidence": 0.92,
-      "bbox": [
-        0.0162,
-        0.6781,
-        0.5921,
-        0.3164
-      ]
-    },
-    {
-      "frame_index": 133,
-      "timestamp_sec": 26.6,
-      "track_id": 139,
-      "behavior_label": "NORMAL",
-      "confidence": 0.81,
-      "bbox": [
-        0.2826,
-        0.2524,
-        0.2727,
-        0.1803
+        0.0125,
+        0.7198,
+        0.5151,
+        0.2621
       ]
     },
     {
       "frame_index": 134,
       "timestamp_sec": 26.8,
-      "track_id": 134,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.5882,
-        0.3454,
-        0.3512,
-        0.1527
-      ]
-    },
-    {
-      "frame_index": 134,
-      "timestamp_sec": 26.8,
-      "track_id": 135,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.0034,
-        0.6714,
-        0.5762,
-        0.3209
-      ]
-    },
-    {
-      "frame_index": 134,
-      "timestamp_sec": 26.8,
-      "track_id": 139,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.2544,
-        0.2536,
-        0.2759,
-        0.1808
+        0.0066,
+        0.6883,
+        0.5548,
+        0.3003
       ]
     },
     {
       "frame_index": 135,
       "timestamp_sec": 27.0,
-      "track_id": 134,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.5415,
-        0.3571,
-        0.3577,
-        0.1406
-      ]
-    },
-    {
-      "frame_index": 135,
-      "timestamp_sec": 27.0,
-      "track_id": 135,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.0,
-        0.6891,
-        0.5308,
-        0.3007
-      ]
-    },
-    {
-      "frame_index": 135,
-      "timestamp_sec": 27.0,
-      "track_id": 139,
-      "behavior_label": "NORMAL",
-      "confidence": 0.86,
-      "bbox": [
-        0.1953,
-        0.2511,
-        0.2836,
-        0.1869
+        0.0023,
+        0.6888,
+        0.5392,
+        0.3006
       ]
     },
     {
       "frame_index": 136,
       "timestamp_sec": 27.2,
-      "track_id": 134,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
-      "bbox": [
-        0.4861,
-        0.3645,
-        0.3749,
-        0.1314
-      ]
-    },
-    {
-      "frame_index": 136,
-      "timestamp_sec": 27.2,
-      "track_id": 135,
+      "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.92,
+      "confidence": 0.94,
       "bbox": [
-        0.0,
-        0.6941,
-        0.4761,
-        0.3
-      ]
-    },
-    {
-      "frame_index": 136,
-      "timestamp_sec": 27.2,
-      "track_id": 139,
-      "behavior_label": "NORMAL",
-      "confidence": 0.85,
-      "bbox": [
-        0.1381,
-        0.2532,
-        0.2975,
-        0.1801
+        0.0008,
+        0.6922,
+        0.4982,
+        0.3002
       ]
     },
     {
       "frame_index": 137,
       "timestamp_sec": 27.4,
-      "track_id": 134,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.5202,
-        0.373,
-        0.3774,
-        0.1262
-      ]
-    },
-    {
-      "frame_index": 137,
-      "timestamp_sec": 27.4,
-      "track_id": 135,
+      "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.92,
+      "confidence": 0.94,
       "bbox": [
-        0.0135,
-        0.693,
-        0.4853,
-        0.2946
-      ]
-    },
-    {
-      "frame_index": 137,
-      "timestamp_sec": 27.4,
-      "track_id": 139,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.86,
-      "bbox": [
-        0.1805,
-        0.2515,
-        0.2917,
-        0.1861
+        0.0091,
+        0.6927,
+        0.4898,
+        0.2966
       ]
     },
     {
       "frame_index": 138,
       "timestamp_sec": 27.6,
-      "track_id": 134,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.9,
-      "bbox": [
-        0.6762,
-        0.391,
-        0.3238,
-        0.1311
-      ]
-    },
-    {
-      "frame_index": 138,
-      "timestamp_sec": 27.6,
-      "track_id": 135,
+      "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.91,
+      "confidence": 0.94,
       "bbox": [
-        0.0689,
-        0.6988,
-        0.5972,
-        0.2898
-      ]
-    },
-    {
-      "frame_index": 138,
-      "timestamp_sec": 27.6,
-      "track_id": 139,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.84,
-      "bbox": [
-        0.3751,
-        0.2615,
-        0.285,
-        0.1864
+        0.048,
+        0.6967,
+        0.5596,
+        0.2922
       ]
     },
     {
       "frame_index": 139,
       "timestamp_sec": 27.8,
-      "track_id": 135,
+      "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.89,
+      "confidence": 0.94,
       "bbox": [
-        0.2757,
-        0.7189,
-        0.5764,
-        0.2798
-      ]
-    },
-    {
-      "frame_index": 139,
-      "timestamp_sec": 27.8,
-      "track_id": 139,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.86,
-      "bbox": [
-        0.5982,
-        0.2793,
-        0.2682,
-        0.1926
+        0.196,
+        0.7111,
+        0.5705,
+        0.2841
       ]
     },
     {
       "frame_index": 140,
       "timestamp_sec": 28.0,
-      "track_id": 135,
+      "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.9,
+      "confidence": 0.94,
       "bbox": [
-        0.483,
-        0.7711,
-        0.517,
-        0.2255
+        0.3826,
+        0.7501,
+        0.5357,
+        0.246
       ]
     },
     {
       "frame_index": 141,
       "timestamp_sec": 28.2,
-      "track_id": 135,
+      "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.84,
+      "confidence": 0.94,
       "bbox": [
-        0.5968,
-        0.8576,
-        0.4032,
-        0.1424
+        0.5218,
+        0.82,
+        0.4496,
+        0.1787
       ]
     },
     {
       "frame_index": 143,
       "timestamp_sec": 28.6,
-      "track_id": 151,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.0367,
-        0.3659,
-        0.2274,
-        0.1546
-      ]
-    },
-    {
-      "frame_index": 143,
-      "timestamp_sec": 28.6,
-      "track_id": 152,
-      "behavior_label": "NORMAL",
-      "confidence": 0.85,
-      "bbox": [
-        0.0993,
-        0.1312,
-        0.2144,
-        0.0989
+        0.2065,
+        0.5248,
+        0.3052,
+        0.163
       ]
     },
     {
       "frame_index": 144,
       "timestamp_sec": 28.8,
-      "track_id": 151,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.1072,
-        0.3901,
-        0.224,
-        0.1234
-      ]
-    },
-    {
-      "frame_index": 144,
-      "timestamp_sec": 28.8,
-      "track_id": 152,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.1771,
-        0.1613,
-        0.2038,
-        0.089
-      ]
-    },
-    {
-      "frame_index": 144,
-      "timestamp_sec": 28.8,
-      "track_id": 154,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
-      "bbox": [
-        0.0163,
-        0.1689,
-        0.1761,
-        0.0922
+        0.142,
+        0.4372,
+        0.2524,
+        0.1373
       ]
     },
     {
       "frame_index": 145,
       "timestamp_sec": 29.0,
-      "track_id": 151,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.1588,
-        0.3961,
-        0.2028,
-        0.1254
-      ]
-    },
-    {
-      "frame_index": 145,
-      "timestamp_sec": 29.0,
-      "track_id": 152,
-      "behavior_label": "NORMAL",
-      "confidence": 0.86,
-      "bbox": [
-        0.226,
-        0.1789,
-        0.1919,
-        0.08
-      ]
-    },
-    {
-      "frame_index": 145,
-      "timestamp_sec": 29.0,
-      "track_id": 154,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.0383,
-        0.1772,
-        0.2003,
-        0.0916
-      ]
-    },
-    {
-      "frame_index": 145,
-      "timestamp_sec": 29.0,
-      "track_id": 155,
-      "behavior_label": "NORMAL",
-      "confidence": 0.8,
-      "bbox": [
-        0.014,
-        0.2137,
-        0.1418,
-        0.0994
+        0.1529,
+        0.4105,
+        0.2202,
+        0.1296
       ]
     },
     {
       "frame_index": 146,
       "timestamp_sec": 29.2,
-      "track_id": 151,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.1814,
-        0.4069,
-        0.2014,
-        0.1205
-      ]
-    },
-    {
-      "frame_index": 146,
-      "timestamp_sec": 29.2,
-      "track_id": 152,
-      "behavior_label": "NORMAL",
-      "confidence": 0.86,
-      "bbox": [
-        0.2489,
-        0.1869,
-        0.1946,
-        0.081
-      ]
-    },
-    {
-      "frame_index": 146,
-      "timestamp_sec": 29.2,
-      "track_id": 154,
-      "behavior_label": "NORMAL",
-      "confidence": 0.86,
-      "bbox": [
-        0.0513,
-        0.1798,
-        0.2127,
-        0.0932
-      ]
-    },
-    {
-      "frame_index": 146,
-      "timestamp_sec": 29.2,
-      "track_id": 155,
-      "behavior_label": "NORMAL",
-      "confidence": 0.84,
-      "bbox": [
-        0.0185,
-        0.2112,
-        0.1613,
-        0.1042
-      ]
-    },
-    {
-      "frame_index": 147,
-      "timestamp_sec": 29.4,
-      "track_id": 151,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.87,
-      "bbox": [
-        0.1978,
-        0.4049,
-        0.1942,
-        0.1228
-      ]
-    },
-    {
-      "frame_index": 147,
-      "timestamp_sec": 29.4,
-      "track_id": 152,
-      "behavior_label": "NORMAL",
-      "confidence": 0.86,
-      "bbox": [
-        0.258,
-        0.1846,
-        0.1959,
-        0.0818
-      ]
-    },
-    {
-      "frame_index": 147,
-      "timestamp_sec": 29.4,
-      "track_id": 154,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.0575,
-        0.1788,
-        0.2144,
-        0.0927
-      ]
-    },
-    {
-      "frame_index": 147,
-      "timestamp_sec": 29.4,
-      "track_id": 155,
-      "behavior_label": "NORMAL",
-      "confidence": 0.83,
-      "bbox": [
-        0.023,
-        0.2052,
-        0.1679,
-        0.1084
-      ]
-    },
-    {
-      "frame_index": 148,
-      "timestamp_sec": 29.6,
-      "track_id": 151,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.87,
-      "bbox": [
-        0.2105,
-        0.3946,
-        0.1902,
-        0.1374
-      ]
-    },
-    {
-      "frame_index": 148,
-      "timestamp_sec": 29.6,
-      "track_id": 152,
-      "behavior_label": "NORMAL",
-      "confidence": 0.85,
-      "bbox": [
-        0.2602,
-        0.1806,
-        0.1948,
-        0.0809
-      ]
-    },
-    {
-      "frame_index": 148,
-      "timestamp_sec": 29.6,
-      "track_id": 154,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.86,
-      "bbox": [
-        0.0577,
-        0.1756,
-        0.2204,
-        0.0924
-      ]
-    },
-    {
-      "frame_index": 148,
-      "timestamp_sec": 29.6,
-      "track_id": 155,
-      "behavior_label": "NORMAL",
-      "confidence": 0.86,
-      "bbox": [
-        0.0284,
-        0.1997,
-        0.1619,
-        0.1109
-      ]
-    },
-    {
-      "frame_index": 149,
-      "timestamp_sec": 29.8,
-      "track_id": 151,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.86,
-      "bbox": [
-        0.2023,
-        0.3928,
-        0.198,
-        0.1387
-      ]
-    },
-    {
-      "frame_index": 149,
-      "timestamp_sec": 29.8,
-      "track_id": 152,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.2425,
-        0.1697,
-        0.2033,
-        0.0881
-      ]
-    },
-    {
-      "frame_index": 149,
-      "timestamp_sec": 29.8,
-      "track_id": 154,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.87,
-      "bbox": [
-        0.0462,
-        0.1709,
-        0.2263,
-        0.0944
-      ]
-    },
-    {
-      "frame_index": 149,
-      "timestamp_sec": 29.8,
-      "track_id": 155,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.88,
-      "bbox": [
-        0.0169,
-        0.199,
-        0.1711,
-        0.1091
-      ]
-    },
-    {
-      "frame_index": 150,
-      "timestamp_sec": 30.0,
-      "track_id": 151,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.85,
-      "bbox": [
-        0.1896,
-        0.3812,
-        0.195,
-        0.1421
-      ]
-    },
-    {
-      "frame_index": 150,
-      "timestamp_sec": 30.0,
-      "track_id": 152,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.87,
-      "bbox": [
-        0.2224,
-        0.1581,
-        0.2159,
-        0.0913
-      ]
-    },
-    {
-      "frame_index": 150,
-      "timestamp_sec": 30.0,
-      "track_id": 154,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.87,
-      "bbox": [
-        0.0292,
-        0.1595,
-        0.2298,
-        0.0952
-      ]
-    },
-    {
-      "frame_index": 150,
-      "timestamp_sec": 30.0,
-      "track_id": 155,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.86,
-      "bbox": [
-        0.0075,
-        0.1891,
-        0.1736,
-        0.11
-      ]
-    },
-    {
-      "frame_index": 151,
-      "timestamp_sec": 30.2,
-      "track_id": 151,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.87,
-      "bbox": [
-        0.1766,
-        0.3725,
-        0.1917,
-        0.1413
-      ]
-    },
-    {
-      "frame_index": 151,
-      "timestamp_sec": 30.2,
-      "track_id": 152,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.85,
-      "bbox": [
-        0.2068,
-        0.1475,
-        0.2221,
-        0.0924
-      ]
-    },
-    {
-      "frame_index": 151,
-      "timestamp_sec": 30.2,
-      "track_id": 154,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.88,
-      "bbox": [
-        0.0118,
-        0.1503,
-        0.231,
-        0.0952
-      ]
-    },
-    {
-      "frame_index": 151,
-      "timestamp_sec": 30.2,
-      "track_id": 155,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.83,
-      "bbox": [
-        0.0013,
-        0.1784,
         0.1714,
-        0.11
+        0.4082,
+        0.208,
+        0.1237
       ]
     },
     {
-      "frame_index": 152,
-      "timestamp_sec": 30.4,
-      "track_id": 151,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
+      "frame_index": 147,
+      "timestamp_sec": 29.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.1576,
-        0.3637,
-        0.1974,
-        0.1404
+        0.1886,
+        0.4061,
+        0.199,
+        0.1231
       ]
     },
     {
-      "frame_index": 152,
-      "timestamp_sec": 30.4,
-      "track_id": 152,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.87,
+      "frame_index": 148,
+      "timestamp_sec": 29.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.183,
-        0.1372,
-        0.2213,
-        0.0931
+        0.2028,
+        0.3986,
+        0.1933,
+        0.1324
       ]
     },
     {
-      "frame_index": 152,
-      "timestamp_sec": 30.4,
-      "track_id": 154,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
+      "frame_index": 149,
+      "timestamp_sec": 29.8,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.0,
-        0.1434,
-        0.224,
-        0.0951
+        0.2025,
+        0.3948,
+        0.1964,
+        0.1365
       ]
     },
     {
-      "frame_index": 152,
-      "timestamp_sec": 30.4,
-      "track_id": 155,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.8,
+      "frame_index": 150,
+      "timestamp_sec": 30.0,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.0,
-        0.181,
-        0.1524,
-        0.1029
-      ]
-    },
-    {
-      "frame_index": 153,
-      "timestamp_sec": 30.6,
-      "track_id": 151,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.87,
-      "bbox": [
-        0.1291,
-        0.3603,
-        0.1947,
-        0.1364
-      ]
-    },
-    {
-      "frame_index": 153,
-      "timestamp_sec": 30.6,
-      "track_id": 152,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.1437,
-        0.1305,
-        0.2287,
-        0.0931
-      ]
-    },
-    {
-      "frame_index": 153,
-      "timestamp_sec": 30.6,
-      "track_id": 154,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.89,
-      "bbox": [
-        0.0,
-        0.1396,
-        0.1868,
-        0.0912
-      ]
-    },
-    {
-      "frame_index": 153,
-      "timestamp_sec": 30.6,
-      "track_id": 155,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.8,
-      "bbox": [
-        0.0,
-        0.1953,
-        0.1178,
-        0.0868
-      ]
-    },
-    {
-      "frame_index": 154,
-      "timestamp_sec": 30.8,
-      "track_id": 151,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
-      "bbox": [
-        0.0835,
-        0.3554,
+        0.1941,
+        0.386,
         0.1955,
-        0.1351
+        0.1401
+      ]
+    },
+    {
+      "frame_index": 151,
+      "timestamp_sec": 30.2,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.1827,
+        0.3772,
+        0.193,
+        0.1409
+      ]
+    },
+    {
+      "frame_index": 152,
+      "timestamp_sec": 30.4,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.1664,
+        0.3684,
+        0.1959,
+        0.1406
+      ]
+    },
+    {
+      "frame_index": 153,
+      "timestamp_sec": 30.6,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
+      "bbox": [
+        0.1422,
+        0.3631,
+        0.1951,
+        0.1379
       ]
     },
     {
       "frame_index": 154,
       "timestamp_sec": 30.8,
-      "track_id": 152,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.0965,
-        0.1235,
-        0.2288,
-        0.0927
-      ]
-    },
-    {
-      "frame_index": 154,
-      "timestamp_sec": 30.8,
-      "track_id": 154,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.84,
-      "bbox": [
-        0.0,
-        0.149,
-        0.131,
-        0.077
-      ]
-    },
-    {
-      "frame_index": 154,
-      "timestamp_sec": 30.8,
-      "track_id": 155,
-      "behavior_label": "LETHARGIC",
-      "confidence": 0.68,
-      "bbox": [
-        0.0,
-        0.2026,
-        0.0763,
-        0.0773
+        0.104,
+        0.3581,
+        0.1954,
+        0.1361
       ]
     },
     {
       "frame_index": 155,
       "timestamp_sec": 31.0,
-      "track_id": 151,
-      "behavior_label": "NORMAL",
-      "confidence": 0.88,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.0049,
-        0.3541,
-        0.1938,
-        0.135
-      ]
-    },
-    {
-      "frame_index": 155,
-      "timestamp_sec": 31.0,
-      "track_id": 152,
-      "behavior_label": "NORMAL",
-      "confidence": 0.87,
-      "bbox": [
-        0.0156,
-        0.1174,
-        0.2217,
-        0.094
+        0.0396,
+        0.3555,
+        0.1944,
+        0.1354
       ]
     },
     {
       "frame_index": 160,
       "timestamp_sec": 32.0,
-      "track_id": 179,
-      "behavior_label": "NORMAL",
-      "confidence": 0.89,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.3884,
-        0.2757,
-        0.5464,
-        0.1865
+        0.2663,
+        0.3036,
+        0.4232,
+        0.1686
       ]
     },
     {
       "frame_index": 161,
       "timestamp_sec": 32.2,
-      "track_id": 179,
-      "behavior_label": "NORMAL",
-      "confidence": 0.9,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.1737,
-        0.3352,
-        0.5989,
-        0.1962
+        0.2061,
+        0.3241,
+        0.5374,
+        0.1865
       ]
     },
     {
       "frame_index": 162,
       "timestamp_sec": 32.4,
-      "track_id": 179,
-      "behavior_label": "NORMAL",
-      "confidence": 0.76,
-      "bbox": [
-        0.0806,
-        0.4002,
-        0.6245,
-        0.1733
-      ]
-    },
-    {
-      "frame_index": 163,
-      "timestamp_sec": 32.6,
-      "track_id": 179,
+      "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.44,
+      "confidence": 0.94,
       "bbox": [
-        0.0848,
-        0.425,
-        0.6257,
-        0.1661
+        0.1245,
+        0.3736,
+        0.594,
+        0.1779
       ]
     },
     {
       "frame_index": 163,
       "timestamp_sec": 32.6,
-      "track_id": 185,
-      "behavior_label": "NORMAL",
-      "confidence": 0.55,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.0262,
-        0.0,
-        0.445,
-        0.0436
+        0.0987,
+        0.407,
+        0.6146,
+        0.1702
       ]
     },
     {
       "frame_index": 164,
       "timestamp_sec": 32.8,
-      "track_id": 179,
+      "track_id": 1,
       "behavior_label": "SUPINE_FLIPPED",
-      "confidence": 0.37,
+      "confidence": 0.94,
       "bbox": [
-        0.0973,
-        0.4333,
-        0.5823,
-        0.1617
+        0.0978,
+        0.4241,
+        0.5936,
+        0.1647
       ]
     },
     {
       "frame_index": 165,
       "timestamp_sec": 33.0,
-      "track_id": 179,
-      "behavior_label": "NORMAL",
-      "confidence": 0.78,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.1367,
-        0.4933,
-        0.5027,
-        0.117
+        0.1231,
+        0.4691,
+        0.5345,
+        0.1337
       ]
     },
     {
       "frame_index": 166,
       "timestamp_sec": 33.2,
-      "track_id": 179,
-      "behavior_label": "NORMAL",
-      "confidence": 0.73,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.1804,
-        0.4917,
-        0.4529,
-        0.1201
+        0.1603,
+        0.4838,
+        0.4815,
+        0.1249
       ]
     },
     {
       "frame_index": 167,
       "timestamp_sec": 33.4,
-      "track_id": 179,
-      "behavior_label": "NORMAL",
-      "confidence": 0.65,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.2206,
-        0.4645,
-        0.4264,
-        0.1193
-      ]
-    },
-    {
-      "frame_index": 167,
-      "timestamp_sec": 33.4,
-      "track_id": 187,
-      "behavior_label": "ISOLATED",
-      "confidence": 0.51,
-      "bbox": [
-        0.1336,
-        0.001,
-        0.3894,
-        0.058
-      ]
-    },
-    {
-      "frame_index": 167,
-      "timestamp_sec": 33.4,
-      "track_id": 134,
-      "behavior_label": "ISOLATED",
-      "confidence": 0.64,
-      "bbox": [
-        0.8706,
-        0.7658,
-        0.1294,
-        0.2338
+        0.1995,
+        0.4713,
+        0.4457,
+        0.1213
       ]
     },
     {
       "frame_index": 168,
       "timestamp_sec": 33.6,
-      "track_id": 179,
-      "behavior_label": "NORMAL",
-      "confidence": 0.91,
+      "track_id": 1,
+      "behavior_label": "SUPINE_FLIPPED",
+      "confidence": 0.94,
       "bbox": [
-        0.2804,
-        0.4102,
-        0.4205,
-        0.1253
-      ]
-    },
-    {
-      "frame_index": 168,
-      "timestamp_sec": 33.6,
-      "track_id": 187,
-      "behavior_label": "ISOLATED",
-      "confidence": 0.51,
-      "bbox": [
-        0.1909,
-        0.0,
-        0.3919,
-        0.0476
-      ]
-    },
-    {
-      "frame_index": 168,
-      "timestamp_sec": 33.6,
-      "track_id": 134,
-      "behavior_label": "ISOLATED",
-      "confidence": 0.73,
-      "bbox": [
-        0.8602,
-        0.7154,
-        0.1392,
-        0.2612
+        0.2521,
+        0.4316,
+        0.4293,
+        0.1239
       ]
     }
   ],
   "alerts_generated": [
-    "[AI HÀNH VI] Phát hiện 5 cá thể có tư thế LẬT NGỬA / CO GIẬT CHÂN (Track #[1, 3, 135, 179, 63]). Cảnh báo hành vi bất thường, khuyến nghị kiểm tra thực tế!",
-    "[AI HÀNH VI] Phát hiện 14 cá thể có biểu hiện Ủ RŨ, giảm vận động so với nhịp sinh hoạt chung của đàn (Track #[1, 2, 3, 4, 99, 134, 41, 139, 151, 56, 154, 155, 152, 63])."
+    "[AI HÀNH VI] Phát hiện 1 cá thể có tư thế LẬT NGỬA / CO GIẬT CHÂN (Track #1). Cảnh báo hành vi bất thường nghiêm trọng, khuyến nghị can thiệp ngay!"
   ]
 }

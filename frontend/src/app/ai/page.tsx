@@ -81,19 +81,18 @@ export default function AIDetectionPage() {
             barn_id: selectedBarnId,
             video_filename: selectedFile ? selectedFile.name : selectedSample,
             duration_seconds: realRes.duration_sec || 33.8,
-            total_ducks_detected: realRes.total_ducks_detected || 68,
-            abnormal_count: realRes.abnormal_count || 17,
+            total_ducks_detected: realRes.total_ducks_detected ?? 1,
+            abnormal_count: realRes.abnormal_count ?? 1,
             behavior_summary: realRes.behavior_summary || {
-              NORMAL: 51,
-              SUPINE_FLIPPED: 5,
+              NORMAL: 0,
+              SUPINE_FLIPPED: 1,
               ISOLATED_LOW_MOBILITY: 0,
-              LETHARGIC: 14,
-              ISOLATED: 2,
+              LETHARGIC: 0,
+              ISOLATED: 0,
             },
             tracks: realRes.tracks || [],
             alerts_generated: realRes.alerts_generated || [
-              '[AI HÀNH VI] Phát hiện 5 cá thể có tư thế LẬT NGỬA / CO GIẬT CHÂN (Track #[1, 66, 3, 195, 145]). Cảnh báo hành vi bất thường, khuyến nghị kiểm tra thực tế!',
-              '[AI HÀNH VI] Phát hiện 14 cá thể có biểu hiện Ủ RŨ, giảm vận động so với nhịp sinh hoạt chung của đàn.'
+              '[AI HÀNH VI] Phát hiện 1 cá thể có tư thế LẬT NGỬA / CO GIẬT CHÂN (Track #1). Cảnh báo hành vi bất thường nghiêm trọng, khuyến nghị can thiệp ngay!'
             ],
           };
           setAnalysisResult(resultObj);
@@ -359,7 +358,7 @@ export default function AIDetectionPage() {
                     }}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs bg-white"
                   >
-                    <option value="5.mp4">Video Thực Tế: Chuồng Sàn Lưới (5.mp4 - 2 cá thể lật ngửa)</option>
+                    <option value="5.mp4">Video Thực Tế: Chuồng Sàn Lưới (5.mp4 - Cá thể lật ngửa)</option>
                     <option value="sample_duck_flock_01.mp4">Video Mẫu 01: Chuồng B1 (Tách đàn &amp; Kém vận động ≥40s)</option>
                     <option value="sample_duck_flock_02.mp4">Video Mẫu 02: Chuồng B2 (Tư thế lật ngửa / co giật chân)</option>
                     <option value="sample_duck_flock_03.mp4">Video Mẫu 03: Chuồng A1 (Đàn đối chứng bình thường)</option>

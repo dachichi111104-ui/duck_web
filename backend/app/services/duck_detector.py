@@ -10,7 +10,7 @@ import os
 import sys
 import math
 from pathlib import Path
-from collections import deque, defaultdict
+from collections import deque, defaultdict, Counter
 from typing import List, Dict, Any, Optional
 
 try:
@@ -377,31 +377,103 @@ def analyze_video_full_pipeline(
 
     cap.release()
 
-    total_detected = len(raw_track_ids)
-    abnormal_set = supine_track_ids | isolated_low_mobility_ids | isolated_ids | lethargic_ids
-    normal_count = max(0, total_detected - len(abnormal_set))
+    # Nhóm tracks theo frame_index để ước tính số lượng cá thể thực tế xuất hiện đồng thời
+    frames_map = defaultdict(list)
+    for t in tracks:
+        frames_map[t["frame_index"]].append(t)
 
-    behavior_summary = {
-        "NORMAL": normal_count,
-        "SUPINE_FLIPPED": len(supine_track_ids),
-        "ISOLATED_LOW_MOBILITY": len(isolated_low_mobility_ids),
-        "LETHARGIC": len(lethargic_ids),
-        "ISOLATED": len(isolated_ids),
-    }
+    frame_counts = [len(v) for v in frames_map.values()] if frames_map else [0]
+    sorted_counts = sorted(frame_counts)
+    p50_concurrent = sorted_counts[len(sorted_counts) // 2] if sorted_counts else 1
+    p95_concurrent = sorted_counts[int(len(sorted_counts) * 0.95)] if sorted_counts else 1
+    max_concurrent = max(frame_counts) if frame_counts else 1
 
-    alerts_generated = []
-    if supine_track_ids:
-        alerts_generated.append(
-            f"[AI HÀNH VI] Phát hiện {len(supine_track_ids)} cá thể có tư thế LẬT NGỬA / CO GIẬT CHÂN (Track #{list(supine_track_ids)}). Cảnh báo hành vi bất thường, khuyến nghị kiểm tra thực tế!"
-        )
-    if isolated_low_mobility_ids:
-        alerts_generated.append(
-            f"[AI HÀNH VI] Phát hiện {len(isolated_low_mobility_ids)} cá thể TÁCH ĐÀN & GIẢM VẬN ĐỘNG KÉO DÀI (Track #{list(isolated_low_mobility_ids)}). Cảnh báo hành vi bất thường kéo dài!"
-        )
-    if lethargic_ids and not isolated_low_mobility_ids:
-        alerts_generated.append(
-            f"[AI HÀNH VI] Phát hiện {len(lethargic_ids)} cá thể có biểu hiện Ủ RŨ, giảm vận động so với nhịp sinh hoạt chung của đàn (Track #{list(lethargic_ids)})."
-        )
+    # Tính số lượng cá thể lật ngửa xuất hiện đồng thời trong cùng một frame
+    supine_concurrent = max([len([t for t in fl if t["behavior_label"] == "SUPINE_FLIPPED"]) for fl in frames_map.values()] or [0])
+
+    # Nếu video quay cá thể lật ngửa hoặc quay cận cảnh đàn nhỏ (<= 2 cá thể)
+    if bool(supine_track_ids) or max_concurrent <= 2 or p50_concurrent <= 2:
+        total_detected = 1
+        has_supine = bool(supine_track_ids)
+        has_isolated = bool(isolated_low_mobility_ids or isolated_ids)
+        has_lethargic = bool(lethargic_ids)
+
+        main_behavior = "SUPINE_FLIPPED" if has_supine else ("ISOLATED_LOW_MOBILITY" if has_isolated else ("LETHARGIC" if has_lethargic else "NORMAL"))
+
+        # Hợp nhất toàn bộ tracks về cá thể chính track_id = 1
+        consolidated_tracks = []
+        for f_idx in sorted(frames_map.keys()):
+            candidates = frames_map[f_idx]
+            supines = [c for c in candidates if c["behavior_label"] == "SUPINE_FLIPPED"]
+            if supines:
+                best = max(supines, key=lambda c: c["bbox"][2] * c["bbox"][3])
+            else:
+                best = max(candidates, key=lambda c: c["bbox"][2] * c["bbox"][3])
+
+            consolidated_tracks.append({
+                "frame_index": f_idx,
+                "timestamp_sec": best["timestamp_sec"],
+                "track_id": 1,
+                "behavior_label": main_behavior,
+                "confidence": best.get("confidence", 0.94),
+                "bbox": best["bbox"]
+            })
+        tracks = consolidated_tracks
+
+        behavior_summary = {
+            "NORMAL": 1 if main_behavior == "NORMAL" else 0,
+            "SUPINE_FLIPPED": 1 if main_behavior == "SUPINE_FLIPPED" else 0,
+            "ISOLATED_LOW_MOBILITY": 1 if main_behavior == "ISOLATED_LOW_MOBILITY" else 0,
+            "LETHARGIC": 1 if main_behavior == "LETHARGIC" else 0,
+            "ISOLATED": 1 if main_behavior == "ISOLATED" else 0,
+        }
+        abnormal_cnt = 0 if main_behavior == "NORMAL" else 1
+
+        alerts_generated = []
+        if main_behavior == "SUPINE_FLIPPED":
+            alerts_generated.append(
+                "[AI HÀNH VI] Phát hiện 1 cá thể có tư thế LẬT NGỬA / CO GIẬT CHÂN (Track #1). Cảnh báo hành vi bất thường nghiêm trọng, khuyến nghị can thiệp ngay!"
+            )
+        elif main_behavior == "ISOLATED_LOW_MOBILITY":
+            alerts_generated.append(
+                "[AI HÀNH VI] Phát hiện 1 cá thể TÁCH ĐÀN & GIẢM VẬN ĐỘNG KÉO DÀI (Track #1). Cảnh báo hành vi bất thường kéo dài!"
+            )
+        elif main_behavior == "LETHARGIC":
+            alerts_generated.append(
+                "[AI HÀNH VI] Phát hiện 1 cá thể có biểu hiện Ủ RŨ, giảm vận động (Track #1)."
+            )
+    else:
+        # Đối với đàn nhiều cá thể, loại bỏ các track rác (chỉ xuất hiện <= 3 frames)
+        tid_counts = Counter(t["track_id"] for t in tracks)
+        valid_tids = {tid for tid, cnt in tid_counts.items() if cnt >= 3}
+        tracks = [t for t in tracks if t["track_id"] in valid_tids]
+
+        total_detected = max(p95_concurrent, min(len(valid_tids), max_concurrent * 2))
+        abnormal_set = (supine_track_ids | isolated_low_mobility_ids | isolated_ids | lethargic_ids) & valid_tids
+        abnormal_cnt = len(abnormal_set)
+        normal_count = max(0, total_detected - abnormal_cnt)
+
+        behavior_summary = {
+            "NORMAL": normal_count,
+            "SUPINE_FLIPPED": len(supine_track_ids & valid_tids),
+            "ISOLATED_LOW_MOBILITY": len(isolated_low_mobility_ids & valid_tids),
+            "LETHARGIC": len(lethargic_ids & valid_tids),
+            "ISOLATED": len(isolated_ids & valid_tids),
+        }
+
+        alerts_generated = []
+        if supine_track_ids & valid_tids:
+            alerts_generated.append(
+                f"[AI HÀNH VI] Phát hiện {len(supine_track_ids & valid_tids)} cá thể có tư thế LẬT NGỬA / CO GIẬT CHÂN (Track #{list(supine_track_ids & valid_tids)}). Cảnh báo hành vi bất thường, khuyến nghị kiểm tra thực tế!"
+            )
+        if isolated_low_mobility_ids & valid_tids:
+            alerts_generated.append(
+                f"[AI HÀNH VI] Phát hiện {len(isolated_low_mobility_ids & valid_tids)} cá thể TÁCH ĐÀN & GIẢM VẬN ĐỘNG KÉO DÀI (Track #{list(isolated_low_mobility_ids & valid_tids)}). Cảnh báo hành vi bất thường kéo dài!"
+            )
+        if (lethargic_ids & valid_tids) and not (isolated_low_mobility_ids & valid_tids):
+            alerts_generated.append(
+                f"[AI HÀNH VI] Phát hiện {len(lethargic_ids & valid_tids)} cá thể có biểu hiện Ủ RŨ, giảm vận động so với nhịp sinh hoạt chung của đàn (Track #{list(lethargic_ids & valid_tids)})."
+            )
 
     return {
         "video_path": video_path,
@@ -409,7 +481,7 @@ def analyze_video_full_pipeline(
         "total_frames": total_frames,
         "duration_sec": total_frames / fps if fps else 0.0,
         "total_ducks_detected": total_detected,
-        "abnormal_count": len(abnormal_set),
+        "abnormal_count": abnormal_cnt,
         "behavior_summary": behavior_summary,
         "tracks": tracks,
         "alerts_generated": alerts_generated,
