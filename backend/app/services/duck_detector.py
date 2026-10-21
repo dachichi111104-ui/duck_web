@@ -221,7 +221,7 @@ def analyze_video_full_pipeline(
     w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-    limit_frames = min(total_frames, max_frames) if max_frames else total_frames
+    limit_frames = min(total_frames, max_frames) if max_frames else min(total_frames, int(fps * 60))
 
     # Tải model YOLO
     model = YOLO(str(model_behavior))

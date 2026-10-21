@@ -162,8 +162,8 @@ async def analyze_video(
             with open(temp_media_path, "wb") as buffer:
                 shutil.copyfileobj(video_file.file, buffer)
 
-            # Chạy pipeline phân tích Video tích hợp
-            res = analyze_video_full_pipeline(video_path=temp_media_path, conf=0.30, max_frames=300)
+            # Chạy pipeline phân tích Video tích hợp toàn bộ thời lượng
+            res = analyze_video_full_pipeline(video_path=temp_media_path, conf=0.30, max_frames=None)
             raw_tracks = res.get("tracks", [])
             summary = res.get("behavior_summary", {})
             total_detected = res.get("total_ducks_detected", 0)
@@ -233,7 +233,6 @@ async def analyze_video(
                 user_id=current_user.id if current_user else 0,
                 title="CẢNH BÁO AI GIÁM SÁT HÀNH VI",
                 message=msg,
-                type="AI_ALERT",
                 is_read=False
             )
             db.add(notif)
